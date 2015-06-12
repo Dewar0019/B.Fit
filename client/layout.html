@@ -1,33 +1,68 @@
 <template name="layout">
-	<div class="container">
-		<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
-		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" 
-			  			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="{{pathFor 'welcome'}}">
-		      	Project Workout Web Page</a>
+	<!-- From bootstrap: -->
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+     <a class="navbar-brand" href="{{pathFor 'welcome'}}">
+		      	Project Workout Webpage</a>
 		    </div>
+ 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="#">About Us <span class="sr-only">(current)</span></a></li> -->
+        <li><a href="{{pathFor 'about'}}">About Us</a></li>
 
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      	<ul class="nav navbar-nav">
-					<li><a href="{{pathFor 'about'}}">About</a></li>
-					<li><a href="{{pathFor 'arms'}}">Arm Exercises</a></li>
 
-				</ul>			
-		    </div><!-- /.navbar-collapse -->
-			
-		  </div><!-- /.container-fluid -->
-		</nav>
-		<!-- Here is where the actual content of the page gets inserted by the router! -->
-		{{> yield}}
-	</div>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Strength<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Arms</a></li>
+            <li><a href="#">Legs</a></li>
+            <li><a href="#">Core</a></li>
+   			<li><a href="#">Chest</a></li>
+   		</ul>
+   	</li>
+
+   		 <li class="dropdown">
+   		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cardio <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Running</a></li>
+            <li><a href="#">Cycling</a></li>
+            <li><a href="#">Swimming</a></li>
+   			<li><a href="#">Walking</a></li>
+   			<li><a href="#">Elliptical</a></li>
+   			<li><a href="#">Stair Master</a></li>
+		</ul>
+	</li>
+ 
+ 		 <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Flexibility <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Yoga</a></li>
+            <li><a href="#">Pilates</a></li>
+            <li><a href="#">Stretching</a></li>
+          </ul>
+        </li>
+      </ul>
+
+     <!-- SEARCH BAR:
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form> -->
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 </template>

@@ -1,6 +1,4 @@
-Meteor.publish('armExercises', function(){
-	return ArmExercises.find()
-});
+Meteor.publish('armExercises', function(){return ArmExercises.find();});
 
 if (Meteor.isServer){
     console.log("Hello Server");
