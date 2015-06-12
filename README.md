@@ -6,5 +6,5 @@ This is the workout website.
 
 Sam B
 Amy S
-Limin Wang
+Limin W
 Dewar T
