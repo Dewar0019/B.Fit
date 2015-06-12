@@ -11,13 +11,8 @@
 		<tbody>
 
 		{{#each armExercise}}
-<<<<<<< HEAD
-			<tr class="armExercise {{selectedClass}}">
-				<th> {{name}} </th> <th>{{sets}}</th> <th>{{reps}}</th> <th>{{weight}}</th>
-=======
 			<tr>
 				<th> {{armName}} </th> <th>{{armSets}}</th> <th>{{armReps}}</th> <th>{{armWeight}}</th>
->>>>>>> master
 			</tr>
 		{{/each}}
 
@@ -35,6 +30,7 @@
 	</form>
 	
 	<hr/>
+
 	{{#if showSelectedExer}}
 	<li>Selected Exer: {{showSelectedExer.name}}</li>
 	{{/if}}
