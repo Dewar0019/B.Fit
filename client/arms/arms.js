@@ -3,7 +3,7 @@ if(Meteor.isClient){
 	Template.arms.helpers({
 
 		'armExercise': function(){
-			return ArmExercises.find({}, {sort: {sets: -1}});
+			return ArmExercises.find({}, {sort: {armSets: -1}});
 		},
     	'selectedClass': function (){
       		var playerId = this._id;
@@ -19,9 +19,6 @@ if(Meteor.isClient){
 
 	});
 
-		'armExercise': function(){return ArmExercises.find({}, {sort: {sets: -1}});},
-		'selfProfile' : function() {return Profile.find({})}
-	})
 	Template.arms.events({
 
 		'submit #addArmExerciseNOW': function(event){
@@ -29,41 +26,39 @@ if(Meteor.isClient){
 			event.preventDefault();
 			console.log("Exercise Added");
 
-			var exercise = event.target.exercise.value;
-			var sets = event.target.numOfSets.value;
-			var reps = event.target.numOfReps.value;
-			var weight = event.target.weight.value;
-			Meteor.call('addArmExerciseToDB', exercise, sets, reps, weight);
-		},
-    	'click .armExercise': function(){
-      	var playerId = this._id;
-      	Session.set('selectedExer', playerId); 
-    	},
-	    'click .increment': function () {
-     	var selectedSet = Session.get('selectedSet');
-      	ArmExercises.update(selectedSet, {$inc: {sets: 1}});
-    	},
-    	'click .decrement': function(){
-      	var selectedSet = Session.get('selectedSet');
-      	ArmExercises.update(selectedSet, {$inc: {sets: 1}});
-    	},
-
-    	'click .incre': function () {
-     	var selectedReps = Session.get('selectedReps');
-      	ArmExercises.update(selectedReps, {$inc: {reps: 1}});
-    	},
-    	'click .decre': function(){
-      	var selectedReps = Session.get('selectedReps');
-      	ArmExercises.update(selectedReps, {$inc: {reps: 1}});
-      	}
-
 			var armExercise = event.target.exercise.value;
 			var armSets = event.target.numOfSets.value;
 			var armReps = event.target.numOfReps.value;
 			var armWeight = event.target.weight.value;
 			Meteor.call('addArmExerciseToDB', armExercise, armSets, armReps, armWeight);
-		}
+		},
+    	'click .setsp': function(){
+      	var playerId = this._id;
+      	Session.set('selectedExer', playerId);
+      	var selectedSet = Session.get('selectedExer');
+      	ArmExercises.update(selectedSet, {$inc: {armSets: 1}}); 
+    	},
 
+    	'click .repsp': function(){
+      	var playerId = this._id;
+      	Session.set('selectedExer', playerId);
+      	var selectedReps = Session.get('selectedExer');
+      	ArmExercises.update(selectedReps, {$inc: {armReps: 1}});
+    	},
+
+    	'click .setsd': function(){
+    	var playerId = this._id;
+      	Session.set('selectedExer', playerId);
+      	var selectedSet = Session.get('selectedExer');
+      	ArmExercises.update(selectedSet, {$inc: {armSets: -1}});
+    	},
+    	
+    	'click .repsd': function(){
+    	var playerId = this._id;
+      	Session.set('selectedExer', playerId);
+      	var selectedReps = Session.get('selectedExer');
+      	ArmExercises.update(selectedReps, {$inc: {armReps: -1}});
+    	}
 	});
 
 }

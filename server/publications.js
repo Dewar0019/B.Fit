@@ -8,7 +8,7 @@ if (Meteor.isServer){
     console.log("Hello Server");
 
     Meteor.methods({
-        'addArmExerciseToDB': function(exercise, sets, reps, weight){
+        'addArmExerciseToDB': function(armExercise, armSets, armReps, armWeight){
             ArmExercises.insert({
                 armName: exercise, 
                 armSets: sets,
@@ -24,6 +24,10 @@ if (Meteor.isServer){
                 chestReps: chestReps,
                 chestWeight: chestWeight
             });
+        },
+
+        'increment': function (armSets, armReps){
+
         }
     })
 }

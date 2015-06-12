@@ -19,18 +19,15 @@
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">About Us <span class="sr-only">(current)</span></a></li> -->
         <li><a href="{{pathFor 'about'}}">About</a></li>
-					<li><a href="{{pathFor 'arms'}}">Arm Exercises</a></li>
-					<li><a href="{{pathFor 'chest'}}">Chest Exercises</a></li>
 		    
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Strength<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Arms</a></li>
+            <li><a href="{{pathFor 'arms'}}">Arm Exercises</a></li>
             <li><a href="#">Legs</a></li>
             <li><a href="#">Core</a></li>
-   			<li><a href="#">Chest</a></li>
-   		</ul>
+            <li><a href="{{pathFor 'chest'}}">Chest Exercises</a></li>   		</ul>
    	</li>
 
    		 <li class="dropdown">
@@ -68,19 +65,3 @@
 </nav>
 </template>
 
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      	<ul class="nav navbar-nav">
-		      		<li><a href="{{pathFor 'profiles'}}">My Profile</a></li>
-					<li><a href="{{pathFor 'about'}}">About</a></li>
-					<li><a href="{{pathFor 'arms'}}">Arm Exercises</a></li>		
-				</ul>			
-		    </div><!-- /.navbar-collapse -->
-			
-		  </div><!-- /.container-fluid -->
-		</nav>
-		
-		<!-- Here is where the actual content of the page gets inserted by the router! -->
-		{{> yield}}
-	</div>
-</template>
