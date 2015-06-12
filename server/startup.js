@@ -16,6 +16,10 @@ if(Meteor.isServer){
 				armWeight: 15
 			});
 
+		if(Profiles.find().count()== 0 ) {
+			Profiles.insert({firstName: "Dewar", lastName:"Tan"})
+		}
+
 			ArmExercises.insert({
 				armName: "Reverse Curl",
 				armSets: 3,

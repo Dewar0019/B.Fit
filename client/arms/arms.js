@@ -1,6 +1,7 @@
 if(Meteor.isClient){
 
 	Template.arms.helpers({
+
 		'armExercise': function(){
 			return ArmExercises.find({}, {sort: {sets: -1}});
 		},
@@ -18,12 +19,12 @@ if(Meteor.isClient){
 
 	});
 
+		'armExercise': function(){return ArmExercises.find({}, {sort: {sets: -1}});},
+		'selfProfile' : function() {return Profile.find({})}
+	})
 	Template.arms.events({
 
 		'submit #addArmExerciseNOW': function(event){
-
-		
-		'submit #addExercise': function(event){
 
 			event.preventDefault();
 			console.log("Exercise Added");
