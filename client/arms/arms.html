@@ -9,7 +9,7 @@
 		</thead>
 
 		<tbody>
-		{{#each exercise}}
+		{{#each armExercise}}
 			<tr>
 				<th> {{name}} </th> <th>{{sets}}</th> <th>{{reps}}</th> <th>{{weight}}</th>
 			</tr>
@@ -17,21 +17,21 @@
 		</tbody>
 	</table>
 
-	<form class="form-inline">
+	<form class="form-inline" id= "addExercise">
 
-		<div class="form-group">
-	    	<input type="text" name="exercise" placeholder="Exercise">
-	    </div>
+		
+	    	<input class="form-group" type="text" name="exercise" placeholder="Exercise">
+	    
 	    	
 		<div class="form-group">
-	    	<input type="text" name="numOfSets" placeholder="Sets">
+	    	<input class="addExercise" type="text" name="numOfSets" placeholder="Sets">
 	    </div>
 
 		<div class="form-group">
-	    	<input type="text" name="numOfReps" placeholder="Reps">
+	    	<input class="addExercise" type="text" name="numOfReps" placeholder="Reps">
 	  	</div>
 	  	<div class="form-group">
-	    	<input type="text" name="weight" placeholder="Weight">
+	    	<input class="addExercise" type="text" name="weight" placeholder="Weight">
 	  	</div>
 
   		<input type="submit" class="addExercise" value="Add Exercise">
