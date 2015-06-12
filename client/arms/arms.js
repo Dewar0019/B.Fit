@@ -8,7 +8,7 @@ if(Meteor.isClient){
 
 	Template.arms.events({
 
-		'click .addExercise': function(event){
+		'submit #addExercise': function(event){
 			event.preventDefault();
 			console.log("Exercise Added");
 			var exercise = event.target.exercise.value;

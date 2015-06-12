@@ -9,7 +9,7 @@
 		</thead>
 
 		<tbody>
-		{{#each exercise}}
+		{{#each armExercise}}
 			<tr>
 				<th> {{name}} </th> <th>{{sets}}</th> <th>{{reps}}</th> <th>{{weight}}</th>
 			</tr>
@@ -17,7 +17,7 @@
 		</tbody>
 	</table>
 
-	<form class="form-inline">
+	<form class="form-inline" id = "addExercise">
 
 		<div class="form-group">
 	    	<input type="text" name="exercise" placeholder="Exercise">

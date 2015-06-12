@@ -10,7 +10,7 @@ if(Meteor.isServer){
 		});
 
 		ArmExercises.insert({
-			name: "Hammar Curl",
+			name: "Hammer Curl",
 			sets: 2,
 			reps: 12,
 			weight: 15
