@@ -11,13 +11,12 @@
 		<tbody>
 
 		{{#each armExercise}}
-<<<<<<< HEAD
+
 			<tr class="armExercise {{selectedClass}}">
-				<th> {{name}} </th> <th>{{sets}}</th> <th>{{reps}}</th> <th>{{weight}}</th>
-=======
-			<tr>
-				<th> {{armName}} </th> <th>{{armSets}}</th> <th>{{armReps}}</th> <th>{{armWeight}}</th>
->>>>>>> master
+				<th> {{armName}}</th> 
+				<th>{{armSets}}<button class="setsp">+</button><button class="setsd">-</button></th>
+				<th>{{armReps}}<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th>{{armWeight}}</th>
 			</tr>
 		{{/each}}
 
@@ -33,17 +32,6 @@
 
   		<input type="submit" class="addArmExercise" value="Add Exercise">
 	</form>
-	
-	<hr/>
-	{{#if showSelectedExer}}
-	<li>Selected Exer: {{showSelectedExer.name}}</li>
-	{{/if}}
-	<input type="button" class="increment" value="increase set">
-	<input type="button" class="decrement" value="decrease set">
-
-	<hr/>
-	<input type="button" class="incre" value="increase reps">
-	<input type="button" class="decre" value="decrease reps">
 
 </template>
 
