@@ -1,0 +1,30 @@
+<template name="chest">
+
+	<hr/>
+	<table class="table table-hover">
+		<thead>
+			<tr> 
+				<th>Exercise/Stretch</th> <th>Number of Sets</th> <th>Number of Repetitions</th> <th>Weight</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		{{#each chestExercise}}
+			<tr>
+				<th>{{chestName}}</th> <th>{{chestSets}}</th> <th>{{chestReps}}</th> <th>{{chestWeight}}</th>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+
+	<form class="form-inline" id= "addChestExercise">
+	
+	    <input class="form-group" type="text" name="exercise" placeholder="Exercise">   	
+		<input class="addChestExercise" type="text" name="numOfSets" placeholder="Sets">
+	    <input class="addChestExercise" type="text" name="numOfReps" placeholder="Reps">
+	    <input class="addChestExercise" type="text" name="weight" placeholder="Weight">
+
+  		<input type="submit" value="Add Exercise">
+	</form>
+</template>
+
