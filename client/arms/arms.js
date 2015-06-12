@@ -1,9 +1,8 @@
 if(Meteor.isClient){
 
 	Template.arms.helpers({
-		'armExercise': function(){
-			return ArmExercises.find({}, {sort: {sets: -1}});
-		}
+		'armExercise': function(){return ArmExercises.find({}, {sort: {sets: -1}});},
+		'selfProfile' : function() {return Profile.find({})}
 	})
 
 	Template.arms.events({

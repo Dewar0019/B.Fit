@@ -1,4 +1,6 @@
 Meteor.publish('armExercises', function(){return ArmExercises.find();});
+Meteor.publish("theProfiles",function(){return Profiles.find();});
+
 
 if (Meteor.isServer){
     console.log("Hello Server");

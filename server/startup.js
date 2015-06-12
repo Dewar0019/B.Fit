@@ -2,6 +2,9 @@ if(Meteor.isServer){
 
 	Meteor.startup(function(){
 
+		if(Profiles.find().count()== 0 ) {
+			Profiles.insert({firstName: "Dewar", lastName:"Tan"})
+		}
 		ArmExercises.insert({
 			name: "Bicep Curl",
 			sets: 4,
