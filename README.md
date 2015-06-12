@@ -1,3 +1,9 @@
 #Readme
 
-This is the workout website ..
+This is the workout website.
+
+##Members
+Sam
+Amy
+Limin
+Dewar
