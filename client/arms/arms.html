@@ -11,31 +11,27 @@
 		<tbody>
 
 		{{#each armExercise}}
+<<<<<<< HEAD
 			<tr class="armExercise {{selectedClass}}">
 				<th> {{name}} </th> <th>{{sets}}</th> <th>{{reps}}</th> <th>{{weight}}</th>
+=======
+			<tr>
+				<th> {{armName}} </th> <th>{{armSets}}</th> <th>{{armReps}}</th> <th>{{armWeight}}</th>
+>>>>>>> master
 			</tr>
 		{{/each}}
 
 		</tbody>
 	</table>
 
-	<form class="form-inline" id= "addExercise">
+	<form class="form-inline" id="addArmExerciseNOW">
 	
-	    	<input class="form-group" type="text" name="exercise" placeholder="Exercise">
-	    
-	    	
-		<div class="form-group">
-	    	<input class="addExercise" type="text" name="numOfSets" placeholder="Sets">
-	    </div>
+	    <input class="form-group" type="text" name="exercise" placeholder="Exercise">   	
+		<input class="addArmExercise" type="text" name="numOfSets" placeholder="Sets">
+	    <input class="addArmExercise" type="text" name="numOfReps" placeholder="Reps">
+	    <input class="addArmExercise" type="text" name="weight" placeholder="Weight">
 
-		<div class="form-group">
-	    	<input class="addExercise" type="text" name="numOfReps" placeholder="Reps">
-	  	</div>
-	  	<div class="form-group">
-	    	<input class="addExercise" type="text" name="weight" placeholder="Weight">
-	  	</div>
-
-  		<input type="submit" class="addExercise" value="Add Exercise">
+  		<input type="submit" class="addArmExercise" value="Add Exercise">
 	</form>
 	
 	<hr/>

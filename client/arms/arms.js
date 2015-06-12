@@ -19,9 +19,10 @@ if(Meteor.isClient){
 	});
 
 	Template.arms.events({
-		'submit #addExercise': function(event){
+		'submit #addArmExerciseNOW': function(event){
 			event.preventDefault();
 			console.log("Exercise Added");
+
 			var exercise = event.target.exercise.value;
 			var sets = event.target.numOfSets.value;
 			var reps = event.target.numOfReps.value;
@@ -49,6 +50,14 @@ if(Meteor.isClient){
       	var selectedReps = Session.get('selectedReps');
       	ArmExercises.update(selectedReps, {$inc: {reps: 1}});
       	}
+
+			var armExercise = event.target.exercise.value;
+			var armSets = event.target.numOfSets.value;
+			var armReps = event.target.numOfReps.value;
+			var armWeight = event.target.weight.value;
+			Meteor.call('addArmExerciseToDB', armExercise, armSets, armReps, armWeight);
+		}
+
 	});
 
 }
