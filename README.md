@@ -3,8 +3,8 @@
 This is the workout website.
 
 ##Members
-Sam
-Amy
-Limin Wang
-Dewar
 
+Sam B
+Amy S
+Limin W
+Dewar T
