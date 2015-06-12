@@ -4,7 +4,7 @@ This is the workout website.
 
 ##Members
 
-Sam B
+Samuel Bernheim
 Amy S
 Limin Wang-haha
 Dewa
