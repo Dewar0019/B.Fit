@@ -10,7 +10,7 @@ if(Meteor.isServer){
 			});
 
 			ArmExercises.insert({
-				armName: "Hammar Curl",
+				armName: "Hammer Curl",
 				armSets: 2,
 				armReps: 12,
 				armWeight: 15
@@ -23,6 +23,7 @@ if(Meteor.isServer){
 				armWeight: 25
 			});
 		}
+
 
 		if (ChestExercises.find().fetch()==0){
 			ChestExercises.insert({
