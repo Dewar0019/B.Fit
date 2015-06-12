@@ -3,7 +3,7 @@
 This is the workout website.
 
 ##Members
-Sam
-Amy
-Limin
-Dewar---test123
+Sam B
+Amy S
+Limin W
+Dewar T
