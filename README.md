@@ -7,4 +7,4 @@ This is the workout website.
 Sam B
 Amy S
 Limin W
-Dewar T
+Dewar
