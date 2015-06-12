@@ -1,0 +1,40 @@
+<template name="arms">
+
+	<hr/>
+	<table class="table table-hover">
+		<thead>
+			<tr> 
+				<th>Exercise/Stretch</th> <th>Number of Sets</th> <th>Number of Repetitions</th> <th>Weight</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		{{#each exercise}}
+			<tr>
+				<th> {{name}} </th> <th>{{sets}}</th> <th>{{reps}}</th> <th>{{weight}}</th>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+
+	<form class="form-inline">
+
+		<div class="form-group">
+	    	<input type="text" name="exercise" placeholder="Exercise">
+	    </div>
+	    	
+		<div class="form-group">
+	    	<input type="text" name="numOfSets" placeholder="Sets">
+	    </div>
+
+		<div class="form-group">
+	    	<input type="text" name="numOfReps" placeholder="Reps">
+	  	</div>
+	  	<div class="form-group">
+	    	<input type="text" name="weight" placeholder="Weight">
+	  	</div>
+
+  		<input type="submit" class="addExercise" value="Add Exercise">
+	</form>
+</template>
+
