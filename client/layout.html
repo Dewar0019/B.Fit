@@ -51,8 +51,9 @@
           </ul>
         </li>
       </ul>
-
-      {{> yield}}
+      <ul class="nav navbar-nav navbar-right">
+                  {{> loginButtons}} <!-- here -->
+          </ul> 
      <!-- SEARCH BAR:
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -64,5 +65,6 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+{{> yield}}
 </template>
 

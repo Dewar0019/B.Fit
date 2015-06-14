@@ -1,19 +1,32 @@
 <template name= "profiles">
-	<head>
-		{{#if currentUser}}
-			<title> {{profile.firstName}} fitness </title>
-		{{ else }}
-			<title> lalalla </title>
-		{{ /if }}
+	<head>	
+		<title> lalalla </title>
 	</head>
 	<body>
-
-		<h1> Hello! </h1>
-
-		<ul>
-			{{ > loginButtons}}
+		{{#if currentUser}}
+		<div id="wrapper" class="active"> 
+			<div id="sidebar-wrapper">
+      <ul id="sidebar_menu" class="sidebar-nav">
+           <li class="sidebar-brand"><a>Fitness</a></li>
+      </ul>
+			<ul class="sidebar-nav" id="sidebar">  
+				
+				<li><a href= "{{pathFor 'profileSavedExercises'}}"> Profile </a> </li>
+				<li><a> Progress </a></li>	
+				<li><a> Saved Exercise </a> </li>	
+			</ul>	
+		</div>
+		<div class = "container">
+			<h1> Hello! {{ getUserName}} </h1>
 			
-		</ul>
+			{{getFirstName}}
+		</div>
+		
+	</div>
+		{{ else }}
+			<h1> Please log in to see Profile </h1>
+			{{> loginButtons}}
+		{{ /if }}
 	</body>
 </template>
 
