@@ -1,4 +1,4 @@
-<template name= "profiles">
+<template name= "profile">
 	<head>	
 		<title> lalalla </title>
 	</head>
@@ -10,10 +10,8 @@
            <li class="sidebar-brand"><a>Fitness</a></li>
       </ul>
 			<ul class="sidebar-nav" id="sidebar">  
-				
-				<li><a href= "{{pathFor 'profileSavedExercises'}}"> Profile </a> </li>
-				<li><a> Progress </a></li>	
-				<li><a> Saved Exercise </a> </li>	
+				<li><a href= "{{pathFor 'progress'}}"> Progress </a></li>	
+				<li><a href= "{{pathFor 'profileSavedExercises'}}"> Saved Exercise </a> </li>	
 			</ul>	
 		</div>
 		<div class = "container">
@@ -25,9 +23,7 @@
 	</div>
 		{{ else }}
 			<h1> Please log in to see Profile </h1>
-			{{> loginButtons}}
 		{{ /if }}
 	</body>
 </template>
-
 

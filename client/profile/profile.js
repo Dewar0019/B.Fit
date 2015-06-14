@@ -1,5 +1,5 @@
 
-Template.profiles.helpers({
+Template.profile.helpers({
     getUserName : function() {return Meteor.user().profile.userName },
     getFirstName : function() {return Meteor.user().profile.firstName },
     getLastName : function() {return Meteor.user().profile.lastName },
