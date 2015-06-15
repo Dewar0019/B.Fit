@@ -1,0 +1,38 @@
+<template name="legs">
+
+	<hr/>
+	<table class="table table-hover">
+		<thead>
+			<tr> 
+				<th>Exercise/Stretch</th> <th>Number of Sets</th> <th>Number of Repetitions</th> <th>Weight</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+		{{#each legExercise}}
+
+			<tr class="legExercise {{selectedClass}}">
+				<th> {{legName}}</th> 
+				<th>{{legSets}}<button class="setsp">+</button><button class="setsd">-</button></th>
+				<th>{{legReps}}<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th>{{legWeight}}</th>
+			</tr>
+		{{/each}}
+
+		</tbody>
+	</table>
+
+
+	<form class="form-inline" id="addLegExercise">
+	
+	    <input class="form-group" type="text" name="exercise" placeholder="Exercise">   	
+		<input class="addLegExercise" type="text" name="numOfSets" placeholder="Sets">
+	    <input class="addLegExercise" type="text" name="numOfReps" placeholder="Reps">
+	    <input class="addLegExercise" type="text" name="weight" placeholder="Weight">
+
+  		<input type="submit" class="addLegExercise" value="Add Exercise">
+	</form>
+
+</template>
+

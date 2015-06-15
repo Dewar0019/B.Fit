@@ -51,5 +51,29 @@ if(Meteor.isServer){
 				chestWeight: 25
 			});
 		}
+
+		if (LegExercises.find().fetch()==0){
+			LegExercises.insert({
+				legName: "Squats",
+				legSets: 4,
+				legReps: 15, 
+				legWeight: "body weight"
+			});
+
+			LegExercises.insert({
+				legName: "Step ups",
+				legSets: 2,
+				legReps: 12,
+				legWeight: 15
+			});
+
+			LegExercises.insert({
+				legName: "Calf Raises",
+				legSets: 3,
+				legReps: 10,
+				legWeight: 25
+			});
+		}
+
 	});
 }
