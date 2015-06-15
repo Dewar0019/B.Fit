@@ -21,7 +21,7 @@ if(Meteor.isClient){
 
 	Template.arms.events({
 
-		'submit #addArmExerciseNOW': function(event){
+		'submit #addArmExercise': function(event){
 
 			event.preventDefault();
 			console.log("Exercise Added");
