@@ -49,10 +49,6 @@ if (Meteor.isServer){
             });
         },
 
-        'increment': function (sets, reps){
-            
-        },
-
         'addRoutine': function(nameOfRoutine) {
 
         },
