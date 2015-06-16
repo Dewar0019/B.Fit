@@ -1,0 +1,34 @@
+<template name="running">
+
+	<hr/>
+	<table class="table table-hover">
+		<thead>
+			<tr> 
+				<th>Time</th> <th>Speed</th> <th>Distance</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+		{{#each runningExercise}}
+			<tr class="runningExercise {{selectedClass}}">
+				<th>{{runningTime}}<button class="setsp">+</button><button class="setsd">-</button></th>
+				<th>{{runningSpeed}}<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th>{{runningDistance}}</th>
+			</tr>
+		{{/each}}
+
+		</tbody>
+	</table>
+
+
+	<form class="form-inline" id="addRunningExercise">
+		<input class="addRunningExercise" type="text" name="runningTime" placeholder="Time">
+	    <input class="addRunningExercise" type="text" name="runningSpeed" placeholder="Speed">
+	    <input class="addRunningExercise" type="text" name="runningDistance" placeholder="Distance">
+
+  		<input type="submit" class="addRunningExercise" value="Add Exercise">
+	</form>
+
+</template>
+
