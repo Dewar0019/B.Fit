@@ -1,5 +1,6 @@
 <template name="elliptical">
 
+	<h1> Elliptical</h1>
 	<hr/>
 	<table class="table table-hover">
 		<thead>
@@ -13,6 +14,7 @@
 		{{#each ellipticalWorkout}}
 
 			<tr class="ellipticalWorkout {{selectedClass}}">
+				<th> {{time}} </th>
 				<th>{{ellipticalTime}}<button class="setsp">+</button><button class="setsd">-</button></th>
 				<th>{{ellipticalSpeed}}<button class="repsp">+</button><button class="repsd">-</button></th>
 				<th>{{ellipticalDistance}}<button class="repsp">+</button><button class="repsd">-</button></th>
