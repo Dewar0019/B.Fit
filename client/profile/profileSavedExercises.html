@@ -13,12 +13,32 @@
 						<img src= "images/Empty.jpg" >
 						{{profile.firstName}} {{profile.lastName}}
 					</div>
-					<table>
-						<thead>Saved Exercises</thead>
-						<tbody>
-							
-						</tbody>
-					</table>
+
+					<hr/>
+						<table class="table table-hover">
+							<thead>
+								<tr> 
+									<th>Exercise/Stretch</th> <th>Number of Sets</th> <th>Number of Repetitions</th> <th>Weight</th>
+								</tr>
+							</thead>
+
+							<tbody>
+
+							{{#each getRoutines}}
+
+								<tr class="armExercise {{selectedClass}}">
+									<th> {{armName}}</th> 
+									<th>{{armSets}}</th> 
+									<th>{{armReps}}</th> 
+									<th>{{armWeight}}</th>
+									<th></th><button class="removeExercise">Remove</button>
+								</tr>
+							{{/each}}
+
+							</tbody>
+						</table>
+
+
 			</div>
 		</div>
 	</div>

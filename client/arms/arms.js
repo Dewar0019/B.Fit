@@ -63,9 +63,7 @@ if(Meteor.isClient){
       'click .addTo' :function() {
         var playerId = this._id;
         var tt = ArmExercises.findOne(playerId);
-        console.log(tt);
         Meteor.call('addToRoutine', tt);
-        console.log("called");
       }
 	});
 

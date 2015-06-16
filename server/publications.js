@@ -53,6 +53,10 @@ if (Meteor.isServer){
 
         },
 
+        'removeExercise': function(exercise) {
+            Meteor.user().savedExercises.splice(exercise, 1);
+        },
+
         'addRoutine': function(nameOfRoutine) {
 
         },
@@ -65,7 +69,6 @@ if (Meteor.isServer){
                 var savedExer = Meteor.user().savedExercises;
                 console.log(savedExer.push(selectedExer) );
                 Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer }});
-
             }
 
         }
