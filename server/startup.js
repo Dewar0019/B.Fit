@@ -75,7 +75,6 @@ if(Meteor.isServer){
 			});
 		}
 
-
 		if (CoreExercises.find().fetch()==0){
 			CoreExercises.insert({
 				coreName: "Plank",
@@ -83,6 +82,15 @@ if(Meteor.isServer){
 				coreReps: 15, 
 				coreWeight: "body weight"
 			});
+		}
+
+		if(EllipticalWorkout.find().fetch()==0){
+			EllipticalWorkout.insert({
+                time: new Date(), 
+                ellipticalTime: 10, 
+                ellipticalSpeed: 5,
+                ellipticalDistance: 3
+            });
 		}
 
 	});

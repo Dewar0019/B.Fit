@@ -13,10 +13,9 @@
 		{{#each ellipticalWorkout}}
 
 			<tr class="ellipticalWorkout {{selectedClass}}">
-				<th>{{time}}}</th> 
-				<th>{{workoutTime}}<button class="setsp">+</button><button class="setsd">-</button></th>
-				<th>{{workoutSpeed}}<button class="repsp">+</button><button class="repsd">-</button></th>
-				<th>{{workoutDistance}}<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th>{{ellipticalTime}}<button class="setsp">+</button><button class="setsd">-</button></th>
+				<th>{{ellipticalSpeed}}<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th>{{ellipticalDistance}}<button class="repsp">+</button><button class="repsd">-</button></th>
 				
 			</tr>
 		{{/each}}
@@ -27,9 +26,9 @@
 
 	<form class="form-inline" id="addEllipticalWorkout">
 	
-		<input class="addEllipticalWorkout" type="text" name="workoutTime" placeholder="Time">
-	    <input class="addEllipticalWorkout" type="text" name="workoutSpeed" placeholder="Speed">
-	    <input class="addEllipticalWorkout" type="text" name="workoutDistance" placeholder="Distance">
+		<input class="addEllipticalWorkout" type="text" name="ellipticalTime" placeholder="Time">
+	    <input class="addEllipticalWorkout" type="text" name="ellipticalSpeed" placeholder="Speed">
+	    <input class="addEllipticalWorkout" type="text" name="ellipticalDistance" placeholder="Distance">
 
   		<input type="submit" class="addEllipticalWorkout" value="Add Exercise">
 	</form>

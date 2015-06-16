@@ -5,6 +5,7 @@ Meteor.publish('legExercises', function(){return LegExercises.find();});
 Meteor.publish('coreExercises', function(){return CoreExercises.find();});
 Meteor.publish('ellipticalWorkout', function(){return EllipticalWorkout.find();});
 Meteor.publish('theProfiles', function(){return Profiles.find();});
+Meteor.publish('runningCardio', function(){return RunningCardio.find();});
 Meteor.publish('userExercises', function () { return Meteor.users.find({ _id: this.userId }, { fields: { savedExercises: 1 } });
 });
 
@@ -81,12 +82,13 @@ if (Meteor.isServer){
             }
 
         },
+
         'addEllipticalWorkoutToDB': function(ellipticalTime , ellipticalSpeed , ellipticalDistance){
             EllipticalWorkout.insert({
                 time: new Date(), 
-                workoutTime: ellipticalTime, 
-                workoutSpeed: ellipticalSpeed,
-                workoutDistance: ellipticalDistance
+                ellipticalTime: ellipticalTime, 
+                ellipticalSpeed: ellipticalSpeed,
+                ellipticalDistance: ellipticalDistance
             });
         }
     })
