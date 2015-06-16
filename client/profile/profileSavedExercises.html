@@ -1,3 +1,25 @@
 <template name= "profileSavedExercises">
-	<h1> test</h1>
+	{{ > profileBase }}
+	<head>
+		<title> {{profile.userName}} Exercises </title>
+	</head>
+	<body>
+
+	<div class = "container">
+		<div class = "row">
+			<div class= "col-md-offset-2 col-md-6">
+				<h1> Hello! {{ profile.userName}} </h1>
+					<div class="jumbotron">
+						<img src= "images/Empty.jpg" >
+						{{profile.firstName}} {{profile.lastName}}
+					</div>
+					<table>
+						<thead></thead>
+					</table>
+			</div>
+		</div>
+	</div>
+
+
+</body>
 </template>

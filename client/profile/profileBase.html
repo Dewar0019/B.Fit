@@ -1,0 +1,25 @@
+<template name ="profileBase">
+	<head>	
+		<title> lalalla </title>
+	</head>
+	<body>
+		{{#if currentUser}}
+		<div id="wrapper" class="active"> 
+			<div id="sidebar-wrapper">
+      <ul id="sidebar_menu" class="sidebar-nav">
+           <li class="sidebar-brand"><a href="/profile/{{getUserId}}">Fitness</a></li>
+      </ul>
+			<ul class="sidebar-nav" id="sidebar">  
+				<li><a href= ""> Progress </a></li>	
+				<li><a id="goToSavedExercises" href= "{{pathFor 'profileSavedExercises'}}"> Saved Exercise </a> </li>
+
+			</ul>	
+		</div>
+			
+	</div>
+
+		{{ else }}
+			<h1> Please log in to see Profile </h1>
+		{{ /if }}
+	</body>
+</template>

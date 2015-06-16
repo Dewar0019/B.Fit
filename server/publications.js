@@ -1,4 +1,4 @@
-Meteor.publish('armExercises', function(){return ArmExercises.find();});
+Meteor.publish('armExercises', function(){return ArmExercises.find({});});
 
 Meteor.publish('chestExercises', function(){return chestExercises.find();});
 

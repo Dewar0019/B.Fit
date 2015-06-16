@@ -1,29 +1,24 @@
 <template name= "profile">
-	<head>	
-		<title> lalalla </title>
+	{{> profileBase}}
+	<head>
+		<title> {{profile.userName}} Exercises </title>
 	</head>
 	<body>
-		{{#if currentUser}}
-		<div id="wrapper" class="active"> 
-			<div id="sidebar-wrapper">
-      <ul id="sidebar_menu" class="sidebar-nav">
-           <li class="sidebar-brand"><a>Fitness</a></li>
-      </ul>
-			<ul class="sidebar-nav" id="sidebar">  
-				<li><a href= "{{pathFor 'progress'}}"> Progress </a></li>	
-				<li><a href= "{{pathFor 'profileSavedExercises'}}"> Saved Exercise </a> </li>	
-			</ul>	
+
+	<div class = "container">
+		<div class = "row">
+			<div class= "col-md-offset-2 col-md-6">
+				<h1> Hello! {{ profile.userName}} </h1>
+					<div class="jumbotron">
+						<img src= "images/Empty.jpg"/>
+						{{profile.firstName}} {{profile.lastName}}
+					</div>
+					<table>
+						<thead></thead>
+					</table>
+			</div>
 		</div>
-		<div class = "container">
-			<h1> Hello! {{ getUserName}} </h1>
-			
-			{{getFirstName}}
-		</div>
-		
 	</div>
-		{{ else }}
-			<h1> Please log in to see Profile </h1>
-		{{ /if }}
 	</body>
 </template>
 
