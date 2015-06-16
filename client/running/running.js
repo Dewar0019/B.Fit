@@ -29,7 +29,7 @@ if(Meteor.isClient){
 			var runningTime = event.target.runningTime.value;
 			var runningSpeed = event.target.runningSpeed.value;
 			var runningDistance = event.target.runningDistance.value;
-			Meteor.call('addRunningCardioToDB', runningTime, runningSpeed, runningDistance);
+			Meteor.call('addRunningCardioToDB', parseInt(runningTime), parseInt(runningSpeed), parseInt(runningDistance));
 		},
 
     	'click .setsp': function(){
@@ -37,21 +37,8 @@ if(Meteor.isClient){
       	Session.set('selectedExer', playerId);
       	var selectedSet = Session.get('selectedExer');
       	RunningCardio.update(selectedSet, {$inc: {runningTime: 1}}); 
-    	},
-
-    	'click .repsp': function(){
-      	var playerId = this._id;
-      	Session.set('selectedExer', playerId);
-      	var selectedReps = Session.get('selectedExer');
-      	RunningCardio.update(selectedReps, {$inc: {runningSpeed: 1}});
-    	},
-
-    	'click .setsd': function(){
-    	var playerId = this._id;
-      	Session.set('selectedExer', playerId);
-      	var selectedSet = Session.get('selectedExer');
-        RunningCardio.update(selectedSet, {$inc: {runningDistance: -1}});
     	}
+      
 	});
 
 }

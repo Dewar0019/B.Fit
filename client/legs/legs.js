@@ -30,7 +30,7 @@ if(Meteor.isClient){
 			var legSets = event.target.numOfSets.value;
 			var legReps = event.target.numOfReps.value;
 			var legWeight = event.target.weight.value;
-			Meteor.call('addLegExerciseToDB', legExercise, legSets, legReps, legWeight);
+			Meteor.call('addLegExerciseToDB', legExercise, parseInt(legSets), parseInt(legReps), parseInt(legWeight));
 		},
     	'click .setsp': function(){
       	var playerId = this._id;

@@ -30,7 +30,7 @@ if(Meteor.isClient){
 			var coreSets = event.target.numOfSets.value;
 			var coreReps = event.target.numOfReps.value;
 			var coreWeight = event.target.weight.value;
-			Meteor.call('addCoreExerciseToDB', coreExercise, coreSets, coreReps, coreWeight);
+			Meteor.call('addCoreExerciseToDB', coreExercise, parseInt(coreSets), parseInt(coreReps), parseInt(coreWeight));
 		},
     	'click .setsp': function(){
       	var playerId = this._id;

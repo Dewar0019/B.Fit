@@ -14,7 +14,7 @@ if(Meteor.isClient){
 			var sets = event.target.numOfSets.value;
 			var reps = event.target.numOfReps.value;
 			var weight = event.target.weight.value;
-			Meteor.call('addChestExerciseToDB', exercise, sets, reps, weight);
+			Meteor.call('addChestExerciseToDB', exercise, parseInt(sets), parseInt(reps), parseInt(weight));
 		},
 		'click .setsp': function(){
       	var playerId = this._id;
