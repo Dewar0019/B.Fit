@@ -49,8 +49,8 @@ if (Meteor.isServer){
             });
         },
 
-        'increment': function (armSets, armReps){
-
+        'increment': function (sets, reps){
+            
         },
     
         'addToRoutine': function(selectedExer) {
