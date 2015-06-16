@@ -6,7 +6,7 @@ This is the workout website.
 
 Samuel Bernheim
 Amy S
-Limin Wang-haha
+Limin Wang
 Dewa
 
 ☺☻

@@ -1,0 +1,38 @@
+<template name="core">
+
+	<hr/>
+	<table class="table table-hover">
+		<thead>
+			<tr> 
+				<th>Exercise/Stretch</th> <th>Number of Sets</th> <th>Number of Repetitions</th> <th>Weight</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+		{{#each coreExercise}}
+
+			<tr class="coreExercise {{selectedClass}}">
+				<th> {{coreName}}</th> 
+				<th>{{coreSets}}<button class="setsp">+</button><button class="setsd">-</button></th>
+				<th>{{coreReps}}<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th>{{coreWeight}}</th>
+			</tr>
+		{{/each}}
+
+		</tbody>
+	</table>
+
+
+	<form class="form-inline" id="addCoreExercise">
+	
+	    <input class="form-group" type="text" name="exercise" placeholder="Exercise">   	
+		<input class="addCoreExercise" type="text" name="numOfSets" placeholder="Sets">
+	    <input class="addCoreExercise" type="text" name="numOfReps" placeholder="Reps">
+	    <input class="addCoreExercise" type="text" name="weight" placeholder="Weight">
+
+  		<input type="submit" class="addCoreExercise" value="Add Exercise">
+	</form>
+
+</template>
+

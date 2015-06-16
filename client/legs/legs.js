@@ -1,9 +1,9 @@
 if(Meteor.isClient){
 
-	Template.arms.helpers({
+	Template.legs.helpers({
 
-		'armExercise': function(){
-			return ArmExercises.find({}, {sort: {armSets: -1}});
+		'legExercise': function(){
+			return LegExercises.find({}, {sort: {armSets: -1}});
 		},
     	'selectedClass': function (){
       		var playerId = this._id;
@@ -14,50 +14,50 @@ if(Meteor.isClient){
      	},
       	'showSelectedExer': function(){
       		var selectedExer = Session.get('selectedExer');
-      		return ArmExercises.findOne(selectedExer)
+      		return LegExercises.findOne(selectedExer)
     	}
 
 	});
 
-	Template.arms.events({
+	Template.legs.events({
 
-		'submit #addArmExercise': function(event){
+		'submit #addLegExercise': function(event){
 
 			event.preventDefault();
 			console.log("Exercise Added");
 
-			var armExercise = event.target.exercise.value;
-			var armSets = event.target.numOfSets.value;
-			var armReps = event.target.numOfReps.value;
-			var armWeight = event.target.weight.value;
-			Meteor.call('addArmExerciseToDB', armExercise, armSets, armReps, armWeight);
+			var legExercise = event.target.exercise.value;
+			var legSets = event.target.numOfSets.value;
+			var legReps = event.target.numOfReps.value;
+			var legWeight = event.target.weight.value;
+			Meteor.call('addLegExerciseToDB', legExercise, legSets, legReps, legWeight);
 		},
     	'click .setsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedSet = Session.get('selectedExer');
-      	ArmExercises.update(selectedSet, {$inc: {armSets: 1}}); 
+      	LegExercises.update(selectedSet, {$inc: {legSets: 1}}); 
     	},
 
     	'click .repsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
-      	ArmExercises.update(selectedReps, {$inc: {armReps: 1}});
+      	LegExercises.update(selectedReps, {$inc: {legReps: 1}});
     	},
 
     	'click .setsd': function(){
     	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedSet = Session.get('selectedExer');
-      	ArmExercises.update(selectedSet, {$inc: {armSets: -1}});
+        LegExercises.update(selectedSet, {$inc: {legSets: -1}});
     	},
     	
     	'click .repsd': function(){
     	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
-      	ArmExercises.update(selectedReps, {$inc: {armReps: -1}});
+      	LegExercises.update(selectedReps, {$inc: {legReps: -1}});
     	}
 	});
 
