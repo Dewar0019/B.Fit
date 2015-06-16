@@ -3,7 +3,7 @@ if(Meteor.isClient){
 	Template.core.helpers({
 
 		'coreExercise': function(){
-			return CoreExercises.find({}, {sort: {armSets: -1}});
+			return CoreExercises.find({}, {sort: {coreSets: -1}});
 		},
     	'selectedClass': function (){
       		var playerId = this._id;

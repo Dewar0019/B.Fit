@@ -3,7 +3,7 @@ if(Meteor.isClient){
 	Template.legs.helpers({
 
 		'legExercise': function(){
-			return LegExercises.find({}, {sort: {armSets: -1}});
+			return LegExercises.find({}, {sort: {legSets: -1}});
 		},
     	'selectedClass': function (){
       		var playerId = this._id;

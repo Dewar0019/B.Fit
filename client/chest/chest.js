@@ -2,7 +2,7 @@ if(Meteor.isClient){
 
 	Template.chest.helpers({
 		'chestExercise': function(){
-			return ChestExercises.find({}, {sort: {sets: -1}});
+			return ChestExercises.find({}, {sort: {chestSets: -1}});
 		}
 	})
 
