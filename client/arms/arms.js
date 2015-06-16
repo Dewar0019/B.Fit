@@ -16,7 +16,7 @@ if(Meteor.isClient){
 
     'showSelectedExer': function(){
       var selectedExer = Session.get('selectedExer');
-      return ArmExercises.findOne(selectedExer)
+      return ArmExercises.findOne(selectedExer);
     	}
 
 	});
@@ -36,12 +36,12 @@ if(Meteor.isClient){
 		  },
 
       'click #nameUp':function(){
-        Session.set('armSort', {armName: 1});
+        Session.set('armSort', {Name: 1});
         //return ArmExercises.find({}, {sort: {armName: 1}});       
       },
 
       'click #nameDown':function(){
-        Session.set('armSort', {armName: -1});
+        Session.set('armSort', {Name: -1});
         //return ArmExercises.find({}, {sort: {armName: -1}});
       },
 
@@ -49,28 +49,28 @@ if(Meteor.isClient){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedSet = Session.get('selectedExer');
-      	ArmExercises.update(selectedSet, {$inc: {armSets: 1}}); 
+      	ArmExercises.update(selectedSet, {$inc: {Sets: 1}}); 
     	},
 
     	'click .repsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
-      	ArmExercises.update(selectedReps, {$inc: {armReps: 1}});
+      	ArmExercises.update(selectedReps, {$inc: {Reps: 1}});
     	},
 
     	'click .setsd': function(){
     	  var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedSet = Session.get('selectedExer');
-      	ArmExercises.update(selectedSet, {$inc: {armSets: -1}});
+      	ArmExercises.update(selectedSet, {$inc: {Sets: -1}});
     	},
     	
     	'click .repsd': function(){
     	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
-      	ArmExercises.update(selectedReps, {$inc: {armReps: -1}});
+      	ArmExercises.update(selectedReps, {$inc: {Reps: -1}});
     	},
 
       'click .addTo' :function() {
