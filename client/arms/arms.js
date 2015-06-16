@@ -58,7 +58,15 @@ if(Meteor.isClient){
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
       	ArmExercises.update(selectedReps, {$inc: {armReps: -1}});
-    	}
+    	},
+
+      'click .addTo' :function() {
+        var playerId = this._id;
+        var tt = ArmExercises.findOne(playerId);
+        console.log(tt);
+        Meteor.call('addToRoutine', tt);
+        console.log("called");
+      }
 	});
 
 }

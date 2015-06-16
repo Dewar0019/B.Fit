@@ -1,5 +1,6 @@
 <template name= "profile">
 	{{> profileBase}}
+	{{ #if currentUser}}
 	<head>
 		<title> {{profile.userName}} Exercises </title>
 	</head>
@@ -20,5 +21,6 @@
 		</div>
 	</div>
 	</body>
+	{{ /if }}
 </template>
 

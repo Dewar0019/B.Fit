@@ -3,8 +3,9 @@ Meteor.publish('armExercises', function(){return ArmExercises.find();});
 Meteor.publish('chestExercises', function(){return ChestExercises.find();});
 Meteor.publish('legExercises', function(){return LegExercises.find();});
 Meteor.publish('coreExercises', function(){return CoreExercises.find();});
-Meteor.publish("theProfiles",function(){return Profiles.find();});
-
+Meteor.publish('theProfiles',function(){return Profiles.find();});
+Meteor.publish('userExercises', function () { return Meteor.users.find({ _id: this.userId }, { fields: { savedExercises: 1 } });
+});
 
 // I think this block of code (everything under the if(Meteor.isServer)) should be moved to a different file. 
 if (Meteor.isServer){
@@ -49,6 +50,12 @@ if (Meteor.isServer){
         },
 
         'increment': function (armSets, armReps){
+
+        },
+    
+        'addToRoutine': function(selectedExer) {
+            console.log("sucess");
+            Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": selectedExer } });
 
         }
     })
