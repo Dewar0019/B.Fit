@@ -4,7 +4,15 @@
 	<table class="table table-hover">
 		<thead>
 			<tr> 
-				<th>Exercise/Stretch</th> <th>Number of Sets</th> <th>Number of Repetitions</th> <th>Weight</th>
+				<th>Exercise/Stretch
+					<button id="nameUp" class="btn btn-default">
+						<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+					</button>
+					<button id="nameDown" class="btn btn-default">
+						<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+					</button>				
+				</th> 
+				<th>Number of Sets</th> <th>Number of Repetitions</th> <th>Weight</th>
 			</tr>
 		</thead>
 
@@ -13,10 +21,27 @@
 		{{#each legExercise}}
 
 			<tr class="legExercise {{selectedClass}}">
-				<th> {{legName}}</th> 
-				<th>{{legSets}}<button class="setsp">+</button><button class="setsd">-</button></th>
-				<th>{{legReps}}<button class="repsp">+</button><button class="repsd">-</button></th>
-				<th>{{legWeight}}</th>
+				<th> {{Name}}</th> 
+				<th>
+					<button class="setsd btn btn-default">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{Sets}}
+					<button class="setsp btn btn-default">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
+				<th>
+					<button class="repsd btn btn-default">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{Reps}}
+					<button class="repsp btn btn-default">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
+				<th>{{Weight}}</th>
+
 			</tr>
 		{{/each}}
 
