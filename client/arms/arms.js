@@ -30,8 +30,9 @@ if(Meteor.isClient){
 			var armSets = event.target.numOfSets.value;
 			var armReps = event.target.numOfReps.value;
 			var armWeight = event.target.weight.value;
-			Meteor.call('addArmExerciseToDB', armExercise, armSets, armReps, armWeight);
+			Meteor.call('addArmExerciseToDB', armExercise, parseInt(armSets), parseInt(armReps), parseInt(armWeight));
 		  },
+
     	'click .setsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
