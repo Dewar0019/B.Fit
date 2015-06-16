@@ -3,7 +3,7 @@ if(Meteor.isClient){
 	Template.core.helpers({
 
 		'coreExercise': function(){
-			return CoreExercises.find({}, {sort: {coreSets: -1}});
+			return CoreExercises.find({}, {sort: Session.get('coreSort')});
 		},
     	'selectedClass': function (){
       		var playerId = this._id;
@@ -32,6 +32,16 @@ if(Meteor.isClient){
 			var coreWeight = event.target.weight.value;
 			Meteor.call('addCoreExerciseToDB', coreExercise, parseInt(coreSets), parseInt(coreReps), parseInt(coreWeight));
 		},
+
+      'click #nameUp':function(){
+        Session.set('coreSort', {coreName: 1});
+        //return ArmExercises.find({}, {sort: {armName: 1}});       
+      },
+
+      'click #nameDown':function(){
+        Session.set('coreSort', {coreName: -1});
+        //return ArmExercises.find({}, {sort: {armName: -1}});
+      },
     	'click .setsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
