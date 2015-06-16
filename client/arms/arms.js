@@ -74,10 +74,19 @@ if(Meteor.isClient){
     	},
 
       'click .addTo' :function() {
-        var playerId = this._id;
-        var tt = ArmExercises.findOne(playerId);
-        Meteor.call('addToRoutine', tt);
-      }
+        if(Meteor.userId() !== null) {
+          var playerId = this._id;
+          var selectedExer = ArmExercises.findOne(playerId);
+          if(Meteor.user().savedExercises == null) {
+                  Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": [selectedExer]} });
+              } 
+              else {
+                  var savedExer = Meteor.user().savedExercises;
+                  console.log(savedExer.push(selectedExer));
+                  Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
+              }
+          }
+        }
 	});
 
 }

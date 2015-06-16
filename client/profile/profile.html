@@ -15,9 +15,10 @@
 						{{profile.firstName}} {{profile.lastName}}
 					</div>
 					<form class="form-inline" id="createNewRoutine">	
-					    <input class="form-group" type="text" name="exercise" placeholder="Create Routine">   	
+					    <input class="form-group" type="text" name="exercise" onsubmit="{{createRoutine}}" placeholder="Create Routine">   	
 					    <input type="submit">
 				</form>
+				
 					<table>
 						<thead></thead>
 					</table>
@@ -27,4 +28,6 @@
 	</body>
 	{{/if}}
 </template>
+
+
 
