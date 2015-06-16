@@ -11,7 +11,10 @@
 		<tbody>
 		{{#each chestExercise}}
 			<tr>
-				<th>{{chestName}}</th> <th>{{chestSets}}</th> <th>{{chestReps}}</th> <th>{{chestWeight}}</th>
+				<th>{{chestName}}</th> 
+				<th>{{chestSets}}<button class="setsp">+</button><button class="setsd">-</button></th>
+				<th>{{chestReps}}<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th>{{chestWeight}}</th>
 			</tr>
 		{{/each}}
 		</tbody>
