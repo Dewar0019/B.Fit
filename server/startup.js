@@ -31,47 +31,47 @@ if(Meteor.isServer){
 
 		if (ChestExercises.find().fetch()==0){
 			ChestExercises.insert({
-				chestName: "Chest Press",
-				chestSets: 4,
-				chestReps: 15, 
-				chestWeight: 20
+				Name: "Chest Press",
+				Sets: 4,
+				Reps: 15, 
+				Weight: 20
 			});
 
 			ChestExercises.insert({
-				chestName: "Dips",
-				chestSets: 2,
-				chestReps: 12,
-				chestWeight: 15
+				Name: "Dips",
+				Sets: 2,
+				Reps: 12,
+				Weight: 15
 			});
 
 			ChestExercises.insert({
-				chestName: "Cable Fly",
-				chestSets: 3,
-				chestReps: 10,
-				chestWeight: 25
+				Name: "Cable Fly",
+				Sets: 3,
+				Reps: 10,
+				Weight: 25
 			});
 		}
 
 		if (LegExercises.find().fetch()==0){
 			LegExercises.insert({
-				legName: "Squats",
-				legSets: 4,
-				legReps: 15, 
-				legWeight: "body weight"
+				Name: "Squats",
+				Sets: 4,
+				Reps: 15, 
+				Weight: "body weight"
 			});
 
 			LegExercises.insert({
-				legName: "Step Ups",
-				legSets: 2,
-				legReps: 12,
-				legWeight: 15
+				Name: "Step Ups",
+				Sets: 2,
+				Reps: 12,
+				Weight: 15
 			});
 
 			LegExercises.insert({
 				Name: "Calf Raises",
 				Sets: 3,
-				legReps: 10,
-				legWeight: 25
+				Reps: 10,
+				Weight: 25
 			});
 		}
 
