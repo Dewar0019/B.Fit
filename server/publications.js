@@ -64,21 +64,29 @@ if (Meteor.isServer){
         },
 
         'removeExercise': function(exercise) {
-            Meteor.user().savedExercises.splice(exercise, 1);
+            var arr = Meteor.user().savedExercises;
+            console.log(arr);
+            for(var i = 0; i<arr.length; i++) {
+                console.log(arr[i]._id);
+                if(arr[i]._id == exercise) {
+                    console.log("done");
+                    arr.splice(i, 1);
+                    return;
+                }
+            }
         },
 
         'addRoutine': function(nameOfRoutine) {
-
         },
     
         'addToRoutine': function(selectedExer) {
-            
+            var newObject = JSON.parse(JSON.stringify(selectedExer));
             if(Meteor.user().savedExercises == null) {
-                Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": [selectedExer] } });
+                Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": [newObject]} });
             } else {
                 var savedExer = Meteor.user().savedExercises;
-                console.log(savedExer.push(selectedExer) );
-                Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer }});
+                console.log(savedExer.push(newObject) );
+                Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
             }
 
         },
