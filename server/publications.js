@@ -39,6 +39,15 @@ if (Meteor.isServer){
             });
         },
 
+        'addCoreExerciseToDB': function(coreExercise, coreSets, coreReps, coreWeight){
+            CoreExercises.insert({
+                coreName: coreExercise, 
+                coreSets: coreSets,
+                coreReps: coreReps,
+                coreWeight: coreWeight
+            });
+        },
+
         'increment': function (armSets, armReps){
 
         }
