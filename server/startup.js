@@ -61,7 +61,7 @@ if(Meteor.isServer){
 			});
 
 			LegExercises.insert({
-				legName: "Step ups",
+				legName: "Step Ups",
 				legSets: 2,
 				legReps: 12,
 				legWeight: 15
@@ -72,6 +72,16 @@ if(Meteor.isServer){
 				legSets: 3,
 				legReps: 10,
 				legWeight: 25
+			});
+		}
+
+
+		if (CoreExercises.find().fetch()==0){
+			CoreExercises.insert({
+				coreName: "Plank",
+				coreSets: 4,
+				coreReps: 15, 
+				coreWeight: "body weight"
 			});
 		}
 

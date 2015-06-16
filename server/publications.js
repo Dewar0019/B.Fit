@@ -1,6 +1,7 @@
 Meteor.publish('armExercises', function(){return ArmExercises.find();});
-Meteor.publish('chestExercises', function(){return chestExercises.find();});
-Meteor.publish('legExercises', function(){return chestExercises.find();});
+Meteor.publish('chestExercises', function(){return ChestExercises.find();});
+Meteor.publish('legExercises', function(){return LegExercises.find();});
+Meteor.publish('coreExercises', function(){return CoreExercises.find();});
 
 Meteor.publish("theProfiles",function(){return Profiles.find();});
 
