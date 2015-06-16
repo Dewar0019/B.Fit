@@ -16,38 +16,38 @@ if (Meteor.isServer){
     Meteor.methods({
         'addArmExerciseToDB': function(armExercise, armSets, armReps, armWeight){
             ArmExercises.insert({
-                armName: armExercise, 
-                armSets: armSets,
-                armReps: armReps,
-                armWeight: armWeight
+                Name: armExercise, 
+                Sets: armSets,
+                Reps: armReps,
+                Weight: armWeight
             });
         },
 
         'addChestExerciseToDB': function(chestExercise, chestSets, chestReps, chestWeight){
             ChestExercises.insert({
-                chestName: chestExercise, 
-                chestSets: chestSets,
-                chestReps: chestReps,
-                chestWeight: chestWeight
+                Name: chestExercise, 
+                Sets: chestSets,
+                Reps: chestReps,
+                Weight: chestWeight
             });
         },
 
 
         'addLegExerciseToDB': function(legExercise, legSets, legReps, legWeight){
             LegExercises.insert({
-                legName: legExercise, 
-                legSets: legSets,
-                legReps: legReps,
-                legWeight: legWeight
+                Name: legExercise, 
+                Sets: legSets,
+                Reps: legReps,
+                Weight: legWeight
             });
         },
 
         'addCoreExerciseToDB': function(coreExercise, coreSets, coreReps, coreWeight){
             CoreExercises.insert({
-                coreName: coreExercise, 
-                coreSets: coreSets,
-                coreReps: coreReps,
-                coreWeight: coreWeight
+                Name: coreExercise, 
+                Sets: coreSets,
+                Reps: coreReps,
+                Weight: coreWeight
             });
         },
 
@@ -77,10 +77,10 @@ if (Meteor.isServer){
         },
 
         'addRoutine': function(nameOfRoutine) {
+            
         },
     
         'addToRoutine': function(selectedExer) {
-            var newObject = JSON.parse(JSON.stringify(selectedExer));
             if(Meteor.user().savedExercises == null) {
                 Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": [newObject]} });
             } else {
