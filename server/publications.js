@@ -49,6 +49,14 @@ if (Meteor.isServer){
             });
         },
 
+        'addRunningCardioToDB': function(runningTime, runningSpeed, runningDistance){
+            RunningCardio.insert({
+                runningTime: runningTime,
+                runningSpeed: runningSpeed,
+                runningDistance: runningDistance
+            });
+        },
+
         'increment': function (armSets, armReps){
 
         },
