@@ -3,18 +3,20 @@ if(Meteor.isClient){
 	Template.arms.helpers({
 
 		'armExercise': function(){
-			return ArmExercises.find({}, {sort: {armSets: -1}});
+			return ArmExercises.find({}, {sort: Session.get('armSort')});
 		},
-    	'selectedClass': function (){
-      		var playerId = this._id;
-      		var selectedExer = Session.get('selectedExer');
-      		if(playerId == selectedExer){
-        	return "selected"
-      		}
-     	},
-      	'showSelectedExer': function(){
-      		var selectedExer = Session.get('selectedExer');
-      		return ArmExercises.findOne(selectedExer)
+
+    'selectedClass': function (){
+      var playerId = this._id;
+      var selectedExer = Session.get('selectedExer');
+        if(playerId == selectedExer){
+          return "selected"
+        }
+     },
+
+    'showSelectedExer': function(){
+      var selectedExer = Session.get('selectedExer');
+      return ArmExercises.findOne(selectedExer)
     	}
 
 	});
@@ -33,6 +35,16 @@ if(Meteor.isClient){
 			Meteor.call('addArmExerciseToDB', armExercise, parseInt(armSets), parseInt(armReps), parseInt(armWeight));
 		  },
 
+      'click #nameUp':function(){
+        Session.set('armSort', {armName: 1});
+        //return ArmExercises.find({}, {sort: {armName: 1}});       
+      },
+
+      'click #nameDown':function(){
+        Session.set('armSort', {armName: -1});
+        //return ArmExercises.find({}, {sort: {armName: -1}});
+      },
+
     	'click .setsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
@@ -48,7 +60,7 @@ if(Meteor.isClient){
     	},
 
     	'click .setsd': function(){
-    	var playerId = this._id;
+    	  var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedSet = Session.get('selectedExer');
       	ArmExercises.update(selectedSet, {$inc: {armSets: -1}});
