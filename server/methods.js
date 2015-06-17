@@ -38,9 +38,10 @@
 
         'addRunningCardioToDB': function(runningTime, runningSpeed, runningDistance){
             RunningCardio.insert({
-                runningTime: runningTime,
-                runningSpeed: runningSpeed,
-                runningDistance: runningDistance
+                Time: new Date(), 
+                workoutTime: runningTime,
+                Speed: runningSpeed,
+                Distance: runningDistance
             });
         },
 
@@ -61,7 +62,7 @@
             }
         },
 
-        // THE NEXT TWO METHODS WERE COPIED DIRECTLY FROM THE publicastions.js in case it was needed 
+        // THE NEXT TWO METHODS WERE COPIED DIRECTLY FROM THE publicastions.js IN CASE IT WAS NEEDED 
         
         // 'addRoutine': function(nameOfRoutine) {
         // },
@@ -80,7 +81,7 @@
 
 
 
-        //THIS IS A SEPRATE COMMENTED OUT BLOCK. 
+        //THIS IS A SEPRATE, COMMENTED OUT BLOCK WHICH WAS ALREADY HERE. 
         // 'addRoutine': function(nameOfRoutine) {
         //      if(Meteor.user().savedExercises == null) {
         //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'savedExercises.': []} });
@@ -97,10 +98,10 @@
 
         'addEllipticalWorkoutToDB': function(ellipticalTime , ellipticalSpeed , ellipticalDistance){
             EllipticalWorkout.insert({
-                time: new Date(), 
-                ellipticalTime: ellipticalTime, 
-                ellipticalSpeed: ellipticalSpeed,
-                ellipticalDistance: ellipticalDistance
+                Time: new Date(), 
+                workoutTime: ellipticalTime, 
+                Speed: ellipticalSpeed,
+                Distance: ellipticalDistance
             });
         }
     })

@@ -29,7 +29,7 @@ if(Meteor.isClient){
 			var ellipticalTime = event.target.ellipticalTime.value;
 			var ellipticalSpeed = event.target.ellipticalSpeed.value;
 			var ellipticalDistance = event.target.ellipticalDistance.value;
-			Meteor.call('addEllipticalWorkoutToDB', ellipticalTime , parseInt(ellipticalSpeed) , parseInt(ellipticalDistance));
+			Meteor.call('addEllipticalWorkoutToDB', parseInt(ellipticalTime) , parseInt(ellipticalSpeed) , parseInt(ellipticalDistance));
 		 
       },
 
@@ -37,42 +37,42 @@ if(Meteor.isClient){
       var playerId = this._id;
      	Session.set('selectedExer', playerId);
       var selectedTime = Session.get('selectedExer');
-      EllipticalWorkout.update(selectedTime, {$inc: {ellipticalTime: 1}}); 
+      EllipticalWorkout.update(selectedTime, {$inc: {workoutTime: 1}}); 
    	 },
 
     'click .timed': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedTime = Session.get('selectedExer');
-      EllipticalWorkout.update(selectedTime, {$inc: {ellipticalTime: -1}});
+      EllipticalWorkout.update(selectedTime, {$inc: {workoutTime: -1}});
      	},
 
     'click .speedp': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedSpeed = Session.get('selectedExer');
-      EllipticalWorkout.update(selectedSpeed, {$inc: {ellipticalSpeed: 1}});
+      EllipticalWorkout.update(selectedSpeed, {$inc: {Speed: 1}});
       },
     	
     'click .speedd': function(){
      	var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedSpeed = Session.get('selectedExer');
-      EllipticalWorkout.update(selectedSpeed, {$inc: {ellipticalSpeed: -1}});
+      EllipticalWorkout.update(selectedSpeed, {$inc: {Speed: -1}});
      	},
 
     'click .distancep': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedDistance = Session.get('selectedExer');
-      EllipticalWorkout.update(selectedDistance, {$inc: {ellipticalDistance: 1}});
+      EllipticalWorkout.update(selectedDistance, {$inc: {Distance: 1}});
       },
       
     'click .distanced': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedDistance = Session.get('selectedExer');
-      EllipticalWorkout.update(selectedDistance, {$inc: {ellipticalDistance: -1}});
+      EllipticalWorkout.update(selectedDistance, {$inc: {Distance: -1}});
       },
 
     'click .addTo' :function() {
