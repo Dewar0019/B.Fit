@@ -103,5 +103,14 @@
                 Speed: ellipticalSpeed,
                 Distance: ellipticalDistance
             });
+        },
+
+        'addCyclingCardioToDB': function(cyclingTime , cyclingSpeed , cyclingDistance){
+            CyclingWorkout.insert({
+                Time: new Date(), 
+                workoutTime: cyclingTime, 
+                Speed: cyclingSpeed,
+                Distance: cyclingDistance
+            });
         }
     })
