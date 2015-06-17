@@ -44,6 +44,15 @@
                 Distance: runningDistance
             });
         },
+         'addStairMasterToDB': function(stairMasterTime, stairMasterSpeed, stairMasterDistance){
+            StairMasterWorkout.insert({
+                Time: new Date(), 
+                workoutTime: stairMasterTime,
+                Speed: stairMasterSpeed,
+                Distance: stairMasterDistance
+            });
+        },
+
 
         'increment': function (armSets, armReps){
 
@@ -102,6 +111,24 @@
                 workoutTime: ellipticalTime, 
                 Speed: ellipticalSpeed,
                 Distance: ellipticalDistance
+            });
+        },
+
+        'addCyclingCardioToDB': function(cyclingTime , cyclingSpeed , cyclingDistance){
+            CyclingCardio.insert({
+                Time: new Date(), 
+                workoutTime: cyclingTime, 
+                Speed: cyclingSpeed,
+                Distance: cyclingDistance
+            });
+        },
+
+        'addStairMasterCardioToDB': function(stairMasterTime, stairMastercyclingSpeed, stairMastercyclingDistance){
+            CyclingCardio.insert({
+                Time: new Date(), 
+                workoutTime: stairMasterTime, 
+                Speed: stairMasterSpeed,
+                Distance: stairMasterDistance
             });
         }
     })

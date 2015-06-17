@@ -1,9 +1,9 @@
 if(Meteor.isClient){
 
-	Template.running.helpers({
+	Template.cycling.helpers({
 
-		'runningExercise': function(){
-			return RunningCardio.find({}, {sort: {runningTime: -1}});
+		'cyclingCardio': function(){
+			return CyclingCardio.find({}, {sort: {cyclingDistance: -1}});
 		},
     	'selectedClass': function (){
       		var playerId = this._id;
@@ -14,62 +14,63 @@ if(Meteor.isClient){
      	},
       	'showSelectedExer': function(){
       		var selectedExer = Session.get('selectedExer');
-      		return RunningCardio.findOne(selectedExer)
+      		return CyclingCardio.findOne(selectedExer)
     	}
 
 	});
 
-	Template.running.events({
+	Template.cycling.events({
     
-		'submit #addRunningExercise': function(event){
+		'submit #addCyclingCardio': function(event){
 
 			event.preventDefault();
 			console.log("Exercise Added");
 
-			var runningTime = event.target.runningTime.value;
-			var runningSpeed = event.target.runningSpeed.value;
-			var runningDistance = event.target.runningDistance.value;
-			Meteor.call('addRunningCardioToDB', parseInt(runningTime), parseInt(runningSpeed), parseInt(runningDistance));
+			var cyclingTime = event.target.cyclingTime.value;
+			var cyclingSpeed = event.target.cyclingSpeed.value;
+			var cyclingDistance = event.target.cyclingDistance.value;
+			Meteor.call('addCyclingCardioToDB', parseInt(cyclingTime), parseInt(cyclingSpeed), parseInt(cyclingDistance));
 		},
 
-    	'click .timep': function(){
+    'click .timep': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedTime = Session.get('selectedExer');
-      RunningCardio.update(selectedTime, {$inc: {workoutTime: 1}}); 
+      CyclingCardio.update(selectedTime, {$inc: {workoutTime: 1}}); 
      },
 
     'click .timed': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedTime = Session.get('selectedExer');
-      RunningCardio.update(selectedTime, {$inc: {workoutTime: -1}});
+      CyclingCardio.update(selectedTime, {$inc: {workoutTime: -1}});
       },
       'click .speedp': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedSpeed = Session.get('selectedExer');
-      RunningCardio.update(selectedSpeed, {$inc: {Speed: 1}});
+      CyclingCardio.update(selectedSpeed, {$inc: {Speed: 1}});
       },
       
     'click .speedd': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedSpeed = Session.get('selectedExer');
-      RunningCardio.update(selectedSpeed, {$inc: {Speed: -1}});
+      CyclingCardio.update(selectedSpeed, {$inc: {Speed: -1}});
       },
-      'click .distancep': function(){
+
+    'click .distancep': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedDistance = Session.get('selectedExer');
-      RunningCardio.update(selectedDistance, {$inc: {Distance: 1}});
+      CyclingCardio.update(selectedDistance, {$inc: {Distance: 1}});
       },
       
     'click .distanced': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedDistance = Session.get('selectedExer');
-      RunningCardio.update(selectedDistance, {$inc: {Distance: -1}});
+      CyclingCardio.update(selectedDistance, {$inc: {Distance: -1}});
       }
 	});
 
