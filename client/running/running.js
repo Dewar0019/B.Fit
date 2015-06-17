@@ -3,7 +3,7 @@ if(Meteor.isClient){
 	Template.running.helpers({
 
 		'runningExercise': function(){
-			return RunningCardio.find({}, {sort: {runningSets: -1}});
+			return RunningCardio.find({}, {sort: {runningTime: -1}});
 		},
     	'selectedClass': function (){
       		var playerId = this._id;
