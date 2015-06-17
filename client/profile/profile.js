@@ -9,8 +9,9 @@ Template.profile.events({
 		var routineName = event.target.exercise.value
 		var arr = [routineName];
 		console.log(arr);
-        if(Meteor.user().savedExercises == null) {
-            Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'savedExercises': [arr]} });
+        if(savedExercises.findOne({}) == null) {
+        	savedExercises.insert
+            // Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'savedExercises': [arr]} });
         } else {
                 var savedExer = Meteor.user().savedExercises;
                 console.log(savedExer.push(arr));
