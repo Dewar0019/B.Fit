@@ -20,7 +20,13 @@
 				</form>
 				
 					<table>
-						<thead></thead>
+						<thead><th>Routines</th></thead>
+						<hr/>
+						<tbody>
+							{{#each myRoutines}}
+							<tr><td>{{this}} </td></tr>
+							{{/each}} 
+						</tbody>
 					</table>
 			</div>
 		</div>

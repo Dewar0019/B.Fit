@@ -59,24 +59,7 @@
                     return;
                 }
             }
-        },
-
-
-
-        // 'addRoutine': function(nameOfRoutine) {
-        //      if(Meteor.user().savedExercises == null) {
-        //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'savedExercises.': []} });
-        //     } 
-            // else {
-            //     var savedExer = Meteor.user().savedExercises;
-            //     console.log(savedExer.push(selectedExer));
-            //     Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
-            // }
-        // },
-    
-        
-
-        // },
+        },        
 
         'addEllipticalWorkoutToDB': function(ellipticalTime , ellipticalSpeed , ellipticalDistance){
             EllipticalWorkout.insert({

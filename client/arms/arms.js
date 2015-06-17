@@ -2,17 +2,11 @@ if(Meteor.isClient){
 
 	Template.arms.helpers({
 
+
+
 		'armExercise': function(){
 			return ArmExercises.find({}, {sort: Session.get('armSort')});
 		},
-
-    'selectedClass': function (){
-      var playerId = this._id;
-      var selectedExer = Session.get('selectedExer');
-        if(playerId == selectedExer){
-          return "selected"
-        }
-     },
 
     'showSelectedExer': function(){
       var selectedExer = Session.get('selectedExer');
@@ -74,19 +68,42 @@ if(Meteor.isClient){
     	},
 
       'click .addTo' :function() {
-        if(Meteor.userId() !== null) {
-          var playerId = this._id;
-          var selectedExer = ArmExercises.findOne(playerId);
-          if(Meteor.user().savedExercises == null) {
-                  Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": [selectedExer]} });
-              } 
-              else {
-                  var savedExer = Meteor.user().savedExercises;
-                  console.log(savedExer.push(selectedExer));
+        console.log("this is exercise");
+        var exercise = this;
+        console.log(exercise);
+        Session.set('goingToAdd', exercise);
+        if(Meteor.userId() == null) {
+          alert("Please log in first");
+        } 
+      },
+
+        'click .selectedRoutine' :function() {
+            console.log("this is an array");
+            var arr = this;
+            console.log(arr);
+            var exo = Session.get('goingToAdd');
+            exo.createAt = Date();
+            var savedExer = Meteor.user().savedExercises;
+            console.log(savedExer[0][0]);
+            for(var i = 0; i<savedExer.length; i++) {
+                if(arr[0] == savedExer[i][0]){
+                  console.log(savedExer[i].push(exo));
                   Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
-              }
+                }
+            }
           }
-        }
+
+          //Keep this code here in case i need to make some changes
+          // if(Meteor.user().savedExercises == null) {
+          //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": [selectedExer]} });
+          //     } 
+          //     else {
+          //         var savedExer = Meteor.user().savedExercises;
+          //         console.log(savedExer.push(selectedExer));
+          //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
+          //     }
+          // }
+        
 	});
 
 }
