@@ -4,7 +4,7 @@ Template.profileSavedExercises.helpers({
 
 Template.profileSavedExercises.events({
 	'click .removeExercise': function() {
-		var exercise = this._id;
+		var exercise = this;
 		console.log(exercise);
 		Meteor.call('removeExercise', exercise);
 	}
