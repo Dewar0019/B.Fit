@@ -44,6 +44,15 @@
                 Distance: runningDistance
             });
         },
+         'addStairMasterToDB': function(stairMasterTime, stairMasterSpeed, stairMasterDistance){
+            StairMasterWorkout.insert({
+                Time: new Date(), 
+                workoutTime: stairMasterTime,
+                Speed: stairMasterSpeed,
+                Distance: stairMasterDistance
+            });
+        },
+
 
         'increment': function (armSets, armReps){
 

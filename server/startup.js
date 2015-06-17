@@ -106,6 +106,14 @@ if(Meteor.isServer){
                 Distance: 3
             });
 		}
+		if(StairMasterWorkout.find().fetch()==0){
+			StairMasterWorkout.insert({
+                Time: new Date(), 
+                workoutTime: 10, 
+                Speed: 5,
+                Distance: 3
+            });
+		}
 
 	});
 }

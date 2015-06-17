@@ -1,6 +1,6 @@
-<template name="elliptical">
+<template name="stairmaster">
 
-	<h1> Elliptical</h1>
+	<h1>Stair Master</h1>
 	<hr/>
 	<table class="table table-hover">
 		<thead>
@@ -11,9 +11,9 @@
 
 		<tbody>
 
-		{{#each ellipticalWorkout}}
+		{{#each stairMasterWorkout}}
 
-			<tr class="ellipticalWorkout {{selectedClass}}">
+			<tr class="stairMasterWorkout {{selectedClass}}">
 				<th> {{Time}} </th>
 				<th>
 					<button class="timed btn btn-default btn-sm">
@@ -52,13 +52,13 @@
 	</table>
 
 
-	<form class="form-inline" id="addEllipticalWorkout">
+	<form class="form-inline" id="addStairMasterWorkout">
 	
-		<input class="addEllipticalWorkout" type="text" name="ellipticalTime" placeholder="Time">
-	    <input class="addEllipticalWorkout" type="text" name="ellipticalSpeed" placeholder="Speed">
-	    <input class="addEllipticalWorkout" type="text" name="ellipticalDistance" placeholder="Distance">
+		<input class="addStairMasterWorkout" type="text" name="stairMasterTime" placeholder="Time">
+	    <input class="addStairMasterWorkout" type="text" name="stairMasterSpeed" placeholder="Speed">
+	    <input class="addStairMasterWorkout" type="text" name="stairMasterDistance" placeholder="Distance">
 
-  		<input type="submit" class="addEllipticalWorkout btn btn-info" value="Add Exercise">
+  		<input type="submit" class="addStairMasterWorkout btn btn-info" value="Add Exercise">
 	</form>
 
 </template>
