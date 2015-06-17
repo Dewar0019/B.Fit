@@ -12,9 +12,33 @@
 
 		{{#each runningExercise}}
 			<tr class="runningExercise {{selectedClass}}">
-				<th>{{runningTime}}<button class="setsp">+</button><button class="setsd">-</button></th>
-				<th>{{runningSpeed}}<button class="repsp">+</button><button class="repsd">-</button></th>
-				<th>{{runningDistance}}</th>
+				<th>
+					<button class="timed btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{runningTime}}
+					<button class="timep btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
+				<th>
+					<button class="speedd btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{runningSpeed}}
+					<button class="speedp btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>>
+				</th>
+				<th>
+					<button class="distanced btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{runningDistance}}
+					<button class="distancep btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
 			</tr>
 		{{/each}}
 
