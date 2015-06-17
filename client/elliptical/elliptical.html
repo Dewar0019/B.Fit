@@ -15,9 +15,33 @@
 
 			<tr class="ellipticalWorkout {{selectedClass}}">
 				<th> {{time}} </th>
-				<th>{{ellipticalTime}}<button class="setsp">+</button><button class="setsd">-</button></th>
-				<th>{{ellipticalSpeed}}<button class="repsp">+</button><button class="repsd">-</button></th>
-				<th>{{ellipticalDistance}}<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th>
+					<button class="timed btn btn-default">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{ellipticalTime}}
+					<button class="timep btn btn-default">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
+				<th>
+					<button class="speedd btn btn-default">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{ellipticalSpeed}}
+					<button class="speedp btn btn-default">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
+				<th>
+					<button class="distanced btn btn-default">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{ellipticalDistance}}
+					<button class="distancep btn btn-default">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
 				
 			</tr>
 		{{/each}}

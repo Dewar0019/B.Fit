@@ -1,5 +1,9 @@
 <template name="core">
 
+<div>
+	<h1>Core Exercises</h1>
+</div>
+
 	<hr/>
 	<table class="table table-hover">
 		<thead>
@@ -32,7 +36,15 @@
 						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 					</button>
 				</th>
-				<th>{{Reps}}<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th>
+					<button class="repsd btn btn-default">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{Reps}}
+					<button class="repsp btn btn-default">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>		
+				</th>
 				<th>{{Weight}}</th>
 			</tr>
 		{{/each}}

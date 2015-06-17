@@ -34,40 +34,40 @@ if(Meteor.isClient){
 		},
 
       'click #nameUp':function(){
-        Session.set('coreSort', {coreName: 1});
+        Session.set('coreSort', {Name: 1});
         //return ArmExercises.find({}, {sort: {armName: 1}});       
       },
 
       'click #nameDown':function(){
-        Session.set('coreSort', {coreName: -1});
+        Session.set('coreSort', {Name: -1});
         //return ArmExercises.find({}, {sort: {armName: -1}});
       },
     	'click .setsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedSet = Session.get('selectedExer');
-      	CoreExercises.update(selectedSet, {$inc: {coreSets: 1}}); 
+      	CoreExercises.update(selectedSet, {$inc: {Sets: 1}}); 
     	},
 
     	'click .repsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
-      	CoreExercises.update(selectedReps, {$inc: {coreReps: 1}});
+      	CoreExercises.update(selectedReps, {$inc: {Reps: 1}});
     	},
 
     	'click .setsd': function(){
     	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedSet = Session.get('selectedExer');
-        CoreExercises.update(selectedSet, {$inc: {coreSets: -1}});
+        CoreExercises.update(selectedSet, {$inc: {Sets: -1}});
     	},
     	
     	'click .repsd': function(){
     	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
-      	CoreExercises.update(selectedReps, {$inc: {coreReps: -1}});
+      	CoreExercises.update(selectedReps, {$inc: {Reps: -1}});
     	}
 	});
 

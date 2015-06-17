@@ -20,4 +20,7 @@ Meteor.users.allow({
   }
 });
 
-
+// I think this block of code (everything under the if(Meteor.isServer)) should be moved to a different file. 
+if (Meteor.isServer){
+	console.log("Hello Server");
+}
