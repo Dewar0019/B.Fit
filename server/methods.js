@@ -62,7 +62,7 @@
             }
         },
 
-        // THE NEXT TWO METHODS WERE COPIED DIRECTLY FROM THE publicastions.js in case it was needed 
+        // THE NEXT TWO METHODS WERE COPIED DIRECTLY FROM THE publicastions.js IN CASE IT WAS NEEDED 
         
         // 'addRoutine': function(nameOfRoutine) {
         // },
@@ -81,7 +81,7 @@
 
 
 
-        //THIS IS A SEPRATE COMMENTED OUT BLOCK. 
+        //THIS IS A SEPRATE, COMMENTED OUT BLOCK WHICH WAS ALREADY HERE. 
         // 'addRoutine': function(nameOfRoutine) {
         //      if(Meteor.user().savedExercises == null) {
         //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'savedExercises.': []} });
