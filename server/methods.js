@@ -112,5 +112,14 @@
                 Speed: cyclingSpeed,
                 Distance: cyclingDistance
             });
+        },
+
+        'addStairMasterCardioToDB': function(stairMasterTime, stairMastercyclingSpeed, stairMastercyclingDistance){
+            CyclingCardio.insert({
+                Time: new Date(), 
+                workoutTime: stairMasterTime, 
+                Speed: stairMasterSpeed,
+                Distance: stairMasterDistance
+            });
         }
     })
