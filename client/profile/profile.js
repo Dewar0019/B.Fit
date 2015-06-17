@@ -1,7 +1,4 @@
 
-Handlebars.registerHelper('myRoutines', function() {return Meteor.user().savedExercises;});
-
-
 Template.profile.helpers({
 	profiles :function() { return (this._id == Meteor.userId());},
 })
