@@ -38,9 +38,10 @@
 
         'addRunningCardioToDB': function(runningTime, runningSpeed, runningDistance){
             RunningCardio.insert({
-                runningTime: runningTime,
-                runningSpeed: runningSpeed,
-                runningDistance: runningDistance
+                Time: new Date(), 
+                workoutTime: runningTime,
+                Speed: runningSpeed,
+                Distance: runningDistance
             });
         },
 
@@ -97,10 +98,10 @@
 
         'addEllipticalWorkoutToDB': function(ellipticalTime , ellipticalSpeed , ellipticalDistance){
             EllipticalWorkout.insert({
-                time: new Date(), 
-                ellipticalTime: ellipticalTime, 
-                ellipticalSpeed: ellipticalSpeed,
-                ellipticalDistance: ellipticalDistance
+                Time: new Date(), 
+                workoutTime: ellipticalTime, 
+                Speed: ellipticalSpeed,
+                Distance: ellipticalDistance
             });
         }
     })
