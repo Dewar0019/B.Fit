@@ -1,5 +1,9 @@
 <template name="arms">
 
+<div>
+	<h1>Arm Exercises</h1>
+</div>
+
 	<hr/>
 	<table class="table table-hover">
 		<thead>
@@ -14,14 +18,14 @@
 				</th> <th>Number of Sets</th> 
 				<th>Number of Repetitions</th> 
 				<th>Weight</th>
+				<th>Add to routine</th>
 			</tr>
 		</thead>
 
 		<tbody>
 
 		{{#each armExercise}}
-
-			<tr class="armExercise {{selectedClass}}">
+			<tr class="armExercise addTo">
 				<th> {{Name}}</th> 
 				<th>
 					<button class="setsd btn btn-default">
@@ -43,12 +47,22 @@
 					</button>
 				</th>
 				<th>{{Weight}}</th>
-				<th></th><button class="addTo">+</button>
-			</tr>
+				<th></th> <button class="dropdown">
+          					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">+<span class="caret"></span></a>
+          					<ul class="dropdown-menu" role="menu">
+           						{{#each myRoutines}}
+           							<li class ="selectedRoutine">{{this}}</li>
+          						 {{/each}}
+          					</ul>
+        					</button>
+				</tr>
 		{{/each}}
 
 		</tbody>
 	</table>
+
+
+
 
 
 	<form class="form-inline" id="addArmExercise">

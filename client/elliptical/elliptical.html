@@ -5,7 +5,7 @@
 	<table class="table table-hover">
 		<thead>
 			<tr> 
-				<th>Date</th> <th>Time</th> <th>Speed</th> <th>Distance</th>
+				<th>Date</th> <th>Wrokout Time</th> <th>Speed</th> <th>Distance</th>
 			</tr>
 		</thead>
 
@@ -14,10 +14,36 @@
 		{{#each ellipticalWorkout}}
 
 			<tr class="ellipticalWorkout {{selectedClass}}">
-				<th> {{time}} </th>
-				<th>{{ellipticalTime}}<button class="setsp">+</button><button class="setsd">-</button></th>
-				<th>{{ellipticalSpeed}}<button class="repsp">+</button><button class="repsd">-</button></th>
-				<th>{{ellipticalDistance}}<button class="repsp">+</button><button class="repsd">-</button></th>
+				<th> {{Time}} </th>
+				<th>
+					<button class="timed btn btn-default">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{workoutTime}}
+					<button class="timep btn btn-default">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
+
+				<th>
+					<button class="speedd btn btn-default">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{Speed}}
+					<button class="speedp btn btn-default">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
+
+				<th>
+					<button class="distanced btn btn-default">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{Distance}}
+					<button class="distancep btn btn-default">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
 				
 			</tr>
 		{{/each}}

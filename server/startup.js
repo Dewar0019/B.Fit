@@ -100,10 +100,10 @@ if(Meteor.isServer){
 
 		if(EllipticalWorkout.find().fetch()==0){
 			EllipticalWorkout.insert({
-                time: new Date(), 
-                ellipticalTime: 10, 
-                ellipticalSpeed: 5,
-                ellipticalDistance: 3
+                Time: new Date(), 
+                workoutTime: 10, 
+                Speed: 5,
+                Distance: 3
             });
 		}
 

@@ -38,9 +38,10 @@
 
         'addRunningCardioToDB': function(runningTime, runningSpeed, runningDistance){
             RunningCardio.insert({
-                runningTime: runningTime,
-                runningSpeed: runningSpeed,
-                runningDistance: runningDistance
+                Time: new Date(), 
+                workoutTime: runningTime,
+                Speed: runningSpeed,
+                Distance: runningDistance
             });
         },
 
@@ -61,8 +62,26 @@
             }
         },
 
+        // THE NEXT TWO METHODS WERE COPIED DIRECTLY FROM THE publicastions.js IN CASE IT WAS NEEDED 
+        
+        // 'addRoutine': function(nameOfRoutine) {
+        // },
+
+        // 'addToRoutine': function(selectedExer) {
+        //     if(Meteor.user().savedExercises == null) {
+        //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": [selectedExer]} });
+        //     } else {
+        //         var savedExer = Meteor.user().savedExercises;
+        //         console.log(savedExer.push(selectedExer));
+        //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
+        //     }
 
 
+        // },
+
+
+
+        //THIS IS A SEPRATE, COMMENTED OUT BLOCK WHICH WAS ALREADY HERE. 
         // 'addRoutine': function(nameOfRoutine) {
         //      if(Meteor.user().savedExercises == null) {
         //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'savedExercises.': []} });
@@ -73,17 +92,16 @@
             //     Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
             // }
         // },
-    
-        
 
-        // },
+    // },
+
 
         'addEllipticalWorkoutToDB': function(ellipticalTime , ellipticalSpeed , ellipticalDistance){
             EllipticalWorkout.insert({
-                time: new Date(), 
-                ellipticalTime: ellipticalTime, 
-                ellipticalSpeed: ellipticalSpeed,
-                ellipticalDistance: ellipticalDistance
+                Time: new Date(), 
+                workoutTime: ellipticalTime, 
+                Speed: ellipticalSpeed,
+                Distance: ellipticalDistance
             });
         }
     })

@@ -6,8 +6,16 @@ Template.profile.helpers({
 Template.profile.events({
 	'submit #createNewRoutine': function() {
 		event.preventDefault();
-		var routineName = event.target.exercise.value;
-		Meteor.call('addRoutine', routineName);
+		var routineName = event.target.exercise.value
+		var arr = [routineName];
+		console.log(arr);
+        if(Meteor.user().savedExercises == null) {
+            Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'savedExercises': [arr]} });
+        } else {
+                var savedExer = Meteor.user().savedExercises;
+                console.log(savedExer.push(arr));
+                Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
+            }      
 		event.target.exercise.value = "";
 	}
 })

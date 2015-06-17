@@ -29,44 +29,58 @@ if(Meteor.isClient){
 			var ellipticalTime = event.target.ellipticalTime.value;
 			var ellipticalSpeed = event.target.ellipticalSpeed.value;
 			var ellipticalDistance = event.target.ellipticalDistance.value;
-			Meteor.call('addEllipticalWorkoutToDB', ellipticalTime , ellipticalSpeed , ellipticalDistance);
+			Meteor.call('addEllipticalWorkoutToDB', parseInt(ellipticalTime) , parseInt(ellipticalSpeed) , parseInt(ellipticalDistance));
 		 
       },
 
-    // 'click .setsp': function(){
-    //  	var playerId = this._id;
-    // 	Session.set('selectedExer', playerId);
-    //   	// var selectedSet = Session.get('selectedExer');
-    //   	// EllipticalWorkout.update(selectedSet, {$inc: {armSets: 1}}); 
-   	// },
+    'click .timep': function(){
+      var playerId = this._id;
+     	Session.set('selectedExer', playerId);
+      var selectedTime = Session.get('selectedExer');
+      EllipticalWorkout.update(selectedTime, {$inc: {workoutTime: 1}}); 
+   	 },
 
-    // 'click .repsp': function(){
-    //   var playerId = this._id;
-    //   Session.set('selectedExer', playerId);
-    //   	// var selectedReps = Session.get('selectedExer');
-    //   	// EllipticalWorkout.update(selectedReps, {$inc: {armReps: 1}});
-    // 	},
+    'click .timed': function(){
+      var playerId = this._id;
+      Session.set('selectedExer', playerId);
+      var selectedTime = Session.get('selectedExer');
+      EllipticalWorkout.update(selectedTime, {$inc: {workoutTime: -1}});
+     	},
 
-    // 	'click .setsd': function(){
-    // 	var playerId = this._id;
-    //   	Session.set('selectedExer', playerId);
-    //   	// var selectedSet = Session.get('selectedExer');
-    //   	// EllipticalWorkout.update(selectedSet, {$inc: {armSets: -1}});
-    // 	},
+    'click .speedp': function(){
+      var playerId = this._id;
+      Session.set('selectedExer', playerId);
+      var selectedSpeed = Session.get('selectedExer');
+      EllipticalWorkout.update(selectedSpeed, {$inc: {Speed: 1}});
+      },
     	
-    // 	'click .repsd': function(){
-    // 	var playerId = this._id;
-    //   	Session.set('selectedExer', playerId);
-    //   	// var selectedReps = Session.get('selectedExer');
-    //   	// EllipticalWorkout.update(selectedReps, {$inc: {armReps: -1}});
-    // 	},
+    'click .speedd': function(){
+     	var playerId = this._id;
+      Session.set('selectedExer', playerId);
+      var selectedSpeed = Session.get('selectedExer');
+      EllipticalWorkout.update(selectedSpeed, {$inc: {Speed: -1}});
+     	},
 
-      'click .addTo' :function() {
-        var playerId = this._id;
-        var tt = EllipticalWorkout.findOne(playerId);
-        console.log(tt);
-        Meteor.call('addToRoutine', tt);
-        console.log("called");
+    'click .distancep': function(){
+      var playerId = this._id;
+      Session.set('selectedExer', playerId);
+      var selectedDistance = Session.get('selectedExer');
+      EllipticalWorkout.update(selectedDistance, {$inc: {Distance: 1}});
+      },
+      
+    'click .distanced': function(){
+      var playerId = this._id;
+      Session.set('selectedExer', playerId);
+      var selectedDistance = Session.get('selectedExer');
+      EllipticalWorkout.update(selectedDistance, {$inc: {Distance: -1}});
+      },
+
+    'click .addTo' :function() {
+      var playerId = this._id;
+      var tt = EllipticalWorkout.findOne(playerId);
+      console.log(tt);
+      Meteor.call('addToRoutine', tt);
+      console.log("called");
       }
 	});
 
