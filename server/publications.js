@@ -155,6 +155,7 @@ if (Meteor.isServer){
                 Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
             }
 
+
         },
 
         'addEllipticalWorkoutToDB': function(ellipticalTime , ellipticalSpeed , ellipticalDistance){
@@ -167,17 +168,3 @@ if (Meteor.isServer){
         }
     })
 }
-
-		},
-
-		'addEllipticalWorkoutToDB': function(ellipticalTime , ellipticalSpeed , ellipticalDistance){
-			EllipticalWorkout.insert({
-				time: new Date(), 
-				ellipticalTime: ellipticalTime, 
-				ellipticalSpeed: ellipticalSpeed,
-				ellipticalDistance: ellipticalDistance
-			});
-		}
-	})
-}
-

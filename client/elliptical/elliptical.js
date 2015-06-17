@@ -29,7 +29,7 @@ if(Meteor.isClient){
 			var ellipticalTime = event.target.ellipticalTime.value;
 			var ellipticalSpeed = event.target.ellipticalSpeed.value;
 			var ellipticalDistance = event.target.ellipticalDistance.value;
-			Meteor.call('addEllipticalWorkoutToDB', ellipticalTime , ellipticalSpeed , ellipticalDistance);
+			Meteor.call('addEllipticalWorkoutToDB', ellipticalTime , parseInt(ellipticalSpeed) , parseInt(ellipticalDistance));
 		 
       },
 
