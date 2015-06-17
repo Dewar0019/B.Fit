@@ -59,10 +59,6 @@ if (Meteor.isServer){
             });
         },
 
-        'increment': function (armSets, armReps){
-
-        },
-
         'removeExercise': function(exercise) {
             var arr = Meteor.user().savedExercises;
             console.log(arr);

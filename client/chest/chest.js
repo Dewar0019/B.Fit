@@ -2,7 +2,7 @@ if(Meteor.isClient){
 
 	Template.chest.helpers({
 		'chestExercise': function(){
-			return ChestExercises.find({}, {sort: {chestSets: -1}});
+			return ChestExercises.find({}, {sort:Session.get('chestSort')});
 		}
 	})
 
@@ -16,32 +16,43 @@ if(Meteor.isClient){
 			var weight = event.target.weight.value;
 			Meteor.call('addChestExerciseToDB', exercise, parseInt(sets), parseInt(reps), parseInt(weight));
 		},
+
+      'click #nameUp':function(){
+        Session.set('chestSort', {Name: 1});
+        //return ArmExercises.find({}, {sort: {armName: 1}});       
+      },
+
+      'click #nameDown':function(){
+        Session.set('chestSort', {Name: -1});
+        //return ArmExercises.find({}, {sort: {armName: -1}});
+      },
+
 		'click .setsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedSet = Session.get('selectedExer');
-      	ChestExercises.update(selectedSet, {$inc: {chestSets: 1}}); 
+      	ChestExercises.update(selectedSet, {$inc: {Sets: 1}}); 
     	},
 
     	'click .repsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
-      	ChestExercises.update(selectedReps, {$inc: {chestReps: 1}});
+      	ChestExercises.update(selectedReps, {$inc: {Reps: 1}});
     	},
 
     	'click .setsd': function(){
     	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedSet = Session.get('selectedExer');
-      	ChestExercises.update(selectedSet, {$inc: {chestSets: -1}});
+      	ChestExercises.update(selectedSet, {$inc: {Sets: -1}});
     	},
     	
     	'click .repsd': function(){
     	var playerId = this._id;
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
-      	ChestExercises.update(selectedReps, {$inc: {chestReps: -1}});
+      	ChestExercises.update(selectedReps, {$inc: {Reps: -1}});
     	}
 	});
 }
