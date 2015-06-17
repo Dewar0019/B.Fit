@@ -62,7 +62,26 @@
         },
 
 
+        // THE NEXT TWO METHODS WERE COPIED DIRECTLY FROM THE publicastions.js in case it was needed 
+        
+        // 'addRoutine': function(nameOfRoutine) {
+        // },
 
+        // 'addToRoutine': function(selectedExer) {
+        //     if(Meteor.user().savedExercises == null) {
+        //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": [selectedExer]} });
+        //     } else {
+        //         var savedExer = Meteor.user().savedExercises;
+        //         console.log(savedExer.push(selectedExer));
+        //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
+        //     }
+
+
+        // },
+
+
+
+        //THIS IS A SEPRATE COMMENTED OUT BLOCK. 
         // 'addRoutine': function(nameOfRoutine) {
         //      if(Meteor.user().savedExercises == null) {
         //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'savedExercises.': []} });
@@ -73,10 +92,8 @@
             //     Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
             // }
         // },
-    
-        
 
-        // },
+    // },
 
         'addEllipticalWorkoutToDB': function(ellipticalTime , ellipticalSpeed , ellipticalDistance){
             EllipticalWorkout.insert({
