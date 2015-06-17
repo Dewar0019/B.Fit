@@ -115,5 +115,14 @@ if(Meteor.isServer){
             });
 		}
 
+		if(CyclingCardio.find().fetch()==0){
+			CyclingCardio.insert({
+                Time: new Date(), 
+                workoutTime: 10, 
+                Speed: 5,
+                Distance: 3
+            });
+		}
+
 	});
 }
