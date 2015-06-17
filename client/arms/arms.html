@@ -22,27 +22,27 @@
 		{{#each armExercise}}
 
 			<tr class="armExercise {{selectedClass}}">
-				<th> {{armName}}</th> 
+				<th> {{Name}}</th> 
 				<th>
 					<button class="setsd btn btn-default">
 						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 					</button>
-					{{armSets}}
+					{{Sets}}
 					<button class="setsp btn btn-default">
 						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 					</button>
 				</th>
-
 				<th>
-					<button class="repsd">
+					<button class="repsd btn btn-default">
 						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 					</button>
-					{{armReps}}
-					<button class="repsp">
+
+					{{Reps}}
+					<button class="repsp btn btn-default">
 						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 					</button>
 				</th>
-				<th>{{armWeight}}</th>
+				<th>{{Weight}}</th>
 				<th></th><button class="addTo">+</button>
 			</tr>
 		{{/each}}

@@ -3,7 +3,7 @@ if(Meteor.isClient){
 	Template.legs.helpers({
 
 		'legExercise': function(){
-			return LegExercises.find({}, {sort: {legSets: -1}});
+			return LegExercises.find({}, {sort: Session.get('legSort')});
 		},
     	'selectedClass': function (){
       		var playerId = this._id;
@@ -32,6 +32,17 @@ if(Meteor.isClient){
 			var legWeight = event.target.weight.value;
 			Meteor.call('addLegExerciseToDB', legExercise, parseInt(legSets), parseInt(legReps), parseInt(legWeight));
 		},
+
+      'click #nameUp':function(){
+        Session.set('legSort', {legName: 1});
+        //return ArmExercises.find({}, {sort: {armName: 1}});       
+      },
+
+      'click #nameDown':function(){
+        Session.set('legSort', {legName: -1});
+        //return ArmExercises.find({}, {sort: {armName: -1}});
+      },
+
     	'click .setsp': function(){
       	var playerId = this._id;
       	Session.set('selectedExer', playerId);

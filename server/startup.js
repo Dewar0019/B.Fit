@@ -3,17 +3,17 @@ if(Meteor.isServer){
 	Meteor.startup(function(){
 		if (ArmExercises.find().fetch()==0){
 			ArmExercises.insert({
-				armName: "Bicep Curl",
-				armSets: 4,
-				armReps: 15, 
-				armWeight: 20
+				Name: "Bicep Curl",
+				Sets: 4,
+				Reps: 15, 
+				Weight: 20
 			});
 
 			ArmExercises.insert({
-				armName: "Hammer Curl",
-				armSets: 2,
-				armReps: 12,
-				armWeight: 15
+				Name: "Hammer Curl",
+				Sets: 2,
+				Reps: 12,
+				Weight: 15
 			});
 
 		if(Profiles.find().count()== 0 ) {
@@ -21,66 +21,80 @@ if(Meteor.isServer){
 		}
 
 			ArmExercises.insert({
-				armName: "Reverse Curl",
-				armSets: 3,
-				armReps: 10,
-				armWeight: 25
+				Name: "Reverse Curl",
+				Sets: 3,
+				Reps: 10,
+				Weight: 25
 			});
 		}
 
 
 		if (ChestExercises.find().fetch()==0){
 			ChestExercises.insert({
-				chestName: "Chest Press",
-				chestSets: 4,
-				chestReps: 15, 
-				chestWeight: 20
+				Name: "Chest Press",
+				Sets: 4,
+				Reps: 15, 
+				Weight: 20
 			});
 
 			ChestExercises.insert({
-				chestName: "Dips",
-				chestSets: 2,
-				chestReps: 12,
-				chestWeight: 15
+				Name: "Dips",
+				Sets: 2,
+				Reps: 12,
+				Weight: 15
 			});
 
 			ChestExercises.insert({
-				chestName: "Cable Fly",
-				chestSets: 3,
-				chestReps: 10,
-				chestWeight: 25
+				Name: "Cable Fly",
+				Sets: 3,
+				Reps: 10,
+				Weight: 25
 			});
 		}
 
 		if (LegExercises.find().fetch()==0){
 			LegExercises.insert({
-				legName: "Squats",
-				legSets: 4,
-				legReps: 15, 
-				legWeight: "body weight"
+				Name: "Squats",
+				Sets: 4,
+				Reps: 15, 
+				Weight: "body weight"
 			});
 
 			LegExercises.insert({
-				legName: "Step Ups",
-				legSets: 2,
-				legReps: 12,
-				legWeight: 15
+				Name: "Step Ups",
+				Sets: 2,
+				Reps: 12,
+				Weight: 15
 			});
 
 			LegExercises.insert({
-				legName: "Calf Raises",
-				legSets: 3,
-				legReps: 10,
-				legWeight: 25
+				Name: "Calf Raises",
+				Sets: 3,
+				Reps: 10,
+				Weight: 25
 			});
 		}
 
 		if (CoreExercises.find().fetch()==0){
 			CoreExercises.insert({
-				coreName: "Plank",
-				coreSets: 4,
-				coreReps: 15, 
-				coreWeight: "body weight"
+				Name: "Plank",
+				Sets: 4,
+				Reps: 15, 
+				Weight: "body weight"
+			});
+
+			CoreExercises.insert({
+				Name: "Side-Plank",
+				Sets: 3,
+				Reps: 20, 
+				Weight: "body weight"
+			});
+
+			CoreExercises.insert({
+				Name: "Cable crunch",
+				Sets: 3,
+				Reps: 20, 
+				Weight: 50
 			});
 		}
 
