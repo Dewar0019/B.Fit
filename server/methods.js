@@ -106,7 +106,7 @@
         },
 
         'addCyclingCardioToDB': function(cyclingTime , cyclingSpeed , cyclingDistance){
-            CyclingWorkout.insert({
+            CyclingCardio.insert({
                 Time: new Date(), 
                 workoutTime: cyclingTime, 
                 Speed: cyclingSpeed,

@@ -6,8 +6,6 @@ Meteor.publish('coreExercises', function(){return CoreExercises.find();});
 Meteor.publish('ellipticalWorkout', function(){return EllipticalWorkout.find();});
 Meteor.publish('theProfiles', function(){return Profiles.find();});
 Meteor.publish('runningCardio', function(){return RunningCardio.find();});
-
-
 Meteor.publish('cyclingCardio', function(){return CyclingCardio.find();});
 
 Meteor.publish('userExercises', function () { return Meteor.users.find({ _id: this.userId }, { fields: { savedExercises: 1 } });});
