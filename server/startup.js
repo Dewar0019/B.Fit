@@ -1,11 +1,6 @@
 if(Meteor.isServer){
 
 	Meteor.startup(function(){
-
-		
-
-	
-
 		if (ArmExercises.find().fetch()==0){
 			ArmExercises.insert({
 				Name: "Bicep Curl",

@@ -5,6 +5,7 @@ if(Meteor.isClient){
 		'cyclingCardio': function(){
 			return CyclingCardio.find({}, {sort: {cyclingDistance: -1}});
 		},
+    
     	'selectedClass': function (){
       		var playerId = this._id;
       		var selectedExer = Session.get('selectedExer');
