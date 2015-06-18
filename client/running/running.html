@@ -8,7 +8,7 @@
 	<table class="table table-hover">
 		<thead>
 			<tr> 
-				<th>Time</th> <th>Speed</th> <th>Distance</th>
+				<th>Date</th> <th>Time</th> <th>Speed</th> <th>Distance</th>
 			</tr>
 		</thead>
 
@@ -16,6 +16,7 @@
 
 		{{#each runningExercise}}
 			<tr class="runningExercise {{selectedClass}}">
+				<th>{{Time}}</th>
 				<th>
 					<button class="timed btn btn-default btn-sm">
 						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
@@ -29,7 +30,7 @@
 					<button class="speedd btn btn-default btn-sm">
 						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 					</button>
-					{{runningSpeed}}
+					{{Speed}}
 					<button class="speedp btn btn-default btn-sm">
 						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 					</button>
@@ -38,7 +39,7 @@
 					<button class="distanced btn btn-default btn-sm">
 						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 					</button>
-					{{runningDistance}}
+					{{Distance}}
 					<button class="distancep btn btn-default btn-sm">
 						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 					</button>
