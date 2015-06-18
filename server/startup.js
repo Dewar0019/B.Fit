@@ -124,5 +124,13 @@ if(Meteor.isServer){
             });
 		}
 
+		if(WalkingCardio.find().fetch()==0){
+			WalkingCardio.insert({
+                Time: new Date(), 
+                workoutTime: 10, 
+                Distance: 3
+            });
+		}
+
 	});
 }

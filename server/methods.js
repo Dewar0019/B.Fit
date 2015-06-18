@@ -130,5 +130,13 @@
                 Speed: stairMasterSpeed,
                 Distance: stairMasterDistance
             });
+        },
+
+        'addWalkingCardioToDB': function(walkingTime, walkingDistance){
+            CyclingCardio.insert({
+                Time: new Date(), 
+                workoutTime: walkingTime, 
+                Distance: walkingDistance
+            });
         }
     })
