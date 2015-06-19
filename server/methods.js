@@ -124,7 +124,7 @@
         },
 
         'addWalkingCardioToDB': function(walkingTime, walkingDistance){
-            CyclingCardio.insert({
+            WalkingCardio.insert({
                 Time: new Date(), 
                 workoutTime: walkingTime, 
                 Distance: walkingDistance
