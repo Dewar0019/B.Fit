@@ -124,11 +124,20 @@ if(Meteor.isServer){
             });
 		}
 
-		if(WalkingCardio.find().fetch()==0){
-			WalkingCardio.insert({
+		// if(WalkingCardio.find().fetch()==0){
+		// 	WalkingCardio.insert({
+  //               Time: new Date(), 
+  //               workoutTime: 10, 
+  //               Distance: 3
+  //           });
+		// }
+		
+		if(SwimmingWorkout.find().fetch()==0){
+			SwimmingWorkout.insert({
                 Time: new Date(), 
                 workoutTime: 10, 
-                Distance: 3
+                Laps: 20,
+                Distance: 500
             });
 		}
 

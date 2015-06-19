@@ -21,7 +21,7 @@ if(Meteor.isClient){
 
   Template.stairmaster.events({
 
-    'submit #addStairMasterWorkout': function(event){
+    'submit #StairMasterWorkout': function(event){
 
       event.preventDefault();
       console.log("Exercise Added");

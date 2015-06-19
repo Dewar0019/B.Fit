@@ -44,7 +44,7 @@
                 Distance: runningDistance
             });
         },
-         'addStairMasterToDB': function(stairMasterTime, stairMasterSpeed, stairMasterDistance){
+         'addStairMasterWorkoutToDB': function(stairMasterTime, stairMasterSpeed, stairMasterDistance){
             StairMasterWorkout.insert({
                 Time: new Date(), 
                 workoutTime: stairMasterTime,
@@ -123,20 +123,20 @@
             });
         },
 
-        'addStairMasterCardioToDB': function(stairMasterTime, stairMastercyclingSpeed, stairMastercyclingDistance){
-            CyclingCardio.insert({
-                Time: new Date(), 
-                workoutTime: stairMasterTime, 
-                Speed: stairMasterSpeed,
-                Distance: stairMasterDistance
-            });
-        },
-
         'addWalkingCardioToDB': function(walkingTime, walkingDistance){
             CyclingCardio.insert({
                 Time: new Date(), 
                 workoutTime: walkingTime, 
                 Distance: walkingDistance
             });
+        },
+         'addSwimmingWorkoutToDB': function(swimmingTime , swimmingLaps , swimmingDistance){
+            SwimmingWorkout.insert({
+                Time: new Date(), 
+                workoutTime: swimmingTime, 
+                Laps: swimmingLaps,
+                Distance: swimmingDistance
+            });
         }
+
     })
