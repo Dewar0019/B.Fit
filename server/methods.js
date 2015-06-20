@@ -53,11 +53,6 @@
             });
         },
 
-
-        'increment': function (armSets, armReps){
-
-        },
-
         'removeExercise': function(exercise) {
             var arr = Meteor.user().savedExercises;
             console.log(arr);
@@ -146,6 +141,14 @@
                 Name: stretch, 
                 workoutTime: stretchTime, 
             });
+        },
+
+        'addYogaToDB': function(yoga , yogaTime){
+            YogaFlex.insert({ 
+                Name: yoga, 
+                workoutTime: yogaTime, 
+            });
         }
+
 
     })

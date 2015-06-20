@@ -141,5 +141,17 @@ if(Meteor.isServer){
             });
 		}
 
+		if(YogaFlex.find().fetch()==0){
+			YogaFlex.insert({
+				Name: "Side plank",
+				workoutTime: 5
+			});
+
+			YogaFlex.insert({
+				Name: "Seated head to knee",
+				workoutTime: 10
+			});
+		}
+
 	});
 }
