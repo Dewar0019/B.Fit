@@ -1,0 +1,52 @@
+<template name="yoga">
+
+<div>
+	<h1>Yoga</h1>
+</div>
+
+	<hr/>
+	<table class="table table-hover">
+		<thead>
+			<tr> 
+				<th>Exercise
+					<button id="nameUp" class="btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+					</button>
+					<button id="nameDown" class="btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+					</button>
+				</th> 
+				<th>Time</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+		{{#each yogaExercise}}
+			<tr class="yogaExercise {{selectedClass}}">
+				<th>{{Name}}</th>
+				<th>
+					<button class="timed btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{yogaTime}}
+					<button class="timep btn btn-default btn-sm">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</th>
+			</tr>
+		{{/each}}
+
+		</tbody>
+	</table>
+
+
+	<form class="form-inline" id="addyogaExercise">
+		<input class="addyogaExercise" type="text" name="yogaTime" placeholder="Name">
+	    <input class="addyogaExercise" type="text" name="yogaSpeed" placeholder="Time">
+
+  		<input type="submit" class="addyogaExercise btn btn-info" value="Add Exercise">
+	</form>
+
+</template>
+
