@@ -53,11 +53,6 @@
             });
         },
 
-
-        'increment': function (armSets, armReps){
-
-        },
-
         'removeExercise': function(exercise) {
             var arr = Meteor.user().savedExercises;
             console.log(arr);
@@ -130,13 +125,30 @@
                 Distance: walkingDistance
             });
         },
-         'addSwimmingWorkoutToDB': function(swimmingTime , swimmingLaps , swimmingDistance){
+
+        'addSwimmingWorkoutToDB': function(swimmingTime , swimmingLaps , swimmingDistance){
             SwimmingWorkout.insert({
                 Time: new Date(), 
                 workoutTime: swimmingTime, 
                 Laps: swimmingLaps,
                 Distance: swimmingDistance
             });
+        },
+
+        'addStretchToDB': function(stretch , stretchTime){
+            Stretch.insert({
+                Time: new Date(), 
+                Name: stretch, 
+                workoutTime: stretchTime, 
+            });
+        },
+
+        'addYogaToDB': function(yoga , yogaTime){
+            YogaFlex.insert({ 
+                Name: yoga, 
+                workoutTime: yogaTime, 
+            });
         }
+
 
     })
