@@ -9,8 +9,13 @@ Template.profile.events({
 		var routineName = event.target.exercise.value
 		var arr = [routineName];
 		console.log(arr);
+		
         if(savedExercises.findOne({}) == null) {
-        	savedExercises.insert
+        	Routines.insert({
+				_uID: "oeindeow" ,
+			 routineName: "Ice Cream Fitness",
+			 exercises: [],
+			 createdAt: new Date(),
             // Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'savedExercises': [arr]} });
         } else {
                 var savedExer = Meteor.user().savedExercises;

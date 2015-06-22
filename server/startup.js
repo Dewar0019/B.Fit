@@ -16,9 +16,6 @@ if(Meteor.isServer){
 				Weight: 15
 			});
 
-		if(Profiles.find().count()== 0 ) {
-			Profiles.insert({firstName: "Dewar", lastName:"Tan"})
-		}
 
 			ArmExercises.insert({
 				Name: "Reverse Curl",
@@ -27,6 +24,16 @@ if(Meteor.isServer){
 				Weight: 25
 			});
 		}
+
+			if(Routines.find().count()== 0 ) {
+			Routines.insert({
+				_uID: "oeindeow" ,
+			 routineName: "Ice Cream Fitness",
+			 exercises: [],
+			 createdAt: new Date(),
+			})
+		}
+
 
 
 		if (ChestExercises.find().fetch()==0){

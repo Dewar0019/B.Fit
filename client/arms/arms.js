@@ -83,12 +83,12 @@ if(Meteor.isClient){
             console.log(arr);
             var exo = Session.get('goingToAdd');
             exo.createAt = Date();
-            var savedExer = Meteor.user().savedExercises;
+            var savedExer = Routines.find({_uID: Meteor.userId()}).fetch();
             console.log(savedExer[0][0]);
             for(var i = 0; i<savedExer.length; i++) {
                 if(arr[0] == savedExer[i][0]){
                   console.log(savedExer[i].push(exo));
-                  Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
+                 Routines.insert( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
                 }
             }
           }
