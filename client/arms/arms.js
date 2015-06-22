@@ -2,6 +2,10 @@ if(Meteor.isClient){
 
 	Template.arms.helpers({
 
+    'myRoutines' : function() {
+      return Routines.find({_uID: Meteor.userId()}).fetch();
+    },
+
 		'armExercise': function(){
 			return ArmExercises.find({}, {sort: Session.get('armSort')});
 		},
@@ -80,7 +84,6 @@ if(Meteor.isClient){
             var arr = this;
             console.log(arr);
             var exo = Session.get('goingToAdd');
-            exo.createAt = Date();
             var savedExer = Routines.find({_uID: Meteor.userId()}).fetch();
             console.log(savedExer[0][0]);
             for(var i = 0; i<savedExer.length; i++) {
