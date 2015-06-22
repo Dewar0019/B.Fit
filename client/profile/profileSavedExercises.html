@@ -18,9 +18,9 @@
 					<button class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select Routine to Display<span class="caret"></span></a>
           					<ul class="dropdown-menu" role="menu">
-           						{{#each myRoutines}}
+           						{{#each getRoutines}}
            						<!-- Access the first element of each array -->
-           							<li class ="showRoutine">{{this.[0]}}</li>  
+           							<li class ="showRoutine">{{routineName}}</li>  
 
           						 {{/each}}
           					</ul>
@@ -34,8 +34,8 @@
 
 							<tbody>
 
-							{{#each myRoutines}}
-								{{#each  this}}
+							
+								{{#each returnSelected}}
 								<tr>
 									<th>{{Name}} </th> 
 									<th>{{Sets}}</th> 
@@ -44,7 +44,6 @@
 									<th></th><button class="removeExercise btn btn-info">Remove</button>
 								</tr>
 								{{/each}}
-							{{/each}}
 							</tbody>
 						</table>
 			</div>
