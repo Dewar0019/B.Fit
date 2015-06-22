@@ -80,18 +80,22 @@ if(Meteor.isClient){
       },
 
         'click .selectedRoutine' :function() {
-            console.log("this is an array");
-            var arr = this;
-            console.log(arr);
+            console.log("Actual Routine");
+            var getRoutine = this.exercises;
             var exo = Session.get('goingToAdd');
-            var savedExer = Routines.find({_uID: Meteor.userId()}).fetch();
-            console.log(savedExer[0][0]);
-            for(var i = 0; i<savedExer.length; i++) {
-                if(arr[0] == savedExer[i][0]){
-                  console.log(savedExer[i].push(exo));
-                 Routines.insert( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
-                }
-            }
+            console.log("going to add");
+            console.log(exo);
+            getRoutine.push(exo);
+            Routines.update({_id: this._id}, {$set: {exercises: getRoutine}});
+            // Routines.update( {}, { $set: { 'exercises': getRoutine } });
+            // var savedExer = Routines.find({_uID: Meteor.userId()}).fetch();
+            // console.log(savedExer[0][0]);
+            // for(var i = 0; i<savedExer.length; i++) {
+            //     if(arr[0] == savedExer[i]){
+                  
+            //      Routines.insert( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
+            //     }
+            // }
           }
 
           //Keep this code here in case i need to make some changes
