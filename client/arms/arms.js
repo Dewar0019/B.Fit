@@ -1,11 +1,6 @@
 if(Meteor.isClient){
 
 	Template.arms.helpers({
-
-    'myRoutines' : function() {
-      return Routines.find({_uID: Meteor.userId()}).fetch();
-    },
-
 		'armExercise': function(){
 			return ArmExercises.find({}, {sort: Session.get('armSort')});
 		},
@@ -67,26 +62,9 @@ if(Meteor.isClient){
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
       	ArmExercises.update(selectedReps, {$inc: {Reps: -1}});
-    	},
+    	}
 
-      'click .addTo' :function() {
-        console.log("this is exercise");
-        var exercise = this;
-        console.log(exercise);
-        Session.set('goingToAdd', exercise);
-        if(Meteor.userId() == null) {
-          alert("Please log in first");
-        } 
-      },
-
-        'click .selectedRoutine' :function() {
-            console.log("Actual Routine");
-            var getRoutine = this.exercises;
-            var exo = Session.get('goingToAdd');
-            console.log("going to add");
-            console.log(exo);
-            getRoutine.push(exo);
-            Routines.update({_id: this._id}, {$set: {exercises: getRoutine}});
+     
             // Routines.update( {}, { $set: { 'exercises': getRoutine } });
             // var savedExer = Routines.find({_uID: Meteor.userId()}).fetch();
             // console.log(savedExer[0][0]);
@@ -96,7 +74,7 @@ if(Meteor.isClient){
             //      Routines.insert( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
             //     }
             // }
-          }
+          
 
           //Keep this code here in case i need to make some changes
           // if(Meteor.user().savedExercises == null) {
