@@ -3,7 +3,7 @@ if(Meteor.isClient){
 	Template.walking.helpers({
 
 		'walkingCardio': function(){
-			return WalkingCardio.find({}, {sort: {walkingDistance: -1}});
+			return WalkingCardio.find({}, {sort: { workoutTime: -1}});
 		},
     
     	'selectedClass': function (){

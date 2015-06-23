@@ -3,7 +3,7 @@ if(Meteor.isClient){
 	Template.elliptical.helpers({
 
 		'ellipticalWorkout': function(){
-			return EllipticalWorkout.find({}, {sort: {ellipticalTime: -1}});
+			return EllipticalWorkout.find({}, {sort: { workoutTime: -1}});
 		},
     	'selectedClass': function (){
       		var playerId = this._id;

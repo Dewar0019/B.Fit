@@ -3,7 +3,7 @@ if(Meteor.isClient){
   Template.stairmaster.helpers({
 
     'stairMasterWorkout': function(){
-      return StairMasterWorkout.find({}, {sort: {stairMasterTime: -1}});
+      return StairMasterWorkout.find({}, {sort: {workoutTime: -1}});
     },
       'selectedClass': function (){
           var playerId = this._id;
@@ -14,14 +14,14 @@ if(Meteor.isClient){
       },
         'showSelectedExer': function(){
           var selectedExer = Session.get('selectedExer');
-          return stairMasterWorkout.findOne(selectedExer)
+          return StairMasterWorkout.findOne(selectedExer)
       }
 
   });
 
   Template.stairmaster.events({
 
-    'submit #StairMasterWorkout': function(event){
+    'submit #addStairMasterWorkout': function(event){
 
       event.preventDefault();
       console.log("Exercise Added");

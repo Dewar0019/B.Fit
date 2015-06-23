@@ -3,8 +3,9 @@ if(Meteor.isClient){
 	Template.swimming.helpers({
 
 		'swimmingWorkout': function(){
-			return SwimmingWorkout.find({}, {sort: {swimmingTime: -1}});
+			return SwimmingWorkout.find({},{sort: { workoutTime: -1 }});
 		},
+
     	'selectedClass': function (){
       		var playerId = this._id;
       		var selectedExer = Session.get('selectedExer');
