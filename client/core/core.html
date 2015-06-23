@@ -16,7 +16,7 @@
 						<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
 					</button>
 				</th>
-				<th>Number of Sets</th> <th>Number of Repetitions</th> <th>Weight</th>
+				<th>Number of Sets</th> <th>Number of Repetitions</th> <th>Weight</th><th>Add to routine</th>
 			</tr>
 		</thead>
 
@@ -46,6 +46,8 @@
 					</button>		
 				</th>
 				<th>{{Weight}}</th>
+				{{> addToRoutines}}
+
 			</tr>
 		{{/each}}
 

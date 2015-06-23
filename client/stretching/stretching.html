@@ -8,7 +8,7 @@
 	<table class="table table-hover">
 		<thead>
 			<tr> 
-				<th>Date</th> <th>Stretch</th> <th>Time</th>
+				<th>Date</th> <th>Stretch</th> <th>Time</th><th>Add to routine</th>
 			</tr>
 		</thead>
 	<tbody>
@@ -30,6 +30,8 @@
 						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 					</button>
 				</th>
+					{{> addToRoutines}}
+
 			</tr>
 		{{/each}}
 
