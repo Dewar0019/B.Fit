@@ -47,18 +47,18 @@ if(Meteor.isClient){
       SwimmingWorkout.update(selectedTime, {$inc: {workoutTime: -1}});
      	},
 
-    'click .speedp': function(){
+    'click .distancep': function(){
       var playerId = this._id;
       Session.set('selectedExer', playerId);
       var selectedSpeed = Session.get('selectedExer');
       SwimmingWorkout.update(selectedSpeed, {$inc: {Laps: 1}});
       },
     	
-    'click .speedd': function(){
+    'click .distanced': function(){
      	var playerId = this._id;
       Session.set('selectedExer', playerId);
-      var selectedSpeed = Session.get('selectedExer');
-      SwimmingWorkout.update(selectedSpeed, {$inc: {Laps: -1}});
+      var selectedDistance = Session.get('selectedExer');
+      SwimmingWorkout.update(selectedDistance, {$inc: {Laps: -1}});
      	},
 
     'click .distancep': function(){
