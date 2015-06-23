@@ -5,7 +5,7 @@
 </div>
 
 	<hr/>
-	<table class="table table-hover">
+	<table class="table table-hover table-condensed">
 		<thead>
 			<tr> 
 				<th>Exercise/Stretch
@@ -47,14 +47,16 @@
 					</button>
 				</th>
 				<th>{{Weight}}</th>
-				<th></th> <button class="dropdown">
+				<th align="left"> <button class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">+<span class="caret"></span></a>
           					<ul class="dropdown-menu" role="menu">
            						{{#each myRoutines}}
            							<li class ="selectedRoutine">{{routineName}}</li>
           						 {{/each}}
+          						 <li class ="createNewRoutine">Create Your Own!</li>
           					</ul>
         					</button>
+        					</th>
 				</tr>
 		{{/each}}
 
