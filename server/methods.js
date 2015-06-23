@@ -148,6 +148,13 @@
                 Name: yoga, 
                 workoutTime: yogaTime, 
             });
+        },
+
+        'addPilatesToDB': function(pilates , pilatesTime){
+            PilatesFlex.insert({ 
+                Name: pilates, 
+                workoutTime: pilatesTime, 
+            });
         }
 
 
