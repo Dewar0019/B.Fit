@@ -28,7 +28,7 @@ if(Meteor.isClient){
 
 			var swimmingTime = event.target.swimmingTime.value;
 			var swimmingLaps = event.target.swimmingLaps.value;
-			var swimmingDistance = event.target.swimmingDistance.value;
+			var swimmingDistance = event.target.swimmingLaps.value * 25;
 			Meteor.call('addSwimmingWorkoutToDB', parseInt(swimmingTime) , parseInt(swimmingLaps) , parseInt(swimmingDistance));
 		 
       },
@@ -52,28 +52,16 @@ if(Meteor.isClient){
       Session.set('selectedExer', playerId);
       var selectedSpeed = Session.get('selectedExer');
       SwimmingWorkout.update(selectedSpeed, {$inc: {Laps: 1}});
+      SwimmingWorkout.update(selectedSpeed, {$inc: {Distance: 25}});
       },
     	
     'click .distanced': function(){
      	var playerId = this._id;
       Session.set('selectedExer', playerId);
-      var selectedDistance = Session.get('selectedExer');
-      SwimmingWorkout.update(selectedDistance, {$inc: {Laps: -1}});
+      var selectedSpeed = Session.get('selectedExer');
+      SwimmingWorkout.update(selectedSpeed, {$inc: {Laps: -1}});
+      SwimmingWorkout.update(selectedSpeed, {$inc: {Distance: -25}});
      	},
-
-    'click .distancep': function(){
-      var playerId = this._id;
-      Session.set('selectedExer', playerId);
-      var selectedDistance = Session.get('selectedExer');
-      SwimmingWorkout.update(selectedDistance, {$inc: {Distance: 25}});
-      },
-      
-    'click .distanced': function(){
-      var playerId = this._id;
-      Session.set('selectedExer', playerId);
-      var selectedDistance = Session.get('selectedExer');
-      SwimmingWorkout.update(selectedDistance, {$inc: {Distance: -25}});
-      },
 
     'click .addTo' :function() {
       var playerId = this._id;
