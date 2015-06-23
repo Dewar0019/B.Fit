@@ -1,7 +1,7 @@
-<template name="yoga">
+<template name="pilates">
 
 <div>
-	<h1>Yoga</h1>
+	<h1>pilates</h1>
 </div>
 
 	<hr/>
@@ -22,8 +22,8 @@
 
 		<tbody>
 
-		{{#each yogaExercise}}
-			<tr class="yogaExercise {{selectedClass}}">
+		{{#each pilatesExercise}}
+			<tr class="pilatesExercise {{selectedClass}}">
 				<th>{{Name}}</th>
 				<th>
 					<button class="timed btn btn-default btn-sm">
@@ -43,11 +43,11 @@
 	</table>
 
 
-	<form class="form-inline" id="addyogaExercise">
-		<input class="addyogaExercise" type="text" name="yogaName" placeholder="Name">
-	    <input class="addyogaExercise" type="text" name="yogaTime" placeholder="Time">
+	<form class="form-inline" id="addpilatesExercise">
+		<input class="addpilatesExercise" type="text" name="pilatesName" placeholder="Name">
+	    <input class="addpilatesExercise" type="text" name="pilatesTime" placeholder="Time">
 
-  		<input type="submit" class="addyogaExercise btn btn-info" value="Add Exercise">
+  		<input type="submit" class="addpilatesExercise btn btn-info" value="Add Exercise">
 	</form>
 
 </template>

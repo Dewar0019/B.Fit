@@ -12,6 +12,8 @@ Meteor.publish('walkingCardio', function(){return WalkingCardio.find();});
 Meteor.publish('swimmingWorkout', function(){return SwimmingWorkout.find();});
 Meteor.publish('userExercises', function () { return Meteor.users.find({ _id: this.userId }, { fields: { savedExercises: 1 } });});
 Meteor.publish('stretch', function() {return Stretch.find();});
+Meteor.publish('yoga', function() {return YogaFlex.find();});
+Meteor.publish('pilates', function() {return PilatesFlex.find();});
 
 Meteor.users.allow({
   update: function (userId, user, fields, modifier) {
