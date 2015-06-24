@@ -1,5 +1,6 @@
 /*WORKING NOW */
 
+/*Strength Links and Image Placement*/
 #imageOne {
   position: absolute;
   left: 100;
@@ -68,6 +69,7 @@
 
 
 
+/*Flexibility Links and Placement*/
 #imageEleven {
   position: absolute;
   left: 0px;
@@ -80,9 +82,39 @@
   font-size: 40px;
   font-weight: bold;
   left: 100px;
-  top: 900px;
+  top: 925px;
 }
 
+
+#imageTwelve {
+  position: absolute;
+  left: 300px;
+  top: 800px;
+}
+
+#textTwelve {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 390px;
+  top: 925px;
+}
+
+#imageThirteen {
+  position: absolute;
+  left: 600px;
+  top: 800px;
+}
+
+#textThirteen {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 650px;
+  top: 925px;
+}
 
 
 
