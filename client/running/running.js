@@ -70,6 +70,12 @@ if(Meteor.isClient){
       Session.set('selectedExer', playerId);
       var selectedDistance = Session.get('selectedExer');
       RunningCardio.update(selectedDistance, {$inc: {Distance: -1}});
+      },
+    'click .remove': function(){
+      var playerId = this._id;
+      Session.set('selectedInfo',playerId);
+      var selectedInfo = Session.get('selectedInfo');
+      RunningCardio.remove(selectedInfo);
       }
 	});
 

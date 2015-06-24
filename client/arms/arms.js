@@ -13,6 +13,7 @@ if(Meteor.isClient){
 	});
 
 	Template.arms.events({
+    
 
 		'submit #addArmExercise': function(event){
 
@@ -64,6 +65,7 @@ if(Meteor.isClient){
       	ArmExercises.update(selectedReps, {$inc: {Reps: -1}});
     	},
 
+
       'click .addTo' :function() {
         // console.log("this is exercise");
         var exercise = this;
@@ -71,7 +73,14 @@ if(Meteor.isClient){
         Session.set('goingToAdd', exercise);
         if(Meteor.userId() == null) {
           alert("Please log in first");
-        } 
+        }
+      },
+
+      'click .remove': function(){
+        var playerId = this._id;
+        Session.set('selectedInfo',playerId);
+        var selectedInfo = Session.get('selectedInfo');
+        ArmExercises.remove(selectedInfo);
       }
 
      
