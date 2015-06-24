@@ -62,29 +62,20 @@
   top: 250px;
 }
 
-
-
-
-
-
-
-
-
-#imageEleven {
+#imageFive {
   position: absolute;
-  left: 100px;
-  top: 400;
+  left: 100;
+  top: 100;
 }
 
-#textFour {
+#textFive {
   position: absolute;
   color: white;
   font-size: 40px;
   font-weight: bold;
-  left: 1000px;
-  top: 550px;
+  left: 100px;
+  top: 250px;
 }
-
 
 
 
