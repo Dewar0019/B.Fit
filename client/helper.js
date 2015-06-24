@@ -2,24 +2,20 @@ UI.registerHelper('getRoutines', function() {return Routines.find({_uID: Meteor.
 UI.registerHelper('getUserId', function() {return Meteor.userId();});
 
 Template.addToRoutines.events({ 
- 'click .addTo' :function() {
-        console.log("this is exercise");
-        var exercise = this;
-        console.log(exercise);
-        Session.set('goingToAdd', exercise);
-        if(Meteor.userId() == null) {
-          alert("Please log in first");
-        } 
-      },
-
-        'click .selectedRoutine' :function() {
-            console.log("Actual Routine");
-            var getRoutine = this.exercises;
-            console.log(getRoutine);
-            var exo = Session.get('goingToAdd');
-            console.log("going to add");
-            console.log(exo);
-            getRoutine.push(exo);
-            Routines.update({_id: this._id}, {$set: {exercises: getRoutine}});
-        }
+    'click .selectedRoutine' :function() {
+        var getRoutine = this.exercises;
+        var exo = Session.get('goingToAdd'); //This is the selected exercise
+        var currentTime = new Date(); //Grab the current time
+        Intermediate.insert({ //This is the actual object that will be added to the routine
+            Name: exo.Name, 
+            Sets: exo.Sets,
+            Reps: exo.Reps,
+            Weight: exo.Weight,
+            AddedOn: currentTime,
+            AddedBy: Meteor.userId()
+    });
+        var justAdded = Intermediate.findOne({AddedOn: currentTime}); //grab the exercise that was just added
+        getRoutine.push(justAdded);
+        Routines.update({_id: this._id}, {$set: {exercises: getRoutine}});
+    }
     })

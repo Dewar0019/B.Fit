@@ -62,7 +62,17 @@ if(Meteor.isClient){
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
       	ArmExercises.update(selectedReps, {$inc: {Reps: -1}});
-    	}
+    	},
+
+      'click .addTo' :function() {
+        // console.log("this is exercise");
+        var exercise = this;
+        // console.log(exercise);
+        Session.set('goingToAdd', exercise);
+        if(Meteor.userId() == null) {
+          alert("Please log in first");
+        } 
+      }
 
      
             // Routines.update( {}, { $set: { 'exercises': getRoutine } });

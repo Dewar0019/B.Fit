@@ -16,7 +16,7 @@
 
 					<hr/>
 					<button class="dropdown">
-          					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select Routine to Display<span class="caret"></span></a>
+          					<a href="#" class="dropdown-toggle routineList" data-toggle="dropdown" role="button" aria-expanded="false">Select Routine to Display<span class="caret"></span></a>
           					<ul class="dropdown-menu" role="menu">
            						{{#each getRoutines}}
            						<!-- Access the first element of each array -->
@@ -36,7 +36,7 @@
 
 							
 								{{#each returnSelected}}
-								<tr>
+								<tr class= "selectedForEdit">
 									<th>{{Name}} </th> 
 									<th>{{Sets}}</th> 
 									<th>{{Reps}}</th> 
