@@ -65,10 +65,10 @@ if(Meteor.isClient){
       	ArmExercises.update(selectedReps, {$inc: {Reps: -1}});
     	},
       'click .remove': function(){
-      var playerId = this._id;
-      Session.set('selectedInfo',playerId);
-          var selectedInfo = Session.get('selectedInfo');
-          ArmExercises.remove(selectedInfo);
+        var playerId = this._id;
+        Session.set('selectedInfo',playerId);
+        var selectedInfo = Session.get('selectedInfo');
+        ArmExercises.remove(selectedInfo);
       }
 
      

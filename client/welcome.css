@@ -15,12 +15,12 @@
   top: 250px;
 }
 
-
 #imageTwo {
   position: absolute;
   left: 300px;
   top: 100;
 }
+
 
 #textTwo {
   position: absolute;
@@ -62,6 +62,7 @@
   top: 250px;
 }
 
+
 #imageFive {
   position: absolute;
   left: 100;
@@ -69,26 +70,26 @@
 }
 
 #textFive {
+
+
+
+
+
+
+
+#imageEleven {
+  position: absolute;
+  left: 0px;
+  top: 800px;
+}
+
+#textEleven {
   position: absolute;
   color: white;
   font-size: 40px;
   font-weight: bold;
   left: 100px;
   top: 250px;
+  top: 900px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
