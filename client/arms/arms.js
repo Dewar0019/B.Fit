@@ -1,7 +1,7 @@
 if(Meteor.isClient){
 
 	Template.arms.helpers({
-		'armExercise': function(){
+		'exercises': function(){
 			return ArmExercises.find({}, {sort: Session.get('armSort')});
 		},
 
@@ -67,9 +67,7 @@ if(Meteor.isClient){
 
 
       'click .addTo' :function() {
-        // console.log("this is exercise");
-        var exercise = this;
-        // console.log(exercise);
+        var exercise = this; //selected exercise
         Session.set('goingToAdd', exercise);
         if(Meteor.userId() == null) {
           alert("Please log in first");

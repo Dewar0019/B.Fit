@@ -59,6 +59,14 @@ if(Meteor.isClient){
         Session.set('selectedInfo',playerId);
         var selectedInfo = Session.get('selectedInfo');
         ChestExercises.remove(selectedInfo);
+      },
+
+      'click .addTo' :function() {
+        var exercise = this; //selected exercise
+        Session.set('goingToAdd', exercise); //store selected exercise
+        if(Meteor.userId() == null) {
+          alert("Please log in first");
+        }
       }
 	});
 }

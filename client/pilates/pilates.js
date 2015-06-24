@@ -60,6 +60,14 @@ if(Meteor.isClient){
       Session.set('selectedInfo',playerId);
       var selectedInfo = Session.get('selectedInfo');
       PilatesFlex.remove(selectedInfo);
+      },
+
+      'click .addTo' :function() {
+        var exercise = this; //selected exercise
+        Session.set('goingToAdd', exercise);
+        if(Meteor.userId() == null) {
+          alert("Please log in first");
+        }
       }
 	});
 

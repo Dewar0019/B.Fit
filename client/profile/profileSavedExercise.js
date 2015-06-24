@@ -4,9 +4,13 @@ Template.profileSavedExercises.helpers({
 		console.log(getSelected);
 		if(getSelected !== undefined) 
 			return getSelected.exercises;
-	},
+	}
 
-	
+	// showRoutine : function() {
+	// 	return (getSelected !== undefined);
+	// }
+
+
 
 })
 

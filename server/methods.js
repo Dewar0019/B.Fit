@@ -53,19 +53,6 @@
             });
         },
 
-        'removeExercise': function(exercise) {
-            var arr = Meteor.user().savedExercises;
-            console.log(arr);
-            for(var i = 0; i<arr.length; i++) {
-                console.log(arr[i]._id);
-                if(arr[i]._id == exercise) {
-                    console.log("done");
-                    arr.splice(i, 1);
-                    return;
-                }
-            }
-        },
-
         // THE NEXT TWO METHODS WERE COPIED DIRECTLY FROM THE publicastions.js IN CASE IT WAS NEEDED 
         
         // 'addRoutine': function(nameOfRoutine) {

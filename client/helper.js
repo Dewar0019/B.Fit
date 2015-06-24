@@ -18,5 +18,9 @@ Template.addToRoutines.events({
         var justAdded = Intermediate.findOne({AddedOn: currentTime}); //grab the exercise that was just added
         getRoutine.push(justAdded);
         Routines.update({_id: this._id}, {$set: {exercises: getRoutine}});
+    },
+
+    'click .createNewRoutine' : function() {
+           
     }
     })
