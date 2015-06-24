@@ -68,7 +68,13 @@ if(Meteor.isClient){
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
       	CoreExercises.update(selectedReps, {$inc: {Reps: -1}});
-    	}
+    	},
+      'click .remove': function(){
+        var playerId = this._id;
+        Session.set('selectedInfo',playerId);
+        var selectedInfo = Session.get('selectedInfo');
+        CoreExercises.remove(selectedInfo);
+      }
 	});
 
 }
