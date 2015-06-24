@@ -1,9 +1,4 @@
-#linkOne {
-  height: 400px;
-  width: 400px;
-  position: relative;
-}
-
+/*WORKING NOW */
 
 #imageOne {
   position: absolute;
@@ -17,5 +12,5 @@
   font-size: 40px;
   font-weight: bold;
   left: 100px;
-  top: 100px;
+  top: 250px;
 }
