@@ -70,6 +70,12 @@ if(Meteor.isClient){
       console.log(tt);
       Meteor.call('addToRoutine', tt);
       console.log("called");
+      },
+    'click .remove': function(){
+        var playerId = this._id;
+        Session.set('selectedInfo',playerId);
+        var selectedInfo = Session.get('selectedInfo');
+        SwimmingWorkout.remove(selectedInfo);
       }
   });
 
