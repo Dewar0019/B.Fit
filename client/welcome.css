@@ -1,0 +1,21 @@
+#linkOne {
+  height: 400px;
+  width: 400px;
+  position: relative;
+}
+
+
+#imageOne {
+  position: absolute;
+  left: 100;
+  top: 100;
+}
+
+#textOne {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 100px;
+  top: 100px;
+}
