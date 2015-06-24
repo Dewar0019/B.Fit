@@ -63,17 +63,108 @@
   top: 250px;
 }
 
+#imageFive {
+  position: absolute;
+  left: 0px;
+  top: 450px;
+}
 
+#textFive {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 70px;
+  top: 250px;
+  top: 570px;
+}
 
+#imageSix {
+  position: absolute;
+  left: 300px;
+  top: 450px;
+}
 
+#textSix {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 375px;
+  top: 250px;
+  top: 570px;
+}
 
+#imageSeven {
+  position: absolute;
+  left: 600px;
+  top: 450px;
+}
 
+#textSeven {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 655px;
+  top: 250px;
+  top: 570px;
+}
 
 /*Flexibility Links and Placement*/
+
+#imageEight {
+  position: absolute;
+  left: 900px;
+  top: 450px;
+}
+
+#textEight {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 970px;
+  top: 250px;
+  top: 570px;
+}
+
+#imageNine {
+  position: absolute;
+  left: 1200px;
+  top: 450px;
+}
+
+#textNine {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 1265px;
+  top: 250px;
+  top: 570px;
+}
+
+#imageTen {
+  position: absolute;
+  left: 1500px;
+  top: 450px;
+}
+
+#textTen {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 1600px;
+  top: 250px;
+  top: 550px;
+}
+
 #imageEleven {
   position: absolute;
   left: 0px;
-  top: 800px;
+  top: 780px;
 }
 
 #textEleven {
@@ -82,9 +173,9 @@
   font-size: 40px;
   font-weight: bold;
   left: 100px;
-  top: 925px;
+  top: 250px;
+  top: 900px;
 }
-
 
 #imageTwelve {
   position: absolute;
@@ -115,7 +206,6 @@
   left: 650px;
   top: 925px;
 }
-
 
 
 
