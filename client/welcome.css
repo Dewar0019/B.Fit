@@ -30,3 +30,40 @@
   left: 400px;
   top: 250px;
 }
+
+#imageThree {
+  position: absolute;
+  left: 600px;
+  top: 100;
+}
+
+#textThree {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 700px;
+  top: 250px;
+}
+
+
+#imageFour {
+  position: absolute;
+  left: 900px;
+  top: 100;
+}
+
+#textFour {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 1000px;
+  top: 250px;
+}
+
+
+
+
+
+
