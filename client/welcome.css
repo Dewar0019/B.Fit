@@ -15,7 +15,6 @@
   top: 250px;
 }
 
-
 #imageTwo {
   position: absolute;
   left: 300px;
@@ -69,33 +68,20 @@
 
 
 
-/*
-
 #imageEleven {
   position: absolute;
-  left: 100px;
-  top: 400px;
+  left: 0px;
+  top: 800px;
 }
 
-#textFour {
+#textEleven {
   position: absolute;
   color: white;
   font-size: 40px;
   font-weight: bold;
-  left: 1000px;
-  top: 550px;
+  left: 100px;
+  top: 900px;
 }
-
-
-
-
-
-
-
-
-
-*/
-
 
 
 
