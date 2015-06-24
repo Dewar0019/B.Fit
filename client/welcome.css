@@ -67,3 +67,37 @@
 
 
 
+
+
+
+#imageEleven {
+  position: absolute;
+  left: 100px;
+  top: 400;
+}
+
+#textFour {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 1000px;
+  top: 550px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
