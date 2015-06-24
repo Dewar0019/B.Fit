@@ -14,3 +14,19 @@
   left: 100px;
   top: 250px;
 }
+
+
+#imageTwo {
+  position: absolute;
+  left: 300px;
+  top: 100;
+}
+
+#textTwo {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  left: 400px;
+  top: 250px;
+}
