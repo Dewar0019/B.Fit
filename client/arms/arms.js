@@ -13,6 +13,7 @@ if(Meteor.isClient){
 	});
 
 	Template.arms.events({
+    
 
 		'submit #addArmExercise': function(event){
 
@@ -62,7 +63,13 @@ if(Meteor.isClient){
       	Session.set('selectedExer', playerId);
       	var selectedReps = Session.get('selectedExer');
       	ArmExercises.update(selectedReps, {$inc: {Reps: -1}});
-    	}
+    	},
+      'click .remove': function(){
+      var playerId = this._id;
+      Session.set('selectedInfo',playerId);
+          var selectedInfo = Session.get('selectedInfo');
+          ArmExercises.remove(selectedInfo);
+      }
 
      
             // Routines.update( {}, { $set: { 'exercises': getRoutine } });
