@@ -160,5 +160,17 @@ if(Meteor.isServer){
 			});
 		}
 
+		if(PilatesFlex.find().fetch()==0){
+			PilatesFlex.insert({
+				Name: "Saw",
+				workoutTime: 5
+			});
+
+			PilatesFlex.insert({
+				Name: "Bicycle",
+				workoutTime: 10
+			});
+		}
+
 	});
 }

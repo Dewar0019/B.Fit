@@ -3,7 +3,7 @@ if(Meteor.isClient){
 	Template.cycling.helpers({
 
 		'cyclingCardio': function(){
-			return CyclingCardio.find({}, {sort: {cyclingDistance: -1}});
+			return CyclingCardio.find({}, {sort: { workoutTime: -1 }});
 		},
     
     	'selectedClass': function (){
