@@ -54,6 +54,12 @@ if(Meteor.isClient){
       Session.set('selectedExer', playerId);
       var selectedTime = Session.get('selectedExer');
       PilatesFlex.update(selectedTime, {$inc: {workoutTime: -1}});
+      },
+    'click .remove': function(){
+      var playerId = this._id;
+      Session.set('selectedInfo',playerId);
+      var selectedInfo = Session.get('selectedInfo');
+      PilatesFlex.remove(selectedInfo);
       }
 	});
 
