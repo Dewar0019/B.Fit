@@ -64,7 +64,7 @@ if(Meteor.isServer){
 				Name: "Squats",
 				Sets: 4,
 				Reps: 15, 
-				Weight: "body weight"
+				Weight: 160
 			});
 
 			LegExercises.insert({
@@ -87,14 +87,14 @@ if(Meteor.isServer){
 				Name: "Plank",
 				Sets: 4,
 				Reps: 15, 
-				Weight: "body weight"
+				Weight: 150
 			});
 
 			CoreExercises.insert({
 				Name: "Side-Plank",
 				Sets: 3,
 				Reps: 20, 
-				Weight: "body weight"
+				Weight: 150
 			});
 
 			CoreExercises.insert({
