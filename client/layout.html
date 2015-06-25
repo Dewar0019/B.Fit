@@ -10,16 +10,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{#if currentUser}}
 
-      <a class="navbar-brand" href="/profile/{{getUserId}}">
-            Project Workout Webpage</a>
+      <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="{{pathFor 'welcome'}}">
+          <button class="btn btn-default">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+          </button>
+        </a></li>
+        <li><a href="{{pathFor 'about'}}">About</a></li>
+    </ul>    
+    </div>
 
-      {{else}}
-      <a class="navbar-brand" href="{{pathFor 'welcome'}}">
-            Project Workout Webpage</a>
-            {{ /if }}
-		    </div>
+      
+	</div>
  
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -28,8 +32,6 @@
         {{#if currentUser}}
         <li><a href="/profile/{{getUserId}}">My Profile</a></li>
         
-        
-        <li><a href="{{pathFor 'about'}}">About</a></li>
         
 
         <!-- SEARCH BAR: -->
