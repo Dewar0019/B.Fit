@@ -2,8 +2,9 @@ Template.profileSavedExercises.helpers({
 	returnSelected : function() {
 		var getSelected = Session.get("selectedRoutine");
 		console.log(getSelected);
-		if(getSelected !== undefined) 
+		if(getSelected !== undefined) {
 			return getSelected.exercises;
+		}
 	}
 
 	// showRoutine : function() {
@@ -20,6 +21,12 @@ Template.profileSavedExercises.events({
 		Session.set("selectedRoutine", getRoutines);
 		$(".routineList").html(getRoutines.routineName);
 
+	},
+		'submit #createNewRoutine': function() {
+		event.preventDefault();
+		var name = event.target.exercise.value
+            Meteor.call('createNewRoutine', name)
+		event.target.exercise.value = "";
 	},
 
 	'click .removeExercise': function() {

@@ -15,13 +15,17 @@
 					</div>
 
 					<hr/>
+					<form class="form-inline" id="createNewRoutine">	
+					    <input class="form-group" type="text" name="exercise" onsubmit="{{createRoutine}}" placeholder="Create Routine">   	
+					    <input type="submit" class="btn btn-info">
+				</form>
+				<br/>
 					<button class="dropdown">
           					<a href="#" class="dropdown-toggle routineList" data-toggle="dropdown" role="button" aria-expanded="false">Select Routine to Display<span class="caret"></span></a>
           					<ul class="dropdown-menu" role="menu">
            						{{#each getRoutines}}
            						<!-- Access the first element of each array -->
            							<li class ="showRoutine">{{routineName}}</li>  
-
           						 {{/each}}
           					</ul>
         					</button>
@@ -31,10 +35,7 @@
 									<th>Exercise/Stretch</th> <th>Number of Sets</th> <th>Number of Repetitions</th> <th>Weight</th>
 								</tr>
 							</thead>
-
 							<tbody>
-
-							
 								{{#each returnSelected}}
 								<tr class= "selectedForEdit">
 									<th>{{Name}} </th> 

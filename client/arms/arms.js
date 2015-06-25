@@ -1,7 +1,7 @@
 if(Meteor.isClient){
 
 	Template.arms.helpers({
-		'exercises': function(){
+		'armExercise': function(){
 			return ArmExercises.find({}, {sort: Session.get('armSort')});
 		},
 

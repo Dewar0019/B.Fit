@@ -8,6 +8,31 @@
             });
         },
 
+        'createNewRoutine' : function(name) {
+              Routines.insert({
+             _uID: Meteor.userId() ,
+             routineName: name,
+             exercises: [],
+             createdAt: new Date()
+            });
+        },
+
+        'createIntermediate': function(exo, getRoutine) {
+            var currentTime = new Date(); //Grab the current time
+            Intermediate.insert({ //This is the actual object that will be added to the routine
+                Name: exo.Name, 
+                Sets: exo.Sets,
+                Reps: exo.Reps,
+                Weight: exo.Weight,
+                AddedOn: currentTime,
+                AddedBy: Meteor.userId()
+            });
+             var justAdded = Intermediate.findOne({AddedOn: currentTime}); //grab the exercise that was just added
+             getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
+            Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
+
+         },   
+
         'addChestExerciseToDB': function(chestExercise, chestSets, chestReps, chestWeight){
             ChestExercises.insert({
                 Name: chestExercise, 
