@@ -5,14 +5,11 @@ Template.profileSavedExercises.helpers({
 		if(getSelected !== undefined) {
 			return getSelected.exercises;
 		}
+	},
+
+	photo : function(){ // returns the URL of the gravatar photo for this email
+		return Gravatar.imageUrl(Gravatar.hash(this.emails[0].address,{secure:true}))
 	}
-
-	// showRoutine : function() {
-	// 	return (getSelected !== undefined);
-	// }
-
-
-
 })
 
 Template.profileSavedExercises.events({
