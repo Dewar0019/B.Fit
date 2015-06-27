@@ -1,4 +1,4 @@
-Session.setDefault("searchCategory","All");
+Session.setDefault("All");
 
 Template.layout.events({
 	'submit #searchForm': function(event) {
@@ -7,7 +7,7 @@ Template.layout.events({
 		Session.set("searchTerm",s);
 
 		
-		Router.go('/search/'+Session.get("searchTerm"));
+		Router.go(Session.get("searchTerm"));
 	},
 	// changes category in the dropdown
 	'click #selectSearchType li a':function(event) {
@@ -17,7 +17,5 @@ Template.layout.events({
 
   		// append the caret
   		$(event.target).parents('.btn-group').find('.btn').append('&nbsp;<span class="caret"></span>');
-
-  		Session.set("searchCategory",$(event.target).text());
 	}
 });
