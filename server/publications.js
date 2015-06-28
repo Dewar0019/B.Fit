@@ -15,6 +15,9 @@ Meteor.publish('stretch', function() {return Stretch.find();});
 Meteor.publish('yoga', function() {return YogaFlex.find();});
 Meteor.publish('pilates', function() {return PilatesFlex.find();});
 
+Meteor.publish('exercises', function() {return Exercises.find();});
+
+
 // Meteor.users.allow({
 //   update: function (userId, user, fields, modifier) {
 //     // can only change your own documents
