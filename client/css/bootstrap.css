@@ -7,6 +7,23 @@
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
 
+.circle {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px; 
+  background: orange;
+  /* width and height can be anything, as long as they're equal */
+}
+
+.centered {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
