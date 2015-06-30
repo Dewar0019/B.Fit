@@ -1,4 +1,9 @@
     Meteor.methods({
+        'searchButton' : function(input) {
+              Search.find({
+             input: input
+            });
+        },
         'addArmExerciseToDB': function(armExercise, armSets, armReps, armWeight){
             ArmExercises.insert({
                 Name: armExercise, 
