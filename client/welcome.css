@@ -2,6 +2,11 @@
 
 /*Strength Links and Image Placement*/
 
+#mainImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 #loginButton {
@@ -10,18 +15,20 @@
   width: 200px;
   height: 50px; 
   background: black;
-  top: 380px;
+  top: 400px;
+  left: 540px;
   /* width and height can be anything, as long as they're equal */
 }
 
 #loginText {
-  position: absolute;
+  position: relative;
   color: red;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
-  left: 100px;
-  top: 380px;
-  }
+  top: 400;
+  left: 50px;
+}
+
 
 
 #imageOne {
@@ -229,7 +236,3 @@
   left: 650px;
   top: 925px;
 }
-
-
-
-

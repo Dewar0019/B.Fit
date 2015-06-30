@@ -1,25 +1,8 @@
 <template name = "welcome">
-<div class = "container">
-	<div class= "row">
-		<div class ="centered">
-		 	<img id="imageOne" src="images/circle.png" width="300" height="300">
-		 	<p id="textOne"> B.Fit </p>	
 
-		 	<div id="loginButton"> 
-		 		<p id="loginText"> Login </p>
-		 	</div>
+	{{#if currentUser}}
 
-	</div>
-	</div>
-	</div>
-		
-
-<!-- 	<h1>Our Workout Website</h1>
-
-		
-		
-		<a href="{{pathFor 'arms'}}">
-			
+	<a href="{{pathFor 'arms'}}">
 			
 		</a>
 
@@ -86,8 +69,15 @@
 			<img id="imageThirteen" src="images/circled.png" width="300" height="300">
 			<p id="textThirteen"> Stretching </p>
 		</a>
- -->
 
+	{{else}}
+			
+		<img id="mainImage" src="images/logo.png" width="300" height="300">
 
+		<!-- <div id="loginButton"> 
+			<p id="loginText"> Sign in </p>
+		</div> -->
+
+	{{/if}}
 
 </template>
