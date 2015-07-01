@@ -4,14 +4,6 @@
              input: input
             });
         },
-        'addArmExerciseToDB': function(armExercise, armSets, armReps, armWeight){
-            ArmExercises.insert({
-                Name: armExercise, 
-                Sets: armSets,
-                Reps: armReps,
-                Weight: armWeight
-            });
-        },
 
         'createNewRoutine' : function(name) {
               Routines.insert({
@@ -36,16 +28,7 @@
              getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
             Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
 
-         },   
-
-        'addChestExerciseToDB': function(chestExercise, chestSets, chestReps, chestWeight){
-            ChestExercises.insert({
-                Name: chestExercise, 
-                Sets: chestSets,
-                Reps: chestReps,
-                Weight: chestWeight
-            });
-        },
+         },
 
 
         'addLegExerciseToDB': function(legExercise, legSets, legReps, legWeight){
@@ -55,33 +38,9 @@
                 Reps: legReps,
                 Weight: legWeight
             });
-        },
+        }
+    })
 
-        'addCoreExerciseToDB': function(coreExercise, coreSets, coreReps, coreWeight){
-            CoreExercises.insert({
-                Name: coreExercise, 
-                Sets: coreSets,
-                Reps: coreReps,
-                Weight: coreWeight
-            });
-        },
-
-        'addRunningCardioToDB': function(runningTime, runningSpeed, runningDistance){
-            RunningCardio.insert({
-                Time: new Date(), 
-                workoutTime: runningTime,
-                Speed: runningSpeed,
-                Distance: runningDistance
-            });
-        },
-         'addStairMasterWorkoutToDB': function(stairMasterTime, stairMasterSpeed, stairMasterDistance){
-            StairMasterWorkout.insert({
-                Time: new Date(), 
-                workoutTime: stairMasterTime,
-                Speed: stairMasterSpeed,
-                Distance: stairMasterDistance
-            });
-        },
 
         // THE NEXT TWO METHODS WERE COPIED DIRECTLY FROM THE publicastions.js IN CASE IT WAS NEEDED 
         
@@ -114,65 +73,4 @@
             // }
         // },
 
-    // },
-
-
-        'addEllipticalWorkoutToDB': function(ellipticalTime , ellipticalSpeed , ellipticalDistance){
-            EllipticalWorkout.insert({
-                Time: new Date(), 
-                workoutTime: ellipticalTime, 
-                Speed: ellipticalSpeed,
-                Distance: ellipticalDistance
-            });
-        },
-
-        'addCyclingCardioToDB': function(cyclingTime , cyclingSpeed , cyclingDistance){
-            CyclingCardio.insert({
-                Time: new Date(), 
-                workoutTime: cyclingTime, 
-                Speed: cyclingSpeed,
-                Distance: cyclingDistance
-            });
-        },
-
-        'addWalkingCardioToDB': function(walkingTime, walkingDistance){
-            WalkingCardio.insert({
-                Time: new Date(), 
-                workoutTime: walkingTime, 
-                Distance: walkingDistance
-            });
-        },
-
-        'addSwimmingWorkoutToDB': function(swimmingTime , swimmingLaps , swimmingDistance){
-            SwimmingWorkout.insert({
-                Time: new Date(), 
-                workoutTime: swimmingTime, 
-                Laps: swimmingLaps,
-                Distance: swimmingDistance
-            });
-        },
-
-        'addStretchToDB': function(stretch , stretchTime){
-            Stretch.insert({
-                Time: new Date(), 
-                Name: stretch, 
-                workoutTime: stretchTime, 
-            });
-        },
-
-        'addYogaToDB': function(yoga , yogaTime){
-            YogaFlex.insert({ 
-                Name: yoga, 
-                workoutTime: yogaTime, 
-            });
-        },
-
-        'addPilatesToDB': function(pilates , pilatesTime){
-            PilatesFlex.insert({ 
-                Name: pilates, 
-                workoutTime: pilatesTime, 
-            });
-        }
-
-
-    })
+    // }
