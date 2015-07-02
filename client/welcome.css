@@ -2,7 +2,7 @@
 
 /*Strength Links and Image Placement*/
 
-#mainImage {
+#profileImage {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -29,25 +29,30 @@
     left: 50px;
 }
 
-#progressLink{
+#progressImage{
     position: absolute;
     margin-left:6%;
-    margin-top: 7%;
+    margin-top: 5%;
 
 }
 
-#beginLink{
+#beginImage{
     position: absolute;
     margin-left:40%;
-    margin-top: 17%;
+    margin-top: 12%;
 
 }
-#createRoutine{
+#createRoutineImage{
     position: absolute;
-    margin-left:10%;
-    margin-top: 43%;
+    margin-left:14%;
+    margin-top: 38%;
 }
 
+#line{
+    background-color: #939393;
+    color: #eee;
+    height:1px;
+}
 /*
 #imageOne {
   position: absolute;
