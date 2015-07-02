@@ -7,7 +7,7 @@
     {{/ionNavView}}
   {{/ionBody}}
 
-
+{{#if currentUser}}
   {{#ionTabs class="tabs-positive tabs-icon-top"}}
     {{> ionTab title="Home" path="welcome" iconOff="ios-home" iconOn="ios-home"}}
     {{> ionTab title="Routines" path="Routines" iconOff="android-bicycle" iconOn="android-bicycle"}}
@@ -15,6 +15,6 @@
     {{> ionTab title="Analytics" path="chart" iconOff="stats-bars" iconOn="stats-bars"}}
     {{> ionTab title="Voice" path="profile" iconOff="mic-a" iconOn="mic-a"}}
   {{/ionTabs}}
-
+{{/if}}
 </template>
 
