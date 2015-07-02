@@ -1,4 +1,5 @@
 <template name="layout">
+<<<<<<< HEAD
   <!-- From bootstrap: -->
   <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -92,6 +93,23 @@
   </div><!-- /.container-fluid -->
 </nav>
 {{> yield}}
-</template>
+=======
+  
+  {{#ionBody}}
+    {{> ionNavBar class="bar-positive"}}
+    {{#ionNavView}}
 
+      {{> yield}}
+    {{/ionNavView}}
+  {{/ionBody}}
+
+
+  {{#ionTabs class="tabs-positive tabs-icon-top"}}
+    {{> ionTab title="Home" path="welcome" iconOff="ios-home" iconOn="ios-home"}}
+    {{> ionTab title="Routines" path="Routines" iconOff="android-bicycle" iconOn="android-bicycle"}}
+    {{> ionTab title="Profile" path="profile" iconOff="person" iconOn="person"}}
+    {{> ionTab title="Voice" path="profile" iconOff="mic-a" iconOn="mic-a"}}
+  {{/ionTabs}}
+>>>>>>> dewar
+</template>
 

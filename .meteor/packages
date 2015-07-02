@@ -8,10 +8,15 @@ meteor-platform
 autopublish
 insecure
 iron:router
-twbs:bootstrap
 accounts-password
-less
-ian:accounts-ui-bootstrap-3
-simple:imgur
 jparker:gravatar
+<<<<<<< HEAD
 d3js:d3
+=======
+meteoric:ionic
+meteoric:ionic-sass
+meteoric:ionicons-sass
+meteoric:autoform-ionic
+fourseven:scss
+useraccounts:ionic
+>>>>>>> dewar
