@@ -1,83 +1,33 @@
 <template name = "welcome">
 
-	{{#if currentUser}}
-
-	<a href="{{pathFor 'arms'}}">
-			
-		</a>
-
-		<a href="{{pathFor 'legs'}}">
-			<img id="imageTwo" src="images/circle.png" width="300" height="300">
-			<p id="textTwo"> Legs </p>
-		</a>
-
-		<a href="{{pathFor 'core'}}">
-			<img id="imageThree" src="images/circle.png" width="300" height="300">
-			<p id="textThree"> Core </p>
-		</a>
-
-		<a href="{{pathFor 'chest'}}">
-			<img id="imageFour" src="images/circle.png" width="300" height="300">
-			<p id="textFour"> Chest </p>
-		</a>
-
 		
-		
-		<a href="{{pathFor 'running'}}">
-			<img id="imageFive" src="images/circley.png" width="300" height="300">
-			<p id="textFive"> Running </p>
-		</a>
+	{{if currentUser}}
 
-		<a href="{{pathFor 'cycling'}}">
-			<img id="imageSix" src="images/circley.png" width="300" height="300">
-			<p id="textSix"> Cycling </p>
-		</a>
+		{{#ionView}}
+	      {{#ionContent}}
+	      		
 
-		<a href="{{pathFor 'swimming'}}">
-			<img id="imageSeven" src="images/circley.png" width="300" height="300">
-			<p id="textSeven"> Swimming </p>
-		</a>
+				<img id="mainImage" src="{{photo}}?s=150" width="300" height="300">
 
-		<a href="{{pathFor 'walking'}}">
-			<img id="imageEight" src="images/circley.png" width="300" height="300">
-			<p id="textEight"> Walking </p>
-		</a>
-		
-		<a href="{{pathFor 'elliptical'}}">
-			<img id="imageNine" src="images/circley.png" width="300" height="300">
-			<p id="textNine"> Elliptical </p>
-		</a>
-
-		<a href="{{pathFor 'stairmaster'}}">
-			<img id="imageTen" src="images/circley.png" width="300" height="300">
-			<p id="textTen"> Stair Mater </p>
-		</a>
-
- 
- 
-		<a href="{{pathFor 'yoga'}}">
-			<img id="imageEleven" src="images/circled.png" width="300" height="300">
-			<p id="textEleven"> Yoga </p>
-		</a>
-
-		<a href="{{pathFor 'pilates'}}">
-			<img id="imageTwelve" src="images/circled.png" width="300" height="300">
-			<p id="textTwelve"> Pilates </p>
-		</a>
-
-		<a href="{{pathFor 'stretching'}}">
-			<img id="imageThirteen" src="images/circled.png" width="300" height="300">
-			<p id="textThirteen"> Stretching </p>
-		</a>
+			{{/ionContent}}
+	    {{/ionView}}
 
 	{{else}}
+
 			
-		<img id="mainImage" src="images/logo.png" width="300" height="300">
+
+		{{#ionView}}
+	      {{#ionContent}}
+	      		<img id="mainImage" src="images/logo.png" width="300" height="300">
+
+			{{/ionContent}}
+	    {{/ionView}}
+
+    {{/if}}
+
 
 		<!-- <div id="loginButton"> 
 			<p id="loginText"> Sign in </p>
 		</div> -->
-
-	{{/if}}
 
 </template>
