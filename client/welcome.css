@@ -2,6 +2,12 @@
 
 /*Strength Links and Image Placement*/
 
+#logo {
+  display: block;
+  margin-left: auto;
+    margin-right: auto;
+}
+
 #profileImage {
     display: block;
     margin-left: auto;
