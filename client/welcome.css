@@ -20,15 +20,6 @@
   /* width and height can be anything, as long as they're equal */
 }
 
-#loginText {
-    position: relative;
-    color: red;
-    font-size: 30px;
-    font-weight: bold;
-    top: 400;
-    left: 50px;
-}
-
 #progressImage{
     position: absolute;
     margin-left:6%;
