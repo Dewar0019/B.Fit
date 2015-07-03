@@ -1,0 +1,34 @@
+<template name="routines">
+    {{#contentFor "headerButtonLeft"}}
+        {{>ionNavBackButton path="index"}}
+    {{/contentFor}}
+
+
+    {{#contentFor "headerTitle"}}
+        <h1 class="title">Routines</h1>
+    {{/contentFor}}
+
+{{#ionView}}
+        {{#ionContent}}
+
+        {{#ionList}}
+            {{#each item}}      
+                {{> savedRoutines}}
+            {{/each }}
+     {{/ionList}}
+
+    
+          
+        {{/ionContent}}
+    {{/ionView}}
+
+</template>
+
+
+<template name= "savedRoutines">
+{{#ionItem buttonRight=true avatar=true}}
+      <h2>{{routineName}}</h2>
+      <p>Number of exercises: {{exercises.length}}</p>
+      {{/ionItem}}
+  
+</template>
