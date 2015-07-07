@@ -83,9 +83,15 @@ if(Meteor.isServer){
 
 		if(Routines.find().count()== 0 ) {
 			Routines.insert({
-				_uID: "oeindeow" ,
+				_uID: "dewar" ,
 				routineName: "Ice Cream Fitness",
-				exercises: [],
+				exercises: { Category:"legs",
+							Name: "Barbell Squats",
+							Sets: 5,
+							Reps: 5,
+							Weight: 215
+
+				},
 				createdAt: new Date()
 			})
 		}

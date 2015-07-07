@@ -27,6 +27,7 @@
              var justAdded = Intermediate.findOne({AddedOn: currentTime}); //grab the exercise that was just added
              getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
             Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
+            
 
          },
 
