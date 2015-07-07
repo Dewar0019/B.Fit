@@ -5,7 +5,33 @@
 
 
 	{{#contentFor "headerTitle"}}
-		<h1 class="title">{{routineName}}</h1>
+		<h1 class="title">Add Exercises to {{routineName}}</h1>
 	{{/contentFor}}
 
+
+	{{#ionView}}
+		  {{#ionContent}}
+
+		  <h1> Current Exercises </h1>
+
+
+		  <h2> search function goes here </h2>
+
+		  <h3> list of exercises here </h3>
+					{{#ionList}}
+				{{#each getExercises}}      
+					{{> addExercise}}
+				{{/each }}
+			{{/ionList}}
+		{{/ionContent}}
+		{{/ionView}}
+</template>
+
+
+<template name= "addExercise">
+	{{#ionItem  buttonRight=true avatar=true}}
+		<h2>{{Name}}</h2>	
+		<p> {{Category}}</p>
+	{{/ionItem}}
+  
 </template>

@@ -20,7 +20,6 @@
                             alert("error");
                         }
                 });
-
           },
               // var justCreated = Routines.findOne({_uID: Meteor.userId(), routineName: name});           
               // console.log(justCreated);
