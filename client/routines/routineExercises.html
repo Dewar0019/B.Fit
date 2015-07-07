@@ -5,13 +5,41 @@
 
 
 	{{#contentFor "headerTitle"}}
-		<h1 class="title">Routines</h1>
+		<h1 class="title">{{routineName}}</h1>
 	{{/contentFor}}
 
 	{{#ionView}}
 		{{#ionContent}}
-			<h2>{{routineName}}</h2>	
+			{{#each exercises}}
 
+
+
+  
+
+
+				{{> listExercises}}
+			{{/each}}
 				{{/ionContent}}
 	{{/ionView}}
 </template>
+
+
+<template name= "listExercises">
+	<a class="item item-icon-right item-checkbox">
+     <label class="checkbox">
+       <input type="checkbox">
+     </label>
+		<h2>{{Name}}</h2>	
+		<p>{{Sets}} sets {{Reps}} reps</p>	
+		<p>{{Weight}} lbs </p>
+	</a>	
+
+  
+  
+
+  
+</template>
+
+<!-- <a class="item item-icon-left" href="#">
+    <i class="icon ion-email"></i>
+    </a> -->
