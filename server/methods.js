@@ -30,6 +30,7 @@
         return exercise;
     },
 
+
         'createNewRoutine' : function(name) {
               return Routines.insert(
                     {
