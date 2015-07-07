@@ -2,11 +2,21 @@
 	{{#contentFor "headerButtonLeft"}}
 		{{>ionNavBackButton path="index"}}
 	{{/contentFor}}
-
+   <!--  <div class="bar bar-header">
+        <button class="button icon ion-navicon"></button>
+            <h1 class="title">Header Buttons</h1>
+        <button class="button">Edit</button>
+</div> -->
 
 	{{#contentFor "headerTitle"}}
 		<h1 class="title">Routines</h1>
 	{{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+   <label class="item item-input">
+       {{> esInput index="exercises" placeholder="  Search" id="searchBox" class="form-control input-lg"}}
+  </label>
+  {{/contentFor}}
 
 	{{#ionView}}
 		{{#ionContent}}

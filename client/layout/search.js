@@ -1,4 +1,4 @@
-Exercises.initEasySearch(['exerciseName'],
+Exercises.initEasySearch(['exerciseName','category'],
 	{
 		'limit':30
 	});
