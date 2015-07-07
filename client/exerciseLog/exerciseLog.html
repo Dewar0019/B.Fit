@@ -5,12 +5,61 @@
 
 
 	{{#contentFor "headerTitle"}}
-		<h1 class="title">Exercise Log</h1>
+		<h1 class="title">{{routineName}}</h1>
 	{{/contentFor}}
 
+	{{#ionView}}
+		{{#ionContent}}
 
+			<div class="list">
+				<form id="addCompletedExercise"> 
 
+			  		<label class="item item-input item-stacked-label">
+			    		<span class="input-label">Name</span>
+			    		<input name="nameOfExercise" type="text" placeholder="Name">
+			  		</label>
+			  		
+			  		<label class="item item-input item-stacked-label">
+			    		<span class="input-label">Sets</span>
+			    		<input name="numOfSets" type="text" placeholder="Sets">
+			  		</label>
+			  		
+			  		<label class="item item-input item-stacked-label">
+			    		<span class="input-label">Reps</span>
+			    		<input name="numOfReps" type="text" placeholder="Reps">
+			  		</label>
 
+			  		<label class="item item-input item-stacked-label">
+			    		<span class="input-label">Weight</span>
+			    		<input name="weight" type="text" placeholder="Weight (lbs)">
+			  		</label>
+
+			  		<input type="submit" value="Add Exercise">
+		  		</form>
+			</div>
+
+			{{#each completedExercise}}
+				{{> listCompletedExercises}}
+			{{/each}}
+
+		{{/ionContent}}
+	{{/ionView}}
+
+</template>
+
+<template name= "listCompletedExercises">
+	
+	<i class="item item-checkbox">
+    	<label id="checkBox" class="checkbox">
+			<input type="checkbox">
+     	</label>
+		
+		<h2>{{Name}}</h2>	
+		<p>{{Sets}} sets {{Reps}} reps</p>	
+		<p>{{Weight}} lbs </p>
+		<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY, h:mm:ss a'}} </p>
+	</i>	
+	
 </template>
 
 		

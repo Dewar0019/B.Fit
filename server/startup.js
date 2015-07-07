@@ -83,13 +83,6 @@ if(Meteor.isServer){
 				routineName: "Ice Cream Fitness",
 				exercises: [
 					{
-						Category: "running", 
-                		workoutTime: 17,
-                		Speed: 6.7,
-                		Distance: 1.89
-					},
-
-					{
 						Category: "core",
 						Name: "Crunches",
 						Sets: 1,
@@ -188,18 +181,10 @@ if(Meteor.isServer){
 						Reps: 10,
 						Weight: 20
 					},
-
-					
-
 				],
 
 				createdAt: new Date()
 			})
 		}
-
-
-
-
-
 	});
 }
