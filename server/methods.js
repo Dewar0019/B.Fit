@@ -4,6 +4,31 @@
              input: input
             });
         },
+        
+        searchExercises: function(current) {
+        exercise = null;
+
+        for (var i = 0; i < Exercises.find().count(); i++) {
+            // get location
+            Meteor.call(Exercises.find().fetch(),
+                function(error, data) {
+                    if (error) {
+                        console.log(error);
+                    }
+                    else {
+                        exercises = data;
+                    }
+            });
+
+            if (exercise) {
+                exercise = [Exercises.find().fetch()];
+                break;
+            }
+        }
+
+        
+        return exercise;
+    },
 
         'createNewRoutine' : function(name) {
               Routines.insert({
