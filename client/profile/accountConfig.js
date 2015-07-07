@@ -7,9 +7,21 @@ AccountsTemplates.configure({
 });
 
 AccountsTemplates.addFields(
+
 [{
+    _id: 'firstName',
+    type: 'text',
+    displayName: "First Name",
+},
+{
+    _id: 'lastName',
+    type: 'text',
+    displayName: "Last Name",
+},
+
+{
     _id: 'currentWeight',
-    type: 'tel',
+    type: 'text',
     displayName: "Current Weight",
 },
 { 

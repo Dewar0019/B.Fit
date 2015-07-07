@@ -12,15 +12,19 @@
     {{#ionView}}
         {{#ionContent}}
             {{#if currentUser}}
-
+                <div>
+                    <h1>{{getUserInfo.profile.currentWeight}}</h1>
+                </div>
                 <div class="padding">
                     <button class="button button-positive button-block" data-action="logout">Log Out</button>
                 </div>
         
+
+
+
+
             {{else}}
-
                 {{> atForm}}
-
             {{/if}}
 
         {{/ionContent}}
