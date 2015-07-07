@@ -11,12 +11,14 @@ AccountsTemplates.addFields(
 [{
     _id: 'firstName',
     type: 'text',
+    displayName: "First Name",
     placeholder: "First Name",
     required: true,
 },
 {
     _id: 'lastName',
     type: 'text',
+    displayName: "Last Name",
     placeholder: "Last Name",
     required: true,
 },
@@ -24,7 +26,7 @@ AccountsTemplates.addFields(
 {
     _id: 'currentWeight',
     type: 'text',
-    placeholder: "Current Weight",
+    displayName: "Current Weight",
 },
 { 
 	_id: "gender",

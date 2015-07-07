@@ -6,13 +6,27 @@
         },
 
         'createNewRoutine' : function(name) {
-              Routines.insert({
-             _uID: Meteor.userId() ,
-             routineName: name,
-             exercises: [],
-             createdAt: new Date()
-            });
-        },
+              return Routines.insert(
+                    {
+                     _uID: Meteor.userId(),
+                     routineName: name,
+                     exercises: [],
+                     createdAt: new Date()
+                    },function(error, result){
+                        console.log(error,result);
+                        if(!error){
+                            return result;
+                        }else{
+                            alert("error");
+                        }
+                });
+
+          },
+              // var justCreated = Routines.findOne({_uID: Meteor.userId(), routineName: name});           
+              // console.log(justCreated);
+              // return justCreated;
+                // Session.set('recentAdd', Routines.findOne({_uID: Meteor.userId(), routineName: name}));
+        
 
         'createIntermediate': function(exo, getRoutine) {
             var currentTime = new Date(); //Grab the current time
