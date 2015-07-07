@@ -1,4 +1,5 @@
 <template name="layout">
+<<<<<<< HEAD
     {{#contentFor "headerButtonRight"}}
     <form role="search" id="searchForm" name="searchForm" align-title="right" class="bar-positive">
             <div class="form-group">
@@ -13,6 +14,13 @@
   {{/contentFor}}
 
 
+=======
+
+  {{#contentFor "headerButtonRight"}}
+       {{> ionTab title="Voice" path="profile" iconOff="mic-a" iconOn="mic-a"}}
+  {{/contentFor}}
+
+>>>>>>> a5cc32178b7af483e9f83a7771bdfe2b9ced4a30
   {{#ionBody}}
     {{> ionNavBar class="bar-positive"}}
     {{#ionNavView}}
@@ -28,7 +36,10 @@
     {{> ionTab title="Routines" path="routines" iconOff="android-bicycle" iconOn="android-bicycle"}}
     {{> ionTab title="Profile" path="profile" iconOff="person" iconOn="person"}}
     {{> ionTab title="Analytics" path="chart" iconOff="stats-bars" iconOn="stats-bars"}}
+    {{> ionTab title="Log" path="exerciseLog" iconOff="ios-bookmarks" iconOn="ios-bookmarks"}}
     {{> ionTab title="Voice" path="profile" iconOff="mic-a" iconOn="mic-a"}}
+    
+
   {{/ionTabs}}
 {{/if}}
 </template>
