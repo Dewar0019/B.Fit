@@ -1,6 +1,10 @@
 Template.exerciseLog.helpers({
 	'completedExercise':function(){
-		return Completed.find({},{})
+		today = new Date()
+		yesterday = new Date(today.getTime() - 120000)
+		// should be 86400000
+
+		return Completed.find( {CompletedOn:{$gt:yesterday} }, {sort: {CompletedOn: -1}} )
 	}
 })
 
@@ -22,6 +26,7 @@ Template.exerciseLog.events({
 			Reps: reps,
 			Weight: weight,
 			CompletedOn: new Date()
+			
 		})
 	}
 })
