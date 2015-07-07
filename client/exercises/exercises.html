@@ -3,35 +3,32 @@
 		{{>ionNavBackButton path="index"}}
 	{{/contentFor}}
 
-
 	{{#contentFor "headerTitle"}}
 		<h1 class="title">Add Exercises to {{routineName}}</h1>
 	{{/contentFor}}
 
-
 	{{#ionView}}
 		  {{#ionContent}}
-
 		  <h1> Current Exercises </h1>
-
-
 		  <h2> search function goes here </h2>
-
 		  <h3> list of exercises here </h3>
-					{{#ionList}}
-				{{#each getExercises}}      
-					{{> addExercise}}
-				{{/each }}
-			{{/ionList}}
-		{{/ionContent}}
+
+				{{#ionList}}
+					{{#each getExercises}}      
+						{{> addExercise}}
+					{{/each }}
+				{{/ionList}}
+			{{/ionContent}}
 		{{/ionView}}
 </template>
 
 
 <template name= "addExercise">
 	{{#ionItem  buttonRight=true avatar=true}}
+	<li class="selectedExercise">
 		<h2>{{Name}}</h2>	
 		<p> {{Category}}</p>
+	</li>
 	{{/ionItem}}
-  
+
 </template>
