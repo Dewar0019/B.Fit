@@ -1,0 +1,27 @@
+<template name="createRoutine">
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton path="index"}}
+	{{/contentFor}}
+
+
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Create new Routine</h1>
+	{{/contentFor}}
+
+	{{#ionView}}
+		  {{#ionContent}}
+			<div class="list" id="addRoutine">
+			  <label class="item item-input item-floating-label">
+			    <span class="input-label">RoutineName</span>
+			    <input type="text" name="egg" placeholder="Routine Name">
+			  </label>
+			<br>
+			<button type="submit" class="button button-large button-positive" >
+			  Submit
+			</button>
+			</div>
+		{{/ionContent}}
+		{{/ionView}}
+</template>
+
+		

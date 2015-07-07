@@ -1,4 +1,9 @@
 <template name="layout">
+
+  {{#contentFor "headerButtonRight"}}
+       {{> ionTab title="Voice" path="profile" iconOff="mic-a" iconOn="mic-a"}}
+  {{/contentFor}}
+
   {{#ionBody}}
     {{> ionNavBar class="bar-positive"}}
     {{#ionNavView}}
@@ -13,7 +18,10 @@
     {{> ionTab title="Routines" path="routines" iconOff="android-bicycle" iconOn="android-bicycle"}}
     {{> ionTab title="Profile" path="profile" iconOff="person" iconOn="person"}}
     {{> ionTab title="Analytics" path="chart" iconOff="stats-bars" iconOn="stats-bars"}}
+    {{> ionTab title="Log" path="exerciseLog" iconOff="ios-bookmarks" iconOn="ios-bookmarks"}}
     {{> ionTab title="Voice" path="profile" iconOff="mic-a" iconOn="mic-a"}}
+    
+
   {{/ionTabs}}
 {{/if}}
 </template>
