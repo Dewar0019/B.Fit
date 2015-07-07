@@ -1,148 +1,93 @@
 <template name="chart">
-   {{#contentFor "headerButtonLeft"}}
-        {{>ionNavBackButton path="index"}}
-    {{/contentFor}}
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton path="welcome"}}
+	{{/contentFor}}
 
-<html lang="en">
-	<meta charset="UTF-8">
-		<style>
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Analytics</h1>
+	{{/contentFor}}
 
-		body {
-		  font: 10px sans-serif;
-		}
-
-		.axis path,
-		.axis line {
-		  fill: none;
-		  stroke: #000;
-		  shape-rendering: crispEdges;
-		}
-
-		.x.axis path {
-		  display: none;
-		}
-
-		.line {
-		  fill: none;
-		  stroke: #5C9DAC;
-		  stroke-width: 1.5px;
-		}
-
-		</style>
-	<body>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-		<script>
+	{{#ionView}}
+	{{#ionContent}}
+	{{#ionList}}
 	
-		var Data = [
-		{
-		"date": "30-June-15",
-		"distance": 10
-		},
-		{
-		"date": "28-June-15",
-		"distance": 7
-		},
-		{
-		"date": "25-June-15",
-		"distance": 4
-		},
-		{
-		"date": "23-June-15",
-		"distance": 6
-		},
-		{
-		"date": "20-June-15",
-		"distance": 5
-		},
-		{
-		"date": "18-June-15",
-		"distance": 8
-		},
-		{
-		"date": "15-June-15",
-		"distance": 12
-		},
-		{
-		"date": "10-June-15",
-		"distance": 5
-		},
-		{
-		"date": "08-June-15",
-		"distance": 3
-		},
-		{
-		"date": "05-June-15",
-		"distance": 12
-		}
-		];
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="c3.js"></script>
+	<script>
+		$(function() {
+			console.log( "ready!" );
+				var chart = c3.generate({
+		    		data: {
+		    			// url: 'data.csv',
+		    			// mimeType: 'json',
+		        		x: 'x',
+		        		columns: [
+		            		['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+		            		['data1', 30, 200, 100, 400, 150, 250],
+		            		['data2', 130, 340, 200, 500, 250, 350],
+		            		['data3', 400, 500, 450, 700, 600, 500]
+		        		],
+		        		types: {
+				            data1: 'area',
+				            data2: 'area-spline'
+				        }
+		    		},
+
+		    		subchart: {
+					  show: true
+					},
+
+		    		zoom: {
+				        enabled: true
+				    },
+
+		    		axis: {
+		        		x: {
+		            		type: 'timeseries',
+		            		tick: {
+		                		format: '%Y-%m-%d'
+		            		},
+		            		label: {
+							  text: 'Date',
+							  // position: 'inner-top'
+							}
+
+		        		},
+		        		y: {
+							label: {
+							  text: 'Distance (mi)',
+							  position: 'inner-top'
+							}
+		    			}
+		    		}
+					});
+
+				
+				// chart.hide(['data2', 'data3']);
+				// chart.show(['data2', 'data3']);
+
+				// setTimeout(function () {
+		  //   		chart.load({
+		  //       		columns: [
+		  //           		['data3', 400, 500, 450, 700, 600, 500]
+		  //      			 ]
+		  //   		});
+				// }, 1000);
+		});
+		//window.onload = function
+	</script>
 
 
-			var margin = {top: 20, right: 20, bottom: 30, left: 50},
-		    	width = 960 - margin.left - margin.right,
-		    	height = 500 - margin.top - margin.bottom;
-		    var parseDate = d3.time.format("%d-%B-%y").parse;
-		    var x = d3.time.scale()
-    				.range([0, width]);
-			var y = d3.scale.linear()
-			    .range([height, 0]);
-			var xAxis = d3.svg.axis()
-			    .scale(x)
-			    .orient("bottom");
+	<body>
 
-			var yAxis = d3.svg.axis()
-			    .scale(y)
-			    .orient("left");
-			var line = d3.svg.line()
-			    .x(function(d) { return x(d.date); })
-			    .y(function(d) { return y(d.distance); });
-			var svg = d3.select("body").append("svg")
-			    .attr("width", width + margin.left + margin.right)
-			    .attr("height", height + margin.top + margin.bottom)
-			    .append("g")
-			    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		<div class='chart'>
+		  <div id="chart"></div>
+		</div>
 
-
-
-
-			 var data = Data.map(function(d){
-			 	return {
-			 		date: parseDate(d["date"]),
-			 		distance: d["distance"]
-			 	};
-			 });
-
-			// d3.csv("data.csv", function(error, data) {
-			//   if (error)  throw error;
-
-			//   data.forEach(function(d) {
-			//     d.date = parseDate(d.date);
-			//     d.distance = +d.distance;
-			//   });
-
-			  x.domain(d3.extent(data, function(d) { return d.date; }));
-			  y.domain(d3.extent(data, function(d) { return d.distance; }));
-
-			  svg.append("g")
-		      .attr("class", "x axis")
-		      .attr("transform", "translate(0," + height + ")")
-		      .call(xAxis);
-
-		      svg.append("g")
-		      .attr("class", "y axis")
-		      	.call(yAxis)
-		      .append("text")
-		      .attr("transform", "rotate(-90)")
-		      .attr("y", 6)
-		      .attr("dy", ".71em")
-		      .style("text-anchor", "end")
-		      .text("Distance (mi)");
-
-		      svg.append("path")
-		      .datum(data)
-		      .attr("class", "line")
-		      .attr("d", line);
-			// });
-		</script>
 	</body>
-</html>
+
+	{{/ionList}}
+	{{/ionContent}}
+	{{/ionView}}
+
 </template>
