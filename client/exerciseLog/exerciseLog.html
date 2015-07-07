@@ -16,25 +16,26 @@
 
 			  		<label class="item item-input item-stacked-label">
 			    		<span class="input-label">Name</span>
-			    		<input name="nameOfExercise" type="text" placeholder="Name">
+			    		<input name="nameOfExercise" type="text" placeholder="Bicep Curl">
 			  		</label>
 			  		
 			  		<label class="item item-input item-stacked-label">
 			    		<span class="input-label">Sets</span>
-			    		<input name="numOfSets" type="text" placeholder="Sets">
+			    		<input name="numOfSets" type="text" placeholder="4">
 			  		</label>
 			  		
 			  		<label class="item item-input item-stacked-label">
 			    		<span class="input-label">Reps</span>
-			    		<input name="numOfReps" type="text" placeholder="Reps">
+			    		<input name="numOfReps" type="text" placeholder="10">
 			  		</label>
 
 			  		<label class="item item-input item-stacked-label">
-			    		<span class="input-label">Weight</span>
-			    		<input name="weight" type="text" placeholder="Weight (lbs)">
+			    		<span class="input-label">Weight (lbs)</span>
+			    		<input name="weight" type="text" placeholder="15">
 			  		</label>
 
-			  		<input type="submit" value="Add Exercise">
+					<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
+
 		  		</form>
 			</div>
 
@@ -57,7 +58,7 @@
 		<h2>{{Name}}</h2>	
 		<p>{{Sets}} sets {{Reps}} reps</p>	
 		<p>{{Weight}} lbs </p>
-		<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY, h:mm:ss a'}} </p>
+		<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY h:mm:ss a'}} </p>
 	</i>	
 	
 </template>

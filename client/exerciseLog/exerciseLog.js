@@ -1,30 +1,11 @@
 Template.exerciseLog.helpers({
 	'completedExercise':function(){
-		return Completed.find({},{})
-	},
+		today = new Date()
+		yesterday = new Date(today.getTime() - 120000)
+		// should be 86400000
 
-	'getDay': function(){
-		if (CompletedOn.getDay() == 0) {
-			return "Monday"
-		} else if (CompletedOn.getDay() == 1){
-			return "Tuesday"
-		} else if (CompletedOn.getDay() == 2){
-			return "Wednesday"
-		} else if (CompletedOn.getDay() == 3){
-			return "Thursday"
-		} else if (CompletedOn.getDay() == 4){
-			return "Friday"
-		} else if (CompletedOn.getDay() == 5){
-			return "Saturday"
-		} else if (CompletedOn.getDay() == 6){
-			return "Sunday"
-		}
-	},
-
-	'getMonth': function(){
-		return CompletedOn.getMonth()
+		return Completed.find( {CompletedOn:{$gt:yesterday} }, {sort: {CompletedOn: -1}} )
 	}
-
 })
 
 Template.exerciseLog.events({
@@ -45,6 +26,7 @@ Template.exerciseLog.events({
 			Reps: reps,
 			Weight: weight,
 			CompletedOn: new Date()
+			
 		})
 	}
 })
