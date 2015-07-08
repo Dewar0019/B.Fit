@@ -27,15 +27,15 @@
 	{{/ionView}}
 
 </template>
-
-
 <template name= "savedRoutines">
+      <div class="list card">
 
   {{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true avatar=true}}
-    <div class="list card">
     <h2>{{routineName}}</h2>
         <p>Number of exercises: {{exercises.length}}</p>  
-  </div>
+    {{/ionItem}}
+
+
   <div class="item item-body">
     <p>
       This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
@@ -43,27 +43,20 @@
       consists of tabs, icons aligned left, within the card-footer.
     </p>
     <p>
-      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">Completed X times</a>
       <a href="#" class="subdued">5 Comments</a>
     </p>
   </div>
 
   <div class="item tabs tabs-secondary tabs-icon-left">
     <a class="tab-item" href="#">
-      <i class="icon ion-thumbsup"></i>
-      Like
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-chatbox"></i>
-      Comment
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-share"></i>
-      Share
+      Difficulty
+      <i class="icon ion-fireball"></i>
     </a>
 </div>
+  </div>
 
+<hr/>
 	
-	{{/ionItem}}
   
 </template>

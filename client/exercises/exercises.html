@@ -12,8 +12,12 @@
 		  <h1> Current Exercises </h1>
 		  <h2> search function goes here </h2>
 		  <h3> list of exercises here </h3>
-		  
-	
+
+		 <div role="alert" class="message success">
+			<p><b>{{returnNotification}}</b></p>
+			<p>This is just a successful notification message.</p>
+			</div>
+			
 				{{#ionList}}
 					{{#each getExercises}}      
 						{{> addExercise}}
