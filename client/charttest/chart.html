@@ -1,4 +1,5 @@
 <template name="chart">
+	{{#if currentUser}}
 	{{#contentFor "headerButtonLeft"}}
 		{{>ionNavBackButton path="welcome"}}
 	{{/contentFor}}
@@ -159,5 +160,10 @@
 	{{/ionList}}
 	{{/ionContent}}
 	{{/ionView}}
+{{else}}
+		{{#contentFor "headerTitle"}}
+		<h1 class="title">Please log in to see analytics</h1>
+		{{/contentFor}}
 
+{{/if}}
 </template>
