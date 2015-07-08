@@ -21,13 +21,18 @@
 		        		x: 'x',
 		        		columns: [
 		            		['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
-		            		['data1', 30, 200, 100, 400, 150, 250],
-		            		['data2', 130, 340, 200, 500, 250, 350],
-		            		['data3', 400, 500, 450, 700, 600, 500]
+		            		['data1', 5, 10, 2, 4, 5, 8],
+		            		['data2', 45, 80, 60, 10, 25, 35],
+		            		// ['data3', 400, 500, 450, 700, 600, 500]
 		        		],
 		        		types: {
 				            data1: 'area',
-				            data2: 'area-spline'
+				            // data2: 'area-spline'
+				        },
+
+				        axes: {
+				        	data1: 'y',
+				        	data2: 'y2'
 				        }
 				        // json: [{
 				        // 	date: '2014-01-04',
@@ -65,6 +70,13 @@
 							  text: 'Distance (mi)',
 							  position: 'inner-top'
 							}
+		    			},
+		    			y2: {
+		    				label: {
+							  text: 'Time (min)',
+							  position: 'inner-top'
+							},
+		    				show:true
 		    			}
 		    		}
 					});
@@ -99,7 +111,8 @@
 						Cardio
 					</div>
 					<select>
-						<option>Running</option>
+						<option>None</option>
+						<option selected>Running</option>
 						<option>Walking</option>
 						<option>Swimming</option>
 						<option>Cycling</option>
