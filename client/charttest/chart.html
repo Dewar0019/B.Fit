@@ -160,10 +160,19 @@
 	{{/ionList}}
 	{{/ionContent}}
 	{{/ionView}}
-{{else}}
-		{{#contentFor "headerTitle"}}
-		<h1 class="title">Please log in to see analytics</h1>
-		{{/contentFor}}
 
-{{/if}}
+	{{else}}
+		
+
+		{{#ionView}}
+			{{#ionContent}}
+				
+				<img id="logo" src="images/logo.png" width="300" height="300">
+				
+				{{> atForm}}
+
+			{{/ionContent}}
+		{{/ionView}}
+
+	{{/if}}
 </template>
