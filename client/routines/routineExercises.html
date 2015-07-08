@@ -1,4 +1,5 @@
 <template name="routineExercises">
+	{{#if currentUser}}
 	{{#contentFor "headerButtonLeft"}}
 		{{>ionNavBackButton path="index"}}
 	{{/contentFor}}
@@ -19,6 +20,20 @@
 		{{/ionContent}}
 	{{/ionView}}
 
+	{{else}}
+		
+
+		{{#ionView}}
+			{{#ionContent}}
+				
+				<img id="logo" src="images/logo.png" width="300" height="300">
+				
+				{{> atForm}}
+
+			{{/ionContent}}
+		{{/ionView}}
+
+	{{/if}}
 </template>
 
 
