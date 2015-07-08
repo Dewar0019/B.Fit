@@ -15,6 +15,12 @@ Template.createRoutine.events({
 		// Router.go('welcome')
 		event.target.routineName.value = "";
 	},
+
+	'click .select' : function() {
+		var selectedRoutine = this;
+		console.log(selectedRoutine);
+		Session.set('selectedRoutine', selectedRoutine);
+	}
 })
 
 Template.createRoutine.helpers({

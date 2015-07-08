@@ -53,19 +53,22 @@
                 // Session.set('recentAdd', Routines.findOne({_uID: Meteor.userId(), routineName: name}));
         
 
-        'createIntermediate': function(exo, getRoutine) {
+        'addToRoutine': function(exercise, getRoutine) {  //this will add new exercise to routine
             var currentTime = new Date(); //Grab the current time
             Intermediate.insert({ //This is the actual object that will be added to the routine
-                Name: exo.Name, 
-                Sets: exo.Sets,
-                Reps: exo.Reps,
-                Weight: exo.Weight,
+                Name: exercise.Name, 
+                Sets: exercise.Sets,
+                Reps: exercise.Reps,
+                Weight: exercise.Weight,
                 AddedOn: currentTime,
                 AddedBy: Meteor.userId()
             });
-             var justAdded = Intermediate.findOne({AddedOn: currentTime}); //grab the exercise that was just added
+             var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
+             // console.log(getRoutine);
+             console.log(getRoutine.exercises);
              getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
-            Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
+             Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
+             return Routines.findOne({_id: getRoutine._id});
             
 
          },
@@ -80,37 +83,3 @@
             });
         }
     })
-
-
-        // THE NEXT TWO METHODS WERE COPIED DIRECTLY FROM THE publicastions.js IN CASE IT WAS NEEDED 
-        
-        // 'addRoutine': function(nameOfRoutine) {
-        // },
-
-        // 'addToRoutine': function(selectedExer) {
-        //     if(Meteor.user().savedExercises == null) {
-        //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": [selectedExer]} });
-        //     } else {
-        //         var savedExer = Meteor.user().savedExercises;
-        //         console.log(savedExer.push(selectedExer));
-        //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
-        //     }
-
-
-        // },
-
-
-
-        //THIS IS A SEPRATE, COMMENTED OUT BLOCK WHICH WAS ALREADY HERE. 
-        // 'addRoutine': function(nameOfRoutine) {
-        //      if(Meteor.user().savedExercises == null) {
-        //         Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'savedExercises.': []} });
-        //     } 
-            // else {
-            //     var savedExer = Meteor.user().savedExercises;
-            //     console.log(savedExer.push(selectedExer));
-            //     Meteor.users.update( { _id: Meteor.userId() }, { $set: { "savedExercises": savedExer}});
-            // }
-        // },
-
-    // }
