@@ -1,8 +1,7 @@
-
 Template.exercises.helpers({
-	getExercises: function () {return Exercises.find().fetch();}
-})
-
+	getExercises: function () {return Exercises.find().fetch();},
+	returnNotification: function() {return Session.get('successMessage');}
+});
 
 
 Template.exercises.events({
@@ -12,6 +11,9 @@ Template.exercises.events({
 		Meteor.call('addToRoutine', exerciseID, routine, function(error, result){
 			Session.set("selectedRoutine", result);
 		});
-		alert(exerciseID.Name + " Added to " + routine.routineName);
+		Session.set("successMessage", exerciseID.Name + " Added to " + routine.routineName);
 	}
 })
+
+
+
