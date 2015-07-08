@@ -1,4 +1,22 @@
 <template name="about">
-	<h3>About</h3>
-	<p> This is the about page. Learn about the creators of this website.</p>
+	{{#if currentUser}}
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Welcome to B.Fit</h1>
+	{{/contentFor}}
+	<!-- <p> This is the about page. Learn about the creators of this website.</p>
+	 -->
+	{{else}}
+		
+
+		{{#ionView}}
+			{{#ionContent}}
+				
+				<img id="logo" src="images/logo.png" width="300" height="300">
+				
+				{{> atForm}}
+
+			{{/ionContent}}
+		{{/ionView}}
+
+	{{/if}}
 </template>
