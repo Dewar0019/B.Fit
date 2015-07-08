@@ -43,6 +43,8 @@
 				{{> listCompletedExercises}}
 			{{/each}}
 
+			{{> listen}}
+
 		{{/ionContent}}
 	{{/ionView}}
 
@@ -61,6 +63,19 @@
 		<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY h:mm:ss a'}} </p>
 	</i>	
 	
+</template>
+
+<template name="listen">
+	<div>
+		<a id="start_button" class="ion-android-microphone"></a>
+ 	</div>
+ 
+	<div id="results" class="bg-info">
+		<h1>Results</h1>
+    	<span id="final_span" class="final"></span>
+	    <span id="interim_span" class="interim"></span>
+  	</div>
+
 </template>
 
 		
