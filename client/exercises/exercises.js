@@ -1,12 +1,13 @@
 Template.exercises.helpers({
 	getExercises: function () {return Exercises.find().fetch();},
-	returnNotification: function() {return Session.get('successMessage');}
+	returnNotification: function() {return Session.get('successMessage');},
+	
 });
 
 
 Template.exercises.events({
 	'click .selectedExercise' : function() {
-		var exerciseID = this;
+		var exerciseID = this
 		var routine = Session.get("selectedRoutine");
 		Meteor.call('addToRoutine', exerciseID, routine, function(error, result){
 			Session.set("selectedRoutine", result);
