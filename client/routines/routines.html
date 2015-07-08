@@ -33,14 +33,10 @@
 
   {{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true avatar=true}}
     <div class="list card">
-
-  <div class="item item-avatar">
-
-    <h2>{{routineName}}</h2>  
+    <h2>{{routineName}}</h2>
+        <p>Number of exercises: {{exercises.length}}</p>  
   </div>
-
   <div class="item item-body">
-    
     <p>
       This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
       the content is from a card-body consisting of an image and paragraph text. The footer
@@ -65,11 +61,8 @@
       <i class="icon ion-share"></i>
       Share
     </a>
-  </div>
-
 </div>
 
-		<p>Number of exercises: {{exercises.length}}</p>
 	
 	{{/ionItem}}
   

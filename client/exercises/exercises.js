@@ -1,15 +1,8 @@
 Template.exercises.helpers({
-<<<<<<< HEAD
-=======
 	getExercises: function () {return Exercises.find().fetch();},
-	returnNotification: function() {return Session.get('successMessage');},
-	
+	returnNotification: function() {return Session.get('successMessage');},	
 });
->>>>>>> dewar
 
-	getExercises: function () {return Exercises.find({},{sort:{category: -1}}).fetch();}
-	returnNotification: function() {return Session.get('successMessage');}
-})
 
 Template.exercises.events({
 	'click .selectedExercise' : function() {
