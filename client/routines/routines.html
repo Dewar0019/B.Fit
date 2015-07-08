@@ -15,11 +15,28 @@
 	{{#ionView}}
 		{{#ionContent}}
 
-<!-- 
-		<div class="list card">
+
+
+			{{#ionList}}
+				{{#each item}}      
+					{{> savedRoutines}}
+				{{/each }}
+			{{/ionList}}
+
+		{{/ionContent}}
+	{{/ionView}}
+
+</template>
+
+
+<template name= "savedRoutines">
+
+  {{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true avatar=true}}
+    <div class="list card">
 
   <div class="item item-avatar">
-   {{#ionItem path="welcome"}} <h2>Marty McFly</h2> {{/ionItem}}
+
+    <h2>{{routineName}}</h2>  
   </div>
 
   <div class="item item-body">
@@ -50,23 +67,8 @@
     </a>
   </div>
 
-</div> -->
+</div>
 
-			{{#ionList}}
-				{{#each item}}      
-					{{> savedRoutines}}
-				{{/each }}
-			{{/ionList}}
-
-		{{/ionContent}}
-	{{/ionView}}
-
-</template>
-
-
-<template name= "savedRoutines">
-	{{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true avatar=true}}
-		<h2>{{routineName}}</h2>	
 		<p>Number of exercises: {{exercises.length}}</p>
 	
 	{{/ionItem}}
