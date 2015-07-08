@@ -71,15 +71,5 @@
              return Routines.findOne({_id: getRoutine._id});
             
 
-         },
-
-
-        'addLegExerciseToDB': function(legExercise, legSets, legReps, legWeight){
-            LegExercises.insert({
-                Name: legExercise, 
-                Sets: legSets,
-                Reps: legReps,
-                Weight: legWeight
-            });
-        }
+         }
     })
