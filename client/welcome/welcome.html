@@ -4,16 +4,12 @@
 	{{/contentFor}}
 		
 
-		 {{#contentFor "headerButtonRight"}}
-     <button class="button button-clear">
-    {{> ionIcon icon='mic-a'}}  
-  </button>
- {{/contentFor}}
+	
 
 
 	{{#if currentUser}}
 
-
+			{{> voiceButton}}
 
 		{{#ionView}}
 		  {{#ionContent}}

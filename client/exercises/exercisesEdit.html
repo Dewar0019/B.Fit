@@ -3,17 +3,40 @@
 		{{>ionNavBackButton path="index"}}
 	{{/contentFor}}
 
+	{{#contentFor "headerButtonRight"}}
+     	<button class="button button-clear voice">
+   		 	{{> ionIcon icon='mic-a'}}  
+  		</button>
+	{{/contentFor}}
+
 	{{#contentFor "headerTitle"}}
-		<h1 class="title"> </h1>
+		<h1 class="title">{{Name}}</h1>
 	{{/contentFor}}
 
 	{{#ionView}}
 		  {{#ionContent}}
-		
-		<label class="item item-input">
-  <span class="input-label">Telephone</span>
-  <input type="tel">
-</label>
+
+
+		  	<div class="list">
+			  <label class="item item-input item-floating-label">
+			    <span class="input-label">Sets</span>
+			    <input type="tel" placeholder="Sets">
+			  </label>
+			  <label class="item item-input item-floating-label">
+			    <span class="input-label">Reps</span>
+			    <input type="tel" placeholder="Reps">
+			  </label>
+			 	<label class="item item-input">
+			  		<span class="input-label">Weight</span>
+					<input type="tel">
+				</label>
+			</div>
+
+<button class="button button-large button-positive" id="addExercise">
+		Add Exercise
+		</button>
+
+				
 			{{/ionContent}}
 	{{/ionView}}
 </template>

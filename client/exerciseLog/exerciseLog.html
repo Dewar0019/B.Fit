@@ -4,6 +4,12 @@
 		{{>ionNavBackButton path="index"}}
 	{{/contentFor}}
 
+		 {{#contentFor "headerButtonRight"}}
+     <button class="button button-clear voice">
+   		 {{> ionIcon icon='mic-a'}}  
+  	</button>
+		 {{/contentFor}}
+
 
 	{{#contentFor "headerTitle"}}
 		<h1 class="title">{{routineName}}</h1>

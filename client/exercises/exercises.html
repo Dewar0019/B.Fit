@@ -4,6 +4,12 @@
 		{{>ionNavBackButton path="index"}}
 	{{/contentFor}}
 
+			 {{#contentFor "headerButtonRight"}}
+     <button class="button button-clear voice">
+   		 {{> ionIcon icon='mic-a'}}  
+  	</button>
+		 {{/contentFor}}
+
 	{{#contentFor "headerTitle"}}
 		<h1 class="title">Add Exercises to {{routineName}}</h1>
 	{{/contentFor}}
@@ -44,7 +50,7 @@
 
 
 <template name= "addExercise">
-	{{#ionItem  buttonRight=true avatar=true}}
+{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true}}	
 	<div class="selectedExercise">
 		<h2 >{{Name}}</h2>	
 		<p> {{Category}}</p>

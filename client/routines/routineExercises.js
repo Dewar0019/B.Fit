@@ -6,10 +6,10 @@ var checkedExercises = [];
 
 Template.routineExercises.events({
 	'click .completionButton' : function() {
-		var routine = Session.get('forCompletedRoutine');
-		console.log(routine);
+		var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
+		// console.log(routine);
 		var numbChecked = $('input[name="chk"]:checked').length;
-		console.log(numbChecked);
+		// console.log(numbChecked);
 		// console.log(routine.exercises.length);
 		Completed.insert({
 			_uID : Meteor.userId(),
@@ -19,6 +19,8 @@ Template.routineExercises.events({
             completedAll: (routine.exercises.length == numbChecked)
 		});
 		checkedExercises = [];
+		alert("Congrats on completing your exercise");
+		Route.go('welcome');
 	},
 
 	'click .checkbox' : function() {
