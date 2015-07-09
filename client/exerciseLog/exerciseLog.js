@@ -145,74 +145,130 @@ function sendSentence(sentence){
 	console.log("Sentence Sent");
 }
 
+
+var Small = {
+	'zero': 0,
+	'one': 1,
+	'two': 2,
+	'three': 3,
+	'four': 4,
+	'five': 5,
+	'six': 6,
+	'seven': 7,
+	'eight': 8,
+	'nine': 9,
+	'ten': 10,
+	'eleven': 11,
+	'twelve': 12,
+	'thirteen': 13,
+	'fourteen': 14,
+	'fifteen': 15,
+	'sixteen': 16,
+	'seventeen': 17,
+	'eighteen': 18,
+	'nineteen': 19,
+	'twenty': 20,
+	'thirty': 30,
+	'forty': 40,
+	'fifty': 50,
+	'sixty': 60,
+	'seventy': 70,
+	'eighty': 80,
+	'ninety': 90
+};
+
+var Magnitude = {
+   'thousand':     1000,
+   'million':      1000000,
+   'billion':      1000000000,
+   'trillion':     1000000000000,
+   'quadrillion':  1000000000000000,
+   'quintillion':  1000000000000000000,
+   'sextillion':   1000000000000000000000,
+   'septillion':   1000000000000000000000000,
+   'octillion':    1000000000000000000000000000,
+   'nonillion':    1000000000000000000000000000000,
+   'decillion':    1000000000000000000000000000000000,
+};
+
+var a, n, g;
+
+function text2num(s) {
+   a = s.toString().split(/[\s-]+/);
+   n = 0;
+   g = 0;
+   a.forEach(feach);
+   return n + g;
+}
+
+function feach(w) {
+   var x = Small[w];
+   if (x != null) {
+       g = g + x;
+   }
+   else if (w == "hundred") {
+       g = g * 100;
+   }
+   else {
+       x = Magnitude[w];
+       if (x != null) {
+           n = n + g * x
+           g = 0;
+       }
+   }
+}
+
+
 function recordExercise(testVariable) {
+
+
+	//sets 
 	try {
+
 		sets = testVariable[0].entities.Sets[0].value
 		var spaceValue = sets.indexOf(" ");
-		
+
 		sets = sets.substring(0, spaceValue)
 
-		if (sets == "1" || sets == "one") {
-			sets = 1;
-		} else if (sets == "2" || sets == "two"){
-			sets = 2;
-		} else if (sets == "3" || sets == "three"){
-			sets = 3;
-		} else if (sets == "4" || sets == "four"){
-			sets = 4;
-		} else if (sets == "5" || sets == "five"){
-			sets = 5;
-		} else if (sets == "6" || sets == "six"){
-			sets = 6;
-		} else if (sets == "7" || sets == "seven"){
-			sets = 7;
-		} else if (sets == "8" || sets == "eight"){
-			sets = 8;
-		} else if (sets == "9" || sets == "nine"){
-			sets = 9;
-		} else if (sets == "10" || sets == "ten"){
-			sets = 10;
+		newSets = text2num(sets)
+
+		if (newSets == 0){
+			sets = parseInt(sets)
+		} else {
+			sets = newSets
 		}
+
+		console.log("Sets: " + sets)
+		console.log(typeof sets)
+
 	} catch (e){
 		console.log("error encountered")
-		promt("You did not specify sets. Please add it in manually");
+		prompt("You did not specify sets. Please add it in manually");
 		sets = 0;
 	}
 
+	//reps 
 	try {
 		reps = testVariable[0].entities.reps[0].value
 		var spaceValue = reps.indexOf(" ");
 		
 		reps = reps.substring(0,spaceValue)
 
-		if (reps == "1" || reps == "one") {
-			reps = 1;
-		} else if (reps == "2" || reps == "two"){
-			reps = 2;
-		} else if (reps == "3" || reps == "three"){
-			reps = 3;
-		} else if (reps == "4" || reps == "four"){
-			reps = 4;
-		} else if (reps == "5" || reps == "five"){
-			reps = 5;
-		} else if (reps == "6" || reps == "six"){
-			reps = 6;
-		} else if (reps == "7" || reps == "seven"){
-			reps = 7;
-		} else if (reps == "8" || reps == "eight"){
-			reps = 8;
-		} else if (reps == "9" || reps == "nine"){
-			reps = 9;
-		} else if (reps == "10" || reps == "ten"){
-			reps = 10;
+		newReps = text2num(reps)
+
+		if (newReps == 0) {
+			reps = parseInt(reps)
+		} else {
+			reps = newReps
 		}
+
+		console.log("Reps: " + reps)
+		console.log(typeof reps)
 
 	} catch (e){
 		console.log("error encountered")
-		promt("You did not specify reps. Please add it in manually");
+		prompt("You did not specify reps. Please add it in manually");
 		reps = 0;
 	}
-
-	
 }
 
