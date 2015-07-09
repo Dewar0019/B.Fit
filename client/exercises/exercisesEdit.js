@@ -17,7 +17,6 @@ Template.exercisesEdit.events({
 			alert("You have entered a number less than zero please try again");
 		}
 	}
-
 })
 
 

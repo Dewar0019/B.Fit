@@ -3,20 +3,12 @@
 		{{>ionNavBackButton path="index"}}
 	{{/contentFor}}
 
-	{{#contentFor "headerButtonRight"}}
-     	<button class="button button-clear voice">
-   		 	{{> ionIcon icon='mic-a'}}  
-  		</button>
-	{{/contentFor}}
-
 	{{#contentFor "headerTitle"}}
 		<h1 class="title">{{Name}}</h1>
 	{{/contentFor}}
 
 	{{#ionView}}
 		  {{#ionContent}}
-
-
 		  	<form class="list" id="addExercise">
 			  <label class="item item-input item-floating-label">
 			    <span class="input-label">Sets</span>
@@ -34,10 +26,6 @@
 				Add Exercise
 				</button>
 			</form>
-
-
-
-				
 			{{/ionContent}}
 	{{/ionView}}
 </template>
