@@ -1,8 +1,11 @@
 Template.exerciseLog.helpers({
 	'completedExercise':function(){
+
+		// returns everything in the Completed collection that has been added in the past 24 hours. 
+		// to change the amount of time change the number below in the unit of milliseconds. 
+		
 		today = new Date()
-		yesterday = new Date(today.getTime() - 120000)
-		// should be 86400000
+		yesterday = new Date(today.getTime() - 86400000)
 
 		return Completed.find( {CompletedOn:{$gt:yesterday} }, {sort: {CompletedOn: -1}} )
 	}
@@ -134,11 +137,82 @@ function sendSentence(sentence){
  		dataType: 'jsonp',
  		method: 'GET',
  		success: function(response) {
- 			testVariable = response.outcomes;
+ 			var testVariable = response.outcomes;
      		console.log("success!", response);
+     		recordExercise(testVariable);
  		}
 	});
-
 	console.log("Sentence Sent");
+}
+
+function recordExercise(testVariable) {
+	try {
+		sets = testVariable[0].entities.Sets[0].value
+		var spaceValue = sets.indexOf(" ");
+		
+		sets = sets.substring(0, spaceValue)
+
+		if (sets == "1" || sets == "one") {
+			sets = 1;
+		} else if (sets == "2" || sets == "two"){
+			sets = 2;
+		} else if (sets == "3" || sets == "three"){
+			sets = 3;
+		} else if (sets == "4" || sets == "four"){
+			sets = 4;
+		} else if (sets == "5" || sets == "five"){
+			sets = 5;
+		} else if (sets == "6" || sets == "six"){
+			sets = 6;
+		} else if (sets == "7" || sets == "seven"){
+			sets = 7;
+		} else if (sets == "8" || sets == "eight"){
+			sets = 8;
+		} else if (sets == "9" || sets == "nine"){
+			sets = 9;
+		} else if (sets == "10" || sets == "ten"){
+			sets = 10;
+		}
+	} catch (e){
+		console.log("error encountered")
+		promt("You did not specify sets. Please add it in manually");
+		sets = 0;
+	}
+
+	try {
+		reps = testVariable[0].entities.reps[0].value
+		var spaceValue = reps.indexOf(" ");
+		
+		reps = reps.substring(0,spaceValue)
+
+		if (reps == "1" || reps == "one") {
+			reps = 1;
+		} else if (reps == "2" || reps == "two"){
+			reps = 2;
+		} else if (reps == "3" || reps == "three"){
+			reps = 3;
+		} else if (reps == "4" || reps == "four"){
+			reps = 4;
+		} else if (reps == "5" || reps == "five"){
+			reps = 5;
+		} else if (reps == "6" || reps == "six"){
+			reps = 6;
+		} else if (reps == "7" || reps == "seven"){
+			reps = 7;
+		} else if (reps == "8" || reps == "eight"){
+			reps = 8;
+		} else if (reps == "9" || reps == "nine"){
+			reps = 9;
+		} else if (reps == "10" || reps == "ten"){
+			reps = 10;
+		}
+
+	} catch (e){
+		console.log("error encountered")
+		promt("You did not specify reps. Please add it in manually");
+		reps = 0;
+	}
+
+	
 }
 
