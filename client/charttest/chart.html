@@ -15,85 +15,150 @@
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script src="c3.js"></script>
 	<script>
-		$(function() {
-			console.log( "ready!" );
-				var chart = c3.generate({
-		    		data: {
-		        		x: 'x',
-		        		columns: [
-		            		['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
-		            		['data1', 5, 10, 2, 4, 5, 8],
-		            		['data2', 45, 80, 60, 10, 25, 35],
-		            		// ['data3', 400, 500, 450, 700, 600, 500]
-		        		],
-		        		types: {
-				            data1: 'area',
-				            // data2: 'area-spline'
-				        },
+		$(document).ready(function(){
+			$("#cardio,#strength,#flexibility").change(function(){
+				var c1 = $("#cardio").find('option:selected').val();
+				var c2 = $("#strength").find('option:selected').val();
+				var c3 = $("#flexibility").find('option:selected').val();
 
-				        axes: {
-				        	data1: 'y',
-				        	data2: 'y2'
-				        }
-				        // json: [{
-				        // 	date: '2014-01-04',
-				        // 	speed: ,
-				        // 	distance: {{Distance}}
-				        // }],
-				        // keys: {
-				        // 	x: 'date',
-				        // 	value: ['speed','distance']
-				        // }
-		    		},
+				chart.hide(null,{
+					withLegend: true
+				});
+				chart.show([c1,c2,c3],{
+					withLegend: true
+				});
+			});
+		});
 
-		    		subchart: {
-					  show: true
-					},
+		var chart = c3.generate({
+			data:{
+				x: 'x',
+				columns: [
+					['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+					['Running', 5, 10, 2, 4, 5, 8],
+					['Walking', 3, 6, 2, 4, 5, 8],
+					['Swimming', 1, 2, 1, 3, 5, 2],
+					['Cycling', 10, 8, 9, 12, 4, 5]
+				],
+				types: {
+					Running: 'area',
+					Walking: 'area',
+					Swimming: 'area',
+					Cycling: 'area'
+				},
+				hide: true
+			},
+			subchart: {
+		 		show: true
+		 	},
+		 	zoom: {
+		 		enabled: true
+		 	},
+		 	axis: {
+        		x: {
+            		type: 'timeseries',
+            		tick: {
+                		format: '%Y-%m-%d'
+            		},
+            		label: {
+					  text: 'Date',
+					}
+        		}
+        	},
+			legend: {
+				show: false
+			}
+		});
 
-		    		zoom: {
-				        enabled: true
-				    },
 
-		    		axis: {
-		        		x: {
-		            		type: 'timeseries',
-		            		tick: {
-		                		format: '%Y-%m-%d'
-		            		},
-		            		label: {
-							  text: 'Date',
-							  // position: 'inner-top'
-							}
 
-		        		},
-		        		y: {
-							label: {
-							  text: 'Distance (mi)',
-							  position: 'inner-top'
-							}
-		    			},
-		    			y2: {
-		    				label: {
-							  text: 'Time (min)',
-							  position: 'inner-top'
-							},
-		    				show:true
-		    			}
-		    		}
-					});
+		// $(function() {
+		// 	console.log( "ready!" );
+		// 		var chart = c3.generate({
+		//     		data: {
+		//         		x: 'x',
+		//         		columns: [
+		//             		['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+		//             		['Distance (mi)', 5, 10, 2, 4, 5, 8]
+		//             		// ['data3', 400, 500, 450, 700, 600, 500]
+		//         		],
+		//         		types: {
+		// 		            distance: 'area',
+		// 		            // data2: 'area-spline'
+		// 		        },
+
+		// 		        // axes: {
+		// 		        // 	data1: 'y',
+		// 		        // 	data2: 'y2'
+		// 		        // }
+		// 		        // json: [{
+		// 		        // 	date: '2014-01-04',
+		// 		        // 	speed: ,
+		// 		        // 	distance: {{Distance}}
+		// 		        // }],
+		// 		        // keys: {
+		// 		        // 	x: 'date',
+		// 		        // 	value: ['speed','distance']
+		// 		        // }
+		//     		},
+
+		//     		subchart: {
+		// 			  show: true
+		// 			},
+
+		//     		zoom: {
+		// 		        enabled: true
+		// 		    },
+
+		//     		axis: {
+		//         		x: {
+		//             		type: 'timeseries',
+		//             		tick: {
+		//                 		format: '%Y-%m-%d'
+		//             		},
+		//             		label: {
+		// 					  text: 'Date',
+		// 					  // position: 'inner-top'
+		// 					}
+
+		//         		}
+		//      //    		y: {
+		// 					// label: {
+		// 					//   text: 'Distance (mi)',
+		// 					//   position: 'inner-top'
+		// 					// }
+		//     	//  		}
+		//     	// 		y2: {
+		//     	// 			label: {
+		// 					//   text: 'Time (min)',
+		// 					//   position: 'inner-top'
+		// 					// },
+		//     	// 			show:true
+		//     	// 		}
+		//     		}
+		// 			});
 
 				
-				// chart.hide(['data2', 'data3']);
-				// chart.show(['data2', 'data3']);
+		// 		// chart.hide(['data2', 'data3']);
+		// 		// chart.show(['data2', 'data3']);
 
-				// setTimeout(function () {
-		  //   		chart.load({
-		  //       		columns: [
-		  //           		['data3', 400, 500, 450, 700, 600, 500]
-		  //      			 ]
-		  //   		});
-				// }, 1000);
-		});
+		// 		setTimeout(function () {
+		//     		chart.load({
+		//         		columns: [
+		//             		['Time (min)', 45, 80, 60, 10, 25, 35]
+		//        			],
+		//      //   			axis: {
+		//      //   				y: {
+		// 					// label: {
+		// 					//   text: 'Time (min)',
+		// 					//   position: 'inner-top'
+		// 					// }
+		//     	//  			}	
+		//      //   			}
+		//      			unload: ['Distance (mi)'],
+		//     		});
+		// 		}, 2000);
+		// });
 		//window.onload = function
 	</script>
 
@@ -111,9 +176,9 @@
 					<div class="input-label">
 						Cardio
 					</div>
-					<select>
-						<option>None</option>
-						<option selected>Running</option>
+					<select id="cardio">
+						<option>--Choose An Exercise--</option>
+						<option>Running</option>
 						<option>Walking</option>
 						<option>Swimming</option>
 						<option>Cycling</option>
@@ -126,8 +191,8 @@
 					<div class="input-label">
 						Strength
 					</div>
-					<select>
-						<option>None</option>
+					<select id="strength">
+						<option>--Choose An Exercise--</option>
 						<option>Arms</option>
 						<option>Chest</option>
 						<option>Core</option>
@@ -139,8 +204,8 @@
 					<div class="input-label">
 						Flexibility
 					</div>
-					<select>
-						<option>None</option>
+					<select id="flexibility">
+						<option>--Choose An Exercise--</option>
 						<option>Yoga</option>
 						<option>Stretching</option>
 						<option>Pilates</option>
@@ -152,6 +217,16 @@
 			<div class='chart'>
 			  <div id="chart"></div>
 			</div>
+
+			<!-- <div class="item tabs tabs-secondary">
+				<button class="button button-outline button-calm">
+				  Show/Hide Distance
+				</button>
+
+				<button class="button button-outline button-energized">
+				  Show/Hide Time
+				</button>
+			</div> -->
 
 		</div>
 
