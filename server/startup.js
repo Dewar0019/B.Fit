@@ -2,7 +2,11 @@ if(Meteor.isServer){
 
 	Meteor.startup(function(){
 		if (Exercises.find().fetch()==0){
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
+			//Arms 
+
 			Exercises.insert({
 				Category:"arms",
 				Name: "Bicep Curl",
@@ -19,6 +23,22 @@ if(Meteor.isServer){
 				Name: "Reverse Curl",
 			});
 
+			Exercises.insert({
+				Category:"arms",
+				Name: "Triceps Extensions",
+			});
+
+			Exercises.insert({
+				Category:"arms",
+				Name: "Dips",
+			});
+
+			Exercises.insert({
+				Category:"arms",
+				Name: "Pushups",
+			});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			Exercises.insert({
 				Category:"chest",
@@ -30,10 +50,23 @@ if(Meteor.isServer){
 				Name: "Dips",
 			});
 
+
 			Exercises.insert({
 				Category:"chest",
 				Name: "Cable Fly",
 			});
+
+			Exercises.insert({
+				Category:"chest",
+				Name: "Butterfly",
+			});
+
+			Exercises.insert({
+				Category:"chest",
+				Name: "Cable Fly",
+			});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			Exercises.insert({
 				Category:"legs",
@@ -49,6 +82,65 @@ if(Meteor.isServer){
 				Category:"legs",
 				Name: "Calf Raises",
 			});
+
+			Exercises.insert({
+				Category:"legs",
+				Name: "Stepups",
+			});
+
+			Exercises.insert({
+				Category:"legs",
+				Name: "Leg Press",
+			});
+
+			Exercises.insert({
+				Category:"legs",
+				Name: "Calf Raises",
+			});
+
+			Exercises.insert({
+				Category:"legs",
+				Name: "Lunges",
+			});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			
+			Exercises.insert({
+				Category:"back ",
+				Name: "Lunges",
+			});
+
+			Exercises.insert({
+				Category:"back ",
+				Name: "Incline Row",
+			});
+
+			Exercises.insert({
+				Category:"back ",
+				Name: "Inverted Row",
+			});
+
+			Exercises.insert({
+				Category:"back ",
+				Name: "Incline Row",
+			});
+
+			Exercises.insert({
+				Category:"back ",
+				Name: "Back Extention",
+			});
+
+			Exercises.insert({
+				Category:"back ",
+				Name: "Cable Row",
+			});
+
+			Exercises.insert({
+				Category:"back ",
+				Name: "Supermans",
+			});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		}
 
 		if(Routines.find().count()== 0) {
