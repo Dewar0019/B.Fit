@@ -9,6 +9,22 @@ Template.welcome.helpers({
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var motivation = [
 "\"If you want to achieve greatness stop asking for permission.\" --Anonymous",
 "\"Things work out best for those who make the best of how things work out.\" --John Wooden",
