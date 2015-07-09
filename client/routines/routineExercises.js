@@ -19,9 +19,20 @@ Template.routineExercises.events({
             completedAll: (routine.exercises.length == numbChecked)
 		});
 		checkedExercises = [];
-		alert("Congrats on completing your exercise");
-		Route.go('welcome');
 	},
+
+	'click [data-action="showConfirm"]': function(event, template) {
+    IonPopup.confirm({
+      title: 'Yay you finished!',
+      template: 'Are you <strong>finished</strong> with your workout?',
+      onOk: function() {
+      	Router.go('welcome');
+      },
+      onCancel: function() {
+        console.log('Oh wait!');
+      }
+    });
+  },
 
 	'click .checkbox' : function() {
 		var selectedExercise = this;
