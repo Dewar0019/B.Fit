@@ -17,24 +17,25 @@
 		  {{#ionContent}}
 
 
-		  	<div class="list">
+		  	<form class="list" id="addExercise">
 			  <label class="item item-input item-floating-label">
 			    <span class="input-label">Sets</span>
-			    <input type="tel" placeholder="Sets">
+			    <input type="tel" placeholder="Sets" name="sets">
 			  </label>
 			  <label class="item item-input item-floating-label">
 			    <span class="input-label">Reps</span>
-			    <input type="tel" placeholder="Reps">
+			    <input type="tel" placeholder="Reps" name="reps">
 			  </label>
-			 	<label class="item item-input">
+			 	<label class="item item-input item-floating-label">
 			  		<span class="input-label">Weight</span>
-					<input type="tel">
+			    <input type="tel" placeholder="Weight" name="weight">
 				</label>
-			</div>
+				<button type = "submit" class="button button-large button-positive">
+				Add Exercise
+				</button>
+			</form>
 
-<button class="button button-large button-positive" id="addExercise">
-		Add Exercise
-		</button>
+
 
 				
 			{{/ionContent}}

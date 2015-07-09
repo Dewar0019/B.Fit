@@ -52,13 +52,13 @@
                 // Session.set('recentAdd', Routines.findOne({_uID: Meteor.userId(), routineName: name}));
         
 
-        'addToRoutine': function(exercise, getRoutine) {  //this will add new exercise to routine
+        'addToRoutine': function(exercise, getRoutine, sets, reps, weight) {  //this will add new exercise to routine
             var currentTime = new Date(); //Grab the current time
             Intermediate.insert({ //This is the actual object that will be added to the routine
                 Name: exercise.Name, 
-                Sets: exercise.Sets,
-                Reps: exercise.Reps,
-                Weight: exercise.Weight,
+                Sets: sets,
+                Reps: reps,
+                Weight: weight,
                 AddedOn: currentTime,
                 AddedBy: Meteor.userId()
             });
