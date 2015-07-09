@@ -3,7 +3,16 @@
 		<h1 class="title">Welcome to B.Fit</h1>
 	{{/contentFor}}
 		
+
+		 {{#contentFor "headerButtonRight"}}
+     <button class="button button-clear">
+    {{> ionIcon icon='mic-a'}}  
+  </button>
+ {{/contentFor}}
+
+
 	{{#if currentUser}}
+
 
 
 		{{#ionView}}

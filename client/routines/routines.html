@@ -3,12 +3,7 @@
 	{{#contentFor "headerButtonLeft"}}
 		{{>ionNavBackButton path="index"}}
 	{{/contentFor}}
-   <!--  <div class="bar bar-header">
-        <button class="button icon ion-navicon"></button>
-            <h1 class="title">Header Buttons</h1>
-        <button class="button">Edit</button>
-</div> -->
-
+ 
 	{{#contentFor "headerTitle"}}
 		<h1 class="title">Routines</h1>
 	{{/contentFor}}
@@ -16,12 +11,12 @@
 	{{#ionView}}
 		{{#ionContent}}
 
-
-
 			{{#ionList}}
+
 				{{#each item}}      
 					{{> savedRoutines}}
 				{{/each }}
+
 			{{/ionList}}
 
 		{{/ionContent}}
@@ -43,11 +38,13 @@
   {{/if}}
 
 </template>
+
+
 <template name= "savedRoutines">
-      <div class="list card">
+      <div id= "setForCompleted" class="list card">
 
   {{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true avatar=true}}
-    <h2>{{routineName}}</h2>
+    <h2 >{{routineName}}</h2>
         <p>Number of exercises: {{exercises.length}}</p>  
     {{/ionItem}}
 

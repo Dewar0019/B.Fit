@@ -30,7 +30,6 @@
         return exercise;
     },
 
-
         'createNewRoutine' : function(name) {
               return Routines.insert(
                     {
@@ -64,8 +63,6 @@
                 AddedBy: Meteor.userId()
             });
              var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
-             // console.log(getRoutine);
-             console.log(getRoutine.exercises);
              getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
              Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
              return Routines.findOne({_id: getRoutine._id});

@@ -1,3 +1,8 @@
 #checkBox{
 	left: 2%
 }
+
+.completionButton {
+	margin: 0 auto;
+	left: 40%;
+}

@@ -1,5 +1,6 @@
 <template name="routineExercises">
 	{{#if currentUser}}
+
 	{{#contentFor "headerButtonLeft"}}
 		{{>ionNavBackButton path="index"}}
 	{{/contentFor}}
@@ -8,16 +9,16 @@
 	{{#contentFor "headerTitle"}}
 		<h1 class="title">{{routineName}}</h1>
 	{{/contentFor}}
-
 	{{#ionView}}
 		{{#ionContent}}
-
-		
 			{{#each exercises}}
 				{{> listExercises}}
 			{{/each}}
 
-		{{/ionContent}}
+		<button class="button button-large button-positive completionButton">
+		Complete Exercise
+		</button>		
+{{/ionContent}}
 	{{/ionView}}
 
 	{{else}}
@@ -34,23 +35,17 @@
 		{{/ionView}}
 
 	{{/if}}
+
 </template>
 
 
 <template name= "listExercises">
-	
 	<i class="item item-checkbox">
     	<label id="checkBox" class="checkbox">
-			<input type="checkbox">
+			<input type="checkbox" name="chk">
      	</label>
-		
 		<h2>{{Name}}</h2>	
 		<p>{{Sets}} sets {{Reps}} reps</p>	
 		<p>{{Weight}} lbs </p>
-	</i>	
-	
+	</i>		
 </template>
-
-<!-- <a class="item item-icon-left" href="#">
-    <i class="icon ion-email"></i>
-    </a> -->
