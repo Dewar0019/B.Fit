@@ -2,6 +2,10 @@
 
 /*Strength Links and Image Placement*/
 
+#quote {
+text-align: center;
+font-family: Trebuchet MS;
+}
 #logo {
   display: block;
   margin-left: auto;
