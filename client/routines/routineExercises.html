@@ -1,29 +1,32 @@
 <template name="routineExercises">
 	{{#if currentUser}}
 
-	{{#contentFor "headerButtonLeft"}}
-		{{>ionNavBackButton path="index"}}
-	{{/contentFor}}
+		{{#contentFor "headerButtonLeft"}}
+			{{>ionNavBackButton path="index"}}
+		{{/contentFor}}
 
 
-	{{#contentFor "headerTitle"}}
-		<h1 class="title">{{routineName}}</h1>
-	{{/contentFor}}
-	{{#ionView}}
-		{{#ionContent}}
+		{{#contentFor "headerTitle"}}
+			<h1 class="title">{{routineName}}</h1>
+		{{/contentFor}}
 
-			{{#each exercises}}
-				{{> listExercises}}
-			{{/each}}
-
-		<button class="button button-large button-positive completionButton" data-action="showConfirm">
-		Complete Exercise
-		</button>		
-{{/ionContent}}
-	{{/ionView}}
-	{{else}}	
 		{{#ionView}}
 			{{#ionContent}}
+
+				{{#each exercises}}
+					{{> listExercises}}
+				{{/each}}
+
+				<button class="button button-large button-positive completionButton" data-action="showConfirm"> Complete Exercise </button>		
+
+			{{/ionContent}}
+		{{/ionView}}
+	
+	{{else}}	
+		
+		{{#ionView}}
+			{{#ionContent}}
+				
 				<img id="logo" src="images/logo.png" width="300" height="300">
 				
 				{{> atForm}}

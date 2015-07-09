@@ -1,37 +1,37 @@
 <template name="createRoutine">
 	{{#if currentUser}}
-	{{#contentFor "headerButtonLeft"}}
-		{{>ionNavBackButton path="index"}}
-	{{/contentFor}}
+		{{#contentFor "headerButtonLeft"}}
+			{{>ionNavBackButton path="index"}}
+		{{/contentFor}}
 
-	{{#contentFor "headerTitle"}}
-		<h1 class="title">Create new Routine</h1>
-	{{/contentFor}}
+		{{#contentFor "headerTitle"}}
+			<h1 class="title">Create new Routine</h1>
+		{{/contentFor}}
 
 
 
-	{{#ionView}}
-		  {{#ionContent}}
-			<form class="list" id="addRoutine">
-			  <label class="item item-floating-label">
-			    <span class="input-label">RoutineName</span>
-			    <input type="text" name="routineName" placeholder="Routine Name">
-			  </label>
-			<br>
-			<button type="submit" class="button button-large button-positive" >
-			  Submit
-			</button>
-			</form>
+		{{#ionView}}
+			  {{#ionContent}}
+				<form class="list" id="addRoutine">
+				  <label class="item item-floating-label">
+				    <span class="input-label">RoutineName</span>
+				    <input type="text" name="routineName" placeholder="Routine Name">
+				  </label>
+				<br>
+				<button type="submit" class="button button-large button-positive" >
+				  Submit
+				</button>
+				</form>
 
-		<h1> Add to Existing </h1>
-					{{#ionList}}
-				{{#each item}}      
-					{{> addToRoutine}}
-				{{/each }}
-			{{/ionList}}
+			<h1> Add to Existing </h1>
+						{{#ionList}}
+					{{#each item}}      
+						{{> addToRoutine}}
+					{{/each }}
+				{{/ionList}}
 
-		{{/ionContent}}
-		{{/ionView}}
+			{{/ionContent}}
+			{{/ionView}}
 
 		
 	{{else}}

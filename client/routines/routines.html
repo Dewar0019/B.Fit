@@ -1,74 +1,73 @@
 <template name="routines">
-  {{#if currentUser}}
-	{{#contentFor "headerButtonLeft"}}
-		{{>ionNavBackButton path="index"}}
-	{{/contentFor}}
+    {{#if currentUser}}
+        {{#contentFor "headerButtonLeft"}}
+    		{{>ionNavBackButton path="index"}}
+    	{{/contentFor}}
       
-	{{#contentFor "headerTitle"}}
-		<h1 class="title">Routines</h1>
-	{{/contentFor}}
+    	{{#contentFor "headerTitle"}}
+    		<h1 class="title">Routines</h1>
+    	{{/contentFor}}
 
-	{{#ionView}}
-		{{#ionContent}}
+    	{{#ionView}}
+    		{{#ionContent}}
 
-			{{#ionList}}
-    <h1> Here is the list of your routines </h1>
+    			{{#ionList}}
+                    
+                    <h1> Here is the list of your routines </h1>
 
-				{{#each item}}      
-					{{> savedRoutines}}
-				{{/each }}
+    				{{#each item}}      
+    					{{> savedRoutines}}
+    				{{/each }}
 
-			{{/ionList}}
+    			{{/ionList}}
 
-		{{/ionContent}}
-	{{/ionView}}
+    		{{/ionContent}}
+    	{{/ionView}}
 
-  {{else}}
+    {{else}}
     
 
-    {{#ionView}}
-      {{#ionContent}}
-        
-        <img id="logo" src="images/logo.png" width="300" height="300">
-        
-        {{> atForm}}
+        {{#ionView}}
+            {{#ionContent}}
+            
+                <img id="logo" src="images/logo.png" width="300" height="300">
+                
+                {{> atForm}}
 
-      {{/ionContent}}
-    {{/ionView}}
+          {{/ionContent}}
+        {{/ionView}}
 
-  {{/if}}
+    {{/if}}
 
 </template>
 
 
 <template name= "savedRoutines">
-      <div id= "setForCompleted" class="list card">
+    <div id= "setForCompleted" class="list card">
 
-  {{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true avatar=true}}
-    <h2 >{{routineName}}</h2>
+    {{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true avatar=true}}
+        <h2 >{{routineName}}</h2>
         <p>Number of exercises: {{exercises.length}}</p>  
     {{/ionItem}}
 
 
-  <div class="item item-body">
-    <p>
-     This will be a description of your routine
-    </p>
-    <p>
-      <a href="#" class="subdued">Completed X times</a>
-      <a href="#" class="subdued"> Another thing??</a>
-    </p>
-  </div>
+        <div class="item item-body">
+            <p>This will be a description of your routine</p>
+            
+            <p>
+                <a href="#" class="subdued">Completed X times</a>
+                <a href="#" class="subdued"> Another thing??</a>
+            </p>
 
-  <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" href="#">
-      Difficulty
-      <i class="icon ion-fireball"></i>
-    </a>
-</div>
-  </div>
+        </div>
 
-<hr/>
-	
-  
+        <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#"> 
+                Difficulty
+                <i class="icon ion-fireball"></i>
+            </a>
+        </div>
+    </div>
+
+    <hr/>
 </template>

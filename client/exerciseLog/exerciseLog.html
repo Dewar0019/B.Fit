@@ -1,55 +1,54 @@
 <template name="exerciseLog">
 	{{#if currentUser}}
-	{{#contentFor "headerButtonLeft"}}
-		{{>ionNavBackButton path="index"}}
-	{{/contentFor}}
+		{{#contentFor "headerButtonLeft"}}
+			{{>ionNavBackButton path="index"}}
+		{{/contentFor}}
 
-	{{#contentFor "headerTitle"}}
-		<h1 class="title">{{routineName}}</h1>
-	{{/contentFor}}
+		{{#contentFor "headerTitle"}}
+			<h1 class="title">{{routineName}}</h1>
+		{{/contentFor}}
 
-	{{#ionView}}
-		{{#ionContent}}
+		{{#ionView}}
+			{{#ionContent}}
 
-			<div class="list">
-				<form id="addCompletedExercise"> 
+				<div class="list">
+					<form id="addCompletedExercise"> 
 
-			  		<label class="item item-input item-stacked-label">
-			    		<span class="input-label">Name</span>
-			    		<input name="nameOfExercise" type="text" placeholder="Bicep Curl">
-			  		</label>
-			  		
-			  		<label class="item item-input item-stacked-label">
-			    		<span class="input-label">Sets</span>
-			    		<input name="numOfSets" type="text" placeholder="4">
-			  		</label>
-			  		
-			  		<label class="item item-input item-stacked-label">
-			    		<span class="input-label">Reps</span>
-			    		<input name="numOfReps" type="text" placeholder="10">
-			  		</label>
+				  		<label class="item item-input item-stacked-label">
+				    		<span class="input-label">Name</span>
+				    		<input name="nameOfExercise" type="text" placeholder="Bicep Curl">
+				  		</label>
+				  		
+				  		<label class="item item-input item-stacked-label">
+				    		<span class="input-label">Sets</span>
+				    		<input name="numOfSets" type="text" placeholder="4">
+				  		</label>
+				  		
+				  		<label class="item item-input item-stacked-label">
+				    		<span class="input-label">Reps</span>
+				    		<input name="numOfReps" type="text" placeholder="10">
+				  		</label>
 
-			  		<label class="item item-input item-stacked-label">
-			    		<span class="input-label">Weight (lbs)</span>
-			    		<input name="weight" type="text" placeholder="15">
-			  		</label>
+				  		<label class="item item-input item-stacked-label">
+				    		<span class="input-label">Weight (lbs)</span>
+				    		<input name="weight" type="text" placeholder="15">
+				  		</label>
 
-					<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
+						<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
 
-		  		</form>
-			</div>
+			  		</form>
+				</div>
 
-			{{#each completedExercise}}
-				{{> listCompletedExercises}}
-			{{/each}}
+				{{#each completedExercise}}
+					{{> listCompletedExercises}}
+				{{/each}}
 
-			{{> listen}}
+				{{> listen}}
 
-		{{/ionContent}}
-	{{/ionView}}
+			{{/ionContent}}
+		{{/ionView}}
 	
 	{{else}}
-		
 
 		{{#ionView}}
 			{{#ionContent}}

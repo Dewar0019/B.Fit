@@ -1,50 +1,51 @@
 <template name="exercises">
 	{{#if currentUser}}
-	{{#contentFor "headerButtonLeft"}}
-		{{>ionNavBackButton path="index"}}
-	{{/contentFor}}
+	
+		{{#contentFor "headerButtonLeft"}}
+			{{>ionNavBackButton path="index"}}
+		{{/contentFor}}
 
-	{{#contentFor "headerTitle"}}
-		<h1 class="title">Add Exercises to {{routineName}}</h1>
-	{{/contentFor}}
-
-	{{#ionView}}
-		  {{#ionContent}}
-		  <h1> Current Exercises </h1>
-		  <h2> search function goes here </h2>
-		  <h3> list of exercises here </h3>
-		 {{#if startExercise}}
-		  <button type = "submit" class="button button-large button-positive" id="startWorkout">
-				Start Workout
-				</button>
-		{{/if}}		
-
-		 <div role="alert" class="message success">
-			<p><b>{{returnNotification}}</b></p>
-			<p>This is just a successful notification message.</p>
-			</div>
-			
-				{{#ionList}}
-					{{#each getExercises}}      
-						{{> addExercise}}
-					{{/each}}
-				{{/ionList}}
-			{{/ionContent}}
-		{{/ionView}}
-		{{else}}
-		
+		{{#contentFor "headerTitle"}}
+			<h1 class="title">Add Exercises to {{routineName}}</h1>
+		{{/contentFor}}
 
 		{{#ionView}}
-			{{#ionContent}}
-				
-				<img id="logo" src="images/logo.png" width="300" height="300">
-				
-				{{> atForm}}
+			  {{#ionContent}}
+			  <h1> Current Exercises </h1>
+			  <h2> search function goes here </h2>
+			  <h3> list of exercises here </h3>
+			 {{#if startExercise}}
+			  <button type = "submit" class="button button-large button-positive" id="startWorkout">
+					Start Workout
+					</button>
+			{{/if}}		
 
-			{{/ionContent}}
-		{{/ionView}}
+			 <div role="alert" class="message success">
+				<p><b>{{returnNotification}}</b></p>
+				<p>This is just a successful notification message.</p>
+				</div>
+				
+					{{#ionList}}
+						{{#each getExercises}}      
+							{{> addExercise}}
+						{{/each}}
+					{{/ionList}}
+				{{/ionContent}}
+			{{/ionView}}
 
-	{{/if}}
+		{{else}}
+
+			{{#ionView}}
+				{{#ionContent}}
+					
+					<img id="logo" src="images/logo.png" width="300" height="300">
+					
+					{{> atForm}}
+
+				{{/ionContent}}
+			{{/ionView}}
+
+		{{/if}}
 </template>
 
 
