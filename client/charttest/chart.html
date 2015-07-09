@@ -41,10 +41,10 @@
 					['Cycling', 10, 8, 9, 12, 4, 5]
 				],
 				types: {
-					Running: 'area',
-					Walking: 'area',
-					Swimming: 'area',
-					Cycling: 'area'
+					Running: 'area-spline',
+					Walking: 'area-spline',
+					Swimming: 'area-spline',
+					Cycling: 'area-spline'
 				},
 				hide: true
 			},
@@ -66,6 +66,33 @@
 				show: false
 			}
 		});
+
+		$('#A').on('click',function(){
+			chart.load({
+				columns:[
+					['Time', 60, 40, 120, 50, 100, 120],
+				],
+					unload: chart.columns,
+			});
+		});
+
+		$('#B').on('click',function(){
+			chart.load({
+				columns:[
+					['Running', 5, 10, 2, 4, 5, 8],
+				],
+					unload: chart.columns,
+			});
+		});
+
+		// $("#showDis").on("change",function(e){
+		// 	chart.hide(['Running'])
+		// 	chart.load({
+  //       		columns: [
+  //           		['Time (min)', 45, 80, 60, 10, 25, 35]
+  //      			]
+  //      		});
+		// });
 
 
 
@@ -215,15 +242,16 @@
 			  <div id="chart"></div>
 			</div>
 
-			<!-- <div class="item tabs tabs-secondary">
-				<button class="button button-outline button-calm">
+			<div class="item tabs tabs-secondary">
+				
+				<button class="button button-outline button-calm" id="A">
 				  Show/Hide Distance
 				</button>
 
-				<button class="button button-outline button-energized">
+				<button class="button button-outline button-energized" id="B">
 				  Show/Hide Time
 				</button>
-			</div> -->
+			</div>
 
 		</div>
 
