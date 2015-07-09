@@ -3,144 +3,138 @@ if(Meteor.isServer){
 	Meteor.startup(function(){
 		if (Exercises.find().fetch()==0){
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			
-			//Arms 
-
 			Exercises.insert({
-				Category:"arms",
+				Tags:["arms"],
 				Name: "Bicep Curl",
 			});
 
 			Exercises.insert({
-				Category:"arms",
+				Tags:["arms"],
 				Name: "Hammer Curl",
 			});
 
 
 			Exercises.insert({
-				Category:"arms",
+				Tags:["arms"],
 				Name: "Reverse Curl",
 			});
 
 			Exercises.insert({
-				Category:"arms",
+				Tags:["arms"],
 				Name: "Triceps Extensions",
 			});
 
 			Exercises.insert({
-				Category:"arms",
+				Tags:["arms"],
 				Name: "Dips",
 			});
 
 			Exercises.insert({
-				Category:"arms",
+				Tags:["arms"],
 				Name: "Pushups",
 			});
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			Exercises.insert({
-				Category:"chest",
+				Tags:["chest"],
 				Name: "Chest Press",
 			});
 
 			Exercises.insert({
-				Category:"chest",
+				Tags:["chest"],
 				Name: "Dips",
 			});
 
 
 			Exercises.insert({
-				Category:"chest",
+				Tags:["chest"],
 				Name: "Cable Fly",
 			});
 
 			Exercises.insert({
-				Category:"chest",
+				Tags:["chest"],
 				Name: "Butterfly",
 			});
 
 			Exercises.insert({
-				Category:"chest",
+				Tags:["chest"],
 				Name: "Cable Fly",
 			});
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			Exercises.insert({
-				Category:"legs",
+				Tags:["legs"],
 				Name: "Squats",
 			});
 
 			Exercises.insert({
-				Category:"legs",
+				Tags:["legs"],
 				Name: "Step Ups",
 			});
 
 			Exercises.insert({
-				Category:"legs",
+				Tags:["legs"],
 				Name: "Calf Raises",
 			});
 
 			Exercises.insert({
-				Category:"legs",
+				Tags:["legs"],
 				Name: "Stepups",
 			});
 
 			Exercises.insert({
-				Category:"legs",
+				Tags:["legs"],
 				Name: "Leg Press",
 			});
 
 			Exercises.insert({
-				Category:"legs",
+				Tags:["legs"],
 				Name: "Calf Raises",
 			});
 
 			Exercises.insert({
-				Category:"legs",
+				Tags:["legs"],
 				Name: "Lunges",
 			});
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
 			Exercises.insert({
-				Category:"back ",
+				Tags:["back"],
 				Name: "Lunges",
 			});
 
 			Exercises.insert({
-				Category:"back ",
+				Tags:["back"],
 				Name: "Incline Row",
 			});
 
 			Exercises.insert({
-				Category:"back ",
+				Tags:["back"],
 				Name: "Inverted Row",
 			});
 
 			Exercises.insert({
-				Category:"back ",
+				Tags:["back"],
 				Name: "Incline Row",
 			});
 
 			Exercises.insert({
-				Category:"back ",
+				Tags:["back"],
 				Name: "Back Extention",
 			});
 
 			Exercises.insert({
-				Category:"back ",
+				Tags:["back"],
 				Name: "Cable Row",
 			});
 
 			Exercises.insert({
-				Category:"back ",
+				Tags:["back"],
 				Name: "Supermans",
 			});
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		}
 
 		if(Routines.find().count()== 0) {
@@ -152,14 +146,14 @@ if(Meteor.isServer){
 						Category: "core",
 						Name: "Crunches",
 						Sets: 1,
-						Reps: 25,
+						Reps: 25
 					},
 
 					{
 						Category: "core",
 						Name: "Bicycles",
 						Sets: 1,
-						Reps: 50, 
+						Reps: 50
 					},
 
 					{
