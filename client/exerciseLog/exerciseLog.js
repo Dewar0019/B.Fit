@@ -276,7 +276,7 @@ function recordExercise(testVariable) {
 
 function exerciseCommands(action) {
 
-	if(action[0]._text.indexOf("next exercise") > 0)
+	if(testVariable[0]._text.indexOf("next exercise") > 0)
 		console.log("next exercise recognized")
 	var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
 	for(var i = 0; i< routine.exercises.length; i++) {
