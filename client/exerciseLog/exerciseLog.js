@@ -3,11 +3,10 @@ Template.exerciseLog.helpers({
 
 		// returns everything in the Completed collection that has been added in the past 24 hours. 
 		// to change the amount of time change the number below in the unit of milliseconds. 
-		
 		today = new Date()
-		yesterday = new Date(today.getTime() - 86400000)
+		fromDate = new Date(today.getTime() - 86400000)
 
-		return Completed.find( {CompletedOn:{$gt:yesterday} }, {sort: {CompletedOn: -1}} )
+		return Completed.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
 	}
 })
 
@@ -30,6 +29,18 @@ Template.exerciseLog.events({
 			Weight: weight,
 			CompletedOn: new Date()	
 		})
+	},
+
+	'click #todaysExercises': function (event){
+		today = new Date()
+		fromDate = new Date(today.getTime() - 86400000)
+		console.log("today was pressed")
+	},
+
+	'click #thisWeeksExercises': function(event){
+		today = new Date()
+		fromDate = new Date(today.getTime() - 604800000)
+		console.log("this week was pressed")
 	}
 })
 

@@ -22,8 +22,6 @@
  // 	}
  // }); 
 
-
-
 Template.layout.events({
 
 	'click .startDictation': function(event){
@@ -31,7 +29,6 @@ Template.layout.events({
 		console.log("button hit");
 	}
 })
-
 
 /*
   This code comes from this blog post by Amit Agarwal
