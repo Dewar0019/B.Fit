@@ -28,8 +28,7 @@ Template.exerciseLog.events({
 			Sets: sets,
 			Reps: reps,
 			Weight: weight,
-			CompletedOn: new Date()
-			
+			CompletedOn: new Date()	
 		})
 	},
 
@@ -220,7 +219,9 @@ function feach(w) {
 
 
 function recordExercise(testVariable) {
-
+	var sets;
+	var reps; 
+	var weight;
 
 	//sets 
 	try {
@@ -238,13 +239,11 @@ function recordExercise(testVariable) {
 			sets = newSets
 		}
 
-		console.log("Sets: " + sets)
-		console.log(typeof sets)
+		console.log("Sets: " + sets + typeof sets)
 
 	} catch (e){
-		console.log("error encountered")
-		prompt("You did not specify sets. Please add it in manually");
-		sets = 0;
+		console.log("sets was not recorded")
+		sets = prompt("You did not specify sets. Please add it in manually");
 	}
 
 	//reps 
@@ -252,9 +251,9 @@ function recordExercise(testVariable) {
 		reps = testVariable[0].entities.reps[0].value
 		var spaceValue = reps.indexOf(" ");
 		
-		reps = reps.substring(0,spaceValue)
+		reps = reps.substring(0,spaceValue);
 
-		newReps = text2num(reps)
+		newReps = text2num(reps);
 
 		if (newReps == 0) {
 			reps = parseInt(reps)
@@ -262,13 +261,31 @@ function recordExercise(testVariable) {
 			reps = newReps
 		}
 
-		console.log("Reps: " + reps)
-		console.log(typeof reps)
+		console.log("Reps: " + reps + typeof reps);
 
 	} catch (e){
-		console.log("error encountered")
-		prompt("You did not specify reps. Please add it in manually");
-		reps = 0;
+		console.log("reps was not recorded");
+		reps = prompt("You did not specify reps. Please add it in manually");
 	}
+
+	try {
+		weight = testVariable[0].entities.weight[0].value;
+		var spaceValue = weight.indexOf(" ");
+		weight = weight.substring(0,spaceValue);
+		newWeight = text2num(weight);
+
+		if (newWeight == 0) {
+			weight = parseInt(weight)
+		} else {
+			weight = newWeight
+		}
+
+		console.log("Weight: " + weight + typeof weight);
+
+	} catch(e){
+		console.log("weight was not recorded");
+		weight = prompt("You did not specify a weight. Please add it manually");
+	}
+	
 }
 
