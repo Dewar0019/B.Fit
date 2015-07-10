@@ -1,7 +1,7 @@
 Template.routineExercises.helpers({
 })
 
-var checkedExercises = [];
+checkedExercises = [];
 
 
 Template.routineExercises.events({
