@@ -12,13 +12,10 @@
 
 		{{#ionView}}
 			{{#ionContent}}
-
-				{{#each exercises}}
-					{{> listExercises}}
-				{{/each}}
-
+				<button class="button button-large button-positive beginExercise" data-action="showAlert"> Start Exercise </button>					{{#each exercises}}
+						{{> listExercises}}
+					{{/each}}
 				<button class="button button-large button-positive completionButton" data-action="showConfirm"> Complete Exercise </button>		
-
 			{{/ionContent}}
 		{{/ionView}}
 	
