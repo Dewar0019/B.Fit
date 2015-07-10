@@ -319,7 +319,7 @@ function recordExercise(testVariable) {
 
 }
 
-function exerciseCommands(action) {	
+function exerciseCommands(action) {
 	var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
 	for(var i = 0; i< routine.exercises.length; i++) {
 		if( $.inArray(routine.exercises[i], checkedExercises) == -1) { //checks to see if exercise is within array
