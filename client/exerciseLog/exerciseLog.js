@@ -135,8 +135,11 @@ function sendSentence(sentence){
  		
  		dataType: 'jsonp',
  		method: 'GET',
+
  		success: function(response) {
- 			var testVariable = response.outcomes;
+
+ 			// make testVariable a Var in final version 
+ 			testVariable = response.outcomes;
      		console.log("success!", response);
      		recordExercise(testVariable);
  		}
@@ -239,11 +242,13 @@ function recordExercise(testVariable) {
 			sets = newSets
 		}
 
-		console.log("Sets: " + sets + typeof sets)
+		console.log("Sets: " + sets + " " + typeof sets)
 
 	} catch (e){
 		console.log("sets was not recorded")
-		sets = prompt("You did not specify sets. Please add it in manually");
+		sets = parseInt(prompt("You did not specify sets. Please add it in manually"));
+		console.log("manually entered sets " + sets + " " + typeof sets)
+
 	}
 
 	//reps 
@@ -261,11 +266,13 @@ function recordExercise(testVariable) {
 			reps = newReps
 		}
 
-		console.log("Reps: " + reps + typeof reps);
+		console.log("Reps: " + reps + " " + typeof reps);
 
 	} catch (e){
 		console.log("reps was not recorded");
-		reps = prompt("You did not specify reps. Please add it in manually");
+		reps = parseInt(prompt("You did not specify reps. Please add it in manually"));
+		console.log("manually entered reps " + reps + " " + typeof reps)
+
 	}
 
 	try {
@@ -280,12 +287,21 @@ function recordExercise(testVariable) {
 			weight = newWeight
 		}
 
-		console.log("Weight: " + weight + typeof weight);
+		console.log("Weight: " + weight + " " + typeof weight);
 
 	} catch(e){
 		console.log("weight was not recorded");
-		weight = prompt("You did not specify a weight. Please add it manually");
+		weight = parseInt(prompt("You did not specify a weight. Please add it manually"));
+		console.log("manually entered weight " + weight + " " + typeof weight)
 	}
-	
+
+	Completed.insert({
+		Name: "voice test", 
+		Sets: sets,
+		Reps: reps,
+		Weight: weight,
+		CompletedOn: new Date()	
+	})
+
 }
 
