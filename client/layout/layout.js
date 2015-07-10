@@ -135,13 +135,16 @@ function sendSentence(sentence){
  			// make testVariable a Var in final version 
  			testVariable = response.outcomes;
      		console.log("success!", response);
-     		exerciseCommands(testVariable);
-     		// recordExercise(testVariable);
+     		if(action[0]._text.indexOf("next exercise") > 0) {
+				console.log("next exercise recognized");
+     			exerciseCommands(testVariable);
+     		} else {
+     			recordExercise(testVariable);
+     		}
  		}
 	});
 	console.log("Sentence Sent");
 }
-
 
 var Small = {
 	'zero': 0,
