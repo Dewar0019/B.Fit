@@ -28,9 +28,27 @@
 					withLegend: true
 				});
 			});
+			$('#A').on('click',function(){
+			chart.load({
+				columns:[
+					['Running Time', 60, 40, 120, 50, 100, 120],
+				],
+					unload: ['Running'],
+			});
+		});
+
+		$('#B').on('click',function(){
+			chart.load({
+				columns:[
+					['Running', 5, 10, 2, 4, 5, 8],
+				],
+					unload: ['Running Time'],
+			});
+		});
 		});
 
 		var chart = c3.generate({
+			bindto: '#chart',
 			data:{
 				x: 'x',
 				columns: [
@@ -67,23 +85,7 @@
 			}
 		});
 
-		$('#A').on('click',function(){
-			chart.load({
-				columns:[
-					['Time', 60, 40, 120, 50, 100, 120],
-				],
-					unload: chart.columns,
-			});
-		});
-
-		$('#B').on('click',function(){
-			chart.load({
-				columns:[
-					['Running', 5, 10, 2, 4, 5, 8],
-				],
-					unload: chart.columns,
-			});
-		});
+		
 
 		// $("#showDis").on("change",function(e){
 		// 	chart.hide(['Running'])
@@ -245,12 +247,12 @@
 			<div class="item tabs tabs-secondary">
 				
 				<button class="button button-outline button-calm" id="A">
-				  Show/Hide Distance
+				  Show Time
 				</button>
-
-				<button class="button button-outline button-energized" id="B">
-				  Show/Hide Time
+				<button class="button button-outline button-royal" id="B">
+				  Hide Time
 				</button>
+			
 			</div>
 
 		</div>

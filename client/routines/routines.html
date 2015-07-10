@@ -10,10 +10,28 @@
 
     	{{#ionView}}
     		{{#ionContent}}
-
     			{{#ionList}}
                     
                     <h1> Here is the list of your routines </h1>
+	
+        
+      <!-- <input type="text" placeholder="Search"> -->
+
+
+      <form action="/search/" method="get">
+           <div class="list list-inset">
+        <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+              <div>
+                                <span id="final_span" class="final"></span>
+                                <span id="interim_span" class="interim"></span>
+                <input onkeyup="OnChange(this.value.toLowerCase())" class="large-search-text" type="text" id="q" name="sbc" placeholder="Search" >
+              </div>
+        
+
+      </label>
+    </div>
+          </form>
 
     				{{#each item}}      
     					{{> savedRoutines}}
@@ -69,5 +87,40 @@
         </div>
     </div>
 
-    <hr/>
+  
+      <div id="icecreamfitness" class="exerciselist" onclick="DoNav('/routineExercises/:_id/')"></div>
+  <div id="amy" class="exerciselist" onclick="DoNav('/routineExercises/:_id/')"></div>
+
 </template>
+
+
+
+	
+
+
+
+
+<!-- <div class="main-shadow-box">
+    <div class="main-container" style="margin-top:0px;margin-bottom:1px;padding-bottom:1px;">
+        
+        <div class="container xuning-box">
+            <div id="hero2" >
+        <div class="nabtn active nabtn-left" id="all" style="" onclick="ShowAll()">
+          All Heroes
+        </div>
+                
+          <form action="/search/" method="get">
+            <div class="large-search" float="right">
+              <div>
+                                <span id="final_span" class="final"></span>
+                                <span id="interim_span" class="interim"></span>
+                <input onkeyup="OnChange(this.value.toLowerCase())" class="large-search-text" type="text" id="q" name="sbc" placeholder="search heroes:" >
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+    
+</div>
+</div> -->
+
