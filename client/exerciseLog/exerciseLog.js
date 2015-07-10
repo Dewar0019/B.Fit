@@ -140,8 +140,12 @@ function sendSentence(sentence){
  			// make testVariable a Var in final version 
  			testVariable = response.outcomes;
      		console.log("success!", response);
-     		exerciseCommands(testVariable);
-     		// recordExercise(testVariable);
+     		if(action[0]._text.indexOf("next exercise") > 0) {
+				console.log("next exercise recognized");
+     			exerciseCommands(testVariable);
+     		} else {
+     			recordExercise(testVariable);
+     		}
  		}
 	});
 	console.log("Sentence Sent");
@@ -304,10 +308,7 @@ function recordExercise(testVariable) {
 
 }
 
-function exerciseCommands(action) {
-
-	if(action[0]._text.indexOf("next exercise") > 0)
-		console.log("next exercise recognized")
+function exerciseCommands(action) {	
 	var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
 	for(var i = 0; i< routine.exercises.length; i++) {
 		if( $.inArray(routine.exercises[i], checkedExercises) == -1) { //checks to see if exercise is within array
