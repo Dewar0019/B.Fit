@@ -340,13 +340,9 @@ function recordExercise(testVariable) {
 
 
 function exerciseCommands(action) {
-
-	if(action[0]._text.indexOf("next exercise") > 0)
-		console.log("next exercise recognized")
-	var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
-	for(var i = 0; i< routine.exercises.length; i++) {
-		if($.inArray(routine.exercises[i], checkedExercises) == -1) { //checks to see if exercise is within array
-			var nextExercise = "Your next exercise is " + routine.exercises[i].Sets + " sets" + "and " + routine.exercises[i].Reps + " reps of " + routine.exercises[i].Name
+	for(var i = 0; i< checkedExercises.length; i++) {
+		if(!checkedExercises[i].checked) {
+			var nextExercise = "Your next exercise is " + checkedExercises[i].Sets + " sets" + "and " + checkedExercises[i].Reps + " reps of " + checkedExercises[i].Name
 			var msg = new SpeechSynthesisUtterance(nextExercise);//constructor for voice speech
 			var voices = window.speechSynthesis.getVoices();
 			msg.voice = voices[1]; 
@@ -354,6 +350,5 @@ function exerciseCommands(action) {
 			return;
 		}
 	}
-
 }
 
