@@ -220,82 +220,41 @@ function feach(w) {
    }
 }
 
-function recordExercise(testVariable) {
-	var name; 
-	var sets;
-	var reps; 
-	var weight;
-
-	//sets 
+function tryCatchBlock(variable) {
 	try {
 
-		sets = testVariable[0].entities.sets[0].value
 		var spaceValue = sets.indexOf(" ");
 
-		sets = sets.substring(0, spaceValue)
+		variable = variable.substring(0, spaceValue)
 
-		newSets = text2num(sets)
+		newVariable = text2num(variable)
 
-		if (newSets == 0){
-			sets = parseInt(sets)
+		if (newVariable == 0){
+			variable = parseInt(variable)
 		} else {
-			sets = newSets
+			variable = newVariable
 		}
 
-		console.log("Sets: " + sets + " " + typeof sets)
+		console.log("Variable: " + variable + " " + typeof variable)
+		return sets
 
 	} catch (e){
-		sets = parseInt(prompt("You did not specify sets. Please add it in manually"));
-		console.log("manually entered sets " + sets + " " + typeof sets)
+		variable = parseInt(prompt("You did not specify " + variable + ". Please add it in manually"));
+		console.log("manually entered " + variable + " " + typeof sets)
 	}
 
-	//reps 
-	try {
-		reps = testVariable[0].entities.reps[0].value
-		var spaceValue = reps.indexOf(" ");
-		
-		reps = reps.substring(0,spaceValue);
+}
 
-		// this is in case wit.ai records "of 10 reps" as the value. 
-		if (reps == "of"){
-			spaceValue = reps.indexOf(" ");
-			reps = reps.substring(0,spaceValue);
-		}
+function recordExercise(testVariable) {
+	var name; 
+	var sets = testVariable[0].entities.sets[0].value;
+	var reps = testVariable[0].entities.reps[0].value;; 
+	var weight = testVariable[0].entities.weight[0].value;;
 
-		//converts reps to a number value. If the value is 0 it is because reps is 10 as a string and not a number so parseInt is then used.
-		newReps = text2num(reps);
+	sets = tryCatchBlock(sets);
+	reps = tryCatchBlock(reps);
+	weight = tryCatchBlock(weight);
 
-		if (newReps == 0) {
-			reps = parseInt(reps)
-		} else {
-			reps = newReps
-		}
-
-		console.log("Reps: " + reps + " " + typeof reps);
-
-	} catch (e){
-		reps = parseInt(prompt("You did not specify reps. Please add it in manually"));
-		console.log("manually entered reps " + reps + " " + typeof reps)
-	}
-
-	try {
-		weight = testVariable[0].entities.weight[0].value;
-		var spaceValue = weight.indexOf(" ");
-		weight = weight.substring(0,spaceValue);
-		newWeight = text2num(weight);
-
-		if (newWeight == 0) {
-			weight = parseInt(weight)
-		} else {
-			weight = newWeight
-		}
-
-		console.log("Weight: " + weight + " " + typeof weight);
-
-	} catch(e){
-		weight = parseInt(prompt("You did not specify a weight. Please add it manually"));
-		console.log("manually entered weight " + weight + " " + typeof weight)
-	}
 
 	try {
 		name = testVariable[0].entities.exerciseName[0].value;
@@ -330,6 +289,5 @@ function exerciseCommands(action) {
 			return;
 		}
 	}
-
 }
 
