@@ -15,6 +15,7 @@ Meteor.publish('userExercises', function() { return Meteor.users.find({ _id: thi
 // Meteor.publish('pilates', function() {return PilatesFlex.find();});
 
 Meteor.publish('exercises', function() {return Exercises.find();});
+Meteor.publish('completed',function() {return Completed.find();});
 
 
 // Meteor.users.allow({
