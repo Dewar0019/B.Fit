@@ -136,9 +136,10 @@ function sendSentence(sentence){
  		dataType: 'jsonp',
  		method: 'GET',
  		success: function(response) {
- 			var testVariable = response.outcomes;
+ 			testVariable = response.outcomes;
      		console.log("success!", response);
-     		recordExercise(testVariable);
+     		exerciseCommands(testVariable);
+     		// recordExercise(testVariable);
  		}
 	});
 	console.log("Sentence Sent");
@@ -217,7 +218,6 @@ function feach(w) {
    }
 }
 
-
 function recordExercise(testVariable) {
 	var sets;
 	var reps; 
@@ -287,5 +287,23 @@ function recordExercise(testVariable) {
 		weight = prompt("You did not specify a weight. Please add it manually");
 	}
 	
+}
+
+function exerciseCommands(action) {
+
+	if(action[0]._text.indexOf("next exercise") > 0)
+		console.log("next exercise recognized")
+	var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
+	for(var i = 0; i< routine.exercises.length; i++) {
+		if( $.inArray(routine.exercises[i], checkedExercises) == -1) { //checks to see if exercise is within array
+			var nextExercise = "Your next exercise is " + routine.exercises[i].Sets + " sets" + "and " + routine.exercises[i].Reps + " reps of " + routine.exercises[i].Name
+			var msg = new SpeechSynthesisUtterance(nextExercise);//constructor for voice speech
+			var voices = window.speechSynthesis.getVoices();
+			msg.voice = voices[1]; 
+			window.speechSynthesis.speak(msg);
+			return;
+		}
+	}
+
 }
 
