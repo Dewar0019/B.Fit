@@ -32,4 +32,3 @@ Template.exerciseLog.events({
 		})
 	}
 })
-

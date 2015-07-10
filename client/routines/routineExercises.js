@@ -1,7 +1,24 @@
+
+function initalizeCheckList() {
+	checkedExercises = [];
+	var thisRoutine = Session.get('forCompletedRoutine');
+	if(thisRoutine != null) {
+	checkedExercises = thisRoutine.exercises.slice(0);
+	checkedExercises.forEach(function(obj) {
+		obj.checked = false;
+		// console.log(obj);
+	});
+}
+};
+	
+initalizeCheckList();
 Template.routineExercises.helpers({
+
 })
 
-checkedExercises = [];
+//copy over the routine exercises array and set a new field to be all false
+//when the user clicks it once it'll be set to true
+//again set to false and look through list for first falase to read next exercise
 
 
 Template.routineExercises.events({
@@ -18,7 +35,7 @@ Template.routineExercises.events({
             completedOn: new Date(),
             completedAll: (routine.exercises.length == numbChecked)
 		});
-		checkedExercises = [];
+		// checkedExercises = [];
 	},
 
 	'click [data-action="showConfirm"]': function(event, template) {
@@ -29,17 +46,33 @@ Template.routineExercises.events({
       	Router.go('welcome');
       },
       onCancel: function() {
-        console.log('Oh wait!');
       }
     });
   },
 
 	'click .checkbox' : function() {
+		console.log("in here");
 		var selectedExercise = this;
-		// console.log(selectedExercise);
-		if( $.inArray(selectedExercise, checkedExercises) == -1) { //checks to see if duplicate exercise is within array
-			checkedExercises.push(selectedExercise);
+		checkedExercises.forEach(function(obj) {
+			console.log(" checkbox loop")
+		if(obj.checked) {   //if obj was already checked prior
+			obj.checked = false;
+			console.log("unchecked");
+			console.log(obj);
+		} else if (obj.Name == selectedExercise.Name) {
+			if(obj.Sets == selectedExercise.Sets && obj.Reps == selectedExercise.Reps) {
+				console.log("found same exercise");
+				obj.checked = true;
+				console.log(obj);
+			}
 		}
-		console.log(checkedExercises);
+		
+	});		
 	}
 });
+
+
+
+
+
+
