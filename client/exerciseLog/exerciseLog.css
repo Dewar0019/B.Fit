@@ -6,3 +6,11 @@
 	top: 10px;
 	left: 10px;
 }
+
+#listingExercises{
+	opacity: .7;
+}
+
+#inputExerciseText{
+	color: blue;
+}

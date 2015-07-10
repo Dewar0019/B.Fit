@@ -215,7 +215,34 @@ function feach(w) {
    }
 }
 
+function tryCatchBlock(variable) {
+	try {
+
+		var spaceValue = sets.indexOf(" ");
+
+		variable = variable.substring(0, spaceValue)
+
+		newVariable = text2num(variable)
+
+		if (newVariable == 0){
+			variable = parseInt(variable)
+		} else {
+			variable = newVariable
+		}
+
+		console.log("Variable: " + variable + " " + typeof variable)
+		return sets
+
+	} catch (e){
+		variable = parseInt(prompt("You did not specify " + variable + ". Please add it in manually"));
+		console.log("manually entered " + variable + " " + typeof sets)
+	}
+
+}
+
+
 function recordExercise(testVariable) {
+	var name; 
 	var sets;
 	var reps; 
 	var weight;
@@ -223,7 +250,7 @@ function recordExercise(testVariable) {
 	//sets 
 	try {
 
-		sets = testVariable[0].entities.Sets[0].value
+		sets = testVariable[0].entities.sets[0].value
 		var spaceValue = sets.indexOf(" ");
 
 		sets = sets.substring(0, spaceValue)
@@ -239,10 +266,8 @@ function recordExercise(testVariable) {
 		console.log("Sets: " + sets + " " + typeof sets)
 
 	} catch (e){
-		console.log("sets was not recorded")
 		sets = parseInt(prompt("You did not specify sets. Please add it in manually"));
 		console.log("manually entered sets " + sets + " " + typeof sets)
-
 	}
 
 	//reps 
@@ -252,6 +277,13 @@ function recordExercise(testVariable) {
 		
 		reps = reps.substring(0,spaceValue);
 
+		// this is in case wit.ai records "of 10 reps" as the value. 
+		if (reps == "of"){
+			spaceValue = reps.indexOf(" ");
+			reps = reps.substring(0,spaceValue);
+		}
+
+		//converts reps to a number value. If the value is 0 it is because reps is 10 as a string and not a number so parseInt is then used.
 		newReps = text2num(reps);
 
 		if (newReps == 0) {
@@ -263,10 +295,8 @@ function recordExercise(testVariable) {
 		console.log("Reps: " + reps + " " + typeof reps);
 
 	} catch (e){
-		console.log("reps was not recorded");
 		reps = parseInt(prompt("You did not specify reps. Please add it in manually"));
 		console.log("manually entered reps " + reps + " " + typeof reps)
-
 	}
 
 	try {
@@ -284,20 +314,27 @@ function recordExercise(testVariable) {
 		console.log("Weight: " + weight + " " + typeof weight);
 
 	} catch(e){
-		console.log("weight was not recorded");
 		weight = parseInt(prompt("You did not specify a weight. Please add it manually"));
 		console.log("manually entered weight " + weight + " " + typeof weight)
 	}
 
+	try {
+		name = testVariable[0].entities.exerciseName[0].value;
+		console.log("Name: " + name);
+	} catch(e) {
+		console.log("Name was not recorded");
+		prompt("You did not specify an exercise name. Please add it manually");
+	}
+
 	Completed.insert({
-		Name: "voice test", 
+		Name: name, 
 		Sets: sets,
 		Reps: reps,
 		Weight: weight,
-		CompletedOn: new Date()	
+		CompletedOn: new Date()
 	})
-
 }
+
 
 function exerciseCommands(action) {
 
