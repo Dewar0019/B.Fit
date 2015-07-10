@@ -11,39 +11,41 @@
 		{{#ionView}}
 			{{#ionContent}}
 
+				<!-- ADD AN EXERCISE -->
 				<div class="list">
 					<form id="addCompletedExercise"> 
-
-				  		<label class="item item-input item-stacked-label">
-				    		<span class="input-label">Name</span>
-				    		<input name="nameOfExercise" type="text" placeholder="Bicep Curl">
+				  		<label id="labelBox" class="item item-input item-floating-label">
+				    		<span id="inputExerciseText" class="input-label">Name</span>
+				    		<input id="inputSpan" name="nameOfExercise" type="text" placeholder="Name">
 				  		</label>
 				  		
-				  		<label class="item item-input item-stacked-label">
-				    		<span class="input-label">Sets</span>
-				    		<input name="numOfSets" type="text" placeholder="4">
+				  		<label id="labelBox" class="item item-input item-floating-label">
+				    		<span id="inputExerciseText" class="input-label">Sets</span>
+				    		<input id="inputSpan" name="numOfSets" type="text" placeholder="Sets">
 				  		</label>
 				  		
-				  		<label class="item item-input item-stacked-label">
-				    		<span class="input-label">Reps</span>
-				    		<input name="numOfReps" type="text" placeholder="10">
+				  		<label id="labelBox" class="item item-input item-floating-label">
+				    		<span id="inputExerciseText" class="input-label">Reps</span>
+				    		<input id="inputSpan" name="numOfReps" type="text" placeholder="Reps">
 				  		</label>
 
-				  		<label class="item item-input item-stacked-label">
-				    		<span class="input-label">Weight (lbs)</span>
-				    		<input name="weight" type="text" placeholder="15">
+				  		<label id="labelBox" class="item item-input item-floating-label">
+				    		<span id="inputExerciseText" class="input-label">Weight (lbs)</span>
+				    		<input id="inputSpan" name="weight" type="text" placeholder="Weight">
 				  		</label>
 
 						<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
-
 			  		</form>
 				</div>
 
+				<div id="sortExercisesByDate">
+					<button id="todaysExercises" class="button button-energized"> Today</button>
+					<button id="thisWeeksExercises" class="button button-energized">This Week</button>
+				</div>
+				
 				{{#each completedExercise}}
 					{{> listCompletedExercises}}
 				{{/each}}
-
-				{{> listen}}
 
 			{{/ionContent}}
 		{{/ionView}}
@@ -65,19 +67,18 @@
 </template>
 
 <template name= "listCompletedExercises">
-	
-	<i class="item item-checkbox">
-    	<label id="checkBox" class="checkbox">
-			<input type="checkbox">
-     	</label>
-		
-		<h2>{{Name}}</h2>	
-		<p>{{Sets}} sets {{Reps}} reps</p>	
-		<p>{{Weight}} lbs </p>
-		<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY h:mm:ss a'}} </p>
-	</i>	
+	<div id="listingExercises" class="list card">
+		<i class="item">
+			
+			<h2>{{Name}}</h2>	
+			<p>{{Sets}} sets {{Reps}} reps</p>	
+			<p>{{Weight}} lbs </p>
+			<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}} </p>
+		</i>	
+	</div>
 	
 </template>
+
 
 <template name="listen">
 	<div>
@@ -85,7 +86,6 @@
  	</div>
  
 	<div id="results" class="bg-info">
-		<h1>Results</h1>
     	<span id="final_span" class="final"></span>
 	    <span id="interim_span" class="interim"></span>
   	</div>
