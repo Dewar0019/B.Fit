@@ -22,7 +22,7 @@
 
 #fromDateTabBar{
 	position: relative;
-	margin-top: -17%;
+	margin-top: -40px;
 	margin-left:2%;
 	margin-right:2%;
 }
@@ -36,5 +36,5 @@
 }
 
 #allCards{
-	margin-top: 40%;
+	margin-top: 135px;
 }
