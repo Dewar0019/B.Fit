@@ -6,6 +6,7 @@
 text-align: center;
 font-family: Trebuchet MS;
 }
+
 #logo {
   display: block;
   margin-left: auto;
@@ -19,7 +20,6 @@ font-family: Trebuchet MS;
     border-radius: 100px;
     border:1px solid #CCC;
 }
-
 
 #loginButton {
     position: absolute;

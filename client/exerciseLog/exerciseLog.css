@@ -7,14 +7,34 @@
 	left: 10px;
 }
 
-#listingExercises{
-	opacity: .7;
-}
-
 #inputExerciseText{
-	color: blue;
+	color: red;
 }
 
 #sortExercisesByDate{
 	margin-left: 1%
+}
+
+#inputSpan{
+	color: white;
+	font-size: 120%;
+}
+
+#fromDateTabBar{
+	position: relative;
+	margin-top: -3%;
+	margin-left:2%;
+	margin-right:2%;
+}
+
+
+#listingExercises{
+	position: relative;
+	opacity: .7;
+	margin-left:2%;
+	margin-right:2%;
+}
+
+#allCards{
+	margin-top: 10%;
 }
