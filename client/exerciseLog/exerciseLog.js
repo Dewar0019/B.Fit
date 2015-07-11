@@ -1,8 +1,8 @@
 Template.exerciseLog.helpers({
 	'completedExercise':function(){
 
-		// returns everything in the Completed collection that has been added in the past 24 hours. 
-		// to change the amount of time change the number below in the unit of milliseconds. 
+		// returns everything in the Completed collection that has been added in the past amount of time specified by the users
+		
 		fromDate = Session.get("fromDate");
 
 		return Completed.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
