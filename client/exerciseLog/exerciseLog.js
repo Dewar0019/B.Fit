@@ -46,7 +46,7 @@ Template.exerciseLog.events({
 		//true 86400000
 
 		today = new Date()
-		fromDate = new Date(today.getTime() - 60000)
+		fromDate = new Date(today.getTime() - 86400000)
 		console.log("today was pressed")
 		Session.set("fromDate", fromDate);
 
@@ -61,7 +61,7 @@ Template.exerciseLog.events({
 		//true 604800000
 
 		today = new Date()
-		fromDate = new Date(today.getTime() - 120000)
+		fromDate = new Date(today.getTime() - 604800000)
 		console.log("this week was pressed")
 		Session.set("fromDate", fromDate);
 
@@ -77,7 +77,7 @@ Template.exerciseLog.events({
 		//true 2628000000
 
 		today = new Date()
-		fromDate = new Date(today.getTime() - 180000)
+		fromDate = new Date(today.getTime() - 2628000000)
 		console.log("this month was pressed")
 		Session.set("fromDate", fromDate);
 		document.getElementById("todaysExercises").className = "tab-item";
