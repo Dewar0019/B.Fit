@@ -248,11 +248,15 @@ function recordExercise(testVariable) {
 	var weight;
 
 	//sets 
+
+	// if the user did not say a value for sets, a pop up is sent aksing the user to enter the informaiton in manually
 	try {
 
+		//gets the sets value from the wit.ai output 
 		sets = testVariable[0].entities.sets[0].value
 		var spaceValue = sets.indexOf(" ");
 
+		// gets the number from wit.ai whether the value added was '10', 'ten' or 10
 		sets = sets.substring(0, spaceValue)
 
 		newSets = text2num(sets)
@@ -272,15 +276,20 @@ function recordExercise(testVariable) {
 
 	//reps 
 	try {
+
 		reps = testVariable[0].entities.reps[0].value
 		var spaceValue = reps.indexOf(" ");
 		
-		reps = reps.substring(0,spaceValue);
+		console.log("V1: " + reps);
+
+		newReps = reps.substring(0,spaceValue);
+		console.log("V2: " + newReps);
+
 
 		// this is in case wit.ai records "of 10 reps" as the value. 
-		if (reps == "of"){
-			spaceValue = reps.indexOf(" ");
-			reps = reps.substring(0,spaceValue);
+		if (newReps == "of"){
+			lastSpaceValue = reps.lastIndexOf(" ");
+			reps = reps.substring(spaceValue,lastSpaceValue);
 		}
 
 		//converts reps to a number value. If the value is 0 it is because reps is 10 as a string and not a number so parseInt is then used.
@@ -333,6 +342,16 @@ function recordExercise(testVariable) {
 		Weight: weight,
 		CompletedOn: new Date()
 	})
+
+
+	// sets the fromDate for the display of the log page to today if it has not already been chosen 
+	if (Session.get("fromDate") == undefined ){
+			today = new Date()
+			fromDate = new Date(today.getTime() - 86400000)
+			console.log("today was pressed")
+			Session.set("fromDate", fromDate);
+		}
+
 }
 
 
