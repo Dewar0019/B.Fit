@@ -237,7 +237,6 @@ function tryCatchBlock(variable) {
 		variable = parseInt(prompt("You did not specify " + variable + ". Please add it in manually"));
 		console.log("manually entered " + variable + " " + typeof sets)
 	}
-
 }
 
 
@@ -246,17 +245,19 @@ function recordExercise(testVariable) {
 	var sets;
 	var reps; 
 	var weight;
+ 
 
-	//sets 
+	// try catch is used in case the user did not specify the sets, reps, or weight value. In case they did not, the error is caught and a prompt 
+	// asks the user to enter in the value manually. 
 
-	// if the user did not say a value for sets, a pop up is sent aksing the user to enter the informaiton in manually
+	//SETS TRY CATCH BLCOK 
 	try {
 
 		//gets the sets value from the wit.ai output 
 		sets = testVariable[0].entities.sets[0].value
 		var spaceValue = sets.indexOf(" ");
 
-		// gets the number from wit.ai whether the value added was '10', 'ten' or 10
+		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
 		sets = sets.substring(0, spaceValue)
 
 		newSets = text2num(sets)
@@ -270,20 +271,22 @@ function recordExercise(testVariable) {
 		console.log("Sets: " + sets + " " + typeof sets)
 
 	} catch (e){
-		sets = parseInt(prompt("You did not specify sets. Please add it in manually"));
+		sets = parseInt(prompt("We didn't quite catch what you said for sets. Could you please enter it."));
 		console.log("manually entered sets " + sets + " " + typeof sets)
 	}
 
-	//reps 
-	try {
 
+
+
+	//REPS TRY CATCH BLOCK  
+	try {
+		// gets the reps value from the wit.ai output. 
 		reps = testVariable[0].entities.reps[0].value
+		// gets the first index of where a space occurs 
 		var spaceValue = reps.indexOf(" ");
 		
-		console.log("V1: " + reps);
-
+		// newReps will be used to determine if wit.ai captured "of 10 reps" or "10 reps"
 		newReps = reps.substring(0,spaceValue);
-		console.log("V2: " + newReps);
 
 
 		// this is in case wit.ai records "of 10 reps" as the value. 
@@ -304,10 +307,14 @@ function recordExercise(testVariable) {
 		console.log("Reps: " + reps + " " + typeof reps);
 
 	} catch (e){
-		reps = parseInt(prompt("You did not specify reps. Please add it in manually"));
+		reps = parseInt(prompt("We didn't quite catch what you said for the number of reps. \nCould you please enter it."));
 		console.log("manually entered reps " + reps + " " + typeof reps)
 	}
 
+
+
+
+	//WEIGHT TRY CATCH BLOCK 
 	try {
 		weight = testVariable[0].entities.weight[0].value;
 		var spaceValue = weight.indexOf(" ");
@@ -323,7 +330,7 @@ function recordExercise(testVariable) {
 		console.log("Weight: " + weight + " " + typeof weight);
 
 	} catch(e){
-		weight = parseInt(prompt("You did not specify a weight. Please add it manually"));
+		weight = parseInt(prompt("We didn't quite catch what you said for the weight. \nCould you please enter it."));
 		console.log("manually entered weight " + weight + " " + typeof weight)
 	}
 
@@ -335,6 +342,8 @@ function recordExercise(testVariable) {
 		prompt("You did not specify an exercise name. Please add it manually");
 	}
 
+
+
 	Completed.insert({
 		Name: name, 
 		Sets: sets,
@@ -344,14 +353,16 @@ function recordExercise(testVariable) {
 	})
 
 
-	// sets the fromDate for the display of the log page to today if it has not already been chosen 
-	if (Session.get("fromDate") == undefined ){
-			today = new Date()
-			fromDate = new Date(today.getTime() - 86400000)
-			console.log("today was pressed")
-			Session.set("fromDate", fromDate);
-		}
 
+
+	// sets the fromDate for the display of the log page to today if it has not already been chosen by the user so the information the user
+	// just enetered is displayed. 
+	if (Session.get("fromDate") == undefined ){
+		today = new Date()
+		fromDate = new Date(today.getTime() - 86400000)
+		console.log("today was pressed")
+		Session.set("fromDate", fromDate);
+	}
 }
 
 
