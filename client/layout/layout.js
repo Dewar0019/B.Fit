@@ -215,6 +215,8 @@ function feach(w) {
    }
 }
 
+
+// THIS IS NOT WORKING AND SHOULD NOT BE USED NOW. I WILL TRY AND FIX IT LATER BECAUSE IT MAY BE USEFUL LATER --Sam.
 function tryCatchBlock(variable) {
 	try {
 
@@ -334,12 +336,14 @@ function recordExercise(testVariable) {
 		console.log("manually entered weight " + weight + " " + typeof weight)
 	}
 
+
+	//NAME TRY CATCH BLOCK
 	try {
 		name = testVariable[0].entities.exerciseName[0].value;
 		console.log("Name: " + name);
 	} catch(e) {
 		console.log("Name was not recorded");
-		prompt("You did not specify an exercise name. Please add it manually");
+		prompt("We didn't quite catch the name of the exercise. \nCould you please enter it.");
 	}
 
 
