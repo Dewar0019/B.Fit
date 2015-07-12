@@ -17,13 +17,8 @@ Template.routineExercises.helpers({
 	// timer : function() { return startTime;},
 })
 
-//copy over the routine exercises array and set a new field to be all false
-//when the user clicks it once it'll be set to true
-//again set to false and look through list for first falase to read next exercise
-
-
 Template.routineExercises.events({
-	'click .beginExercise' :function () {
+	'click #beginExercise' :function () {
 		console.log("hello")
 		startTime = (new Date()).getTime();
 		initalizeCheckList();
