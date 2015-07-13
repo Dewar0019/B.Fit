@@ -4,6 +4,7 @@ var startTime;
 var pauseTime;
 var endTime;
 var timer;
+var t;
 function display() {
     // later record end time
     endTime = new Date();
@@ -34,7 +35,7 @@ function display() {
 
     $("#timer").text(hours + ":" + minutes + ":" + seconds);
 
-    setTimeout(display, 1000);
+    t = setTimeout(function(){ display() }, 1000);
 }
 
 
@@ -61,6 +62,11 @@ Template.routineExercises.helpers({
 	currentExercise : function() {return Session.get("currentExercise");},
 })
 
+
+var timer_is_on = 0;
+var running = false;
+
+
 Template.routineExercises.events({
 	'click #currentWorkout': function() {
 		Session.set("showExerciseList", false);
@@ -71,12 +77,17 @@ Template.routineExercises.events({
 
 	'click .beginExercise' :function () {
 		console.log("Exercise Button Clicked")
-		if($(".beginExercise").html() == "Start") {  //Prevent from starting over again
+		// if($(".beginExercise").html() == "Start") {  //Prevent from starting over again
+		if (!running) {
+			running=true;
 			$(".beginExercise").html("Pause");
 			$(".beginExercise").attr('id', 'pauseExercise');
-			initalizeCheckList();	
-			startTime = new Date();
-	    	setTimeout(display, 1000);
+			initalizeCheckList();
+			if(!timer_is_on){
+				timer_is_on = 1;	
+				startTime = new Date();
+		    	setTimeout(display, 1000);
+		    }
 	    	checkedExercises.forEach(function(obj) {
 	    		if(!obj.checked) {
 	    		Session.set("currentExercise", obj);
@@ -84,14 +95,19 @@ Template.routineExercises.events({
 	    		}
 	    	});
 	    	
-    	} else if($(".beginExercise").html() == "Pause") {
+    	// } else if($(".beginExercise").html() == "Pause") {
+    		} else {
+    		running=false;
     		$(".beginExercise").html("Resume");
     		$(".beginExercise").attr('id', 'resumeExercise');
-			pauseTime = new Date()
-    	} else {
-    		$(".beginExercise").html("Pause");
-			$(".beginExercise").attr('id', 'pauseExercise');
-    	}
+    		clearTimeout(t);
+			timer_is_on = 0;
+			// pauseTime = new Date()
+		}
+   //  	} else {
+   //  		$(".beginExercise").html("Pause");
+			// $(".beginExercise").attr('id', 'pauseExercise');
+   //  	}
 	},
 
 	'click .completionButton' : function() {
