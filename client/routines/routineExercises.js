@@ -1,10 +1,12 @@
 
 // record start time
 var startTime;
-
+var pauseTime;
+var endTime;
+var timer;
 function display() {
     // later record end time
-    var endTime = new Date();
+    endTime = new Date();
 
     // time difference in ms
     var timeDiff = endTime - startTime;
@@ -31,9 +33,9 @@ function display() {
     timeDiff = Math.floor(timeDiff / 24);
 
     $("#timer").text(hours + ":" + minutes + ":" + seconds);
+
     setTimeout(display, 1000);
 }
-
 
 
 
@@ -46,9 +48,9 @@ function initalizeCheckList() {
 	checkedExercises = [];
 	var thisRoutine = Session.get('forCompletedRoutine');
 	if(thisRoutine != null) {
-	checkedExercises = thisRoutine.exercises.slice(0);
+	checkedExercises = thisRoutine.exercises.slice(0);  // makes a copy of the exercises page
 	checkedExercises.forEach(function(obj) {
-		obj.checked = false;
+		obj.checked = false;					//gives them the property of false for unchecked
 	});
 }
 };
@@ -56,6 +58,7 @@ function initalizeCheckList() {
 
 Template.routineExercises.helpers({
 	showExerciseList : function() {	return Session.get("showExerciseList");},
+	currentExercise : function() {return Session.get("currentExercise");},
 })
 
 Template.routineExercises.events({
@@ -66,11 +69,29 @@ Template.routineExercises.events({
 		Session.set("showExerciseList", true);
 	},
 
-	'click #beginExercise' :function () {
+	'click .beginExercise' :function () {
 		console.log("Exercise Button Clicked")
-		initalizeCheckList();	
-		startTime = new Date();
-    	setTimeout(display, 1000);
+		if($(".beginExercise").html() == "Start") {  //Prevent from starting over again
+			$(".beginExercise").html("Pause");
+			$(".beginExercise").attr('id', 'pauseExercise');
+			initalizeCheckList();	
+			startTime = new Date();
+	    	setTimeout(display, 1000);
+	    	checkedExercises.forEach(function(obj) {
+	    		if(!obj.checked) {
+	    		Session.set("currentExercise", obj);
+	    		return;
+	    		}
+	    	});
+	    	
+    	} else if($(".beginExercise").html() == "Pause") {
+    		$(".beginExercise").html("Resume");
+    		$(".beginExercise").attr('id', 'resumeExercise');
+			pauseTime = new Date()
+    	} else {
+    		$(".beginExercise").html("Pause");
+			$(".beginExercise").attr('id', 'pauseExercise');
+    	}
 	},
 
 	'click .completionButton' : function() {
