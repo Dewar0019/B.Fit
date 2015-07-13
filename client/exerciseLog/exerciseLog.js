@@ -6,6 +6,10 @@ Template.exerciseLog.helpers({
 		fromDate = Session.get("fromDate");
 
 		return Completed.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
+	}, 
+
+	'strenghtOrCardioForm': function(){
+		return Session.get("strenghtOrCardio");
 	}
 })
 Template.exerciseLog.events({
@@ -67,7 +71,6 @@ Template.exerciseLog.events({
 		document.getElementById("todaysExercises").className = "tab-item";
 		document.getElementById("thisWeeksExercises").className = "tab-item active";
 		document.getElementById("thisMonthsExercises").className = "tab-item";
-
 	},
 
 	'click #thisMonthsExercises': function(event){
@@ -82,5 +85,13 @@ Template.exerciseLog.events({
 		document.getElementById("todaysExercises").className = "tab-item";
 		document.getElementById("thisWeeksExercises").className = "tab-item";
 		document.getElementById("thisMonthsExercises").className = "tab-item active";
+	},
+
+	'click #strengthButton': function (event){
+		Session.set("strenghtOrCardio", true);
+	},
+
+	'click #cardioButton': function (event){
+		Session.set("strenghtOrCardio", false);
 	}
 })
