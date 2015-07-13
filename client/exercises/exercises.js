@@ -4,7 +4,7 @@ Template.exercises.helpers({
 
 		// something like this --> Exercises.find({}, {}).fetch()[12].Tags[0]
 
-		return Exercises.find({Tags:sortBy,{}).fetch();
+		return Exercises.find({Tags:sortBy}, {}).fetch();
 
 	},
 

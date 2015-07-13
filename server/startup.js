@@ -25,7 +25,7 @@ if(Meteor.isServer){
 			});
 
 			Exercises.insert({
-				Tags:["Arm", "Chest"],
+				Tags:["Arm", " Chest"],
 				Name: "Dips",
 			});
 
