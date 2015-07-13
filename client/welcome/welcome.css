@@ -34,21 +34,21 @@ font-family: Trebuchet MS;
 
 #progressImage{
     position: absolute;
-    margin-left:6%;
-    margin-top: 5%;
+    margin-left:4%;
+    margin-top: -8%;
 
 }
 
 #beginImage{
     position: absolute;
-    margin-left:40%;
-    margin-top: 12%;
+    margin-left:45%;
+    margin-top: -2%;
 
 }
 #createRoutineImage{
     position: absolute;
-    margin-left:10%;
-    margin-top: 42%;
+    margin-left:15%;
+    margin-top: 18%;
 }
 
 #line{
