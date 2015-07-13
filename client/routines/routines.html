@@ -8,9 +8,10 @@
     		<h1 class="title">Routines</h1>
     	{{/contentFor}}
 
-      {{#contentFor "headerButtonRight"}}
-        <a href="{{pathFor 'createRoutine'}}" class="button button-clear">{{> ionIcon icon=""}}Create Routine</a>
-{{/contentFor}}
+        {{#contentFor "headerButtonRight"}}
+            <a href="{{pathFor 'createRoutine'}}" class="button button-clear">{{> ionIcon icon=""}}Create or Modify A Routine</a>
+        {{/contentFor}}
+
     
     	{{#ionView}}
     		{{#ionContent}}
@@ -74,11 +75,17 @@
 
 
         <div class="item item-body">
-            <p>This will be a description of your routine</p>
+            <p> 
+                <ul>
+                    {{#each exercises}}
+                        <li> {{Name}} - {{Sets}} x {{Reps}} </li>
+                    {{/each}}
+                </ul>
+            </p>
             
             <p>
                 <a href="#" class="subdued">Completed X times</a>
-                <a href="#" class="subdued"> Another thing??</a>
+                <a href="#" class="subdued"> Gonna put in Average time</a>
             </p>
 
         </div>

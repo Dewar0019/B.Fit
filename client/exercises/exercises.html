@@ -20,11 +20,6 @@
 					</button>
 			{{/if}}		
 
-			 <div role="alert" class="message success">
-				<p><b>{{returnNotification}}</b></p>
-				<p>This is just a successful notification message.</p>
-				</div>
-				
 					{{#ionList}}
 						{{#each getExercises}}      
 							{{> addExercise}}
@@ -53,7 +48,7 @@
 {{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true}}	
 	<div class="selectedExercise">
 		<h2 >{{Name}}</h2>	
-		<p> {{Tags}}</p>
+		<p> Category: {{Tags}}</p>
 	</div>
 	{{/ionItem}}
 </template>
