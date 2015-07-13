@@ -10,7 +10,7 @@ Template.exercisesEdit.events({
 			Meteor.call('addToRoutine', exerciseID, routine, sets, reps, weight, function(error, result){
 				Session.set("selectedRoutine", result);
 			});
-			Session.set("successMessage", exerciseID.Name + " Added to " + routine.routineName);
+			toastr.success(exerciseID.Name + " Added to " + routine.routineName, "Exercise Sucessfully Added");
 			console.log(routine._id);
 			Router.go("exercises", {_id:routine._id});
 		} else {
@@ -20,6 +20,23 @@ Template.exercisesEdit.events({
 })
 
 
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-bottom-center",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "2000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
 
 function checkValues(sets, reps, weight) {
 	if(sets <0 || reps < 0 || weight < 0) {

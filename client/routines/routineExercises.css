@@ -4,6 +4,32 @@
 
 .completionButton {
 	margin: 0 auto;
+	left: 20%;
+}
+
+#exerciseList {
+	border-radius: 100px;
+	margin: 0 auto;
 	left: 40%;
 }
 
+
+#beginExercise {
+	margin: 0 auto;
+	left: 40%;
+	width:300px;
+	height:300px;
+	border-radius:50%;
+	font-size:50px;
+	color:#fff;
+	line-height:300px;
+	text-align:center;
+	background:#008000
+}
+
+#timer {
+	margin-top: 80px;	
+	text-align:center;
+	color: #2C3539;
+	font-size:100px;
+}

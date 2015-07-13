@@ -1,8 +1,48 @@
 
+// record start time
+var startTime;
+
+function display() {
+    // later record end time
+    var endTime = new Date();
+
+    // time difference in ms
+    var timeDiff = endTime - startTime;
+
+    // strip the miliseconds
+    timeDiff /= 1000;
+
+    // get seconds
+    var seconds = Math.round(timeDiff % 60);
+
+    // remove seconds from the date
+    timeDiff = Math.floor(timeDiff / 60);
+
+    // get minutes
+    var minutes = Math.round(timeDiff % 60);
+
+    // remove minutes from the date
+    timeDiff = Math.floor(timeDiff / 60);
+
+    // get hours
+    var hours = Math.round(timeDiff % 24);
+
+    // remove hours from the date
+    timeDiff = Math.floor(timeDiff / 24);
+
+    $("#timer").text(hours + ":" + minutes + ":" + seconds);
+    setTimeout(display, 1000);
+}
+
+
+
+
+
+
 checkedExercises = [];
 
 function initalizeCheckList() {
-	console.log("worked");
+	console.log("workoutList Clicked");
 	checkedExercises = [];
 	var thisRoutine = Session.get('forCompletedRoutine');
 	if(thisRoutine != null) {
@@ -13,20 +53,24 @@ function initalizeCheckList() {
 }
 };
 	
+
 Template.routineExercises.helpers({
-	// timer : function() { return startTime;},
+	showExerciseList : function() {	return Session.get("showExerciseList");},
 })
 
-//copy over the routine exercises array and set a new field to be all false
-//when the user clicks it once it'll be set to true
-//again set to false and look through list for first falase to read next exercise
-
-
 Template.routineExercises.events({
-	'click .beginExercise' :function () {
-		console.log("hello")
-		startTime = (new Date()).getTime();
-		initalizeCheckList();
+	'click #currentWorkout': function() {
+		Session.set("showExerciseList", false);
+	},
+	'click #exerciseList' :function() {
+		Session.set("showExerciseList", true);
+	},
+
+	'click #beginExercise' :function () {
+		console.log("Exercise Button Clicked")
+		initalizeCheckList();	
+		startTime = new Date();
+    	setTimeout(display, 1000);
 	},
 
 	'click .completionButton' : function() {

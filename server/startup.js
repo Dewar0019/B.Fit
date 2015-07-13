@@ -4,135 +4,135 @@ if(Meteor.isServer){
 		if (Exercises.find().fetch()==0){
 
 			Exercises.insert({
-				Tags:["arms"],
+				Tags:["Arm"],
 				Name: "Bicep Curl",
 			});
 
 			Exercises.insert({
-				Tags:["arms"],
+				Tags:["Arm"],
 				Name: "Hammer Curl",
 			});
 
 
 			Exercises.insert({
-				Tags:["arms"],
+				Tags:["Arm"],
 				Name: "Reverse Curl",
 			});
 
 			Exercises.insert({
-				Tags:["arms"],
+				Tags:["Arm"],
 				Name: "Triceps Extensions",
 			});
 
 			Exercises.insert({
-				Tags:["arms"],
+				Tags:["Arm"],
 				Name: "Dips",
 			});
 
 			Exercises.insert({
-				Tags:["arms"],
+				Tags:["Arm"],
 				Name: "Pushups",
 			});
 
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			Exercises.insert({
-				Tags:["chest"],
+				Tags:["Chest"],
 				Name: "Chest Press",
 			});
 
 			Exercises.insert({
-				Tags:["chest"],
+				Tags:["Chest"],
 				Name: "Dips",
 			});
 
 
 			Exercises.insert({
-				Tags:["chest"],
+				Tags:["Chest"],
 				Name: "Cable Fly",
 			});
 
 			Exercises.insert({
-				Tags:["chest"],
+				Tags:["Chest"],
 				Name: "Butterfly",
 			});
 
 			Exercises.insert({
-				Tags:["chest"],
+				Tags:["Chest"],
 				Name: "Cable Fly",
 			});
 
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 			Exercises.insert({
-				Tags:["legs"],
+				Tags:["Legs"],
 				Name: "Squats",
 			});
 
 			Exercises.insert({
-				Tags:["legs"],
+				Tags:["Legs"],
 				Name: "Step Ups",
 			});
 
 			Exercises.insert({
-				Tags:["legs"],
+				Tags:["Legs"],
 				Name: "Calf Raises",
 			});
 
 			Exercises.insert({
-				Tags:["legs"],
+				Tags:["Legs"],
 				Name: "Stepups",
 			});
 
 			Exercises.insert({
-				Tags:["legs"],
+				Tags:["Legs"],
 				Name: "Leg Press",
 			});
 
 			Exercises.insert({
-				Tags:["legs"],
+				Tags:["Legs"],
 				Name: "Calf Raises",
 			});
 
 			Exercises.insert({
-				Tags:["legs"],
+				Tags:["Legs"],
 				Name: "Lunges",
 			});
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
 			Exercises.insert({
-				Tags:["back"],
+				Tags:["Back"],
 				Name: "Lunges",
 			});
 
 			Exercises.insert({
-				Tags:["back"],
+				Tags:["Back"],
 				Name: "Incline Row",
 			});
 
 			Exercises.insert({
-				Tags:["back"],
+				Tags:["Back"],
 				Name: "Inverted Row",
 			});
 
 			Exercises.insert({
-				Tags:["back"],
+				Tags:["Back"],
 				Name: "Incline Row",
 			});
 
 			Exercises.insert({
-				Tags:["back"],
+				Tags:["Back"],
 				Name: "Back Extention",
 			});
 
 			Exercises.insert({
-				Tags:["back"],
+				Tags:["Back"],
 				Name: "Cable Row",
 			});
 
 			Exercises.insert({
-				Tags:["back"],
+				Tags:["Back"],
 				Name: "Supermans",
 			});
 		}

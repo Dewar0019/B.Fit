@@ -28,20 +28,62 @@ Template.exerciseLog.events({
 			Weight: weight,
 			CompletedOn: new Date()	
 		})
+
+
+		// if the user has never specified to view todays, this week's or this month's exercises, today's is automatically shown
+		// until the user selects one of the other options. 
+		if (Session.get("fromDate") == undefined ){
+			today = new Date()
+			fromDate = new Date(today.getTime() - 86400000)
+			console.log("today was pressed")
+			Session.set("fromDate", fromDate);
+		}
 	},
 
 	'click #todaysExercises': function (event){
+
+		//1 min 60000
+		//true 86400000
+
 		today = new Date()
 		fromDate = new Date(today.getTime() - 86400000)
 		console.log("today was pressed")
 		Session.set("fromDate", fromDate);
+
+		document.getElementById("todaysExercises").className = "tab-item active";
+		document.getElementById("thisWeeksExercises").className = "tab-item";
+		document.getElementById("thisMonthsExercises").className = "tab-item";
 	},
 
 	'click #thisWeeksExercises': function(event){
+
+		//2 min 120000
+		//true 604800000
+
 		today = new Date()
 		fromDate = new Date(today.getTime() - 604800000)
 		console.log("this week was pressed")
-
 		Session.set("fromDate", fromDate);
+
+		document.getElementById("todaysExercises").className = "tab-item";
+		document.getElementById("thisWeeksExercises").className = "tab-item active";
+		document.getElementById("thisMonthsExercises").className = "tab-item";
+
+	},
+
+	'click #thisMonthsExercises': function(event){
+
+		//3 min 180000
+		//true 2628000000
+
+		today = new Date()
+		fromDate = new Date(today.getTime() - 2628000000)
+		console.log("this month was pressed")
+		Session.set("fromDate", fromDate);
+		document.getElementById("todaysExercises").className = "tab-item";
+		document.getElementById("thisWeeksExercises").className = "tab-item";
+		document.getElementById("thisMonthsExercises").className = "tab-item active";
 	}
 })
+
+
