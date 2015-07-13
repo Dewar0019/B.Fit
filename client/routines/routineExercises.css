@@ -1,3 +1,11 @@
+hr {
+width: 80%;
+height: 50px;
+background-color:#2C3539;
+color:#2C3539;
+}
+
+
 #checkBox{
 	left: 2%
 }
@@ -13,8 +21,13 @@
 	left: 40%;
 }
 
+#currentWorkout {
+	border-radius: 100px;
+	margin: 0 auto;
+	left: 40%;
+}
 
-#beginExercise {
+.beginExercise {
 	margin: 0 auto;
 	left: 40%;
 	width:300px;
@@ -25,6 +38,20 @@
 	line-height:300px;
 	text-align:center;
 	background:#008000
+}
+
+#pauseExercise {
+	margin: 0 auto;
+	left: 40%;
+	width:300px;
+	height:300px;
+	border-radius:50%;
+	font-size:50px;
+	color:#fff;
+	line-height:300px;
+	text-align:center;
+	background:#ff0000;
+
 }
 
 #timer {

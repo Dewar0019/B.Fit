@@ -1,10 +1,12 @@
 
 // record start time
 var startTime;
-
+var pauseTime;
+var endTime;
+var timer;
 function display() {
     // later record end time
-    var endTime = new Date();
+    endTime = new Date();
 
     // time difference in ms
     var timeDiff = endTime - startTime;
@@ -31,9 +33,9 @@ function display() {
     timeDiff = Math.floor(timeDiff / 24);
 
     $("#timer").text(hours + ":" + minutes + ":" + seconds);
+
     setTimeout(display, 1000);
 }
-
 
 
 
@@ -66,11 +68,22 @@ Template.routineExercises.events({
 		Session.set("showExerciseList", true);
 	},
 
-	'click #beginExercise' :function () {
+	'click .beginExercise' :function () {
 		console.log("Exercise Button Clicked")
-		initalizeCheckList();	
-		startTime = new Date();
-    	setTimeout(display, 1000);
+		if($(".beginExercise").html() == "Start") {  //Prevent from starting over again
+			$(".beginExercise").html("Pause");
+			$(".beginExercise").attr('id', 'pauseExercise');
+			initalizeCheckList();	
+			startTime = new Date();
+	    	setTimeout(display, 1000);
+    	} else if($(".beginExercise").html() == "Pause") {
+    		$(".beginExercise").html("Resume");
+    		$(".beginExercise").attr('id', 'resumeExercise');
+			pauseTime = new Date()
+    	} else {
+    		$(".beginExercise").html("Pause");
+			$(".beginExercise").attr('id', 'pauseExercise');
+    	}
 	},
 
 	'click .completionButton' : function() {
