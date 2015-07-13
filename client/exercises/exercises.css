@@ -1,0 +1,14 @@
+#sortExercisesTabBar{
+	position: relative;
+	margin-top: -40px;
+	margin-left:2%;
+	margin-right:2%;
+}
+
+
+#exercisesInRoutine{
+	position: relative;
+	top: 100px;
+	margin-left: 4.5%;
+	margin-right:4.5%;
+}
