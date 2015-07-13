@@ -1,7 +1,8 @@
 Template.exercisesEdit.events({
-	'submit #addExercise' : function(events) {
+	'submit #addExerciseStrength' : function(events) {
 		event.preventDefault();
-		var exerciseID = this
+		var exerciseID = this;
+		console.log(exerciseID);
 		var routine = Session.get("selectedRoutine");
 		var sets = event.target.sets.value;
 		var reps = event.target.reps.value;
@@ -16,7 +17,35 @@ Template.exercisesEdit.events({
 		} else {
 			alert("You have entered a number less than zero please try again");
 		}
-	}
+	},
+
+	'submit #addExerciseStrength' : function(events) {
+		event.preventDefault();
+		var exerciseID = this
+		var routine = Session.get("selectedRoutine");
+		var time = event.target.time.value;
+		var distance = event.target.distance.value;
+
+		if(checkValues(sets, reps, weight)) {
+			Meteor.call('addToRoutine', exerciseID, routine, sets, reps, weight, function(error, result){
+				Session.set("selectedRoutine", result);
+			});
+			toastr.success(exerciseID.Name + " Added to " + routine.routineName, "Exercise Sucessfully Added");
+			console.log(routine._id);
+			Router.go("exercises", {_id:routine._id});
+		} else {
+			alert("You have entered a number less than zero please try again");
+		}
+	},
+
+
+})
+
+
+Template.exerciseEdit.helpers({
+	type : function() { 
+		var exerciseId = this;
+		}
 })
 
 

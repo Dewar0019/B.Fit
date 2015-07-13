@@ -130,6 +130,11 @@ if(Meteor.isServer){
 				Tags:["Back"],
 				Name: "Supermans",
 			});
+
+			Exercises.insert({
+				type:["Cardio"],
+				exerciseName: "Running",
+			});
 		}
 
 		if(Routines.find().count()== 0) {

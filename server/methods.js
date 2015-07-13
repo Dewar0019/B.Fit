@@ -55,10 +55,11 @@
         'addToRoutine': function(exercise, getRoutine, sets, reps, weight) {  //this will add new exercise to routine
             var currentTime = new Date(); //Grab the current time
             Intermediate.insert({ //This is the actual object that will be added to the routine
-                Name: exercise.Name, 
+                Name: exercise.exercisename, 
                 Sets: sets,
                 Reps: reps,
                 Weight: weight,
+                type: [exercise.primary, exercise.secondary],
                 AddedOn: currentTime,
                 AddedBy: Meteor.userId()
             });
