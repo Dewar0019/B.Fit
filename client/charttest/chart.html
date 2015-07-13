@@ -33,19 +33,19 @@
 				columns:[
 					['Running Time', 60, 40, 120, 50, 100, 120],
 				],
-					unload: ['Running'],
+				unload: ['Running'],
 			});
-		});
+			});
 
-		$('#B').on('click',function(){
-			chart.load({
-				columns:[
-					['Running', 5, 10, 2, 4, 5, 8],
-				],
-					unload: ['Running Time'],
+			$('#B').on('click',function(){
+				chart.load({
+					columns:[
+						['Running', 5, 10, 2, 4, 5, 8],
+					],
+						unload: ['Running Time'],
+				});
 			});
-		});
-		});
+			});
 
 		var chart = c3.generate({
 			bindto: '#chart',

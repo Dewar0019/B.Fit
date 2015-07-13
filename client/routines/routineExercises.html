@@ -13,14 +13,23 @@
 		{{#ionView}}
 			{{#ionContent}}
 			
-			<p id="timer">0:0:0</p>
-
-			<button class="button button-large button-positive completionButton" data-action="showConfirm"> Finish Workout </button>		
+			<!-- <p id="timer">0:0:0</p> -->
+			<!-- <p id="timer">
+			<span id="hour">0</span>
+			<span id="mind"></span><span id="min">00</span>
+			<span id="secd"></span><span id="sec">00</span>
+			
+			</p> -->
+			<p id="timer">
+				<span id="timer2">0:00:00</span>
+			</p>
+		
 			<br>
 			<hr/>
 			<button class="button button-assertive" id="currentWorkout">Current Workout </button>
 			<button class="button button-assertive" id="exerciseList" > Exercise List </button>
-			<div class="beginExercise">Start</div>	
+			<div class="beginExercise">Start</div>
+			<button class="button button-large button-positive completionButton" data-action="showConfirm" id="finish"> Finish Workout </button>	
 
 			<p> {{currentExercise.Name}} </p>
 			<p> {{currentExercise.Reps}} reps </p>

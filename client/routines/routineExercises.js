@@ -1,43 +1,76 @@
 
 // record start time
-var startTime;
-var pauseTime;
-var endTime;
-var timer;
-var t;
-function display() {
-    // later record end time
-    endTime = new Date();
+// var startTime;
+// var pauseTime;
+// var endTime;
+// var timer;
+// var t;
 
-    // time difference in ms
-    var timeDiff = endTime - startTime;
+// function display() {
+//     // later record end time
+//     if($(".beginExercise").html() == "Start"){
+//     	endTime = new Date();
+//     }
 
-    // strip the miliseconds
-    timeDiff /= 1000;
+//     // time difference in ms
+//     var timeDiff = endTime - startTime;
 
-    // get seconds
-    var seconds = Math.round(timeDiff % 60);
+//     // strip the miliseconds
+//     timeDiff /= 1000;
 
-    // remove seconds from the date
-    timeDiff = Math.floor(timeDiff / 60);
+//     // get seconds
+//     var seconds = Math.round(timeDiff % 60);
 
-    // get minutes
-    var minutes = Math.round(timeDiff % 60);
+//     // remove seconds from the date
+//     timeDiff = Math.floor(timeDiff / 60);
 
-    // remove minutes from the date
-    timeDiff = Math.floor(timeDiff / 60);
+//     // get minutes
+//     var minutes = Math.round(timeDiff % 60);
 
-    // get hours
-    var hours = Math.round(timeDiff % 24);
+//     // remove minutes from the date
+//     timeDiff = Math.floor(timeDiff / 60);
 
-    // remove hours from the date
-    timeDiff = Math.floor(timeDiff / 24);
+//     // get hours
+//     var hours = Math.round(timeDiff % 24);
 
-    $("#timer").text(hours + ":" + minutes + ":" + seconds);
+//     // remove hours from the date
+//     timeDiff = Math.floor(timeDiff / 24);
 
-    t = setTimeout(function(){ display() }, 1000);
-}
+//     $("#timer").text(hours + ":" + minutes + ":" + seconds);
 
+//     t = setTimeout(function(){ display() }, 1000);
+// }
+
+var Clock = {
+	totalSeconds: 0,
+
+	start: function () {
+	var self = this;
+
+	this.interval = setInterval(function () {
+		self.totalSeconds += 1;
+
+		$("#timer2").text(Math.floor(self.totalSeconds / 3600) + ":" 
+			+ Math.floor(self.totalSeconds / 60 % 60 / 10) + Math.floor(self.totalSeconds / 60 % 60 % 10) + ":" 
+			+ parseInt(self.totalSeconds % 60 / 10) + parseInt(self.totalSeconds % 60 % 10));
+
+		// $("#hour").text(Math.floor(self.totalSeconds / 3600));
+		// $("#mind").text(Math.floor(self.totalSeconds / 60 % 60 / 10));
+		// $("#min").text(Math.floor(self.totalSeconds / 60 % 60 % 10));
+		// $("#secd").text(parseInt(self.totalSeconds % 60 / 10));
+		// $("#sec").text(parseInt(self.totalSeconds % 60 % 10));
+		}, 1000);
+	},
+
+	pause: function () {
+    clearInterval(this.interval);
+    delete this.interval;
+  },
+
+  resume: function () {
+    if (!this.interval) this.start();
+  }
+};
 
 
 
@@ -77,37 +110,37 @@ Template.routineExercises.events({
 
 	'click .beginExercise' :function () {
 		console.log("Exercise Button Clicked")
-		// if($(".beginExercise").html() == "Start") {  //Prevent from starting over again
-		if (!running) {
-			running=true;
-			$(".beginExercise").html("Pause");
-			$(".beginExercise").attr('id', 'pauseExercise');
-			initalizeCheckList();
-			if(!timer_is_on){
-				timer_is_on = 1;	
-				startTime = new Date();
-		    	setTimeout(display, 1000);
+		if($(".beginExercise").html() == "Start") {  //Prevent from starting over again
+			if (!running) {
+				running=true;
+				$(".beginExercise").html("Pause");
+				$(".beginExercise").attr('id', 'pauseExercise');
+				initalizeCheckList();	
+				// startTime = new Date();
+		  //   	setTimeout(display, 1000);
+		  		Clock.start();
+		    	checkedExercises.forEach(function(obj) {
+		    		if(!obj.checked) {
+		    		Session.set("currentExercise", obj);
+		    		return;
+		    		}
+		    	});
 		    }
-	    	checkedExercises.forEach(function(obj) {
-	    		if(!obj.checked) {
-	    		Session.set("currentExercise", obj);
-	    		return;
-	    		}
-	    	});
 	    	
-    	// } else if($(".beginExercise").html() == "Pause") {
-    		} else {
+    	} else if($(".beginExercise").html() == "Pause") {
     		running=false;
     		$(".beginExercise").html("Resume");
     		$(".beginExercise").attr('id', 'resumeExercise');
-    		clearTimeout(t);
-			timer_is_on = 0;
+    		// clearTimeout(t);
 			// pauseTime = new Date()
-		}
-   //  	} else {
-   //  		$(".beginExercise").html("Pause");
-			// $(".beginExercise").attr('id', 'pauseExercise');
-   //  	}
+			Clock.pause();
+    	} else {
+    		running=true;
+    		$(".beginExercise").html("Pause");
+			$(".beginExercise").attr('id', 'pauseExercise');
+			Clock.resume();
+			// setTimeout(display, 1000);
+    	}
 	},
 
 	'click .completionButton' : function() {
