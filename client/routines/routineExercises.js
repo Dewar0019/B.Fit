@@ -53,11 +53,19 @@ function initalizeCheckList() {
 }
 };
 	
+
 Template.routineExercises.helpers({
-	// timer : function() { return startTime;},
+	showExerciseList : function() {	return Session.get("showExerciseList");},
 })
 
 Template.routineExercises.events({
+	'click #currentWorkout': function() {
+		Session.set("showExerciseList", false);
+	},
+	'click #exerciseList' :function() {
+		Session.set("showExerciseList", true);
+	},
+
 	'click #beginExercise' :function () {
 		console.log("Exercise Button Clicked")
 		initalizeCheckList();	
