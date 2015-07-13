@@ -8,7 +8,6 @@ Template.exerciseLog.helpers({
 		return Completed.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
 	}
 })
-
 Template.exerciseLog.events({
 
 	'submit #addCompletedExercise': function(event){
@@ -85,5 +84,3 @@ Template.exerciseLog.events({
 		document.getElementById("thisMonthsExercises").className = "tab-item active";
 	}
 })
-
-

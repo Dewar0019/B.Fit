@@ -18,13 +18,19 @@ color:#2C3539;
 #exerciseList {
 	border-radius: 100px;
 	margin: 0 auto;
-	left: 40%;
+	left: 30%;
 }
 
 #currentWorkout {
 	border-radius: 100px;
 	margin: 0 auto;
-	left: 40%;
+	left: 10%;
+}
+
+#finish{
+	border-radius: 100px;
+	margin: 0 auto;
+	left: 30%;
 }
 
 .beginExercise {
@@ -37,7 +43,7 @@ color:#2C3539;
 	color:#fff;
 	line-height:300px;
 	text-align:center;
-	background:#008000
+	background:#abe779
 }
 
 #pauseExercise {

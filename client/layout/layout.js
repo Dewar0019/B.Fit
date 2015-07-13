@@ -341,6 +341,7 @@ function recordExercise(testVariable) {
 	try {
 		name = testVariable[0].entities.exerciseName[0].value;
 		console.log("Name: " + name);
+		name = toTitleCase(name)
 	} catch(e) {
 		console.log("Name was not recorded");
 		prompt("We didn't quite catch the name of the exercise. \nCould you please enter it.");
@@ -383,3 +384,7 @@ function exerciseCommands(action) {
 	}
 }
 
+
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
