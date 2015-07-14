@@ -1,0 +1,69 @@
+<template name="editRoutine">
+	{{#if currentUser}}
+
+		{{#contentFor "headerButtonLeft"}}
+			{{>ionNavBackButton path="index"}}
+		{{/contentFor}}
+
+
+		{{#contentFor "headerTitle"}}
+			<h1 class="title">Edit {{routineName}}</h1>
+		{{/contentFor}}
+
+
+
+
+<!-- FINISH: -->
+		{{#contentFor "headerButtonRight"}}
+            <a href="{{pathFor 'exercises'}}" class="button button-clear">{{> ionIcon icon=""}}Add</a>
+        {{/contentFor}}
+
+
+		{{#ionView}}
+			{{#ionContent}}	
+			 
+
+			 {{#ionList}}
+					{{#each exercises}}      
+						{{> listExercises2}}
+					{{/each}}
+				{{/ionList}}
+				
+			{{/ionContent}}
+		{{/ionView}}
+	
+	{{else}}	
+		
+		{{#ionView}}
+			{{#ionContent}}
+				
+				<img id="logo" src="images/logo.png" width="300" height="300">
+				
+				{{> atForm}}
+
+			{{/ionContent}}
+		{{/ionView}}
+
+	{{/if}}
+
+</template>
+
+
+<template name= "listExercises2">
+	<i class="item item-checkbox">
+		<h2>{{Name}}</h2>	
+		<p>{{Sets}} sets 
+			{{Reps}} reps</p>	
+		<p>{{Weight}} lbs </p>
+	</i>		
+</template>
+
+<template name= "addToRoutine">
+	{{#ionItem path="exercises" _id="{{_id}}"  buttonRight=true avatar=true}}
+	<div class ="select">
+		<h2 >{{routineName}}</h2>
+	</div>
+	
+	{{/ionItem}}
+  
+</template>

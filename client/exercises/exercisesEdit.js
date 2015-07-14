@@ -39,13 +39,11 @@ Template.exercisesEdit.events({
 
 
 })
-
-
 Template.exerciseEdit.helpers({
 	isCardio : function() { 
 		var thisExercise = Session.get("storeExercise");
 		return thisExercise.type.indexOf("Cardio") > -1;
-		}
+	}
 })
 
 
