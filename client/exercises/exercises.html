@@ -12,12 +12,10 @@
 		{{#ionView}}
 			  {{#ionContent}}
 			  <h1> Current Exercises </h1>
-			  <h2> search function goes here </h2>
-			  <h3> list of exercises here </h3>
+			  {{ > searchBox}}
+
 			 {{#if startExercise}}
-			  <button type = "submit" class="button button-large button-positive" id="startWorkout">
-					Start Workout
-					</button>
+			  <button type = "submit" class="button button-large button-positive" id="startWorkout"> Start Workout </button>
 			{{/if}}		
 
 					{{#ionList}}
@@ -72,12 +70,25 @@
 		{{/if}}
 </template>
 
+<template name="searchBox">
+    {{> esInput index="exercises" placeholder="Search..." }}
+
+    <ul>
+        {{#esEach index="exercises"}}
+        {{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true}}	
+            <li>Name of the Exercise: {{exercisename}}</li>
+        {{/ionItem}}
+
+        {{/esEach}}
+    </ul>
+</template>
+
 
 <template name= "addExercise">
 {{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true}}	
 	<div class="selectedExercise">
 		<h2 >{{Name}}</h2>	
-		<p> Category: {{Tags}}</p>
+		<p> Category: {{Type}}</p>
 	</div>
 	{{/ionItem}}
 </template>
