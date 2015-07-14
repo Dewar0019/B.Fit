@@ -19,7 +19,7 @@ Template.exerciseLog.events({
 		event.preventDefault();
 		console.log("Exercise Added");
 		
-		if (Session.get("strenghtOrCardio")){
+		// if (Session.get("strenghtOrCardio")){
 			var name = event.target.nameOfExercise.value;
 			var sets = event.target.numOfSets.value;
 			var reps = event.target.numOfReps.value;
@@ -27,27 +27,29 @@ Template.exerciseLog.events({
 					
 			Completed.insert({
 				_uID: Meteor.userId(),
+				Type: "Strength",
 				Name: name, 
 				Sets: sets,
 				Reps: reps,
 				Weight: weight,
 				CompletedOn: new Date()	
 			})
-		} else {
-			var name = event.target.cardioName.value;
-			var time = event.target.timeTook.value;
-			var distance = event.target.distance.value;
-			var calories = event.target.calories.value;
+		// } else {
+		// 	var name = event.target.cardioName.value;
+		// 	var time = event.target.timeTook.value;
+		// 	var distance = event.target.distance.value;
+		// 	var calories = event.target.calories.value;
 
-			Completed.insert({
-				_uID: Meteor.userId(),
-				Name: name, 
-				Time: timeTook,
-				Distance: distance,
-				Calories: calories,
-				CompletedOn: new Date()	
-			})
-		}
+		// 	Completed.insert({
+		// 		_uID: Meteor.userId(),
+		// 		Type: "Cardio",
+		// 		Name: name, 
+		// 		Time: timeTook,
+		// 		Distance: distance,
+		// 		Calories: calories,
+		// 		CompletedOn: new Date()	
+		// 	})
+		//}
 		
 
 

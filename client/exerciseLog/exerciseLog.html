@@ -129,6 +129,20 @@
 		</i>	
 	</div>
 
+</template>
+
+
+<template name= "listCompletedCardioExercises">
+	
+	<div id="listingExercises" class="list card">
+		<i class="item">
+			<h2>{{Name}}</h2>	
+			<p>{{Time}} Minutes</p> 
+			<p>{{Distance}} Miles</p>	
+			<p>{{Calories}} Calories </p>
+			<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}} </p>
+		</i>
+	</div>
 	
 </template>
 
