@@ -1,0 +1,19 @@
+hr {
+width: 80%;
+height: 50px;
+background-color:#2C3539;
+color:#2C3539;
+}
+
+#exerciseList {
+	border-radius: 100px;
+	margin: 0 auto;
+	left: 30%;
+}
+
+#currentWorkout {
+	border-radius: 100px;
+	margin: 0 auto;
+	left: 10%;
+}
+

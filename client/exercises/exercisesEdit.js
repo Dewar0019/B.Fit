@@ -42,7 +42,7 @@ Template.exercisesEdit.events({
 })
 
 
-Template.exerciseEdit.helpers({
+Template.exercisesEdit.helpers({
 	type : function() { 
 		var exerciseId = this;
 		}
