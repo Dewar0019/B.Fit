@@ -23,10 +23,10 @@
 				</button>
 				</form>
 
-			<h1> Add to Existing </h1>
+			<h1> Modify an Existing Routine </h1>
 				{{#ionList}}
 					{{#each item}}      
-						{{> addToRoutine}}
+						{{> editRoutines}}
 					{{/each }}
 				{{/ionList}}
 
@@ -52,7 +52,7 @@
 
 		
 
-<template name= "addToRoutine">
+<template name= "editRoutines">
 	{{#ionItem path="exercises" _id="{{_id}}"  buttonRight=true avatar=true}}
 	<div class ="select">
 		<h2 >{{routineName}}</h2>	
