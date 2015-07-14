@@ -22,6 +22,12 @@ Template.exercises.events({
 		Router.go('routineExercises', {_id: routine._id});
 	},
 
+	'click .selectedExercise' : function() {
+		var exercise = this;
+		Session.set('storeExercise', exercise);
+
+	}, 
+
 	'click #armExercises': function (event){
 
 		Session.set("sortBy", "Arm");

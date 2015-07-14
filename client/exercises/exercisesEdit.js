@@ -25,8 +25,7 @@ Template.exercisesEdit.events({
 		var routine = Session.get("selectedRoutine");
 		var time = event.target.time.value;
 		var distance = event.target.distance.value;
-
-		if(checkValues(sets, reps, weight)) {
+		if(checkValues(time, distance)) {
 			Meteor.call('addToRoutine', exerciseID, routine, sets, reps, weight, function(error, result){
 				Session.set("selectedRoutine", result);
 			});
@@ -43,8 +42,9 @@ Template.exercisesEdit.events({
 
 
 Template.exerciseEdit.helpers({
-	type : function() { 
-		var exerciseId = this;
+	isCardio : function() { 
+		var thisExercise = Session.get("storeExercise");
+		return thisExercise.type.indexOf("Cardio") > -1;
 		}
 })
 
@@ -69,6 +69,13 @@ toastr.options = {
 
 function checkValues(sets, reps, weight) {
 	if(sets <0 || reps < 0 || weight < 0) {
+		return false;
+	}
+	return true;
+}
+
+function checkValues(time, distance) {
+	if(time <0 || distance < 0) {
 		return false;
 	}
 	return true;

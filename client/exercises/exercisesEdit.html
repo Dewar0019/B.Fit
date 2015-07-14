@@ -9,7 +9,7 @@
 
 	{{#ionView}}
 		  {{#ionContent}}
-		  <!-- {{#if type}} -->
+		  {{#if isCardio}}
 		  	<form class="list" id="addExerciseStrength">
 			  <label class="item item-input item-floating-label">
 			    <span class="input-label">Sets</span>
@@ -27,7 +27,7 @@
 				Add Exercise
 				</button>
 			</form>
-		<!-- {{else}} -->
+		{{else}}
 				<form class="list" id="addExerciseCardio">
 			  <label class="item item-input item-floating-label">
 			    <span class="input-label">Time</span>
@@ -41,7 +41,7 @@
 				Add Exercise
 				</button>
 			</form>
-			<!-- {{/if}} -->
+			{{/if}}
 
 			{{/ionContent}}
 	{{/ionView}}
