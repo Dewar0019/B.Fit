@@ -1,3 +1,18 @@
+#viewMode{
+	position: relative;
+	top: -43px;
+}
+
+#addCompletedExercise{
+	position: relative;
+	top:40px;	
+}
+
+#addCompletedCardioExercise{
+	position: relative;
+	top:40px;	
+}
+
 #date{
 	left: 50px;
 }
@@ -22,7 +37,7 @@
 
 #fromDateTabBar{
 	position: relative;
-	margin-top: -40px;
+	margin-top: -5px;
 	margin-left:2%;
 	margin-right:2%;
 }
@@ -39,4 +54,11 @@
 	margin-top: 135px;
 }
 
+#strengthButton{
+    left: 30%;
+}
+
+#cardioButton{
+	left: 30%;
+}
 

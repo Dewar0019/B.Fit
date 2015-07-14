@@ -16,6 +16,7 @@
 	<script src="c3.js"></script>
 	<script>
 		$(document).ready(function(){
+			var times = grabData("Running Time");
 			$("#cardio,#strength,#flexibility").change(function(){
 				var c1 = $("#cardio").find('option:selected').val();
 				// var c2 = $("#strength").find('option:selected').val();
@@ -37,6 +38,20 @@
 			});
 			});
 
+
+		function grabData(exercise) {
+			var x = Completed.find({_uID:Meteor.userId()}).fetch();
+			console.log(x);
+		}
+
+
+		$('#B').on('click',function(){
+			chart.load({
+				columns:[
+					['Running', 5, 10, 2, 4, 5, 8],
+				],
+					unload: ['Running Time'],
+
 			$('#B').on('click',function(){
 				chart.load({
 					columns:[
@@ -45,6 +60,7 @@
 						unload: ['Running Time'],
 				});
 			});
+
 			});
 
 		var chart = c3.generate({
