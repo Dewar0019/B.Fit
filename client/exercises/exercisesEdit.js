@@ -36,16 +36,15 @@ Template.exercisesEdit.events({
 			alert("You have entered a number less than zero please try again");
 		}
 	},
-
-
 })
 
 
 Template.exerciseEdit.helpers({
 	isCardio : function() { 
 		var thisExercise = Session.get("storeExercise");
-		return thisExercise.type.indexOf("Cardio") > -1;
-		}
+		console.log(thisExercise);
+		return thisExercise.Type.indexOf("Cardio") > -1;
+	},
 })
 
 

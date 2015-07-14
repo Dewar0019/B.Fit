@@ -20,30 +20,6 @@
 
 					{{#ionList}}
 
-						<div id="sortExercisesTabBar" class="tabs-striped tabs-top tabs-color-assertive">
-	    				
-		    				<div class="tabs">
-
-		      					<a id="armExercises" class="tab-item active" href="#">
-							        Arms
-		      					</a>
-		      					
-		      					<a id="chestExercises" class="tab-item" href="#">
-		      						Chest 
-		      					</a>
-		      					
-		      					<a id="legExercises" class="tab-item" href="#">
-							        Legs
-		      					</a>
-
-		      					<a id="backExercises" class="tab-item" href="#">
-							        Back
-		      					</a>
-		    				</div>
-
-	  					</div>
-
-
 						<div id="exercisesInRoutine">
 							{{#each getExercises}}      
 								{{> addExercise}}
@@ -76,9 +52,8 @@
     <ul>
         {{#esEach index="exercises"}}
         {{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true}}	
-            <li>Name of the Exercise: {{exercisename}}</li>
+            <li>{{Name}}</li>
         {{/ionItem}}
-
         {{/esEach}}
     </ul>
 </template>
