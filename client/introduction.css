@@ -6,3 +6,9 @@ body#intro {
     background-size: cover;
     background-attachment: fixed;
 }
+
+#introLogo {
+	 display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
