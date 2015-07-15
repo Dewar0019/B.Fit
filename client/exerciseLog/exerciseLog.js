@@ -13,11 +13,26 @@ Template.exerciseLog.helpers({
 
 	'strenghtOrCardioForm': function(){
 		return Session.get("strenghtOrCardio");
+		console.log(Session.get("strenghtOrCardio"))
 	}
 })
 
 
 Template.exerciseLog.events({
+
+	'click #viewStrength': function (event){
+		Session.set("strenghtOrCardio", true);
+
+		document.getElementById("viewStrength").className = "tab-item active";
+		document.getElementById("viewCardio").className = "tab-item";
+	},
+
+	'click #viewCardio': function (event){
+		Session.set("strenghtOrCardio", false);
+
+		document.getElementById("viewStrength").className = "tab-item";
+		document.getElementById("viewCardio").className = "tab-item active";
+	},
 
 	'submit #addCompletedExercise': function(event){
 
@@ -50,8 +65,7 @@ Template.exerciseLog.events({
 		}
 	},
 
-
-	'submit #addCompletedCardioExercise': function(event){
+	'submit #addCardio': function(event){
 		event.preventDefault();
 		console.log("Exercise Added");
 		
@@ -60,7 +74,7 @@ Template.exerciseLog.events({
 		var distance = event.target.distance.value;
 		var calories = event.target.calories.value;
 					
-		CompletedCardio.insert({
+		Cardio.insert({
 			_uID: Meteor.userId(),
 			CardioName: name, 
 			Time: timeTook,
@@ -84,7 +98,7 @@ Template.exerciseLog.events({
 	'click #todaysExercises': function (event){
 
 		//1 min 60000
-		//true 86400000
+		//good value = 86400000
 
 		today = new Date()
 		fromDate = new Date(today.getTime() - 86400000)
@@ -99,7 +113,7 @@ Template.exerciseLog.events({
 	'click #thisWeeksExercises': function(event){
 
 		//2 min 120000
-		//true 604800000
+		//good value = 604800000
 
 		today = new Date()
 		fromDate = new Date(today.getTime() - 604800000)
@@ -114,7 +128,7 @@ Template.exerciseLog.events({
 	'click #thisMonthsExercises': function(event){
 
 		//3 min 180000
-		//true 2628000000
+		//good value = 2628000000
 
 		today = new Date()
 		fromDate = new Date(today.getTime() - 2628000000)
@@ -123,20 +137,5 @@ Template.exerciseLog.events({
 		document.getElementById("todaysExercises").className = "tab-item";
 		document.getElementById("thisWeeksExercises").className = "tab-item";
 		document.getElementById("thisMonthsExercises").className = "tab-item active";
-	},
-
-	'click #viewStrength': function (event){
-		Session.set("strenghtOrCardio", true);
-
-		document.getElementById("viewStrength").className = "tab-item active";
-		document.getElementById("viewCardio").className = "tab-item";
-	},
-
-	'click #viewCardio': function (event){
-		Session.set("strenghtOrCardio", false);
-
-		document.getElementById("viewStrength").className = "tab-item";
-		document.getElementById("viewCardio").className = "tab-item active";
-	},
-
+	}
 })
