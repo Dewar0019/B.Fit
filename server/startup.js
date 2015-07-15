@@ -145,13 +145,13 @@ if(Meteor.isServer){
 		})
 
 		Cardio.insert({
-			date: "2013-03-14",
+			date: "2013-01-14",
 			distance: 5.2,
 			time: 18
 		})
 
 		Cardio.insert({
-			date: "2013-04-21",
+			date: "2013-01-21",
 			distance: 5.3,
 			time: 17
 		})
@@ -169,55 +169,55 @@ if(Meteor.isServer){
 		})
 
 		Cardio.insert({
-			date: "2013-01-11",
+			date: "2013-02-11",
 			distance: 5.6,
 			time: 14
 		})
 
 		Cardio.insert({
-			date: "2013-01-18",
+			date: "2013-02-18",
 			distance: 5.7,
 			time: 13
 		})
 
 		Cardio.insert({
-			date: "2013-01-25",
+			date: "2013-02-25",
 			distance: 5.8,
 			time: 12
 		})
 
 		Cardio.insert({
-			date: "2013-01-04",
+			date: "2013-02-30",
 			distance: 5.9,
 			time: 11
 		})
 
 		Cardio.insert({
-			date: "2013-01-04",
+			date: "2013-03-04",
 			distance: 6,
 			time: 10
 		})
 
 		Cardio.insert({
-			date: "2013-01-04",
+			date: "2013-03-11",
 			distance: 6.1,
 			time: 9
 		})
 
 		Cardio.insert({
-			date: "2013-01-04",
+			date: "2013-03-18",
 			distance: 6.2,
 			time: 8
 		})
 
 		Cardio.insert({
-			date: "2013-01-04",
+			date: "2013-03-25",
 			distance: 6.3,
 			time: 7
 		})
 
 		Cardio.insert({
-			date: "2013-01-04",
+			date: "2013-03-30",
 			distance: 6.4,
 			time: 6
 		})
