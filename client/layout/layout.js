@@ -1,27 +1,3 @@
- // Session.setDefault("All");
- 
- // Template.layout.events({
- // 	'submit #searchForm': function(event) {
- // 		event.preventDefault();
- // 		var s = searchBox.value;
- // 		Session.set("searchTerm",s);
- 
- 		
- // 		Router.go(Session.get("searchTerm"));
- // 	},
- // 	// changes category in the dropdown
- // 	'click #selectSearchType li a':function(event) {
- // 		event.preventDefault();
- // 		$(event.target).parents('.btn-group').find('.btn').text($(event.target).text());
- //   		$(event.target).parents('.btn-group').find('.btn').val($(event.target).text());
- 
- //   		// append the caret
- //   		$(event.target).parents('.btn-group').find('.btn').append('&nbsp;<span class="caret"></span>');
- 
- //   		Session.set("searchCategory",$(event.target).text());
- // 	}
- // }); 
-
 Template.layout.events({
 
 	'click .startDictation': function(event){
@@ -134,6 +110,8 @@ function sendSentence(sentence){
      		if(testVariable[0]._text.indexOf("next exercise") > 0) {
 				console.log("next exercise recognized");
      			exerciseCommands(testVariable);
+     		} else if (testVariable[0].intent == "logCardioIntent"){
+     			recordCardio(testVariable);
      		} else {
      			recordExercise(testVariable);
      		}
@@ -279,7 +257,6 @@ function recordExercise(testVariable) {
 
 
 
-
 	//REPS TRY CATCH BLOCK  
 	try {
 		// gets the reps value from the wit.ai output. 
@@ -337,6 +314,7 @@ function recordExercise(testVariable) {
 	}
 
 
+
 	//NAME TRY CATCH BLOCK
 	try {
 		name = testVariable[0].entities.exerciseName[0].value;
@@ -346,8 +324,6 @@ function recordExercise(testVariable) {
 		console.log("Name was not recorded");
 		prompt("We didn't quite catch the name of the exercise. \nCould you please enter it.");
 	}
-
-
 
 	Completed.insert({
 		Name: name, 
@@ -368,6 +344,63 @@ function recordExercise(testVariable) {
 		console.log("today was pressed")
 		Session.set("fromDate", fromDate);
 	}
+}
+
+
+function recordCardio(testVariable) {
+
+	var time;
+	var distance;
+	var calories 
+
+	//TIME TRY CATCH BLCOK 
+	try {
+		//gets the sets value from the wit.ai output 
+		time = testVariable[0].entities.duration[0].value
+
+		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
+		console.log("time: " + time + " " + typeof time)
+
+	} catch (e){
+		time = parseInt(prompt("How long did you run for?"));
+		console.log("manually entered time " + time + " " + typeof time)
+	}
+
+	// try {
+	// 	//gets the sets value from the wit.ai output 
+	// 	distance = testVariable[0].entities.distance[0].value
+
+	// 	// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
+	// 	console.log("distance: " + distance + " " + typeof distance)
+
+	// } catch (e){
+	// 	distance = parseInt(prompt("How far did you run?"));
+	// 	console.log("manually entered distance " + distance + " " + typeof distance)
+	// }
+
+
+	// try {
+	// 	//gets the sets value from the wit.ai output 
+	// 	calories = testVariable[0].entities.calories[0].value
+
+	// 	// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
+	// 	console.log("calories: " + calories + " " + typeof calories)
+
+	// } catch (e){
+	// 	distance = parseInt(prompt("How many calories did you run"));
+	// 	console.log("manually entered calories " + calories + " " + typeof calories)
+	// }
+
+	Cardio.insert({
+		//_uID: Meteor.userId(),
+		CardioName: "Running", 
+		Time: time,
+		//Distance: distance,
+		//Calories: calories,
+		CompletedOn: new Date()	
+	})
+
+	console.log("Added to collection");
 }
 
 
