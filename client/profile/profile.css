@@ -1,8 +1,8 @@
-* { margin: 0; padding: 0; outline: none; }
+/** { margin: 0; padding: 0; outline: none; }*/
 /*html { height: 101%; }
 body { font-size: 62.5%; background: #fff; font-family: "Calibri", Tahoma, Arial, sans-serif; color: #444; }*/
 
-img { max-width: 100%; }
+/*img { max-width: 100%; }*/
 
 a { text-decoration: none; color: #39569d; }
 a:hover { text-decoration: underline; }
