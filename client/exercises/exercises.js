@@ -25,7 +25,7 @@ Template.exercises.events({
 	'click .selectedExercise' : function() {
 		var exercise = this;
 		console.log(exercise);
-		Session.set('storeExercise', exercise);
+		Session.set('storeExercise', (exercise.Type.indexOf("Cardio") > -1));
 
 	},
 

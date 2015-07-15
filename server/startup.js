@@ -2,271 +2,224 @@ if(Meteor.isServer){
 
 	Meteor.startup(function(){
 
-if (Exercises.find().fetch()==0){
-			exerciseStartup.data.forEach(function(exercise) {
-				Exercises.insert({
-					Name: exercise.exercisename[0],
-					Type: [exercise.primary[0], exercise.secondary[0]],
-					Instructions: splitString(exercise.steps[0], '. '),
-					start: exercise.startimg[0],
-					end: exercise.endimg[0]
-				})
-			});
-		}
-		});		
-	
+	if (Exercises.find().fetch()==0){
+				exerciseStartup.data.forEach(function(exercise) {
+					Exercises.insert({
+						Name: exercise.exercisename[0],
+						Type: [exercise.primary[0], exercise.secondary[0]],
+						Instructions: splitString(exercise.steps[0], '. '),
+						start: exercise.startimg[0],
+						end: exercise.endimg[0]
+					})
+				});
+			}
+			});		
+		
 
-function splitString(steps, seperator) {
-	var arrayOfStrings = steps.split(seperator);
-	return arrayOfStrings;
-}
+	function splitString(steps, seperator) {
+		var arrayOfStrings = steps.split(seperator);
+		return arrayOfStrings;
+	}
 
+	if(Routines.find().count()== 0) {
+		Routines.insert({
+			_uID: "dewar" ,
+			routineName: "Ice Cream Fitness",
+			exercises: [
+				{
+					Category: "core",
+					Name: "Crunches",
+					Sets: 1,
+					Reps: 25
+				},
 
+				{
+					Category: "core",
+					Name: "Bicycles",
+					Sets: 1,
+					Reps: 50
+				},
 
+				{
+					Category: "core",
+					Name: "Plank",
+					Sets: 1,
+					Time: "1 Minute" 
+				},
 
+				{
+					Category:"Shoulder",
+					Name: "Cable Lat Raise",
+					Sets: 4,
+					Reps: 10,
+					Weight: 10
+				},
 
-// 		if (Exercises.find().fetch()==0){
+				{
+					Category:"Shoulder",
+					Name: "Shoulder Shrugs",
+					Sets: 3,
+					Reps: 10,
+					Weight: 20
+				},
 
-// 			Exercises.insert({
-// 				Tags:["Arm"],
-// 				Name: "Bicep Curl",
-// 			});
+				{
+					Category:"Shoulder",
+					Name: "Standing Pull Down",
+					Sets: 3,
+					Reps: 10,
+					Weight: 20
+				},
 
-// 			Exercises.insert({
-// 				Tags:["Arm"],
-// 				Name: "Hammer Curl",
-// 			});
+				{
+					Category:"Shoulder",
+					Name: "Shoulder Press",
+					Sets: 3,
+					Reps: 10,
+					Weight: 60
+				},
 
+				{
+					Category:"Back",
+					Name: "Back Extention",
+					Sets: 4,
+					Reps: 10,
+				},
 
-// 			Exercises.insert({
-// 				Tags:["Arm"],
-// 				Name: "Reverse Curl",
-// 			});
+				{
+					Category:"Back",
+					Name: "Dumbbell Deadlift",
+					Sets: 3,
+					Reps: 10,
+					Weight: 70
+				},
 
-// 			Exercises.insert({
-// 				Tags:["Arm"],
-// 				Name: "Triceps Extensions",
-// 			});
+				{
+					Category:"Back",
+					Name: "Kneeling One Arm Row",
+					Sets: 3,
+					Reps: 10,
+					Weight: 25
+				},
 
-// 			Exercises.insert({
-// 				Tags:["Arm", " Chest"],
-// 				Name: "Dips",
-// 			});
+				{
+					Category:"Arm",
+					Name: "Bicep Curl",
+					Sets: 4,
+					Reps: 10,
+					Weight: 20
+				},
+		
+				{
+					Category:"Arm",
+					Name: "Concentration Curl",
+					Sets: 2,
+					Reps: 10,
+					Weight: 20
+				},
 
-// 			Exercises.insert({
-// 				Tags:["Arm"],
-// 				Name: "Pushups",
-// 			});
-
-// 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// 			Exercises.insert({
-// 				Tags:["Chest"],
-// 				Name: "Chest Press",
-// 			});
-
-
-// 			Exercises.insert({
-// 				Tags:["Chest"],
-// 				Name: "Cable Fly",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Chest"],
-// 				Name: "Butterfly",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Chest"],
-// 				Name: "Cable Fly",
-// 			});
-
-// 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Squats",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Step Ups",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Calf Raises",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Stepups",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Leg Press",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Calf Raises",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Lunges",
-// 			});
-
-// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				{
+					Category:"Arm",
+					Name: "Reverse Curl",
+					Sets: 3,
+					Reps: 10,
+					Weight: 20
+				},
+			],
 			
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Lunges",
-// 			});
+			createdAt: new Date()
+		})
+	}
+	if(Cardio.find().count()== 0) {
+		
+		Cardio.insert({
+			date: "2013-01-01",
+			distance: 5,
+			time: 20
+		})
 
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Incline Row",
-// 			});
+		Cardio.insert({
+			date: "2013-01-07",
+			distance: 5.1,
+			time: 19
+		})
 
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Inverted Row",
-// 			});
+		Cardio.insert({
+			date: "2013-01-14",
+			distance: 5.2,
+			time: 18
+		})
 
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Incline Row",
-// 			});
+		Cardio.insert({
+			date: "2013-01-21",
+			distance: 5.3,
+			time: 17
+		})
 
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Back Extention",
-// 			});
+		Cardio.insert({
+			date: "2013-01-28",
+			distance: 5.4,
+			time: 16,
+		})
 
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Cable Row",
-// 			});
+		Cardio.insert({
+			date: "2013-02-04",
+			distance: 5.5,
+			time: 15
+		})
 
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Supermans",
-// 			});
+		Cardio.insert({
+			date: "2013-02-11",
+			distance: 5.6,
+			time: 14
+		})
 
-// 			Exercises.insert({
-// 				type:["Cardio"],
-// 				exercisename: "Running",
-// 			});
-// 		}
+		Cardio.insert({
+			date: "2013-02-18",
+			distance: 5.7,
+			time: 13
+		})
 
-		if(Routines.find().count()== 0) {
-			Routines.insert({
-				_uID: "dewar" ,
-				routineName: "Ice Cream Fitness",
-				exercises: [
-					{
-						Category: "core",
-						Name: "Crunches",
-						Sets: 1,
-						Reps: 25
-					},
+		Cardio.insert({
+			date: "2013-02-25",
+			distance: 5.8,
+			time: 12
+		})
 
-					{
-						Category: "core",
-						Name: "Bicycles",
-						Sets: 1,
-						Reps: 50
-					},
+		Cardio.insert({
+			date: "2013-02-30",
+			distance: 5.9,
+			time: 11
+		})
 
-					{
-						Category: "core",
-						Name: "Plank",
-						Sets: 1,
-						Time: "1 Minute" 
-					},
+		Cardio.insert({
+			date: "2013-03-04",
+			distance: 6,
+			time: 10
+		})
 
-					{
-						Category:"Shoulder",
-						Name: "Cable Lat Raise",
-						Sets: 4,
-						Reps: 10,
-						Weight: 10
-					},
+		Cardio.insert({
+			date: "2013-03-11",
+			distance: 6.1,
+			time: 9
+		})
 
-					{
-						Category:"Shoulder",
-						Name: "Shoulder Shrugs",
-						Sets: 3,
-						Reps: 10,
-						Weight: 20
-					},
+		Cardio.insert({
+			date: "2013-03-18",
+			distance: 6.2,
+			time: 8
+		})
 
-					{
-						Category:"Shoulder",
-						Name: "Standing Pull Down",
-						Sets: 3,
-						Reps: 10,
-						Weight: 20
-					},
+		Cardio.insert({
+			date: "2013-03-25",
+			distance: 6.3,
+			time: 7
+		})
 
-					{
-						Category:"Shoulder",
-						Name: "Shoulder Press",
-						Sets: 3,
-						Reps: 10,
-						Weight: 60
-					},
-
-					{
-						Category:"Back",
-						Name: "Back Extention",
-						Sets: 4,
-						Reps: 10,
-					},
-
-					{
-						Category:"Back",
-						Name: "Dumbbell Deadlift",
-						Sets: 3,
-						Reps: 10,
-						Weight: 70
-					},
-
-					{
-						Category:"Back",
-						Name: "Kneeling One Arm Row",
-						Sets: 3,
-						Reps: 10,
-						Weight: 25
-					},
-
-					{
-						Category:"Arm",
-						Name: "Bicep Curl",
-						Sets: 4,
-						Reps: 10,
-						Weight: 20
-					},
-
-					{
-						Category:"Arm",
-						Name: "Concentration Curl",
-						Sets: 2,
-						Reps: 10,
-						Weight: 20
-					},
-
-					{
-						Category:"Arm",
-						Name: "Reverse Curl",
-						Sets: 3,
-						Reps: 10,
-						Weight: 20
-					},
-				],
-				createdAt: new Date()
-			})
-		}
+		Cardio.insert({
+			date: "2013-03-30",
+			distance: 6.4,
+			time: 6
+		})
+	}
 }
