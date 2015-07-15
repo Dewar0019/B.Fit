@@ -131,93 +131,94 @@ if(Meteor.isServer){
 		})
 	}
 	if(Cardio.find().count()== 0) {
+		
 		Cardio.insert({
-			date: "2013-01-01"
-			distance: 5
+			date: "2013-01-01",
+			distance: 5,
 			time: 20
 		})
 
 		Cardio.insert({
-			date: "2013-01-07"
-			distance: 5.1
+			date: "2013-01-07",
+			distance: 5.1,
 			time: 19
 		})
 
 		Cardio.insert({
-			date: "2013-03-14"
-			distance: 5.2
+			date: "2013-03-14",
+			distance: 5.2,
 			time: 18
 		})
 
 		Cardio.insert({
-			date: "2013-04-21"
-			distance: 5.3
+			date: "2013-04-21",
+			distance: 5.3,
 			time: 17
 		})
 
 		Cardio.insert({
-			date: "2013-01-28"
-			distance: 5.4
-			time: 16
+			date: "2013-01-28",
+			distance: 5.4,
+			time: 16,
 		})
 
 		Cardio.insert({
-			date: "2013-02-04"
-			distance: 5.5
+			date: "2013-02-04",
+			distance: 5.5,
 			time: 15
 		})
 
 		Cardio.insert({
-			date: "2013-01-11"
-			distance: 5.6
+			date: "2013-01-11",
+			distance: 5.6,
 			time: 14
 		})
 
 		Cardio.insert({
-			date: "2013-01-18"
-			distance: 5.7
+			date: "2013-01-18",
+			distance: 5.7,
 			time: 13
 		})
 
 		Cardio.insert({
-			date: "2013-01-25"
-			distance: 5.8
+			date: "2013-01-25",
+			distance: 5.8,
 			time: 12
 		})
 
 		Cardio.insert({
-			date: "2013-01-04"
-			distance: 5.9
+			date: "2013-01-04",
+			distance: 5.9,
 			time: 11
 		})
 
 		Cardio.insert({
-			date: "2013-01-04"
-			distance: 6
+			date: "2013-01-04",
+			distance: 6,
 			time: 10
 		})
 
 		Cardio.insert({
-			date: "2013-01-04"
-			distance: 6.1
+			date: "2013-01-04",
+			distance: 6.1,
 			time: 9
 		})
 
 		Cardio.insert({
-			date: "2013-01-04"
-			distance: 6.2
+			date: "2013-01-04",
+			distance: 6.2,
 			time: 8
 		})
 
 		Cardio.insert({
-			date: "2013-01-04"
-			distance: 6.3
+			date: "2013-01-04",
+			distance: 6.3,
 			time: 7
 		})
-		
+
 		Cardio.insert({
-			date: "2013-01-04"
-			distance: 6.4
+			date: "2013-01-04",
+			distance: 6.4,
 			time: 6
 		})
 	}
