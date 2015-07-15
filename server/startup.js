@@ -12,12 +12,6 @@ if (Exercises.find().fetch()==0){
 					end: exercise.endimg[0]
 				})
 			});
-
-
-			Exercises.insert({
-				Name: "Running",
-				Type: ["Cardio"],
-			})
 		}
 		});		
 	
