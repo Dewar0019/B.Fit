@@ -15,10 +15,10 @@ meteoric:ionic
 meteoric:ionic-sass
 meteoric:ionicons-sass
 meteoric:autoform-ionic
-fourseven:scss
 useraccounts:ionic
 lbee:moment-helpers
 peernohell:c3
 
 matteodem:easy-search
 chrismbeckett:toastr
+fourseven:scss@2.0.1_5

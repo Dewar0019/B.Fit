@@ -16,16 +16,37 @@
 
 			 {{#if startExercise}}
 			  <button type = "submit" class="button button-large button-positive" id="startWorkout"> Start Workout </button>
-			{{/if}}		
-
+			{{/if}}
 					{{#ionList}}
 
-						<div id="exercisesInRoutine">
-							{{#each getExercises}}      
-								{{> addExercise}}
-							{{/each}}
-						</div>>
+					<!-- tab bar -->
+			<div id="viewMode" class="tabs-striped tabs-top">	
+		    	<div class="tabs">
+		      		<a id="viewAdd" class="tab-item active" href="#">Add</a>
+					<a id="viewEdit" class="tab-item" href="#">Edit</a>
+	    		</div>
+	  		</div>
 
+
+			{{#if addOrEditForm}}
+			
+
+					<div id="exercisesInRoutine">
+						{{#each getExercises}}      
+							{{> addExercise}}
+						{{/each}}
+					</div>
+
+
+				{{else}}
+
+					<div id="exercisesInRoutine">
+						{{#each getExercises}}      
+							{{> addExercise}}
+						{{/each}}
+					</div>
+
+				{{/if}}
 
 					{{/ionList}}
 				{{/ionContent}}
