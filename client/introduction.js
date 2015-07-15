@@ -14,7 +14,7 @@ IonLoading = {
     }
 
     Meteor.setTimeout(function () {
-      this.template = Template['introduction'];
+      this.template = Template['IonLoading'];
       this.view = Blaze.renderWithData(this.template, {template: options.customTemplate}, $('.ionic-body').get(0));
 
       var $loadingEl = $(this.view.firstNode());
