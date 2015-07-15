@@ -19,7 +19,7 @@ Template.exercisesEdit.events({
 		}
 	},
 
-	'submit #addExerciseStrength' : function(events) {
+	'submit #addExerciseCardio' : function(events) {
 		event.preventDefault();
 		var exerciseID = this
 		var routine = Session.get("selectedRoutine");
