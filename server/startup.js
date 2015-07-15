@@ -12,6 +12,12 @@ if (Exercises.find().fetch()==0){
 					end: exercise.endimg[0]
 				})
 			});
+
+
+			Exercises.insert({
+				Name: "Running",
+				Type: ["Cardio"],
+			})
 		}
 		});		
 	
@@ -21,145 +27,6 @@ function splitString(steps, seperator) {
 	return arrayOfStrings;
 }
 
-
-
-
-
-// 		if (Exercises.find().fetch()==0){
-
-// 			Exercises.insert({
-// 				Tags:["Arm"],
-// 				Name: "Bicep Curl",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Arm"],
-// 				Name: "Hammer Curl",
-// 			});
-
-
-// 			Exercises.insert({
-// 				Tags:["Arm"],
-// 				Name: "Reverse Curl",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Arm"],
-// 				Name: "Triceps Extensions",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Arm", " Chest"],
-// 				Name: "Dips",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Arm"],
-// 				Name: "Pushups",
-// 			});
-
-// 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// 			Exercises.insert({
-// 				Tags:["Chest"],
-// 				Name: "Chest Press",
-// 			});
-
-
-// 			Exercises.insert({
-// 				Tags:["Chest"],
-// 				Name: "Cable Fly",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Chest"],
-// 				Name: "Butterfly",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Chest"],
-// 				Name: "Cable Fly",
-// 			});
-
-// 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Squats",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Step Ups",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Calf Raises",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Stepups",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Leg Press",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Calf Raises",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Legs"],
-// 				Name: "Lunges",
-// 			});
-
-// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Lunges",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Incline Row",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Inverted Row",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Incline Row",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Back Extention",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Cable Row",
-// 			});
-
-// 			Exercises.insert({
-// 				Tags:["Back"],
-// 				Name: "Supermans",
-// 			});
-
-// 			Exercises.insert({
-// 				type:["Cardio"],
-// 				exercisename: "Running",
-// 			});
-// 		}
 
 		if(Routines.find().count()== 0) {
 			Routines.insert({
