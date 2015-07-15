@@ -29,76 +29,60 @@
 			}
 			grabInfo();
 
-
-			
 	$(document).ready(function(){
-			$("#cardio,#strength,#flexibility").change(function(){
-				var c1 = $("#cardio").find('option:selected').val();
-				// var c2 = $("#strength").find('option:selected').val();
-				// var c3 = $("#flexibility").find('option:selected').val();
-				chart.hide(null,{
-					withLegend: true
-				});
-				chart.show([c1],{ //,c2,c3
-					withLegend: true
-				});
-			});
-			$('#A').on('click',function(){
-			chart.load({
-				columns:[
-					grabTime,
-				],
-				unload: ['Running'],
-			});
-			});
-			$('#B').on('click',function(){
-				chart.load({
-					columns:[
-						grabDistance,
-					],
-						unload: ['Running Time'],
-				});
-			});
-			});
+
+		$("#cardio,#strength,#flexibility").change(function(){
+			var c1 = $("#cardio").find('option:selected').val();
+			chart.hide(null,{ withLegend: true });
+			chart.show([c1],{ withLegend: true });
+		});
+
+		$('#A').on('click',function(){
+		chart.load({ columns:[ grabTime, ], unload: ['Running'], });
+		});
+
+
+		$('#B').on('click',function(){
+			chart.load({ columns:[ grabDistance, ], unload: ['Running Time'],});
+		});
+	});
 
 		var chart = c3.generate({
 			bindto: '#chart',
-			data:{
-				x: 'date',
-				columns: [
-					grabDate,
-					grabDistance,
-					['Walking', 3, 6, 2, 4, 5, 8],
-					['Swimming', 1, 2, 1, 3, 5, 2],
-					['Cycling', 10, 8, 9, 12, 4, 5]
-				],
-				types: {
-					Running: 'area-spline',
-					Walking: 'area-spline',
-					Swimming: 'area-spline',
-					Cycling: 'area-spline'
-				},
-				hide: true
-			},
+			data:{ 	x: 'date',
+					columns: [
+						grabDate,
+						grabDistance,												
+					],
+					types: {
+						Running: 'area-spline',
+						Walking: 'area-spline',
+						Swimming: 'area-spline',
+						Cycling: 'area-spline'
+					},
+					hide: true
+					},
 			subchart: {
-		 		show: true
-		 	},
+						show: true
+		 			},
 		 	zoom: {
-		 		enabled: true
-		 	},
+		 			enabled: true
+		 		},
 		 	axis: {
-        		x: {
-            		type: 'timeseries',
-            		tick: {
-                		format: '%Y-%m-%d'
+        			x: {
+            			type: 'timeseries',
+            			tick: {
+                			format: '%Y-%m-%d'
             		}
         		}
-        	},
-			legend: {
-				show: false
-			}
+        		},
+				legend: {
+					show: false
+				}
 		});
 	</script>
+
+
 	<body>
 		<div class="card">
 			<div class="item item-divider">
@@ -122,45 +106,38 @@
 						<option>Stairmaster</option>
 					</select>
 				</label>
-
-
 			</div>
+
 
 			<div class='chart'>
 			  <div id="chart"></div>
 			</div>
 
+
 			<div class="item tabs tabs-secondary">
-				
 				<button class="button button-outline button-calm" id="A">
 				  Show Time
 				</button>
 				<button class="button button-outline button-royal" id="B">
 				  Show Distance
 				</button>
-			
 			</div>
-
 		</div>
 
 	</body>
-
 	{{/ionList}}
 	{{/ionContent}}
 	{{/ionView}}
 
 	{{else}}
-		
-
 		{{#ionView}}
 			{{#ionContent}}
 				
 				<img id="logo" src="images/logo.png" width="300" height="300">
-				
+
 				{{> atForm}}
 
 			{{/ionContent}}
 		{{/ionView}}
-
 	{{/if}}
 </template>
