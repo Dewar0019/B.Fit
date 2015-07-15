@@ -12,3 +12,20 @@
 	margin-left: 4.5%;
 	margin-right:4.5%;
 }
+
+
+#listingExercises{
+	position: relative;
+	opacity: .7;
+	margin-left:2%;
+	margin-right:2%;
+}
+
+
+#addButton{
+    left: 30%;
+}
+
+#editButton{
+	left: 30%;
+}
