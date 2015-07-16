@@ -1,3 +1,17 @@
+Template.routineExercises.helpers({
+	currentExercise : function() {
+		exerciseBeingPerformed = Session.get("currentExercise");
+		console.log("name of current exercise: " + exerciseBeingPerformed.Name);
+		return exerciseBeingPerformed
+	},
+
+	workoutStarted : function() {
+		return Session.get("workoutStarted");
+	}
+})
+
+
+
 var Clock = {
 	totalSeconds: 0,
 
@@ -39,17 +53,7 @@ function initalizeCheckList() {
 };
 	
 
-Template.routineExercises.helpers({
-	currentExercise : function() {
-		exerciseBeingPerformed = Session.get("currentExercise");
-		console.log("name of current exercise: " + exerciseBeingPerformed.Name);
-		return exerciseBeingPerformed
-	},
 
-	workoutStarted : function() {
-		return Session.get("workoutStarted");
-	}
-})
 
 
 var timer_is_on = 0;
@@ -111,15 +115,7 @@ Template.routineExercises.events({
 
 //Click completion button for completing exercise
 	'click .completionButton' : function() {
-		var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
-		var numbChecked = $('input[name="chk"]:checked').length;
-		Completed.insert({
-			_uID : Meteor.userId(),
-			routineName: routine.routineName,
-			exercises: checkedExercises,
-            completedOn: new Date(),
-            completedAll: (routine.exercises.length == numbChecked)
-		});
+
 	},
 
 
@@ -129,7 +125,19 @@ Template.routineExercises.events({
 	      	title: 'Yay you finished!',
 	      	template: 'Are you <strong>finished</strong> with your workout?',
 	      	onOk: function() {
-	      		Router.go('welcome');
+
+			var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
+			var elementPos = checkedExercises.map(function(x) {return x.checked; }).indexOf(false); //Checks if all the exercises has been completed otherwise grabs the first Index where it has not been
+			Completed.insert({
+				_uID : Meteor.userId(),
+				routineName: routine.routineName,
+				exercises: checkedExercises,
+            	completedOn: new Date(),
+            	completedAll: elementPos == -1,
+			});
+			Meteor.call("compileFinished", routine);
+			Session.set("workoutStarted", false);
+	      	Router.go('welcome');
 	      	},
 
 			onCancel: function() {

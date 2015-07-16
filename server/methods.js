@@ -1,34 +1,15 @@
     Meteor.methods({
-        'searchButton' : function(input) {
-              Search.find({
-             input: input
-            });
-        },
-        
-        searchExercises: function(current) {
-        exercise = null;
-
-        for (var i = 0; i < Exercises.find().count(); i++) {
-            // get location
-            Meteor.call(Exercises.find().fetch(),
-                function(error, data) {
-                    if (error) {
-                        console.log(error);
-                    }
-                    else {
-                        exercises = data;
-                    }
-            });
-
-            if (exercise) {
-                exercise = [Exercises.find().fetch()];
-                break;
+       "compileFinished" :function (routine) {
+          var counter = 0;
+          var allCompleted = Completed.find({_uID: Meteor.userId(), routineName: routine.routineName}).fetch();
+          allCompleted.forEach(function(obj) {
+            if(obj.completedAll) {
+              counter++;
             }
-        }
-
-        
-        return exercise;
-    },
+          });
+          Routines.update({_id: routine._id}, {$set:{ timesCompleted: counter}}); 
+          console.log(routine);
+       },
 
         'createNewRoutine' : function(name) {
               return Routines.insert(
