@@ -5,7 +5,7 @@ Template.exercises.helpers({
 
 	'strengthOrCardioForm': function(){
 		return Session.get("strengthOrCardio");
-	}
+	},
 
 	isCardio : function() { 
 		var thisExercise = Session.get("storeExercise");
@@ -26,6 +26,12 @@ Template.exercises.events({
 		var exercise = this;
 		console.log(exercise);
 		Session.set('storeExercise', (exercise.Type.indexOf("Cardio") > -1));
+
+	},
+	'click .selectedCardio' : function() {
+		var cardio = this;
+		console.log(cardio);
+		Session.set('storeExercise', (cardio.Type.indexOf("Cardio") > 1));
 
 	},
 
