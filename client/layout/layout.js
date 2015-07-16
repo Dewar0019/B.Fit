@@ -1,42 +1,10 @@
-// Template.layout.destroyed = function () {
-//   $('.nav-bar').show();
-//   $('.content').addClass('has-header');
-// }
-
-
-
 Template.layout.events({
 
-	'click .startDictation': function(event){	
+	'click .startDictation': function(event){
 		startDictation(event);
-		
-
+		console.log("button hit");
 	}
 })
-
-
-toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": true,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": true,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "10000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut",
-  "onclick": function() {
-  	// if(!recognizing) {
-  	// 	recognition.start();
-  	// }
-  	console.log("clicked");
-  }
-}
 
 /*
   This code comes from this blog post by Amit Agarwal
@@ -51,9 +19,8 @@ if ('webkitSpeechRecognition' in window) {
 	var recognition = new webkitSpeechRecognition();
 	recognition.continuous = true;
 	recognition.interimResults = true;
- 	
+ 
 	recognition.onstart = function() {
-	  toastr.info("Please give me a command", "I'm Listening!");
 	  recognizing = true;
 	};
  
@@ -66,34 +33,38 @@ if ('webkitSpeechRecognition' in window) {
 	};
  
  	recognition.onresult = function(event) {
-
 		myevent = event;
 		var interim_transcript = '';
-		
-		if(recognizing) {
-		  	for (var i = event.resultIndex; i < event.results.length; ++i) {
-				var words = event.results[i][0].transcript;
+
+	  	for (var i = event.resultIndex; i < event.results.length; ++i) {
+			console.log("i="+i+" words="+words);
+			var words = event.results[i][0].transcript;
 			
-				if (event.results[i].isFinal) {
-					console.log("final result is |"+event.results[i][0].transcript.trim()+"|");
-					final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
-					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
-					toastr.info(final_transcript, "You said: ");
-					recognizing = false;
-					sendSentence(final_transcript);
-				} else {
-			  		interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
-			  		console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
-				}
+			if (words.includes("stop dictation")) {
+			recognition.stop();
+			} else if (words.includes("read it back")){
+				var msg = new SpeechSynthesisUtterance(words);
+				window.speechSynthesis.speak(msg);
+			}
+		
+			if (event.results[i].isFinal) {
+				console.log("final result is |"+event.results[i][0].transcript.trim()+"|");
+				final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
+				console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
+				sendSentence(final_transcript);
+			} else {
+		  		interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
+		  		console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 			}
 		}
-		
+
 		// final_transcript = capitalize(final_transcript);
 		 final_span = linebreak(final_transcript);
 		 interim_span = linebreak(interim_transcript);
 	};
 }
 	
+ 
 var two_line = /\n\n/g;
 var one_line = /\n/g;
 
@@ -136,13 +107,9 @@ function sendSentence(sentence){
  			// make testVariable a Var in final version 
  			testVariable = response.outcomes;
      		console.log("success!", response);
-     		if(testVariable[0].confidence < 0.95) {
-     			toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
-     			recognizing = true;
-     		}
-     		else if(testVariable[0]._text.indexOf("next exercise") > 0) {
+     		if(testVariable[0]._text.indexOf("next exercise") > 0) {
 				console.log("next exercise recognized");
-     			nextExerciseCommand(testVariable);
+     			exerciseCommands(testVariable);
      		} else if (testVariable[0].intent == "logCardioIntent"){
      			recordCardio(testVariable);
      		} else {
@@ -154,7 +121,6 @@ function sendSentence(sentence){
 	console.log("Sentence Sent");
 }
 
-//This code here is to change text into numbered format
 var Small = {
 	'zero': 0,
 	'one': 1,
@@ -444,19 +410,18 @@ function recordCardio(testVariable) {
 	}
 }
 
-//This is the voice command for "Next Exercise"
-
-function nextExerciseCommand(action) {
-	var nextExercise = Session.get("voiceNextExercise");
-		if(nextExercise != null) {
-			var voiceExercise = "Your next exercise is " + nextExercise.Sets + " sets" + "and " + nextExercise.Reps + " reps of " + nextExercise.Name
-			var msg = new SpeechSynthesisUtterance(voiceExercise);//constructor for voice speech
+function exerciseCommands(action) {
+	for(var i = 0; i< checkedExercises.length; i++) {
+		if(!checkedExercises[i].checked) {
+			var nextExercise = "Your next exercise is " + checkedExercises[i].Sets + " sets" + "and " + checkedExercises[i].Reps + " reps of " + checkedExercises[i].Name
+			var msg = new SpeechSynthesisUtterance(nextExercise);//constructor for voice speech
 			var voices = window.speechSynthesis.getVoices();
 			msg.voice = voices[1]; 
 			window.speechSynthesis.speak(msg);
+			return;
 		}
 	}
-
+}
 
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
