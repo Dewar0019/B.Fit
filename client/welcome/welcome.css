@@ -32,23 +32,32 @@ font-family: Trebuchet MS;
   /* width and height can be anything, as long as they're equal */
 }
 
-#progressImage{
-    position: absolute;
-    margin-left:4%;
-    margin-top: -8%;
 
+
+#createRoutineImage{
+    position: absolute;
+    margin-left:8%;
+    margin-top: -8%;
 }
 
 #beginImage{
     position: absolute;
     margin-left:48%;
-    margin-top: -10%;
+    margin-top: -11%;
 
 }
-#createRoutineImage{
+
+#progressImage{
     position: absolute;
-    margin-left:15%;
+    margin-left:4%;
     margin-top: 22%;
+
+}
+
+#profileLink{
+    position: absolute;
+    margin-left:52%;
+    margin-top: 27%;
 }
 
 #line{
@@ -67,7 +76,7 @@ font-family: Trebuchet MS;
 }*/
 
 .scroll-content{
- background: url("images/NewColor.jpg") no-repeat center center fixed; 
+ background: url("images/back2.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
