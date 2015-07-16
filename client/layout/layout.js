@@ -416,10 +416,7 @@ function recordCardio(testVariable) {
 		console.log("manually entered distance " + distance + " " + typeof distance)
 	}
 
-<<<<<<< HEAD
 	//CALORIES TRY BLOCK 
-=======
->>>>>>> c39481c3794889f5749e9211aa11f6b41a602a8e
 	try {
 		//gets the sets value from the wit.ai output 
 		calories = testVariable[0].entities.calories[0].value
