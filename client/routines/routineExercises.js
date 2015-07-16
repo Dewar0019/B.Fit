@@ -34,6 +34,12 @@ var Clock = {
 
   	resume: function () {
    		if (!this.interval) this.start();
+  	},
+
+  	stop: function() {
+  		clearInterval(this.interval);
+	    delete this.interval;
+	    totalSeconds = 0;
   	}
 };
 
@@ -121,11 +127,13 @@ Template.routineExercises.events({
 
 //Prompt the user whether or not they confirm finish workout 
 	'click [data-action="showConfirm"]': function(event, template) {
+		console.log(Clock);
     	IonPopup.confirm({
 	      	title: 'Yay you finished!',
 	      	template: 'Are you <strong>finished</strong> with your workout?',
 	      	onOk: function() {
-
+	
+	      	Clock.stop();
 			var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
 			var elementPos = checkedExercises.map(function(x) {return x.checked; }).indexOf(false); //Checks if all the exercises has been completed otherwise grabs the first Index where it has not been
 			Completed.insert({
@@ -134,6 +142,7 @@ Template.routineExercises.events({
 				exercises: checkedExercises,
             	completedOn: new Date(),
             	completedAll: elementPos == -1,
+            	timeToComplete: Clock.totalSeconds,
 			});
 			Meteor.call("compileFinished", routine);
 			Session.set("workoutStarted", false);

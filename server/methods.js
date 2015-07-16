@@ -1,13 +1,24 @@
     Meteor.methods({
        "compileFinished" :function (routine) {
           var counter = 0;
+          var averageTime = 0;
           var allCompleted = Completed.find({_uID: Meteor.userId(), routineName: routine.routineName}).fetch();
           allCompleted.forEach(function(obj) {
             if(obj.completedAll) {
               counter++;
+              averageTime += obj.timeToComplete;
+              console.log("averageTime");
+              console.log(averageTime);
             }
           });
-          Routines.update({_id: routine._id}, {$set:{ timesCompleted: counter}}); 
+          var avgTotalSeconds = averageTime/allCompleted.length;
+          console.log("avgTotalSeconds");
+          console.log(avgTotalSeconds);
+          var completeTimeAverage = (Math.floor(avgTotalSeconds / 3600) + ":" 
+          + Math.floor(avgTotalSeconds / 60 % 60 / 10) + Math.floor(avgTotalSeconds / 60 % 60 % 10) + ":" 
+          + parseInt(avgTotalSeconds % 60 / 10) + parseInt(avgTotalSeconds % 60 % 10));
+          console.log(completeTimeAverage);          
+          Routines.update({_id: routine._id}, {$set:{ timesCompleted: counter, avgComplete: completeTimeAverage}}); 
           console.log(routine);
        },
 
@@ -17,8 +28,12 @@
                      _uID: Meteor.userId(),
                      routineName: name,
                      exercises: [],
-                     createdAt: new Date()
-                    },function(error, result){
+                     createdAt: new Date(),
+                     timesCompleted: 0,
+                     avgComplete: "0:00:00",
+                    },
+
+                    function(error, result){
                         console.log(error,result);
                         if(!error){
                             return result;
