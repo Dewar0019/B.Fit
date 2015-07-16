@@ -3,8 +3,7 @@
   {{#ionBody}}
 
     {{> ionNavBar class="bar-positive"}}
-    {{#ionNavView}}
-
+    {{#ionNavView }}
 
       {{> yield}}
     {{/ionNavView}}
@@ -14,12 +13,11 @@
   {{#ionTabs class="tabs-positive tabs-icon-top"}}
     {{> ionTab title="Home" path="welcome" iconOff="ios-home" iconOn="ios-home"}}
     {{> ionTab title="Routines" path="routines" iconOff="android-bicycle" iconOn="android-bicycle"}}
-    {{> ionTab title="Profile" path="profile" iconOff="person" iconOn="person"}}
     {{> ionTab title="Analytics" path="chart" iconOff="stats-bars" iconOn="stats-bars"}}
     {{> ionTab title="Log" path="exerciseLog" iconOff="ios-bookmarks" iconOn="ios-bookmarks"}}
     {{> ionTab title="Voice" iconOff="mic-a" iconOn="mic-a" class="startDictation"}}
   {{/ionTabs}}
-
+ 
 {{/if}} 
 
 </template>
