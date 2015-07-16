@@ -86,7 +86,7 @@ Template.routineExercises.events({
 	},
 
 
-//onClick of the begin button the exercise checklist will initalize 
+	//onClick of the begin button the exercise checklist will initalize 
 	'click .beginExercise' :function () {
 		console.log("Exercise Button Clicked")
 		if($(".beginExercise").html() == "Start") {  //Prevent from starting over again
