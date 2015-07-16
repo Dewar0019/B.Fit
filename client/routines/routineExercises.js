@@ -59,12 +59,8 @@ var timer_is_on = 0;
 var running = false;
 
 Template.routineExercises.events({
-	'click #currentWorkout': function() {
-		Session.set("showExerciseList", false);
-	},
-
-	'click #exerciseList' :function() {
-		Session.set("showExerciseList", true);
+	'click #nextExercise': function() {
+		Session.get("");
 	},
 
 	'click .beginExercise' :function () {

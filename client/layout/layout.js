@@ -4,7 +4,6 @@
 // }
 
 
-
 Template.layout.events({
 
 	'click .startDictation': function(event){	
