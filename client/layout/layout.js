@@ -1,3 +1,10 @@
+// Template.layout.destroyed = function () {
+//   $('.nav-bar').show();
+//   $('.content').addClass('has-header');
+// }
+
+
+
 Template.layout.events({
 
 	'click .startDictation': function(event){
