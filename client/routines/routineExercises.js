@@ -27,7 +27,7 @@ var Clock = {
 checkedExercises = [];
 
 function initalizeCheckList() {
-
+	checkedExercises = [];
 	var thisRoutine = Session.get('forCompletedRoutine');
 
 	if(thisRoutine != null) {
@@ -40,18 +40,14 @@ function initalizeCheckList() {
 	
 
 Template.routineExercises.helpers({
-	showExerciseList : function() {	
-		return Session.get("showExerciseList");
-	},
-	exerciseList: function() {
-		return checkedExercises;
-	},
-	
 	currentExercise : function() {
 		exerciseBeingPerformed = Session.get("currentExercise");
 		console.log("name of current exercise: " + exerciseBeingPerformed.Name);
-
 		return exerciseBeingPerformed
+	},
+
+	workoutStarted : function() {
+		return Session.get("workoutStarted");
 	}
 })
 
@@ -62,6 +58,9 @@ var running = false;
 Template.routineExercises.events({
 	'click #done' :function() {
 		var selectedExercise = Session.get("currentExercise");
+		if(selectedExercise == null) {
+			console.log("finished with workout");
+		} else {
 		for(var i = 0; i < checkedExercises.length; i++) {
 			if (checkedExercises[i].Name == selectedExercise.Name) {
 				if(checkedExercises[i].Sets == selectedExercise.Sets && checkedExercises[i].Reps == selectedExercise.Reps) {
@@ -69,11 +68,15 @@ Template.routineExercises.events({
 					Session.set("currentExercise", checkedExercises[i+1]);
 					Session.set("voiceNextExercise", checkedExercises[i+2]); // used for the "what's next voice command"
 					console.log("done");
+					return;
 				}
 			}
+		  }
 		}	
 	},
 
+
+//onClick of the begin button the exercise checklist will initalize 
 	'click .beginExercise' :function () {
 		console.log("Exercise Button Clicked")
 		if($(".beginExercise").html() == "Start") {  //Prevent from starting over again
@@ -83,7 +86,7 @@ Template.routineExercises.events({
 				$(".beginExercise").attr('id', 'pauseExercise');
 				initalizeCheckList();
 				Session.set("currentExercise", checkedExercises[0]);
-
+				Session.set("workoutStarted", true);
 				Session.set("showExerciseList", true); // when the start button is clicked the showExerciseList is set to true
 
 		  		Clock.start();
@@ -119,11 +122,12 @@ Template.routineExercises.events({
 		});
 	},
 
+
+//Prompt the user whether or not they confirm finish workout 
 	'click [data-action="showConfirm"]': function(event, template) {
     	IonPopup.confirm({
 	      	title: 'Yay you finished!',
 	      	template: 'Are you <strong>finished</strong> with your workout?',
-	      	
 	      	onOk: function() {
 	      		Router.go('welcome');
 	      	},
@@ -133,21 +137,6 @@ Template.routineExercises.events({
 
     	});
   	},
-
-	'click .checkbox' : function() {
-		console.log("Checkbox was clicked");
-
-		var selectedExercise = this;
-			
-
-		if(checkedExercises[firstUnchecked].checked == true) {   //if obj was already checked prior
-			checkedExercises[firstUnchecked].checked = false;
-		} else {
-			checkedExercises[firstUnchecked].checked = true;
-			Session.set("currentExercise", checkedExercises[firstUnchecked+1]);
-		}		
-	}
-
 });
 
 

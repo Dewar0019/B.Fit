@@ -19,7 +19,9 @@
 				<p id="exerciseSetsAndReps"> {{currentExercise.Sets}} Sets of {{currentExercise.Reps}} Reps </p>
 				<p id="exerciseWeight"> {{currentExercise.Weight}} Lbs </p>
 			</div>
-			
+			{{#if workoutStarted}}
+			<button id="done" class="button button-assertive" >Exercise Done!</button>
+			{{/if}}
 			<!-- The timer -->
 			<p id="timer">
 				<span id="timer2">0:00:00</span>
@@ -28,10 +30,8 @@
 			<br>
 
 			<!-- Buttons to display the current workout and the exercise list -->
-			<button id="done" class="button button-assertive" >Exercise Done!</button>
 			
-<!--  			<button id="exerciseList" class="button button-assertive"> Exercise List </button>
- -->
+
 
 			<hr/>
 			
@@ -39,7 +39,9 @@
 			<div class="beginExercise">Start</div> 
 
 			<!-- allows the start button to become the finish button once it is pressed -->
+			{{#if workoutStarted}}
 			<button id="finish" class="button button-large button-positive completionButton" data-action="showConfirm" > Finish Workout </button> 
+			{{/if}}
 			
 			 <!-- Displays all the exercises in the current routine with checkboxes -->
 			 {{#if showExerciseList}}
@@ -68,7 +70,7 @@
 </template>
 
 
-<template name= "listExercises">
+<!-- <template name= "listExercises">
 	<i class="item item-checkbox">
     	<label id="checkBox" class="checkbox">
 			<input type="checkbox" name="chk">
@@ -82,3 +84,4 @@
 	</i>		
 
 </template>
+ -->

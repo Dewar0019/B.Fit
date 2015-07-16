@@ -7,6 +7,7 @@ color:#2C3539;
 
 #beingPerformed{
 	opacity: .7;
+	text-align: center;
 }
 
 #exerciseName{
@@ -22,27 +23,17 @@ color:#2C3539;
 }
 
 
-#checkBox{
-	left: 2%
-}
-
 .completionButton {
 	margin: 0 auto;
 	left: 20%;
 }
 
-#exerciseList {
-	border-radius: 100px;
-	margin: 0 auto;
-	left: 30%;
-	top:10px;
-}
 
-#currentWorkout {
+
+#done {
 	border-radius: 100px;
 	margin: 0 auto;
-	left: 10%;
-	top:10px;
+	left: 50%;
 }
 
 #finish{

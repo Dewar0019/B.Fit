@@ -462,10 +462,14 @@ function recordCardio(testVariable) {
 //This is the voice command for "Next Exercise"
 function nextExerciseCommand(action) {
 	var nextExercise = Session.get("voiceNextExercise");
+	var voices = window.speechSynthesis.getVoices();
 	if(nextExercise != null) {
 		var voiceExercise = "Your next exercise is " + nextExercise.Sets + " sets" + "and " + nextExercise.Reps + " reps of " + nextExercise.Name
 		var msg = new SpeechSynthesisUtterance(voiceExercise);//constructor for voice speech
-		var voices = window.speechSynthesis.getVoices();
+		msg.voice = voices[1]; 
+		window.speechSynthesis.speak(msg);
+	} else {
+		var msg = new SpeechSynthesisUtterance("There are no more exercises");//constructor for voice speech
 		msg.voice = voices[1]; 
 		window.speechSynthesis.speak(msg);
 	}
