@@ -21,34 +21,41 @@
 			
 			</p> -->
 
-			<div id="currentExercise" class="card">
+			<!-- Card which will display the current exercise -->
+			<div id="beingPerformed" class="card">
 				<p id="exerciseName"> {{currentExercise.Name}} </p>
-				<p id="exerciseSets"> {{currentExercise.Sets}} Sets </p>
-				<p id="exerciseReps"> {{currentExercise.Reps}} Reps </p>
+				<p id="exerciseSetsAndReps"> {{currentExercise.Sets}} Sets of {{currentExercise.Reps}} Reps </p>
+				<p id="exerciseWeight"> {{currentExercise.Weight}} Lbs </p>
 			</div>
 			
 
+			<!-- The timer -->
 			<p id="timer">
 				<span id="timer2">0:00:00</span>
 			</p>
 		
 			<br>
 
+			<!-- Buttons to display the current workout and the exercise list -->
 			<button id="currentWorkout" class="button button-assertive" >Current Workout </button>
 			<button id="exerciseList" class="button button-assertive"> Exercise List </button>
 
 			<hr/>
 			
 			
-			<div class="beginExercise">Start</div>
-			<button class="button button-large button-positive completionButton" data-action="showConfirm" id="finish"> Finish Workout </button>	
+			<!-- Start button is made through CSS -->
+			<div class="beginExercise">Start</div> 
+
+			<!-- allows the start button to become the finish button once it is pressed -->
+			<button id="finish" class="button button-large button-positive completionButton" data-action="showConfirm" > Finish Workout </button> 
 
 			
 			
 			<!-- 	 <button class="button button-large button-assertive" id= "beginExercise" data-action="showAlert"> Start Exercise </button>	
-			 -->				
+			 -->
+			 <!-- Displays all the exercises in the current routine with checkboxes -->
 			 {{#if showExerciseList}}
-			 	{{#each exercises}}
+			 	{{#each exerciseList}}
 					{{> listExercises}}
 				{{/each}}
 			{{/if}}
@@ -78,9 +85,12 @@
     	<label id="checkBox" class="checkbox">
 			<input type="checkbox" name="chk">
      	</label>
+
 		<h2>{{Name}}</h2>	
-		<p>{{Sets}} sets 
-			{{Reps}} reps</p>	
-		<p>{{Weight}} lbs </p>
+		<p> {{Sets}} Sets 
+			{{Reps}} Reps
+		</p>	
+		<p> {{Weight}} Lbs </p>
 	</i>		
+
 </template>

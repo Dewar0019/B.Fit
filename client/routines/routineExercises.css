@@ -5,7 +5,7 @@ background-color:#2C3539;
 color:#2C3539;
 }
 
-#currentExercise{
+#beingPerformed{
 	opacity: .7;
 }
 
@@ -13,11 +13,11 @@ color:#2C3539;
 	padding-left: 10px;
 }
 
-#exerciseSets{
+#exerciseSetsAndReps{
 	padding-left: 10px;
 }
 
-#exerciseReps{
+#exerciseWeight{
 	padding-left: 10px;
 }
 
