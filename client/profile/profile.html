@@ -12,51 +12,7 @@
     {{#ionView}}
         {{#ionContent}}
             {{#if currentUser}}
-                <head>
-                  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-                  <link rel="stylesheet" type="text/css" href="profile.css">
-                  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-                  <script type="text/javascript" src="profile.js"></script>
-                </head>
-
-                  <script>
-                    $(document).ready(function(){
-                        $(".editlink").on("click", function(e){
-                          e.preventDefault();
-                            var dataset = $(this).prev(".datainfo");
-                            var savebtn = $(this).next(".savebtn");
-                            var theid   = dataset.attr("id");
-                            var newid   = theid+"-form";
-                            var currval = dataset.text();
-                            
-                            dataset.empty();
-                            
-                            $('<input type="text" name="'+newid+'" id="'+newid+'" value="'+currval+'" class="hlite">').appendTo(dataset);
-                            
-                            $(this).css("display", "none");
-                            savebtn.css("display", "block");
-                        });
-                        
-                        $(".savebtn").on("click", function(e){
-                            e.preventDefault();
-                            var elink   = $(this).prev(".editlink");
-                            var dataset = elink.prev(".datainfo");
-                            var newid   = dataset.attr("id");
-                            
-                            var cinput  = "#"+newid+"-form";
-                            var einput  = $(cinput);
-                            var newval  = einput.attr("value");
-                            
-                            $(this).css("display", "none");
-                            einput.remove();
-                            dataset.html(newval);
-                            
-                            elink.css("display", "block");
-                        });
-                    });
-                </script>
-                
-
+               
                 <div class="list card">
                     <div class="item item-divider text-center">
                         <h2>{{getUserInfo.profile.firstName}} {{getUserInfo.profile.lastName}}</h2>
@@ -72,14 +28,14 @@
                             <section id="core">
                                 <div class="profileinfo">
                                     <div class="gear">
-                                        <label>Primary E-Mail:</label>
+                                        <label>{{> ionIcon icon="ios-email-outline" class="positive"}}  Primary E-Mail:</label>
                                         <span id="pemail" class="datainfo">{{getEmail}}</span>
                                         <!-- <a href="#" class="editlink">Edit Info</a>
                                         <a class="savebtn">Save</a> -->
                                     </div>
                                     
                                     <div class="gear">
-                                        <label>Full Name:</label>
+                                        <label>{{> ionIcon icon="ios-person-outline" class="positive"}}  Full Name:</label>
                                         <span id="fullname" class="datainfo">{{getUserInfo.profile.firstName}} {{getUserInfo.profile.lastName}}</span>
                                         <!-- <a href="#" class="editlink">Edit Info</a>
                                         <a class="savebtn">Save</a> -->
@@ -93,7 +49,7 @@
                                     </div> -->
                                     
                                     <div class="gear">
-                                        <label>Weight:</label>
+                                        <label>{{> ionIcon icon="ios-speedometer-outline" class="positive"}}  Weight:</label>
                                         <span id="weight" class="datainfo">{{getUserInfo.profile.currentWeight}}</span>
                                         <!-- <a href="#" class="editlink">Edit</a>
                                         <a class="savebtn">Save</a> -->

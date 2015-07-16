@@ -41,20 +41,24 @@ font-family: Trebuchet MS;
 
 #beginImage{
     position: absolute;
-    margin-left:45%;
-    margin-top: -2%;
+    margin-left:48%;
+    margin-top: -10%;
 
 }
 #createRoutineImage{
     position: absolute;
     margin-left:15%;
-    margin-top: 18%;
+    margin-top: 22%;
 }
 
 #line{
     background-color: #939393;
     color: #eee;
     height:1px;
+}
+
+#cardback {
+  opacity: .7;
 }
 
 /*#background {
