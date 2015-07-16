@@ -27,7 +27,9 @@ var Clock = {
 checkedExercises = [];
 
 function initalizeCheckList() {
+
 	var thisRoutine = Session.get('forCompletedRoutine');
+
 	if(thisRoutine != null) {
 		checkedExercises = thisRoutine.exercises.slice(0);  // makes a copy of the exercises page	
 		checkedExercises.forEach(function(obj) {
@@ -41,7 +43,6 @@ Template.routineExercises.helpers({
 	showExerciseList : function() {	
 		return Session.get("showExerciseList");
 	},
-	
 	exerciseList: function() {
 		return checkedExercises;
 	},
@@ -59,23 +60,29 @@ var timer_is_on = 0;
 var running = false;
 
 Template.routineExercises.events({
-	'click #currentWorkout': function() {
-		Session.set("showExerciseList", false);
-	},
-
-	'click #exerciseList' :function() {
-		Session.set("showExerciseList", true);
+	'click #done' :function() {
+		var selectedExercise = Session.get("currentExercise");
+		for(var i = 0; i < checkedExercises.length; i++) {
+			if (checkedExercises[i].Name == selectedExercise.Name) {
+				if(checkedExercises[i].Sets == selectedExercise.Sets && checkedExercises[i].Reps == selectedExercise.Reps) {
+					checkedExercises[i].checked = true; 	
+					Session.set("currentExercise", checkedExercises[i+1]);
+					Session.set("voiceNextExercise", checkedExercises[i+2]); // used for the "what's next voice command"
+					console.log("done");
+				}
+			}
+		}	
 	},
 
 	'click .beginExercise' :function () {
 		console.log("Exercise Button Clicked")
-		
 		if($(".beginExercise").html() == "Start") {  //Prevent from starting over again
 			if (!running) {
 				running=true;
 				$(".beginExercise").html("Pause");
 				$(".beginExercise").attr('id', 'pauseExercise');
 				initalizeCheckList();
+				Session.set("currentExercise", checkedExercises[0]);
 
 				Session.set("showExerciseList", true); // when the start button is clicked the showExerciseList is set to true
 
@@ -132,7 +139,6 @@ Template.routineExercises.events({
 
 		var selectedExercise = this;
 			
-		var firstUnchecked = checkedExercises.indexOf(selectedExercise)
 
 		if(checkedExercises[firstUnchecked].checked == true) {   //if obj was already checked prior
 					
@@ -140,11 +146,11 @@ Template.routineExercises.events({
 		} else {
 			checkedExercises[firstUnchecked].checked = true;
 			Session.set("currentExercise", checkedExercises[firstUnchecked+1]);
-			Session.set("voiceNextExercise", checkedExercises[firstUnchecked+2]); // used for the "what's next voice command"
 		}		
 	}
 
 });
+
 
 
 
