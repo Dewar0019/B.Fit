@@ -147,6 +147,7 @@ Template.routineExercises.events({
 		} else {
 			checkedExercises[firstUnchecked].checked = true;
 			Session.set("currentExercise", checkedExercises[firstUnchecked+1]);
+			Session.set("voiceNextExercise", checkedExercises[firstUnchecked+2]); // used for the "what's next voice command"
 		}		
 	}
 
