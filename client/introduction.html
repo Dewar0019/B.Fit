@@ -1,11 +1,12 @@
-<template name="ionLoading">
-  <div class="loading-container">
-    <div class="loading">
-      {{#if template}}
-        {{{template}}}
-      {{else}}
-        <i class="icon ion-loading-d"></i>
-      {{/if}}
-    </div>
-  </div>
+<template name="introduction">
+{{#contentFor "headerTitle"}}
+			<h1 class="title">B. FIT</h1>
+		{{/contentFor}}
+  {{#ionView}}
+    {{#ionContent}}
+    	<body id="intro">
+    		<img id="introLogo" src="images/brand1.png" width="200" height="200">
+    	</body>
+    {{/ionContent}}
+  {{/ionView}}
 </template>

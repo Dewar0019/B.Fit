@@ -37,7 +37,7 @@ Template.exercisesEdit.events({
 		}
 	},
 })
-Template.exerciseEdit.helpers({
+Template.exercisesEdit.helpers({
 	isCardio : function() { 
 		return Session.get("storeExercise");
 	},
