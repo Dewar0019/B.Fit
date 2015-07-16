@@ -387,12 +387,25 @@ function recordCardio(testVariable) {
 	var distance;
 	var calories 
 
-	// //NAME TRY CATCH BLOCK 
-	// try {
-	// 	name = testVariable[0].entities.name[0].value
-	// } catch (e){
+	//NAME TRY CATCH BLOCK 
+	try {
+		if (testVariable[0].entities.running != undefined){
+			name = "Running"
+		} else if (testVariable[0].entities.biking != undefined) {
+			name = "Biking"
+		} else if (testVariable[0].entities.cycling != undefined) {
+			name = "Cycling"
+		} else if (testVariable[0].entities.swimming != undefined) {
+			name = "Swimming"
+		} else if (testVariable[0].entities.rowing != undefined) {
+			name = "Rowing"
+		}
 
-	// }
+	} catch (e){
+		name = prompt("What exercise did you do");
+		console.log("manually entered name " + name + typeof name);
+
+	}
 
 	//TIME TRY CATCH BLCOK 
 	try {
@@ -423,13 +436,13 @@ function recordCardio(testVariable) {
 		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
 		console.log("calories: " + calories + " " + typeof calories)
 	} catch (e){
-		distance = parseInt(prompt("How many calories did you burn"));
-		console.log("manually entered calories " + calories + " " + typeof calories)
+		//calories = parseInt(prompt("How many calories did you burn"));
+		//console.log("manually entered calories " + calories + " " + typeof calories)
 	}
 
 	Cardio.insert({
 		_uID: Meteor.userId(),
-		CardioName: "Running", 
+		CardioName: name, 
 		Time: time,
 		Distance: distance,
 		Calories: calories,
