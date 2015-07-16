@@ -1,3 +1,10 @@
+// Template.layout.destroyed = function () {
+//   $('.nav-bar').show();
+//   $('.content').addClass('has-header');
+// }
+
+
+
 Template.layout.events({
 
 	'click .startDictation': function(event){	
@@ -63,7 +70,7 @@ if ('webkitSpeechRecognition' in window) {
 		myevent = event;
 		var interim_transcript = '';
 		
-		if(recognizing) {
+		// if(recognizing) {
 		  	for (var i = event.resultIndex; i < event.results.length; ++i) {
 				var words = event.results[i][0].transcript;
 			
@@ -72,14 +79,14 @@ if ('webkitSpeechRecognition' in window) {
 					final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 					toastr.info(final_transcript, "You said: ");
-					recognizing = false;
+					// recognizing = false;
 					sendSentence(final_transcript);
 				} else {
 			  		interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
 			  		console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 				}
 			}
-		}
+		// }
 		
 		// final_transcript = capitalize(final_transcript);
 		 final_span = linebreak(final_transcript);
@@ -131,7 +138,7 @@ function sendSentence(sentence){
      		console.log("success!", response);
      		if(testVariable[0].confidence < 0.95) {
      			toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
-     			recognizing = true;
+     			// recognizing = true;
      		}
      		else if(testVariable[0]._text.indexOf("next exercise") > 0) {
 				console.log("next exercise recognized");
@@ -409,7 +416,10 @@ function recordCardio(testVariable) {
 		console.log("manually entered distance " + distance + " " + typeof distance)
 	}
 
+<<<<<<< HEAD
 	//CALORIES TRY BLOCK 
+=======
+>>>>>>> c39481c3794889f5749e9211aa11f6b41a602a8e
 	try {
 		//gets the sets value from the wit.ai output 
 		calories = testVariable[0].entities.calories[0].value

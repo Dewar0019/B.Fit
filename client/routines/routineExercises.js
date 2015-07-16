@@ -27,19 +27,13 @@ var Clock = {
 checkedExercises = [];
 
 function initalizeCheckList() {
-	console.log("initalizeCheckList function has started");
-
 	var thisRoutine = Session.get('forCompletedRoutine');
-
 	if(thisRoutine != null) {
-		checkedExercises = thisRoutine.exercises.slice(0);  // makes a copy of the exercises page
-		
+		checkedExercises = thisRoutine.exercises.slice(0);  // makes a copy of the exercises page	
 		checkedExercises.forEach(function(obj) {
 			obj.checked = false;					//gives them the property of false which means they are unchecked
 		});
 	}
-
-	console.log("initalizeCheckList function has ended");
 };
 	
 
@@ -47,6 +41,7 @@ Template.routineExercises.helpers({
 	showExerciseList : function() {	
 		return Session.get("showExerciseList");
 	},
+	
 	exerciseList: function() {
 		return checkedExercises;
 	},
@@ -103,12 +98,11 @@ Template.routineExercises.events({
     	}
 	},
 
+
+//Click completion button for completing exercise
 	'click .completionButton' : function() {
 		var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
-		// console.log(routine);
 		var numbChecked = $('input[name="chk"]:checked').length;
-		// console.log(numbChecked);
-		// console.log(routine.exercises.length);
 		Completed.insert({
 			_uID : Meteor.userId(),
 			routineName: routine.routineName,
@@ -116,7 +110,6 @@ Template.routineExercises.events({
             completedOn: new Date(),
             completedAll: (routine.exercises.length == numbChecked)
 		});
-		// checkedExercises = [];
 	},
 
 	'click [data-action="showConfirm"]': function(event, template) {
