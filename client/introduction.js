@@ -1,11 +1,11 @@
 Template.introduction.rendered = function()   {
      IonLoading.show({
       customTemplate: '<h3>Loading…</h3><p>Please wait while we load your fitness tracker!</p>',
-      duration: 8000,
+      duration: 2000,
     });
 
 setTimeout(function() {
   Router.go('welcome');
-}, 8000);
+}, 2000);
 
 }
