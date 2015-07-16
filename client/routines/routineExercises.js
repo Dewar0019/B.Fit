@@ -89,6 +89,7 @@ Template.routineExercises.events({
 	//onClick of the begin button the exercise checklist will initalize 
 	'click .beginExercise' :function () {
 		console.log("Exercise Button Clicked")
+		console.log($(".beginExercise").html());
 		if($(".beginExercise").html() == "Start") {  //Prevent from starting over again
 			if (!running) {
 				running=true;
@@ -98,7 +99,6 @@ Template.routineExercises.events({
 				Session.set("currentExercise", checkedExercises[0]);
 				Session.set("workoutStarted", true);
 				Session.set("showExerciseList", true); // when the start button is clicked the showExerciseList is set to true
-
 		  		Clock.start();
 		    }
 	    	
@@ -119,10 +119,7 @@ Template.routineExercises.events({
 	},
 
 
-//Click completion button for completing exercise
-	'click .completionButton' : function() {
 
-	},
 
 
 //Prompt the user whether or not they confirm finish workout 
@@ -134,6 +131,7 @@ Template.routineExercises.events({
 	      	onOk: function() {
 	
 	      	Clock.stop();
+	      	running = false;
 			var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
 			var elementPos = checkedExercises.map(function(x) {return x.checked; }).indexOf(false); //Checks if all the exercises has been completed otherwise grabs the first Index where it has not been
 			Completed.insert({

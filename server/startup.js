@@ -134,7 +134,7 @@ if(Meteor.isServer){
 
 	if(Routines.find().count()== 0) {
 		Routines.insert({
-			_uID: "dewar" ,
+			_uID: "preset" ,
 			routineName: "Ice Cream Fitness",
 			exercises: [
 				{
@@ -238,7 +238,9 @@ if(Meteor.isServer){
 				},
 			],
 			
-			createdAt: new Date()
+			createdAt: new Date(),
+			timesCompleted: 0,
+			avgComplete: "0:00:00",
 		})
 	}
 	if(Cardio.find().count()== 0) {
