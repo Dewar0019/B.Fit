@@ -22,13 +22,14 @@
 					<!-- tab bar -->
 			<div id="viewMode" class="tabs-striped tabs-top">	
 		    	<div class="tabs">
-		      		<a id="viewAdd" class="tab-item active" href="#">Add</a>
-					<a id="viewEdit" class="tab-item" href="#">Edit</a>
+		      		<a id="viewAddStrength" class="tab-item active" href="#">Strength</a>
+		      		<a id="viewAddCardio" class="tab-item" href="#">Cardio</a>
+					<!-- <a id="viewEdit" class="tab-item" href="#">Edit</a> -->
 	    		</div>
 	  		</div>
 
 
-			{{#if addOrEditForm}}
+			{{#if strengthOrCardioForm}}
 			
 
 					<div id="exercisesInRoutine">
@@ -38,11 +39,18 @@
 					</div>
 
 
-				{{else}}
+				<!-- {{else if}}
 
 					<div id="exercisesInRoutine">
 						{{#each getExercises}}      
 							{{> addExercise}}
+						{{/each}}
+					</div> -->
+
+				{{else}}
+				<div id="exercisesInRoutine">
+						{{#each getCardio}}      
+							{{> addCardio}}
 						{{/each}}
 					</div>
 
@@ -81,7 +89,16 @@
 
 
 <template name= "addExercise">
-{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true}}	
+{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=true}}	
+	<div class="selectedExercise">
+		<h2 >{{Name}}</h2>	
+		<p> Category: {{Type}}</p>
+	</div>
+	{{/ionItem}}
+</template>
+
+<template name= "addCardio">
+{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=false}}	
 	<div class="selectedExercise">
 		<h2 >{{Name}}</h2>	
 		<p> Category: {{Type}}</p>

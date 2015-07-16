@@ -41,6 +41,9 @@ Template.exercisesEdit.helpers({
 	isCardio : function() { 
 		return Session.get("storeExercise");
 	},
+	'strengthOrCardioForm': function(){
+		return Session.get("strengthOrCardio");
+	},
 })
 
 
