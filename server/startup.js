@@ -17,23 +17,19 @@ if(Meteor.isServer){
 		if (Cardio.find().fetch()==0){
 			
 				Cardio.insert({
-					Name: "Aerobics",
-					Type: "cardio"
-				}),
-				Cardio.insert({
 						Name: "Aerobics",
 						Type: "cardio"
 						// Instructions: "splitString(exercise.steps[0], '. '),
 						// start: "exercise.startimg[0],
 						// end: "exercise.endimg[0]
 					}),
-					Cardio.insert({
-						Name: "Boxing",
-						Type: "cardio"
-						// Instructions: "splitString(exercise.steps[0], '. '),
-						// start: "exercise.startimg[0],
-						// end: "exercise.endimg[0]
-					}),
+					// Cardio.insert({
+					// 	Name: "Boxing",
+					// 	Type: "cardio"
+					// 	// Instructions: "splitString(exercise.steps[0], '. '),
+					// 	// start: "exercise.startimg[0],
+					// 	// end: "exercise.endimg[0]
+					// }),
 					Cardio.insert({
 						Name: "Elliptical",
 						Type: "cardio"
@@ -64,13 +60,6 @@ if(Meteor.isServer){
 					}),
 					Cardio.insert({
 						Name: "Mountain Biking",
-						Type: "cardio"
-						// Instructions: "splitString(exercise.steps[0], '. '),
-						// start: "exercise.startimg[0],
-						// end: "exercise.endimg[0]
-					}),
-					Cardio.insert({
-						Name: "Pilates",
 						Type: "cardio"
 						// Instructions: "splitString(exercise.steps[0], '. '),
 						// start: "exercise.startimg[0],

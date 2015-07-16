@@ -89,7 +89,7 @@
 
 
 <template name= "addExercise">
-{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true}}	
+{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=true}}	
 	<div class="selectedExercise">
 		<h2 >{{Name}}</h2>	
 		<p> Category: {{Type}}</p>
@@ -98,7 +98,7 @@
 </template>
 
 <template name= "addCardio">
-{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true}}	
+{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=false}}	
 	<div class="selectedExercise">
 		<h2 >{{Name}}</h2>	
 		<p> Category: {{Type}}</p>
