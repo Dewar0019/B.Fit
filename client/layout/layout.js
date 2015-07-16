@@ -410,7 +410,6 @@ function recordCardio(testVariable) {
 	}
 }
 
-
 function exerciseCommands(action) {
 	for(var i = 0; i< checkedExercises.length; i++) {
 		if(!checkedExercises[i].checked) {
@@ -423,7 +422,6 @@ function exerciseCommands(action) {
 		}
 	}
 }
-
 
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});

@@ -5,6 +5,22 @@ background-color:#2C3539;
 color:#2C3539;
 }
 
+#currentExercise{
+	opacity: .7;
+}
+
+#exerciseName{
+	padding-left: 10px;
+}
+
+#exerciseSets{
+	padding-left: 10px;
+}
+
+#exerciseReps{
+	padding-left: 10px;
+}
+
 
 #checkBox{
 	left: 2%
@@ -19,12 +35,14 @@ color:#2C3539;
 	border-radius: 100px;
 	margin: 0 auto;
 	left: 30%;
+	top:10px;
 }
 
 #currentWorkout {
 	border-radius: 100px;
 	margin: 0 auto;
 	left: 10%;
+	top:10px;
 }
 
 #finish{

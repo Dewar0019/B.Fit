@@ -13,7 +13,6 @@ Template.exerciseLog.helpers({
 
 	'strenghtOrCardioForm': function(){
 		return Session.get("strenghtOrCardio");
-		console.log(Session.get("strenghtOrCardio"))
 	}
 })
 
