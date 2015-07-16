@@ -24,28 +24,28 @@
 		    	<div class="tabs">
 		      		<a id="viewAddStrength" class="tab-item active" href="#">Strength</a>
 		      		<a id="viewAddCardio" class="tab-item" href="#">Cardio</a>
-					<!-- <a id="viewEdit" class="tab-item" href="#">Edit</a> -->
+					<a id="viewEdit" class="tab-item" href="#">Edit</a>
 	    		</div>
 	  		</div>
+		
 
-
-			{{#if strengthOrCardioForm}}
-			
-
+	{{#if editOrNot}}
+	{{#if exerciseList2}}
+		<div id="exercisesInRoutine">
+			{{#each getRoutine}}      
+				{{> listExercises2}}
+			{{/each}}
+		</div>
+	{{else}}
+			<h1> Hello </h1>
+	{{/if}}
+	{{else}}
+		{{#if strengthOrCardioForm}}
 					<div id="exercisesInRoutine">
 						{{#each getExercises}}      
 							{{> addExercise}}
 						{{/each}}
 					</div>
-
-
-				<!-- {{else if}}
-
-					<div id="exercisesInRoutine">
-						{{#each getExercises}}      
-							{{> addExercise}}
-						{{/each}}
-					</div> -->
 
 				{{else}}
 				<div id="exercisesInRoutine">
@@ -54,6 +54,7 @@
 						{{/each}}
 					</div>
 
+				{{/if}}
 				{{/if}}
 
 					{{/ionList}}
@@ -89,7 +90,7 @@
 
 
 <template name= "addExercise">
-{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=true}}	
+{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=true editOrNot = false }}	
 	<div class="selectedExercise">
 		<h2 >{{Name}}</h2>	
 		<p> Category: {{Type}}</p>
@@ -98,10 +99,19 @@
 </template>
 
 <template name= "addCardio">
-{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=false}}	
+{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=false editOrNot = false}}	
 	<div class="selectedExercise">
 		<h2 >{{Name}}</h2>	
 		<p> Category: {{Type}}</p>
 	</div>
 	{{/ionItem}}
+</template>
+
+<template name= "listExercises2">
+	{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=false editOrNot=true showExerciseList2=true}}	
+	<div class="selectedExercise">
+		<h2 >{{Name}}</h2>	
+		<p> Category: {{Type}}</p>
+	</div>
+	{{/ionItem}}	
 </template>
