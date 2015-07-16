@@ -244,92 +244,106 @@ if(Meteor.isServer){
 	if(Cardio.find().count()== 0) {
 		
 		Cardio.insert({
-			date: "2013-01-01",
+			CardioName: "Running",
+			date: "2015-01-01",
 			distance: 5,
 			time: 20
 		})
 
 		Cardio.insert({
-			date: "2013-01-07",
-			distance: 5.1,
-			time: 19
+			CardioName: "Running",
+			date: "2015-01-07",
+			distance: 2,
+			time: 30
 		})
 
 		Cardio.insert({
-			date: "2013-01-14",
-			distance: 5.2,
-			time: 18
+			CardioName: "Running",
+			date: "2015-01-14",
+			distance: 6,
+			time: 60
 		})
 
 		Cardio.insert({
-			date: "2013-01-21",
-			distance: 5.3,
-			time: 17
+			CardioName: "Running",
+			date: "2015-01-21",
+			distance: 5,
+			time: 40
 		})
 
 		Cardio.insert({
-			date: "2013-01-28",
-			distance: 5.4,
-			time: 16,
+			CardioName: "Walking",
+			date: "2015-01-28",
+			distance: 2,
+			time: 30,
 		})
 
 		Cardio.insert({
-			date: "2013-02-04",
+			CardioName: "Running",
+			date: "2015-02-04",
 			distance: 5.5,
 			time: 15
 		})
 
 		Cardio.insert({
-			date: "2013-02-11",
-			distance: 5.6,
+			CardioName: "Walking",
+			date: "2015-02-11",
+			distance: 5,
 			time: 14
 		})
 
 		Cardio.insert({
-			date: "2013-02-18",
-			distance: 5.7,
+			CardioName: "Walking",
+			date: "2015-02-18",
+			distance: 6,
 			time: 13
 		})
 
 		Cardio.insert({
-			date: "2013-02-25",
-			distance: 5.8,
+			CardioName: "Running",
+			date: "2015-02-25",
+			distance: 7,
 			time: 12
 		})
 
 		Cardio.insert({
-			date: "2013-02-30",
-			distance: 5.9,
+			CardioName: "Running",
+			date: "2015-02-30",
+			distance: 6,
 			time: 11
 		})
 
 		Cardio.insert({
-			date: "2013-03-04",
+			CardioName: "Walking",
+			date: "2015-03-04",
 			distance: 6,
 			time: 10
 		})
 
 		Cardio.insert({
-			date: "2013-03-11",
-			distance: 6.1,
+			CardioName: "Running",
+			date: "2015-03-11",
+			distance: 3,
 			time: 9
 		})
 
 		Cardio.insert({
-			date: "2013-03-18",
-			distance: 6.2,
+			CardioName: "Running",
+			date: "2015-03-18",
+			distance: 6,
 			time: 8
 		})
 
-		Cardio.insert({
-			date: "2013-03-25",
-			distance: 6.3,
+		Cardio.insert({CardioName: "Walking",
+			date: "2015-03-25",
+			distance: 6,
 			time: 7
 		})
 
 		Cardio.insert({
-			date: "2013-03-30",
-			distance: 6.4,
+			CardioName: "Walking",
+			date: "2015-03-30",
+			distance: 8,
 			time: 6
 		})
 	}
