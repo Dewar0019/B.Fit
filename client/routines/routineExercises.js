@@ -142,7 +142,6 @@ Template.routineExercises.events({
 		var firstUnchecked = checkedExercises.indexOf(selectedExercise)
 
 		if(checkedExercises[firstUnchecked].checked == true) {   //if obj was already checked prior
-					
 			checkedExercises[firstUnchecked].checked = false;
 		} else {
 			checkedExercises[firstUnchecked].checked = true;

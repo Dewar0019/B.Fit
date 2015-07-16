@@ -373,46 +373,48 @@ function recordExercise(testVariable) {
 	}
 }
 
-
 function recordCardio(testVariable) {
 
+	var name;
 	var time;
 	var distance;
 	var calories 
+
+	// //NAME TRY CATCH BLOCK 
+	// try {
+	// 	name = testVariable[0].entities.name[0].value
+	// } catch (e){
+
+	// }
 
 	//TIME TRY CATCH BLCOK 
 	try {
 		//gets the sets value from the wit.ai output 
 		time = testVariable[0].entities.duration[0].value
-
 		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
 		console.log("time: " + time + " " + typeof time)
-
 	} catch (e){
 		time = parseInt(prompt("How long did you run for?"));
 		console.log("manually entered time " + time + " " + typeof time)
 	}
 
+	//DISTANCE TRY BLOCK 
 	try {
 		//gets the sets value from the wit.ai output 
 		distance = testVariable[0].entities.distance[0].value
-
 		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
 		console.log("distance: " + distance + " " + typeof distance)
-
 	} catch (e){
 		distance = parseInt(prompt("How far did you run (enter in just the number)?"));
 		console.log("manually entered distance " + distance + " " + typeof distance)
 	}
 
-
+	//CALORIES TRY BLOCK 
 	try {
 		//gets the sets value from the wit.ai output 
 		calories = testVariable[0].entities.calories[0].value
-
 		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
 		console.log("calories: " + calories + " " + typeof calories)
-
 	} catch (e){
 		distance = parseInt(prompt("How many calories did you burn"));
 		console.log("manually entered calories " + calories + " " + typeof calories)
@@ -438,18 +440,16 @@ function recordCardio(testVariable) {
 }
 
 //This is the voice command for "Next Exercise"
-
 function nextExerciseCommand(action) {
 	var nextExercise = Session.get("voiceNextExercise");
-		if(nextExercise != null) {
-			var voiceExercise = "Your next exercise is " + nextExercise.Sets + " sets" + "and " + nextExercise.Reps + " reps of " + nextExercise.Name
-			var msg = new SpeechSynthesisUtterance(voiceExercise);//constructor for voice speech
-			var voices = window.speechSynthesis.getVoices();
-			msg.voice = voices[1]; 
-			window.speechSynthesis.speak(msg);
-		}
+	if(nextExercise != null) {
+		var voiceExercise = "Your next exercise is " + nextExercise.Sets + " sets" + "and " + nextExercise.Reps + " reps of " + nextExercise.Name
+		var msg = new SpeechSynthesisUtterance(voiceExercise);//constructor for voice speech
+		var voices = window.speechSynthesis.getVoices();
+		msg.voice = voices[1]; 
+		window.speechSynthesis.speak(msg);
 	}
-
+}
 
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
