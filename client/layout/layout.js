@@ -366,41 +366,48 @@ function recordCardio(testVariable) {
 		console.log("manually entered time " + time + " " + typeof time)
 	}
 
-	// try {
-	// 	//gets the sets value from the wit.ai output 
-	// 	distance = testVariable[0].entities.distance[0].value
+	try {
+		//gets the sets value from the wit.ai output 
+		distance = testVariable[0].entities.distance[0].value
 
-	// 	// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
-	// 	console.log("distance: " + distance + " " + typeof distance)
+		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
+		console.log("distance: " + distance + " " + typeof distance)
 
-	// } catch (e){
-	// 	distance = parseInt(prompt("How far did you run?"));
-	// 	console.log("manually entered distance " + distance + " " + typeof distance)
-	// }
+	} catch (e){
+		distance = parseInt(prompt("How far did you run (enter in just the number)?"));
+		console.log("manually entered distance " + distance + " " + typeof distance)
+	}
 
 
-	// try {
-	// 	//gets the sets value from the wit.ai output 
-	// 	calories = testVariable[0].entities.calories[0].value
+	try {
+		//gets the sets value from the wit.ai output 
+		calories = testVariable[0].entities.calories[0].value
 
-	// 	// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
-	// 	console.log("calories: " + calories + " " + typeof calories)
+		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
+		console.log("calories: " + calories + " " + typeof calories)
 
-	// } catch (e){
-	// 	distance = parseInt(prompt("How many calories did you run"));
-	// 	console.log("manually entered calories " + calories + " " + typeof calories)
-	// }
+	} catch (e){
+		distance = parseInt(prompt("How many calories did you burn"));
+		console.log("manually entered calories " + calories + " " + typeof calories)
+	}
 
 	Cardio.insert({
-		//_uID: Meteor.userId(),
+		_uID: Meteor.userId(),
 		CardioName: "Running", 
 		Time: time,
-		//Distance: distance,
-		//Calories: calories,
+		Distance: distance,
+		Calories: calories,
 		CompletedOn: new Date()	
 	})
 
-	console.log("Added to collection");
+	// sets the fromDate for the display of the log page to today if it has not already been chosen by the user so the information the user
+	// just enetered is displayed. 
+	if (Session.get("fromDate") == undefined ){
+		today = new Date()
+		fromDate = new Date(today.getTime() - 86400000)
+		console.log("today was pressed")
+		Session.set("fromDate", fromDate);
+	}
 }
 
 
