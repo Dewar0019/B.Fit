@@ -12,14 +12,27 @@
 
 
 			  {{#if strengthOrCardioForm}}
-					<h1> {{Name}}</h1>
-			  			<img src="{{start}}"/>
-			  			<img src="{{end}}"/> 
+			  	<div class="list card">
+			  		<div class="item item-divider text-center">
+                        <h1>{{Name}}</h1>
+                    </div>
+
+                    <div>
+                    	<center>
+						    <img src="{{start}}"/>
+						    <img src="{{end}}"/>
+						</center>
+					</div>
+			  		
+			  		<div>
 			  			<ol type="1">
 							{{#each Instructions}}
 						  		<li> {{this}} </li>
 						  	{{/each}}
 			  			</ol>
+			  		</div>
+			  	</div>
+			  			
 				  	<form class="list" id="addExerciseStrength">
 					  <label class="item item-input item-floating-label">
 					    <span class="input-label">Sets</span>
