@@ -252,7 +252,6 @@ function tryCatchBlock(variable) {
 	}
 }
 
-
 function recordExercise(testVariable) {
 	var name; 
 	var sets;
@@ -379,6 +378,10 @@ function recordExercise(testVariable) {
 	}
 }
 
+// USE THIS FOR STORING THE DATE IN THE RIGHT FORMAT FOR CARDIO 
+// THIS WILL BE USED FOR THE ANALYTICS WHEN DISPLAYING THE DATE
+// New Test: {{moFormat CompletedOn 'YYYY-MM-DD'}}
+
 function recordCardio(testVariable) {
 
 	var name;
@@ -435,8 +438,7 @@ function recordCardio(testVariable) {
 		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
 		console.log("calories: " + calories + " " + typeof calories)
 	} catch (e){
-		//calories = parseInt(prompt("How many calories did you burn"));
-		//console.log("manually entered calories " + calories + " " + typeof calories)
+	
 	}
 
 	Cardio.insert({
@@ -445,7 +447,7 @@ function recordCardio(testVariable) {
 		Time: time,
 		Distance: distance,
 		Calories: calories,
-		CompletedOn: new Date()	
+		CompletedOn: new Date()
 	})
 
 	// sets the fromDate for the display of the log page to today if it has not already been chosen by the user so the information the user

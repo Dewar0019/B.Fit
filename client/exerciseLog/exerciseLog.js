@@ -24,6 +24,7 @@ Template.exerciseLog.events({
 
 		document.getElementById("viewStrength").className = "tab-item active";
 		document.getElementById("viewCardio").className = "tab-item";
+
 	},
 
 	'click #viewCardio': function (event){
