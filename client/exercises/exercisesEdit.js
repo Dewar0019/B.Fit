@@ -2,6 +2,7 @@ Template.exercisesEdit.events({
 	'submit #addExerciseStrength' : function(events) {
 		event.preventDefault();
 		var exerciseID = this;
+		console.log("This is my log statement");		
 		console.log(exerciseID);
 		var routine = Session.get("selectedRoutine");
 		var sets = event.target.sets.value;

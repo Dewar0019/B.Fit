@@ -71,7 +71,8 @@
             <p> 
                 <ul>
                     {{#each exercises}}
-                        <li> {{Name}} - {{Sets}} x {{Reps}} </li>
+                        <!-- TODO: The {{Name}} spacebar is not working Correctly for displaying the names of the exercises. -->
+                        <li> {{Name}} - {{Sets}} x {{Reps}} </li> 
                     {{/each}}
                 </ul>
             </p>
@@ -80,7 +81,6 @@
                 <a href="#" class="subdued">Completed {{timesCompleted}} times</a>
                 <a href="#" class="subdued"> Average Time: {{avgComplete}} </a>
             </p>
-
         </div>
 
         <div class="item tabs tabs-secondary tabs-icon-left">
@@ -89,6 +89,7 @@
                 <i class="icon ion-fireball"></i>
             </a>
         </div>
+
     </div>
 
   
