@@ -59,5 +59,13 @@ Template.exercises.events({
 		document.getElementById("viewAddCardio").className = "tab-item active";
 		document.getElementById("viewEdit").className = "tab-item";
 	},
+	'click #button icon remove': function(){
+		console.log("remove clicked1!");
+      var playerId = this._id;
+      Session.set('currentRoutines', playerId);
+        var selected = Session.get('currentRoutines');
+        Exercises.update($selected.remove()); 
+        console.log("remove clicked2!");
+    }
 
 })
