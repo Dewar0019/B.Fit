@@ -54,7 +54,7 @@ Template.exercises.events({
 
 	'click #viewEdit': function (event){
 		Session.set("editOrNot", true);
-
+		
 		Session.set("showExerciseList2", true);
 
 		document.getElementById("viewAddStrength").className = "tab-item";
@@ -65,6 +65,7 @@ Template.exercises.events({
 		console.log(x)
 
 	},
+	
 	'click #viewAddCardio': function (event){
 		Session.set("strengthOrCardio", false);
 		Session.set("editOrNot", false);
