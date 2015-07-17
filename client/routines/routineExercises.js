@@ -45,7 +45,6 @@ var Clock = {
 
 
 checkedExercises = [];
-
 function initalizeCheckList() {
 	checkedExercises = [];
 	var thisRoutine = Session.get('forCompletedRoutine');
@@ -56,15 +55,18 @@ function initalizeCheckList() {
 			obj.checked = false;					//gives them the property of false which means they are unchecked
 		});
 	}
-};
-	
-
-
-
+};	
 
 var timer_is_on = 0;
 var running = false;
 
+
+
+// function checkForMissing(exercise) {
+// 	if(reps == null) {}
+
+// }
+//When the user has clicked done exercise button upon finishing an exercise moves onto the next
 Template.routineExercises.events({
 	'click #done' :function() {
 		var selectedExercise = Session.get("currentExercise");
@@ -74,7 +76,10 @@ Template.routineExercises.events({
 		for(var i = 0; i < checkedExercises.length; i++) {
 			if (checkedExercises[i].Name == selectedExercise.Name) {
 				if(checkedExercises[i].Sets == selectedExercise.Sets && checkedExercises[i].Reps == selectedExercise.Reps) {
-					checkedExercises[i].checked = true; 	
+					checkedExercises[i].checked = true; 
+					// checkForMissing(checkedExercises[i]);
+					// console.log($("#exerciseSetsAndReps").html());
+
 					Session.set("currentExercise", checkedExercises[i+1]);
 					Session.set("voiceNextExercise", checkedExercises[i+2]); // used for the "what's next voice command"
 					console.log("done");
@@ -129,7 +134,7 @@ Template.routineExercises.events({
 	      	title: 'Yay you finished!',
 	      	template: 'Are you <strong>finished</strong> with your workout?',
 	      	onOk: function() {
-	
+		
 	      	Clock.stop();
 	      	running = false;
 			var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
@@ -139,15 +144,16 @@ Template.routineExercises.events({
 				routineName: routine.routineName,
 				exercises: checkedExercises,
             	completedOn: new Date(),
-            	completedAll: elementPos == -1,
+            	completedAll: elementPos == -1, //Want to know if user had completed all exercises
             	timeToComplete: Clock.totalSeconds,
 			});
-			Meteor.call("compileFinished", routine);
-			Session.set("workoutStarted", false);
+			Meteor.call("compileFinished", routine); //Calculates the avg time user did this routine along with number of times fully completed
+			Session.set("workoutStarted", false); //Resets to false so can be repeated again
 	      	Router.go('welcome');
 	      	},
 
 			onCancel: function() {
+				//Do nothing on cancel because user is still exercising
 			}
 
     	});
