@@ -1,10 +1,11 @@
+routine1 = Session.get('selectedRoutine');
+
 Template.exercises.helpers({
 	getExercises: function () { return Exercises.find().fetch();},
 	startExercise: function() { return Session.get('selectedRoutine').exercises.length > 0},
 	getCardio: function () { return Cardio.find().fetch();},
-	// getRoutine: function () { return Routines.exercises.find().fetch();},
 	showExerciseList2 : function() {return Session.get("showExerciseList2");},
-
+	exerciseList2: function() {return Session.get('forCompletedRoutine',routine1);},
 	'strengthOrCardioForm': function(){
 		return Session.get("strengthOrCardio");
 	},
@@ -18,15 +19,6 @@ Template.exercises.helpers({
 		return Session.get("editOrNot");
 	},
 });
-
-exerciseList2 = []
-function getRoutine() {
-	
-	exerciseList2 = [];
-	var thisRoutine = Session.get('forCompletedRoutine');
-	exerciseList2 = thisRoutine.exercises;  
-
-};
 
 
 Template.exercises.events({
@@ -68,7 +60,9 @@ Template.exercises.events({
 		document.getElementById("viewAddStrength").className = "tab-item";
 		document.getElementById("viewEdit").className = "tab-item active";
 		document.getElementById("viewAddCardio").className = "tab-item";
+		var x = Session.get('selectedRoutine');
 		console.log(":D")
+		console.log(x)
 
 	},
 	'click #viewAddCardio': function (event){
