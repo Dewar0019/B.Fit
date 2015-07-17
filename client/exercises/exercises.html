@@ -11,11 +11,17 @@
 
 		{{#ionView}}
 			  {{#ionContent}}
-			  <h1> Current Exercises </h1>
+			  <div class="card" id="cardback">
+			  	<center>
+			  	<h3>Search for the exercises and edit the content...</h3>
+			  	</center>
+			  </div>
 			  {{ > searchBox}}
 
 			 {{#if startExercise}}
+			 <center>
 			  <button type = "submit" class="button button-positive" id="startWorkout"> Start Workout </button>
+			 </center>
 			{{/if}}
 					{{#ionList}}
 
