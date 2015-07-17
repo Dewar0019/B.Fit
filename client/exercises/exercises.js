@@ -1,11 +1,23 @@
-routine1 = Session.get('selectedRoutine');
+
 
 Template.exercises.helpers({
 	getExercises: function () { return Exercises.find().fetch();},
-	startExercise: function() { return Session.get('selectedRoutine').exercises.length > 0},
 	getCardio: function () { return Cardio.find().fetch();},
-	showExerciseList2 : function() {return Session.get("showExerciseList2");},
-	exerciseList2: function() {return Session.get('forCompletedRoutine',routine1);},
+	
+	showExerciseList2 : function() {
+		return Session.get("showExerciseList2");
+	},
+	
+	exerciseList2: function() {
+		
+		currentRoutines = Session.get('selectedRoutine');
+
+		console.log("exerciseList2")
+		console.log(Session.get('selectedRoutine'));
+
+		return currentRoutines.exercises;
+	},
+	
 	'strengthOrCardioForm': function(){
 		return Session.get("strengthOrCardio");
 	},
@@ -22,10 +34,6 @@ Template.exercises.helpers({
 
 
 Template.exercises.events({
-	'click #startWorkout' : function() {
-		var routine = Session.get("selectedRoutine");
-		Router.go('routineExercises', {_id: routine._id});
-	},
 
 	'click .selectedExercise' : function() {
 		var exercise = this;
@@ -54,18 +62,17 @@ Template.exercises.events({
 
 	'click #viewEdit': function (event){
 		Session.set("editOrNot", true);
-		
+
 		Session.set("showExerciseList2", true);
 
 		document.getElementById("viewAddStrength").className = "tab-item";
 		document.getElementById("viewEdit").className = "tab-item active";
 		document.getElementById("viewAddCardio").className = "tab-item";
-		var x = Session.get('selectedRoutine');
+
+		console.log(Session.get("selectedRoutine"));
 		console.log(":D")
-		console.log(x)
 
 	},
-	
 	'click #viewAddCardio': function (event){
 		Session.set("strengthOrCardio", false);
 		Session.set("editOrNot", false);

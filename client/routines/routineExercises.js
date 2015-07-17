@@ -49,7 +49,6 @@ checkedExercises = [];
 function initalizeCheckList() {
 	checkedExercises = [];
 	var thisRoutine = Session.get('forCompletedRoutine');
-
 	if(thisRoutine != null) {
 		checkedExercises = thisRoutine.exercises.slice(0);  // makes a copy of the exercises page	
 		checkedExercises.forEach(function(obj) {
@@ -95,6 +94,7 @@ Template.routineExercises.events({
 				$(".beginExercise").html("Pause");
 				$(".beginExercise").attr('id', 'pauseExercise');
 				initalizeCheckList();
+
 				Session.set("currentExercise", checkedExercises[0]);
 				Session.set("workoutStarted", true);
 				Session.set("showExerciseList", true); // when the start button is clicked the showExerciseList is set to true
