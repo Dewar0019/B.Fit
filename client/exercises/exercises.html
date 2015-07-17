@@ -15,7 +15,7 @@
 			  {{ > searchBox}}
 
 			 {{#if startExercise}}
-			  <button type = "submit" class="button button-large button-positive" id="startWorkout"> Start Workout </button>
+			  <button type = "submit" class="button button-positive" id="startWorkout"> Start Workout </button>
 			{{/if}}
 					{{#ionList}}
 
@@ -42,11 +42,11 @@
 	{{else}}
 		{{#if strengthOrCardioForm}}
 
-					<div id="exercisesInRoutine">
-						{{#each getExercises}}      
-							{{> addExercise}}
-						{{/each}}
-					</div>
+				<div id="exercisesInRoutine">
+					{{#each getExercises}}      
+						{{> addExercise}}
+					{{/each}}
+				</div>
 
 				{{else}}
 				<div id="exercisesInRoutine">
