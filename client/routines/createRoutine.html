@@ -19,12 +19,16 @@
 				    <input type="text" name="routineName" placeholder="Routine Name">
 				  </label>
 				<br>
-				<button type="submit" class="button button-large button-positive" >
-				  Submit
-				</button>
+				<center>
+					<button type="submit" class="button button-positive" >
+					  Submit
+					</button>
+				</center>
 				</form>
 
-			<h1> Modify an Existing Routine </h1>
+				<div class="card" id="cardback">
+					<h3 class="text-center">Modify the exercises in your routine below...</h3>
+				</div>
 				{{#ionList}}
 					{{#each item}}      
 						{{> editRoutines}}
