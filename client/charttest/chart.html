@@ -22,8 +22,8 @@
 			function grabInfo() {
 				var allCardio = Cardio.find().fetch();
 				allCardio.forEach(function(finished) {
-					grabDistance.push(finished.distance);
-					grabTime.push(finished.time);
+					grabDistance.push(finished.Distance);
+					grabTime.push(finished.Time);
 					grabDate.push(finished.analyticsDate);
 				});
 			}
