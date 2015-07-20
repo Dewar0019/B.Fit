@@ -27,46 +27,46 @@
 				{{#if strenghtOrCardioForm}}
 					<div id="form" class="list">
 						<form id="addCompletedExercise">
-					  		<label id="labelBox" class="item item-input item-floating-label">
+							<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Name </span>
 					    		<input id="inputSpan" name="nameOfExercise" type="text" placeholder="Name">
-					  		</label>
+							</label>
 
-					  		<label id="labelBox" class="item item-input item-floating-label">
+							<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Sets</span>
 					    		<input id="inputSpan" name="numOfSets" type="text" placeholder="Sets">
-					  		</label>
+							</label>
 
-					  		<label id="labelBox" class="item item-input item-floating-label">
+							<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Reps</span>
 					    		<input id="inputSpan" name="numOfReps" type="text" placeholder="Reps">
-					  		</label>
+							</label>
 
-					   		<label id="labelBox" class="item item-input item-floating-label">
-					   			<span id="inputExerciseText" class="input-label">Weight (lbs)</span>
+							<label id="labelBox" class="item item-input item-floating-label">
+								<span id="inputExerciseText" class="input-label">Weight (lbs)</span>
 					    		<input id="inputSpan" name="weight" type="text" placeholder="Weight (Lbs)">
-						  	</label>
+							</label>
 
 							<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
-					  	</form>
+						</form>
 					</div>
 
 
 					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
 	    				<div class="tabs">
-	      					<a id="todaysExercises" class="tab-item active" href="#">
+							<a id="todaysExercises" class="tab-item active" href="#">
 						        Today
-	      					</a>
+							</a>
 
-	      					<a id="thisWeeksExercises" class="tab-item" href="#">
-	      						This Week
-	      					</a>
+							<a id="thisWeeksExercises" class="tab-item" href="#">
+								This Week
+							</a>
 
-	      					<a id="thisMonthsExercises" class="tab-item" href="#">
-						        This Month
-	      					</a>
-	    				</div>
-	  				</div>
+							<a id="thisMonthsExercises" class="tab-item" href="#">
+								This Month
+							</a>
+						</div>
+					</div>
 
 					<div id="allCards">
 						{{#each completedExercise}}
@@ -79,25 +79,25 @@
 
 					<div id="form" class="list">
 						<form id ="addCardio">
-					  		<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="inputExerciseText" class="input-label">Name</span>
+							<label id="labelBox" class="item item-input item-floating-label">
+								<span id="inputExerciseText" class="input-label">Name</span>
 					    		<input id="inputSpan" name="cardioName" type="text" placeholder="Name">
-					  		</label>
+							</label>
 
-					  		<label id="labelBox" class="item item-input item-floating-label">
+							<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Time</span>
 					    		<input id="inputSpan" name="timeTook" type="text" placeholder="Time">
-					  		</label>
+							</label>
 
-					  		<label id="labelBox" class="item item-input item-floating-label">
+							<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Distance</span>
 					    		<input id="inputSpan" name="distance" type="text" placeholder="Distance">
-					  		</label>
+							</label>
 
-					  		<label id="labelBox" class="item item-input item-floating-label">
+							<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Calories (lbs)</span>
 					    		<input id="inputSpan" name="calories" type="text" placeholder="Calories">
-					 		</label>
+							</label>
 
 							<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
 						</form>
@@ -106,20 +106,20 @@
 
 
 					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
-		    			<div class="tabs">
-		      				<a id="todaysExercises" class="tab-item active" href="#">
+						<div class="tabs">
+							<a id="todaysExercises" class="tab-item active" href="#">
 						        Today
-		      				</a>
+							</a>
 
-		      				<a id="thisWeeksExercises" class="tab-item" href="#">
-		      					This Week
-		      				</a>
+							<a id="thisWeeksExercises" class="tab-item" href="#">
+								This Week
+							</a>
 
-		      				<a id="thisMonthsExercises" class="tab-item" href="#">
-						        This Month
-		      				</a>
+							<a id="thisMonthsExercises" class="tab-item" href="#">
+								This Month
+							</a>
 	    				</div>
-	  				</div>
+					</div>
 
 					<div id="allCards">
 						{{#each completedCardioExercise}}
@@ -128,7 +128,6 @@
 					</div>
 
 				{{/if}}
-
 
 			{{/ionContent}}
 		{{/ionView}}

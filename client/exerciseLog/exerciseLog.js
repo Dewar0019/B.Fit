@@ -1,141 +1,145 @@
 Template.exerciseLog.helpers({
-	'completedExercise':function(){
-		// returns everything in the Completed collection that has been added in the past amount of time specified by the users
-		fromDate = Session.get("fromDate");
-		return Completed.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
-	},
+    'completedExercise':function(){
+        // returns everything in the Completed collection that has been added in the past amount of time specified by the users
+        fromDate = Session.get("fromDate");
+        return Completed.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
+    },
 
-	'completedCardioExercise':function(){
-		// returns everything in the Completed collection that has been added in the past amount of time specified by the users
-		fromDate = Session.get("fromDate");
-		return Cardio.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
-	},
+    'completedCardioExercise':function(){
+        // returns everything in the Completed collection that has been added in the past amount of time specified by the users
+        fromDate = Session.get("fromDate");
+        return Cardio.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
+    },
 
-	'strenghtOrCardioForm': function(){
-		return Session.get("strenghtOrCardio");
-	}
+    'strenghtOrCardioForm': function(){
+        if (Session.get("strenghtOrCardio") == undefined){
+            Session.set("strenghtOrCardio", true);
+        }
+
+        return Session.get("strenghtOrCardio");
+    }
 })
 
 
 Template.exerciseLog.events({
 
-	'click #viewStrength': function (event){
-		Session.set("strenghtOrCardio", true);
+    'click #viewStrength': function (event){
+        Session.set("strenghtOrCardio", true);
 
-		document.getElementById("viewStrength").className = "tab-item active";
-		document.getElementById("viewCardio").className = "tab-item";
+        document.getElementById("viewStrength").className = "tab-item active";
+        document.getElementById("viewCardio").className = "tab-item";
 
-	},
+    },
 
-	'click #viewCardio': function (event){
-		Session.set("strenghtOrCardio", false);
+    'click #viewCardio': function (event){
+        Session.set("strenghtOrCardio", false);
 
-		document.getElementById("viewStrength").className = "tab-item";
-		document.getElementById("viewCardio").className = "tab-item active";
-	},
+        document.getElementById("viewStrength").className = "tab-item";
+        document.getElementById("viewCardio").className = "tab-item active";
+    },
 
-	'submit #addCompletedExercise': function(event){
+    'submit #addCompletedExercise': function(event){
 
-		event.preventDefault();
-		console.log("Exercise Added");
-
-
-		var name = event.target.nameOfExercise.value;
-		var sets = event.target.numOfSets.value;
-		var reps = event.target.numOfReps.value;
-		var weight = event.target.weight.value;
-
-		Completed.insert({
-			_uID: Meteor.userId(),
-			Name: name,
-			Sets: sets,
-			Reps: reps,
-			Weight: weight,
-			CompletedOn: new Date()
-		})
+        event.preventDefault();
+        console.log("Exercise Added");
 
 
-		// if the user has never specified to view todays, this week's or this month's exercises, today's is automatically shown
-		// until the user selects one of the other options.
-		if (Session.get("fromDate") == undefined ){
-			today = new Date()
-			fromDate = new Date(today.getTime() - 86400000)
-			console.log("today was pressed")
-			Session.set("fromDate", fromDate);
-		}
-	},
+        var name = event.target.nameOfExercise.value;
+        var sets = event.target.numOfSets.value;
+        var reps = event.target.numOfReps.value;
+        var weight = event.target.weight.value;
 
-	'submit #addCardio': function(event){
-		event.preventDefault();
-		console.log("Exercise Added");
-
-		var name = event.target.cardioName.value;
-		var timeTook = event.target.timeTook.value;
-		var distance = event.target.distance.value;
-		var calories = event.target.calories.value;
-
-		Cardio.insert({
-			_uID: Meteor.userId(),
-			CardioName: name,
-			Time: timeTook,
-			Distance: distance,
-			Calories: calories,
-			CompletedOn: new Date()
-		})
+        Completed.insert({
+            _uID: Meteor.userId(),
+            Name: name,
+            Sets: sets,
+            Reps: reps,
+            Weight: weight,
+            CompletedOn: new Date()
+        })
 
 
-		// if the user has never specified to view todays, this week's or this month's exercises, today's is automatically shown
-		// until the user selects one of the other options.
-		if (Session.get("fromDate") == undefined ){
-			today = new Date()
-			fromDate = new Date(today.getTime() - 86400000)
-			console.log("today was pressed")
-			Session.set("fromDate", fromDate);
-		}
+        // if the user has never specified to view todays, this week's or this month's exercises, today's is automatically shown
+        // until the user selects one of the other options.
+        if (Session.get("fromDate") == undefined ){
+            today = new Date()
+            fromDate = new Date(today.getTime() - 86400000)
+            console.log("today was pressed")
+            Session.set("fromDate", fromDate);
+        }
+    },
 
-	},
+    'submit #addCardio': function(event){
+        event.preventDefault();
+        console.log("Exercise Added");
 
-	'click #todaysExercises': function (event){
+        var name = event.target.cardioName.value;
+        var timeTook = event.target.timeTook.value;
+        var distance = event.target.distance.value;
+        var calories = event.target.calories.value;
 
-		//1 min 60000
-		//good value = 86400000
+        Cardio.insert({
+            _uID: Meteor.userId(),
+            CardioName: name,
+            Time: timeTook,
+            Distance: distance,
+            Calories: calories,
+            CompletedOn: new Date()
+        })
 
-		today = new Date()
-		fromDate = new Date(today.getTime() - 86400000)
-		console.log("today was pressed")
-		Session.set("fromDate", fromDate);
 
-		document.getElementById("todaysExercises").className = "tab-item active";
-		document.getElementById("thisWeeksExercises").className = "tab-item";
-		document.getElementById("thisMonthsExercises").className = "tab-item";
-	},
+        // if the user has never specified to view todays, this week's or this month's exercises, today's is automatically shown
+        // until the user selects one of the other options.
+        if (Session.get("fromDate") == undefined ){
+            today = new Date()
+            fromDate = new Date(today.getTime() - 86400000)
+            console.log("today was pressed")
+            Session.set("fromDate", fromDate);
+        }
 
-	'click #thisWeeksExercises': function(event){
+    },
 
-		//2 min 120000
-		//good value = 604800000
+    'click #todaysExercises': function (event){
 
-		today = new Date()
-		fromDate = new Date(today.getTime() - 604800000)
-		console.log("this week was pressed")
-		Session.set("fromDate", fromDate);
+        //1 min 60000
+        //good value = 86400000
 
-		document.getElementById("todaysExercises").className = "tab-item";
-		document.getElementById("thisWeeksExercises").className = "tab-item active";
-		document.getElementById("thisMonthsExercises").className = "tab-item";
-	},
+        today = new Date()
+        fromDate = new Date(today.getTime() - 86400000)
+        console.log("today was pressed")
+        Session.set("fromDate", fromDate);
 
-	'click #thisMonthsExercises': function(event){
+        document.getElementById("todaysExercises").className = "tab-item active";
+        document.getElementById("thisWeeksExercises").className = "tab-item";
+        document.getElementById("thisMonthsExercises").className = "tab-item";
+    },
 
-		//3 min 180000
-		//good value = 2628000000
+    'click #thisWeeksExercises': function(event){
 
-		today = new Date()
-		fromDate = new Date(today.getTime() - 2628000000)
-		console.log("this month was pressed")
-		Session.set("fromDate", fromDate);
-		document.getElementById("todaysExercises").className = "tab-item";
-		document.getElementById("thisWeeksExercises").className = "tab-item";
-		document.getElementById("thisMonthsExercises").className = "tab-item active";
-	}
+        //2 min 120000
+        //good value = 604800000
+
+        today = new Date()
+        fromDate = new Date(today.getTime() - 604800000)
+        console.log("this week was pressed")
+        Session.set("fromDate", fromDate);
+
+        document.getElementById("todaysExercises").className = "tab-item";
+        document.getElementById("thisWeeksExercises").className = "tab-item active";
+        document.getElementById("thisMonthsExercises").className = "tab-item";
+    },
+
+    'click #thisMonthsExercises': function(event){
+
+        //3 min 180000
+        //good value = 2628000000
+
+        today = new Date()
+        fromDate = new Date(today.getTime() - 2628000000)
+        console.log("this month was pressed")
+        Session.set("fromDate", fromDate);
+        document.getElementById("todaysExercises").className = "tab-item";
+        document.getElementById("thisWeeksExercises").className = "tab-item";
+        document.getElementById("thisMonthsExercises").className = "tab-item active";
+    }
 })
