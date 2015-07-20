@@ -8,7 +8,6 @@ Template.layout.events({
 
 	'click .startDictation': function(event){	
 		startDictation(event);
-		
 
 	}
 })
@@ -438,7 +437,7 @@ function recordCardio(testVariable) {
 		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
 		console.log("calories: " + calories + " " + typeof calories)
 	} catch (e){
-	
+		calories = "N/A"
 	}
 
 	Cardio.insert({
