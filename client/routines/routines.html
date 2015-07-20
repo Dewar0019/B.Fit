@@ -17,8 +17,8 @@
     		{{#ionContent}}
               <div class="tabs-striped tabs-top"> 
                 <div class="tabs ">
-                    <a class="tab-item active" href="#">Your Routines</a>
-                    <a class="tab-item" href="#">Preset Routines</a>
+                    <a class="tab-item active" id="ownRoutines" href="#">Your Routines</a>
+                    <a class="tab-item" id="presetRoutines" href="#">Preset Routines</a>
                 </div>
             </div>
              <br>
@@ -29,11 +29,17 @@
     			{{#ionList}}
  
 
+                {{#if emptyRoutines}}
+                <div class ="card">
+                    <h1><a href="createRoutine"> You have no routines, click here to create one </a> </h1>
+                </div>
+                {{/if}}
 
+                
     				{{#each item}}      
     					{{> savedRoutines}}
     				{{/each }}
-
+                
     			{{/ionList}}
 
     		{{/ionContent}}
