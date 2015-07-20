@@ -6,7 +6,7 @@
 
 Template.layout.events({
 
-	'click .startDictation': function(event){	
+	'click .startDictation': function(event){
 		startDictation(event);
 
 	}
@@ -44,17 +44,17 @@ toastr.options = {
 final_transcript = '';
 
 var recognizing = false;
-	
+
 if ('webkitSpeechRecognition' in window) {
 	var recognition = new webkitSpeechRecognition();
 	recognition.continuous = true;
 	recognition.interimResults = true;
- 	
+
 	recognition.onstart = function() {
 	  toastr.info("Please give me a command", "I'm Listening!");
 	  recognizing = true;
 	};
- 
+
  	recognition.onerror = function(event) {
 	  console.log(event.error);
 	};
@@ -62,16 +62,16 @@ if ('webkitSpeechRecognition' in window) {
 	recognition.onend = function() {
 	  recognizing = false;
 	};
- 
+
  	recognition.onresult = function(event) {
 
 		myevent = event;
 		var interim_transcript = '';
-		
+
 		// if(recognizing) {
 		  	for (var i = event.resultIndex; i < event.results.length; ++i) {
 				var words = event.results[i][0].transcript;
-			
+
 				if (event.results[i].isFinal) {
 					console.log("final result is |"+event.results[i][0].transcript.trim()+"|");
 					final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
@@ -85,31 +85,31 @@ if ('webkitSpeechRecognition' in window) {
 				}
 			}
 		// }
-		
+
 		// final_transcript = capitalize(final_transcript);
 		 final_span = linebreak(final_transcript);
 		 interim_span = linebreak(interim_transcript);
 	};
 }
-	
+
 var two_line = /\n\n/g;
 var one_line = /\n/g;
 
 function linebreak(s) {
 	return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
 }
- 
+
 function capitalize(s) {
   	return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
 }
- 
+
 function startDictation(event) {
 	if (recognizing) {
 		recognition.stop();
 		console.log("dictation stopped");
 		return;
  	}
-	  
+
 	final_transcript = '';
  	recognition.lang = 'en-US';
   	recognition.start();
@@ -126,12 +126,12 @@ function sendSentence(sentence){
    			'q': sentence,
    			'access_token' : 'D4PLZXVAAU5VA4OF7T365EJSDOERBI3P'
  		},
- 		
+
  		dataType: 'jsonp',
  		method: 'GET',
 
  		success: function(response) {
- 			// make testVariable a Var in final version 
+ 			// make testVariable a Var in final version
  			testVariable = response.outcomes;
      		console.log("success!", response);
      		if(testVariable[0].confidence < 0.95) {
@@ -252,23 +252,23 @@ function tryCatchBlock(variable) {
 }
 
 function recordExercise(testVariable) {
-	var name; 
+	var name;
 	var sets;
-	var reps; 
+	var reps;
 	var weight;
- 
 
-	// try catch is used in case the user did not specify the sets, reps, or weight value. In case they did not, the error is caught and a prompt 
-	// asks the user to enter in the value manually. 
 
-	//SETS TRY CATCH BLCOK 
+	// try catch is used in case the user did not specify the sets, reps, or weight value. In case they did not, the error is caught and a prompt
+	// asks the user to enter in the value manually.
+
+	//SETS TRY CATCH BLCOK
 	try {
 
-		//gets the sets value from the wit.ai output 
+		//gets the sets value from the wit.ai output
 		sets = testVariable[0].entities.sets[0].value
 		var spaceValue = sets.indexOf(" ");
 
-		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
+		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number
 		sets = sets.substring(0, spaceValue)
 
 		newSets = text2num(sets)
@@ -288,18 +288,18 @@ function recordExercise(testVariable) {
 
 
 
-	//REPS TRY CATCH BLOCK  
+	//REPS TRY CATCH BLOCK
 	try {
-		// gets the reps value from the wit.ai output. 
+		// gets the reps value from the wit.ai output.
 		reps = testVariable[0].entities.reps[0].value
-		// gets the first index of where a space occurs 
+		// gets the first index of where a space occurs
 		var spaceValue = reps.indexOf(" ");
-		
+
 		// newReps will be used to determine if wit.ai captured "of 10 reps" or "10 reps"
 		newReps = reps.substring(0,spaceValue);
 
 
-		// this is in case wit.ai records "of 10 reps" as the value. 
+		// this is in case wit.ai records "of 10 reps" as the value.
 		if (newReps == "of"){
 			lastSpaceValue = reps.lastIndexOf(" ");
 			reps = reps.substring(spaceValue,lastSpaceValue);
@@ -324,7 +324,7 @@ function recordExercise(testVariable) {
 
 
 
-	//WEIGHT TRY CATCH BLOCK 
+	//WEIGHT TRY CATCH BLOCK
 	try {
 		weight = testVariable[0].entities.weight[0].value;
 		var spaceValue = weight.indexOf(" ");
@@ -357,7 +357,7 @@ function recordExercise(testVariable) {
 	}
 
 	Completed.insert({
-		Name: name, 
+		Name: name,
 		Sets: sets,
 		Reps: reps,
 		Weight: weight,
@@ -368,7 +368,7 @@ function recordExercise(testVariable) {
 
 
 	// sets the fromDate for the display of the log page to today if it has not already been chosen by the user so the information the user
-	// just enetered is displayed. 
+	// just enetered is displayed.
 	if (Session.get("fromDate") == undefined ){
 		today = new Date()
 		fromDate = new Date(today.getTime() - 86400000)
@@ -377,7 +377,7 @@ function recordExercise(testVariable) {
 	}
 }
 
-// USE THIS FOR STORING THE DATE IN THE RIGHT FORMAT FOR CARDIO 
+// USE THIS FOR STORING THE DATE IN THE RIGHT FORMAT FOR CARDIO
 // THIS WILL BE USED FOR THE ANALYTICS WHEN DISPLAYING THE DATE
 // New Test: {{moFormat CompletedOn 'YYYY-MM-DD'}}
 
@@ -386,12 +386,12 @@ function recordCardio(testVariable) {
 	var name;
 	var time;
 	var distance;
-	var calories 
+	var calories
 
-	//NAME TRY CATCH BLOCK 
+	//NAME TRY CATCH BLOCK
 
 	var cardioExercises = ["running", "biking", "cycling", "swimming", "rowing", "walking"]
-	
+
 	try {
 		if (testVariable[0].entities.running != undefined){
 			name = "Running"
@@ -407,13 +407,13 @@ function recordCardio(testVariable) {
 			name = "Walking"
 		}
 
-		//TEST IF THIS WORKS LATER. ISSUE MAY RISE IN THE IF STATEMENT WHERE THE VARIABLE currentExercise IS USED 
+		//TEST IF THIS WORKS LATER. ISSUE MAY RISE IN THE IF STATEMENT WHERE THE VARIABLE currentExercise IS USED
 		// for(var i = 0; i < cardioExercises.length; i++){
 		// 	var currentExercise = cardioExercises[i];
 		// 	if (testVariable[0].entities.currentExercise != undefined) {
 		// 		name = toTitleCase(currentExercise);
 		// 	}
-		// } 
+		// }
 
 	} catch (e){
 		name = prompt("What exercise did you do");
@@ -421,57 +421,51 @@ function recordCardio(testVariable) {
 
 	}
 
-	//TIME TRY CATCH BLCOK 
+	//TIME TRY CATCH BLCOK
 	try {
-		//gets the sets value from the wit.ai output 
+		//gets the sets value from the wit.ai output
 		time = testVariable[0].entities.duration[0].value
-		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
+		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number
 		console.log("time: " + time + " " + typeof time)
 	} catch (e){
 		time = parseInt(prompt("How long did you run for?"));
 		console.log("manually entered time " + time + " " + typeof time)
 	}
 
-	//DISTANCE TRY BLOCK 
+	//DISTANCE TRY BLOCK
 	try {
-		//gets the sets value from the wit.ai output 
+		//gets the sets value from the wit.ai output
 		distance = testVariable[0].entities.distance[0].value
-		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
+		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number
 		console.log("distance: " + distance + " " + typeof distance)
 	} catch (e){
 		distance = parseInt(prompt("How far did you run (enter in just the number)?"));
 		console.log("manually entered distance " + distance + " " + typeof distance)
 	}
 
-	//CALORIES TRY BLOCK 
+	//CALORIES TRY BLOCK
 	try {
-		//gets the sets value from the wit.ai output 
+		//gets the sets value from the wit.ai output
 		calories = testVariable[0].entities.calories[0].value
-		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number 
+		// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number
 		console.log("calories: " + calories + " " + typeof calories)
 	} catch (e){
 		calories = "N/A"
 	}
-
-	var d = new Date()
-	var year = d.getFullYear().toString();
-	var month = (d.getMonth() + 1).toString();
-	var day = d.getDate().toString(); 
-	usableDateObj = year + "-" + month + "-" + day
+	usableDateObj = analyticsDate();
 
 	Cardio.insert({
 		_uID: Meteor.userId(),
-		CardioName: name, 
+		CardioName: name,
 		Time: time,
 		Distance: distance,
 		Calories: calories,
 		CompletedOn: new Date(),
 		analyticsDate: usableDateObj
-
 	})
 
 	// sets the fromDate for the display of the log page to today if it has not already been chosen by the user so the information the user
-	// just enetered is displayed. 
+	// just enetered is displayed.
 	if (Session.get("fromDate") == undefined ){
 		today = new Date()
 		fromDate = new Date(today.getTime() - 86400000)
@@ -487,13 +481,32 @@ function nextExerciseCommand(action) {
 	if(nextExercise != null) {
 		var voiceExercise = "Your next exercise is " + nextExercise.Sets + " sets" + "and " + nextExercise.Reps + " reps of " + nextExercise.Name
 		var msg = new SpeechSynthesisUtterance(voiceExercise);//constructor for voice speech
-		msg.voice = voices[1]; 
+		msg.voice = voices[1];
 		window.speechSynthesis.speak(msg);
 	} else {
 		var msg = new SpeechSynthesisUtterance("There are no more exercises");//constructor for voice speech
-		msg.voice = voices[1]; 
+		msg.voice = voices[1];
 		window.speechSynthesis.speak(msg);
 	}
+}
+
+analyticsDate = function(){
+	var d = new Date()
+	var year = d.getFullYear()
+	var month = (d.getMonth() + 1)
+	var day = d.getDate().toString();
+
+	if (month >= 1 && month <= 9){
+		month = "0"+ month.toString();
+	}
+
+	if (day >= 1 && day <= 9){
+		day = "0"+ day.toString();
+	}
+
+	usableDateObj = year + "-" + month + "-" + day
+
+	return usableDateObj
 }
 
 function toTitleCase(str) {

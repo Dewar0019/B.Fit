@@ -74,13 +74,17 @@ Template.exerciseLog.events({
 		var distance = event.target.distance.value;
 		var calories = event.target.calories.value;
 
+		usableDateObj = analyticsDate();
+
 		Cardio.insert({
 			_uID: Meteor.userId(),
 			CardioName: name,
 			Time: timeTook,
 			Distance: distance,
 			Calories: calories,
-			CompletedOn: new Date()
+			CompletedOn: new Date(),
+			analyticsDate: usableDateObj
+
 		})
 
 
