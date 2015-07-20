@@ -13,26 +13,14 @@
 	top:40px;	
 }
 
-#date{
-	left: 50px;
+#inputSpan{
+	color: white;
+	font-size: 120%;
 }
 
 #addExerciseButton{
 	top: 10px;
 	left: 10px;
-}
-
-#inputExerciseText{
-	color: red;
-}
-
-#sortExercisesByDate{
-	margin-left: 1%
-}
-
-#inputSpan{
-	color: white;
-	font-size: 120%;
 }
 
 #fromDateTabBar{
@@ -41,7 +29,6 @@
 	margin-left:2%;
 	margin-right:2%;
 }
-
 
 #listingExercises{
 	position: relative;
@@ -54,11 +41,10 @@
 	margin-top: 135px;
 }
 
-#strengthButton{
-    left: 30%;
+#date{
+	left: 50px;
 }
 
-#cardioButton{
-	left: 30%;
+#sortExercisesByDate{
+	margin-left: 1%
 }
-

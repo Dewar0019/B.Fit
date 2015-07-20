@@ -407,7 +407,7 @@ function recordCardio(testVariable) {
 			name = "Walking"
 		}
 
-	//TEST IF THIS WORKS LATER. ISSUE MAY RISE IN THE IF STATEMENT WHERE THE VARIABLE currentExercise IS USED 
+		//TEST IF THIS WORKS LATER. ISSUE MAY RISE IN THE IF STATEMENT WHERE THE VARIABLE currentExercise IS USED 
 		// for(var i = 0; i < cardioExercises.length; i++){
 		// 	var currentExercise = cardioExercises[i];
 		// 	if (testVariable[0].entities.currentExercise != undefined) {
@@ -453,13 +453,21 @@ function recordCardio(testVariable) {
 		calories = "N/A"
 	}
 
+	var d = new Date()
+	var year = d.getFullYear().toString();
+	var month = (d.getMonth() + 1).toString();
+	var day = d.getDate().toString(); 
+	usableDateObj = year + "-" + month + "-" + day
+
 	Cardio.insert({
 		_uID: Meteor.userId(),
 		CardioName: name, 
 		Time: time,
 		Distance: distance,
 		Calories: calories,
-		CompletedOn: new Date()
+		CompletedOn: new Date(),
+		analyticsDate: usableDateObj
+
 	})
 
 	// sets the fromDate for the display of the log page to today if it has not already been chosen by the user so the information the user
