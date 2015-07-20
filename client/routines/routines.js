@@ -8,6 +8,10 @@ Template.routines.helpers({
 	},
 })
 
+Template.routines.rendered = function() {
+	Session.set("grabAllRoutines", Routines.find({_uID: Meteor.userId()}).fetch());
+}
+
 Template.routines.events({
 	'click #setForCompleted' :function() {
 		var routine = this;
@@ -23,7 +27,6 @@ Template.routines.events({
 	'click #presetRoutines' : function() {
 		Session.set("grabAllRoutines", Routines.find({_uID: "preset"}).fetch());
 	},
-
 })
 
 
