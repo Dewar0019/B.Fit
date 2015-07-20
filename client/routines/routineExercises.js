@@ -123,10 +123,6 @@ Template.routineExercises.events({
 		}
 	},
 
-
-
-
-
 	//Prompt the user whether or not they confirm finish workout
 	'click [data-action="showConfirm"]': function(event, template) {
 		console.log(Clock);
@@ -159,3 +155,12 @@ Template.routineExercises.events({
 		});
 	},
 });
+
+
+Template.routineExercises.rendered = function() {
+	if(Clock.totalSeconds > 0) {
+		$(".beginExercise").html("Pause");
+		$(".beginExercise").attr('id', 'pauseExercise');
+	}
+}
+
