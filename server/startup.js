@@ -2,131 +2,131 @@ if(Meteor.isServer){
 
 	Meteor.startup(function(){
 
-	if (Exercises.find().fetch()==0){
-				exerciseStartup.data.forEach(function(exercise) {
-					Exercises.insert({
-						Name: exercise.exercisename[0],
-						Type: [exercise.primary[0], exercise.secondary[0]],
-						Instructions: splitString(exercise.steps[0], '. '),
-						start: exercise.startimg[0],
-						end: exercise.endimg[0]
-					})
-				});
-			}
-		});	
-	
-		// if (Cardio.find().fetch()==0){
-			
-		// 		Cardio.insert({
-		// 				Name: "Aerobics",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			// Cardio.insert({
-		// 			// 	Name: "Boxing",
-		// 			// 	Type: "cardio"
-		// 			// 	// Instructions: "splitString(exercise.steps[0], '. '),
-		// 			// 	// start: "exercise.startimg[0],
-		// 			// 	// end: "exercise.endimg[0]
-		// 			// }),
-		// 			Cardio.insert({
-		// 				Name: "Elliptical",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Field Sports",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Indoor Cycling",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Inline Skating",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Mountain Biking",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Recumbent Bike",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Road Cycling",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Rowing",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Running",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Stationary Bike",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Step Machine",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Swimming",
-		// 				Type: "cardio"
-		// 				// Instructions: "splitString(exercise.steps[0], '. '),
-		// 				// start: "exercise.startimg[0],
-		// 				// end: "exercise.endimg[0]
-		// 			}),
-		// 			Cardio.insert({
-		// 				Name: "Walking",
-		// 				Type: "cardio"
-		// 				// Instructions: splitString(exercise.steps[0], '. '),
-		// 				// start: exercise.startimg[0],
-		// 				// end: exercise.endimg[0]
-		// 			})
+		if (Exercises.find().fetch()==0){
+			exerciseStartup.data.forEach(function(exercise) {
+				Exercises.insert({
+					Name: exercise.exercisename[0],
+					Type: [exercise.primary[0], exercise.secondary[0]],
+					Instructions: splitString(exercise.steps[0], '. '),
+					start: exercise.startimg[0],
+					end: exercise.endimg[0]
+				})
+			});
+		}
+	});
 
-		// }
-			
+	// if (Cardio.find().fetch()==0){
 
-		
+	// 		Cardio.insert({
+	// 				Name: "Aerobics",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			// Cardio.insert({
+	// 			// 	Name: "Boxing",
+	// 			// 	Type: "cardio"
+	// 			// 	// Instructions: "splitString(exercise.steps[0], '. '),
+	// 			// 	// start: "exercise.startimg[0],
+	// 			// 	// end: "exercise.endimg[0]
+	// 			// }),
+	// 			Cardio.insert({
+	// 				Name: "Elliptical",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Field Sports",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Indoor Cycling",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Inline Skating",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Mountain Biking",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Recumbent Bike",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Road Cycling",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Rowing",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Running",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Stationary Bike",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Step Machine",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Swimming",
+	// 				Type: "cardio"
+	// 				// Instructions: "splitString(exercise.steps[0], '. '),
+	// 				// start: "exercise.startimg[0],
+	// 				// end: "exercise.endimg[0]
+	// 			}),
+	// 			Cardio.insert({
+	// 				Name: "Walking",
+	// 				Type: "cardio"
+	// 				// Instructions: splitString(exercise.steps[0], '. '),
+	// 				// start: exercise.startimg[0],
+	// 				// end: exercise.endimg[0]
+	// 			})
+
+	// }
+
+
+
 
 	function splitString(steps, seperator) {
 		var arrayOfStrings = steps.split(seperator);
@@ -156,7 +156,7 @@ if(Meteor.isServer){
 					Category: "core",
 					Name: "Plank",
 					Sets: 1,
-					Time: "1 Minute" 
+					Time: "1 Minute"
 				},
 
 				{
@@ -221,7 +221,7 @@ if(Meteor.isServer){
 					Reps: 10,
 					Weight: 20
 				},
-		
+
 				{
 					Category:"Arm",
 					Name: "Concentration Curl",
@@ -238,14 +238,14 @@ if(Meteor.isServer){
 					Weight: 20
 				},
 			],
-			
+
 			createdAt: new Date(),
 			timesCompleted: 0,
 			avgComplete: "0:00:00",
 		})
 	}
 	if(Cardio.find().count()== 0) {
-		
+
 		Cardio.insert({
 			CardioName: "Running",
 			date: "2015-01-01",

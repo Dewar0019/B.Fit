@@ -16,31 +16,31 @@ var Clock = {
 	totalSeconds: 0,
 
 	start: function () {
-	var self = this;
+		var self = this;
+		
+		this.interval = setInterval(function () {
+			self.totalSeconds += 1;
 
-	this.interval = setInterval(function () {
-		self.totalSeconds += 1;
-
-		$("#timer2").text(Math.floor(self.totalSeconds / 3600) + ":" 
-			+ Math.floor(self.totalSeconds / 60 % 60 / 10) + Math.floor(self.totalSeconds / 60 % 60 % 10) + ":" 
+			$("#timer2").text(Math.floor(self.totalSeconds / 3600) + ":"
+			+ Math.floor(self.totalSeconds / 60 % 60 / 10) + Math.floor(self.totalSeconds / 60 % 60 % 10) + ":"
 			+ parseInt(self.totalSeconds % 60 / 10) + parseInt(self.totalSeconds % 60 % 10));
 		}, 1000);
 	},
 
 	pause: function () {
-	    clearInterval(this.interval);
-	    delete this.interval;
-  	},
+		clearInterval(this.interval);
+		delete this.interval;
+	},
 
-  	resume: function () {
-   		if (!this.interval) this.start();
-  	},
+	resume: function () {
+		if (!this.interval) this.start();
+	},
 
-  	stop: function() {
-  		clearInterval(this.interval);
-	    delete this.interval;
-	    totalSeconds = 0;
-  	}
+	stop: function() {
+		clearInterval(this.interval);
+		delete this.interval;
+		totalSeconds = 0;
+	}
 };
 
 
@@ -49,12 +49,12 @@ function initalizeCheckList() {
 	checkedExercises = [];
 	var thisRoutine = Session.get('forCompletedRoutine');
 	if(thisRoutine != null) {
-		checkedExercises = thisRoutine.exercises.slice(0);  // makes a copy of the exercises page	
+		checkedExercises = thisRoutine.exercises.slice(0);  // makes a copy of the exercises page
 		checkedExercises.forEach(function(obj) {
 			obj.checked = false;					//gives them the property of false which means they are unchecked
 		});
 	}
-};	
+};
 
 var timer_is_on = 0;
 var running = false;
@@ -72,25 +72,25 @@ Template.routineExercises.events({
 		if(selectedExercise == null) {
 			console.log("finished with workout");
 		} else {
-		for(var i = 0; i < checkedExercises.length; i++) {
-			if (checkedExercises[i].Name == selectedExercise.Name) {
-				if(checkedExercises[i].Sets == selectedExercise.Sets && checkedExercises[i].Reps == selectedExercise.Reps) {
-					checkedExercises[i].checked = true; 
-					// checkForMissing(checkedExercises[i]);
-					// console.log($("#exerciseSetsAndReps").html());
+			for(var i = 0; i < checkedExercises.length; i++) {
+				if (checkedExercises[i].Name == selectedExercise.Name) {
+					if(checkedExercises[i].Sets == selectedExercise.Sets && checkedExercises[i].Reps == selectedExercise.Reps) {
+						checkedExercises[i].checked = true;
+						// checkForMissing(checkedExercises[i]);
+						// console.log($("#exerciseSetsAndReps").html());
 
-					Session.set("currentExercise", checkedExercises[i+1]);
-					Session.set("voiceNextExercise", checkedExercises[i+2]); // used for the "what's next voice command"
-					console.log("done");
-					return;
+						Session.set("currentExercise", checkedExercises[i+1]);
+						Session.set("voiceNextExercise", checkedExercises[i+2]); // used for the "what's next voice command"
+						console.log("done");
+						return;
+					}
 				}
 			}
-		  }
-		}	
+		}
 	},
 
 
-	//onClick of the begin button the exercise checklist will initalize 
+	//onClick of the begin button the exercise checklist will initalize
 	'click .beginExercise' :function () {
 		console.log("Exercise Button Clicked")
 		console.log($(".beginExercise").html());
@@ -104,65 +104,58 @@ Template.routineExercises.events({
 				Session.set("currentExercise", checkedExercises[0]);
 				Session.set("workoutStarted", true);
 				Session.set("showExerciseList", true); // when the start button is clicked the showExerciseList is set to true
-		  		Clock.start();
-		    }
-	    	
-    	} else if($(".beginExercise").html() == "Pause") {
-    		running=false;
-    		$(".beginExercise").html("Resume");
-    		$(".beginExercise").attr('id', 'resumeExercise');
-    		// clearTimeout(t);
+				Clock.start();
+			}
+
+		} else if($(".beginExercise").html() == "Pause") {
+			running=false;
+			$(".beginExercise").html("Resume");
+			$(".beginExercise").attr('id', 'resumeExercise');
+			// clearTimeout(t);
 			// pauseTime = new Date()
 			Clock.pause();
-    	} else {
-    		running=true;
-    		$(".beginExercise").html("Pause");
+		} else {
+			running=true;
+			$(".beginExercise").html("Pause");
 			$(".beginExercise").attr('id', 'pauseExercise');
 			Clock.resume();
 			// setTimeout(display, 1000);
-    	}
+		}
 	},
 
 
 
 
 
-//Prompt the user whether or not they confirm finish workout 
+	//Prompt the user whether or not they confirm finish workout
 	'click [data-action="showConfirm"]': function(event, template) {
 		console.log(Clock);
-    	IonPopup.confirm({
-	      	title: 'Yay you finished!',
-	      	template: 'Are you <strong>finished</strong> with your workout?',
-	      	onOk: function() {
-		
-	      	Clock.stop();
-	      	running = false;
-			var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
-			var elementPos = checkedExercises.map(function(x) {return x.checked; }).indexOf(false); //Checks if all the exercises has been completed otherwise grabs the first Index where it has not been
-			Completed.insert({
-				_uID : Meteor.userId(),
-				routineName: routine.routineName,
-				exercises: checkedExercises,
-            	completedOn: new Date(),
-            	completedAll: elementPos == -1, //Want to know if user had completed all exercises
-            	timeToComplete: Clock.totalSeconds,
-			});
-			Meteor.call("compileFinished", routine); //Calculates the avg time user did this routine along with number of times fully completed
-			Session.set("workoutStarted", false); //Resets to false so can be repeated again
-	      	Router.go('welcome');
-	      	},
+		IonPopup.confirm({
+			title: 'Yay you finished!',
+			template: 'Are you <strong>finished</strong> with your workout?',
+			onOk: function() {
+
+				Clock.stop();
+				running = false;
+				var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
+				var elementPos = checkedExercises.map(function(x) {return x.checked; }).indexOf(false); //Checks if all the exercises has been completed otherwise grabs the first Index where it has not been
+				Completed.insert({
+					_uID : Meteor.userId(),
+					routineName: routine.routineName,
+					exercises: checkedExercises,
+					completedOn: new Date(),
+					completedAll: elementPos == -1, //Want to know if user had completed all exercises
+					timeToComplete: Clock.totalSeconds,
+				});
+				Meteor.call("compileFinished", routine); //Calculates the avg time user did this routine along with number of times fully completed
+				Session.set("workoutStarted", false); //Resets to false so can be repeated again
+				Router.go('welcome');
+			},
 
 			onCancel: function() {
 				//Do nothing on cancel because user is still exercising
 			}
 
-    	});
-  	},
+		});
+	},
 });
-
-
-
-
-
-
-

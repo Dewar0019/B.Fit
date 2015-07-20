@@ -1,4 +1,4 @@
-Template.createRoutine.events({ 
+Template.createRoutine.events({
 	'submit #addRoutine':function (event) {
 		event.preventDefault();
 		var name = event.target.routineName.value;
@@ -6,7 +6,7 @@ Template.createRoutine.events({
 		// var justCreated;
 		Meteor.call('createNewRoutine', name, function(error, result){
 			Session.set('recentAdd', result);
-   			console.log(Routines.findOne({_id: result}));
+			console.log(Routines.findOne({_id: result}));
 		});
 		event.target.routineName.value = "";
 	},

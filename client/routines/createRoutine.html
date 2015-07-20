@@ -30,7 +30,7 @@
 					<h3 class="text-center">Modify the exercises in your routine below...</h3>
 				</div>
 				{{#ionList}}
-					{{#each item}}      
+					{{#each item}}
 						{{> editRoutines}}
 					{{/each }}
 				{{/ionList}}
@@ -38,13 +38,13 @@
 			{{/ionContent}}
 			{{/ionView}}
 
-		
+
 	{{else}}
-		
+
 
 		{{#ionView}}
 			{{#ionContent}}
-				
+
 				<img id="logo" src="images/logo.png" width="300" height="300">
 				
 				{{> atForm}}
@@ -55,15 +55,15 @@
 	{{/if}}
 </template>
 
-		
+
 
 <template name= "editRoutines">
 	{{#ionItem path="exercises" _id="{{_id}}"  buttonRight=true avatar=true}}
 	<div class ="select">
-		<h2 >{{routineName}}</h2>	
+		<h2 >{{routineName}}</h2>
 		<p>Number of exercises: {{exercises.length}}</p>
 	</div>
-	
+
 	{{/ionItem}}
-  
+
 </template>

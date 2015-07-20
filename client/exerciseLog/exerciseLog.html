@@ -11,32 +11,32 @@
 		{{#ionView}}
 			{{#ionContent}}
 
-				<div id="viewMode" class="tabs-striped tabs-top">	
+				<div id="viewMode" class="tabs-striped tabs-top">
 		    		<div class="tabs">
 		      			<a id="viewStrength" class="tab-item active" href="#">
 					        Strength
 		      			</a>
-		      			
+
 		      			<a id="viewCardio" class="tab-item" href="#">
 		      				Cardio
 		      			</a>
 	    			</div>
 	  			</div>
 
-					
+
 				{{#if strenghtOrCardioForm}}
 					<div id="form" class="list">
-						<form id="addCompletedExercise"> 
+						<form id="addCompletedExercise">
 					  		<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Name </span>
 					    		<input id="inputSpan" name="nameOfExercise" type="text" placeholder="Name">
 					  		</label>
-						  		
+
 					  		<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Sets</span>
 					    		<input id="inputSpan" name="numOfSets" type="text" placeholder="Sets">
 					  		</label>
-					  		
+
 					  		<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Reps</span>
 					    		<input id="inputSpan" name="numOfReps" type="text" placeholder="Reps">
@@ -49,7 +49,7 @@
 
 							<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
 					  	</form>
-					</div>	
+					</div>
 
 
 					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
@@ -57,13 +57,13 @@
 	      					<a id="todaysExercises" class="tab-item active" href="#">
 						        Today
 	      					</a>
-	      					
+
 	      					<a id="thisWeeksExercises" class="tab-item" href="#">
-	      						This Week 
+	      						This Week
 	      					</a>
-	      					
+
 	      					<a id="thisMonthsExercises" class="tab-item" href="#">
-						        This Month 
+						        This Month
 	      					</a>
 	    				</div>
 	  				</div>
@@ -78,17 +78,17 @@
 				{{else}}
 
 					<div id="form" class="list">
-						<form id ="addCardio"> 
+						<form id ="addCardio">
 					  		<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Name</span>
 					    		<input id="inputSpan" name="cardioName" type="text" placeholder="Name">
 					  		</label>
-						  		
+
 					  		<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Time</span>
 					    		<input id="inputSpan" name="timeTook" type="text" placeholder="Time">
 					  		</label>
-					  		
+
 					  		<label id="labelBox" class="item item-input item-floating-label">
 					    		<span id="inputExerciseText" class="input-label">Distance</span>
 					    		<input id="inputSpan" name="distance" type="text" placeholder="Distance">
@@ -105,18 +105,18 @@
 
 
 
-					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">	
+					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
 		    			<div class="tabs">
 		      				<a id="todaysExercises" class="tab-item active" href="#">
 						        Today
 		      				</a>
-		      				
+
 		      				<a id="thisWeeksExercises" class="tab-item" href="#">
-		      					This Week 
+		      					This Week
 		      				</a>
-		      				
+
 		      				<a id="thisMonthsExercises" class="tab-item" href="#">
-						        This Month 
+						        This Month
 		      				</a>
 	    				</div>
 	  				</div>
@@ -132,14 +132,14 @@
 
 			{{/ionContent}}
 		{{/ionView}}
-	
+
 	{{else}}
 
 		{{#ionView}}
 			{{#ionContent}}
-				
+
 				<img id="logo" src="images/logo.png" width="300" height="300">
-				
+
 				{{> atForm}}
 
 			{{/ionContent}}
@@ -150,33 +150,29 @@
 </template>
 
 <template name= "listCompletedExercises">
-	
+
 	<div id="listingExercises" class="list card">
 		<i class="item">
-			<h2>{{Name}}</h2>	
-			<p>{{Sets}} sets {{Reps}} reps</p>	
+			<h2>{{Name}}</h2>
+			<p>{{Sets}} sets {{Reps}} reps</p>
 			<p>{{Weight}} lbs </p>
 			<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}} </p>
-		</i>	
+		</i>
 	</div>
 
 </template>
 
 
 <template name= "listCompletedCardioExercises">
-	
+
 	<div id="listingExercises" class="list card">
 		<i class="item">
-			<h2>{{CardioName}}</h2>	
-			<p>{{Time}} Minutes</p> 
-			<p>{{Distance}} Miles</p>	
+			<h2>{{CardioName}}</h2>
+			<p>{{Time}} Minutes</p>
+			<p>{{Distance}} Miles</p>
 			<p>{{Calories}} Calories </p>
 			<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}} </p>
 		</i>
 	</div>
-	
+
 </template>
-
-		
-
-

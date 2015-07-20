@@ -1,14 +1,14 @@
 
-body#intro { 
+body#intro {
     height: 100%;
     margin:0px;
- background: url("images/running-man.jpg") no-repeat center center fixed; 
+    background: url("images/running-man.jpg") no-repeat center center fixed;
     background-size: cover;
     background-attachment: fixed;
 }
 
 #introLogo {
-	 display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

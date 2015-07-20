@@ -26,38 +26,38 @@
 			<p id="timer">
 				<span id="timer2">0:00:00</span>
 			</p>
-		
+
 			<br>
 
 			<!-- Buttons to display the current workout and the exercise list -->
 
 			<hr/>
-			
+
 			<!-- Start button is made through CSS -->
-			<div class="beginExercise">Start</div> 
+			<div class="beginExercise">Start</div>
 
 			<!-- allows the start button to become the finish button once it is pressed -->
 			{{#if workoutStarted}}
-			<button id="finish" class="button button-large button-positive" data-action="showConfirm" > Finish Workout </button> 
+			<button id="finish" class="button button-large button-positive" data-action="showConfirm" > Finish Workout </button>
 			{{/if}}
-			
+
 			 <!-- Displays all the exercises in the current routine with checkboxes -->
 			 {{#if showExerciseList}}
 			 	{{#each exerciseList}}
 					{{> listExercises}}
 				{{/each}}
 			{{/if}}
-				
+
 			{{/ionContent}}
 		{{/ionView}}
-	
-	{{else}}	
-		
+
+	{{else}}
+
 		{{#ionView}}
 			{{#ionContent}}
-				
+
 				<img id="logo" src="images/logo.png" width="300" height="300">
-				
+
 				{{> atForm}}
 
 			{{/ionContent}}
@@ -74,12 +74,12 @@
 			<input type="checkbox" name="chk">
      	</label>
 
-		<h2>{{Name}}</h2>	
-		<p> {{Sets}} Sets 
+		<h2>{{Name}}</h2>
+		<p> {{Sets}} Sets
 			{{Reps}} Reps
 		</p>
 		<p> {{Weight}} Lbs </p>
-	</i>		
+	</i>
 
 </template>
  -->

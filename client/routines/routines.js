@@ -16,8 +16,8 @@ Template.routines.events({
 	'click #setForCompleted' :function() {
 		var routine = this;
 		Session.set('forCompletedRoutine', routine);
-    	console.log("routine has been set");
-    	console.log(routine);
+		console.log("routine has been set");
+		console.log(routine);
 	},
 
 	'click #ownRoutines' : function() {
@@ -28,14 +28,3 @@ Template.routines.events({
 		Session.set("grabAllRoutines", Routines.find({_uID: "preset"}).fetch());
 	},
 })
-
-
-
-
-
-    
-
-
-
-
-    

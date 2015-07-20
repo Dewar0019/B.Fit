@@ -1,19 +1,19 @@
 <template name = "welcome">
 	{{#contentFor "headerTitle"}}
-		<h1 class="title">Welcome to B.Fit</h1>
+	<h1 class="title">Welcome to B.Fit</h1>
 	{{/contentFor}}
 
 	{{#if currentUser}}
 		{{#ionView}}
-		  {{#ionContent}}				
-		  		<br>
+			{{#ionContent}}
+				<br>
 				<img id="profileImage" src="{{photo}}?s=150" width="200" height="200">
-				
+
 				<div class="card" id="cardback">
 					<p id="quote"> {{quote}} </p>
 				</div>
 				<hr id="line" align="center" width="75%">
-				
+
 
 				<a href = "{{pathFor 'createRoutine'}}">
 					<img id="createRoutineImage" src="images/newcreatet.png" width="175" height="175">
@@ -30,17 +30,15 @@
 				<a href = "{{pathFor 'profile'}}">
 					<img id="profileLink" src="images/newpro.png" width="165" height="165">
 				</a>
-
 			{{/ionContent}}
 		{{/ionView}}
 
 	{{else}}
-		
+
 		{{#ionView}}
 			{{#ionContent}}
-				
 				<img id="logo" src="images/brand1.png" width="350" height="350">
-				
+
 				<div class="card">
 					{{> atForm}}
 				</div>
@@ -48,6 +46,5 @@
 		{{/ionView}}
 
 	{{/if}}
-
 
 </template>
