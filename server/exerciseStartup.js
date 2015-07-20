@@ -12155,6 +12155,113 @@
 
             },
             "_num":286
-        }
+        },
+            
+             ExercisesCardio.insert({
+                     Name: "Aerobics",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 // Cardio.insert({
+                 //  Name: "Boxing",
+                 //  Type: "cardio"
+                 //  // Instructions: "splitString(exercise.steps[0], '. '),
+                 //  // start: "exercise.startimg[0],
+                 //  // end: "exercise.endimg[0]
+                 // }),
+                 ExercisesCardio.insert({
+                     Name: "Elliptical",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Field Sports",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Indoor Cycling",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Inline Skating",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Mountain Biking",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Recumbent Bike",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Road Cycling",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Rowing",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Running",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Stationary Bike",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Step Machine",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Swimming",
+                     Type: "cardio"
+                     // Instructions: "splitString(exercise.steps[0], '. '),
+                     // start: "exercise.startimg[0],
+                     // end: "exercise.endimg[0]
+                 }),
+                 ExercisesCardio.insert({
+                     Name: "Walking",
+                     Type: "cardio"
+                     // Instructions: splitString(exercise.steps[0], '. '),
+                     // start: exercise.startimg[0],
+                     // end: exercise.endimg[0]
+                 })
+
     ]
 };
