@@ -336,7 +336,8 @@ if(Meteor.isServer){
 			time: 8
 		})
 
-		Cardio.insert({CardioName: "Walking",
+		Cardio.insert({
+			CardioName: "Walking",
 			date: "2015-03-25",
 			distance: 6,
 			time: 7
