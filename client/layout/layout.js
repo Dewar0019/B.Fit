@@ -389,6 +389,9 @@ function recordCardio(testVariable) {
 	var calories 
 
 	//NAME TRY CATCH BLOCK 
+
+	var cardioExercises = ["running", "biking", "cycling", "swimming", "rowing", "walking"]
+	
 	try {
 		if (testVariable[0].entities.running != undefined){
 			name = "Running"
@@ -400,7 +403,17 @@ function recordCardio(testVariable) {
 			name = "Swimming"
 		} else if (testVariable[0].entities.rowing != undefined) {
 			name = "Rowing"
+		} else if (testVariable[0].entities.rowing != undefined) {
+			name = "Walking"
 		}
+
+	//TEST IF THIS WORKS LATER. ISSUE MAY RISE IN THE IF STATEMENT WHERE THE VARIABLE currentExercise IS USED 
+		// for(var i = 0; i < cardioExercises.length; i++){
+		// 	var currentExercise = cardioExercises[i];
+		// 	if (testVariable[0].entities.currentExercise != undefined) {
+		// 		name = toTitleCase(currentExercise);
+		// 	}
+		// } 
 
 	} catch (e){
 		name = prompt("What exercise did you do");
