@@ -12,15 +12,11 @@ toastr.options = {
   "newestOnTop": false,
   "progressBar": true,
   "positionClass": "toast-bottom-right",
-  "preventDuplicates": true,
-  "showDuration": "300",
-  "hideDuration": "1000",
+  "preventDuplicates": false,
+  "showDuration": "0",
+  "hideDuration": "0",
   "timeOut": "10000",
-  "extendedTimeOut": function() {
-  	if (recognizing)
-  		return "3000";
-  	else return "0";
-  },
+  "extendedTimeOut": "1000",
   "showEasing": "swing",
   "hideEasing": "linear",
   "showMethod": "fadeIn",
@@ -65,7 +61,7 @@ if ('webkitSpeechRecognition' in window) {
 		dictationStarted = true;
 		toastr.info("Please give me a command", "I'm Listening!");
 		startListening.play();
-
+		timeOutEvent();
 
 	};
 
@@ -124,18 +120,19 @@ function startDictation(event) {
  		recognition.lang = 'en-US';
  		final_span = '';
   		interim_span = '';
-		timeOutEvent();	  	
- 	} else if(recognizing) { //Stops dictation;
+
+ 	} else if(recognizing) { //Stops dictation if button was press again. 
  		recognizing = false;
  		stopListening.play();
 		console.log("dictation stopped");
-		stopTimeOutEvent();
+		stopTimeOutEvent();  //Stops the timeout event if it hasn't been 10 seconds
  	} else {  //for when recognizing is false;
- 		console.log("secondary start");
-		toastr.info("Please give me a command", "I'm Listening!");
- 		startListening.play();
-		timeOutEvent();	  	
- 		recognizing = true;
+ 		recognition.onstart();
+ 	// 	console.log("secondary start");
+		// toastr.info("Please give me a command", "I'm Listening!");
+ 	// 	startListening.play();
+		// timeOutEvent();	  	
+ 	// 	recognizing = true;
   	}
 }
 
