@@ -13,51 +13,24 @@
     {{#ionContent}}
     {{#if currentUser}}
 
-		<script>
-		// When image changes, update live preview.
-			var widget = uploadcare.Widget('[role=uploadcare-uploader]');  
-
-			widget.onUploadComplete(function(fileInfo) {
-			  console.log('fileInfo', fileInfo);
-			  console.log('file UUID', fileInfo.uuid);
-			  console.log('fileInfo.originalUrl', fileInfo.originalUrl); // Public CDN URL of the uploaded file, without any operations.
-			});
-
-			uploadcare.openDialog(null, {
-			  crop: "",
-			  imagesOnly: true
-			}).done(function(file) {
-			  file.promise().done(function(fileInfo){
-			    console.log(fileInfo.cdnUrl);
-			  });
-			});
-
-			// widget.onChange(function(file) {  
-			//   if (file) {
-			//     file.done(function(fileInfo) {
-			//       $('#image').attr('src', fileInfo.cdnUrl);
-			//     });
-			//   } else
-			//     $('#image').attr('src', '');
-			// });
-
-			// 	business.pre('save', function(next) {  
-			// 	  if (this.isModified('image') && this.get('image')) {
-			// 	    var uuid = this.get('image').match(/[a-f0-9\-]{36}/)[0];
-			// 	    uploadcare.files.store(uuid, function() {
-			// 	      next();
-			// 	    });
-			// 	  } else
-			// 	    next();
-			// 	});
-		</script>
+	
 		<div class="card">
+			<div class="item item-divider text-center">
+				Choose Your Favorite One!
+			</div>
+
 			<center>
-			<img src="http://www.ucarecdn.com/50bb4285-88f8-49b7-97ee-b0935e612b31/" width="300" class="align-left img-circle">
+			<img src="" id="profileimage" width="200" height="200" class="align-left img-circle">
 			<br>
-			<input type="hidden" role="uploadcare-uploader"
-			       data-crop=""
-			       data-images-only="true" />
+			<button type="button" class="button button-positive" id="uploadimage">
+					Select An Image
+			</button>
+			
+			<div class="item item-divider">
+				<button class="button button-positive" id="submitimage">
+					Submit
+				</button>
+			</div>
 			</center>
 		</div>
 	
