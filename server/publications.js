@@ -4,6 +4,7 @@ Meteor.publish('exercises', function() {return Exercises.find();});
 Meteor.publish('completed',function() {return Completed.find();});
 Meteor.publish('completedCardio', function() {return Cardio.find();});
 Meteor.publish('exercisesCardio', function() {return ExercisesCardio.find();});
+Meteor.publish('theProfileimages',function(){return ProfileImages.find();});
 // Meteor.users.allow({
 //   update: function (userId, user, fields, modifier) {
 //     // can only change your own documents

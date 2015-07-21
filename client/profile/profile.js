@@ -12,3 +12,12 @@ Template.profile.events({
   }
 });
 
+address = function(){
+	console.log(ProfileImages.findOne().address);
+	return ProfileImages.findOne().address;
+}
+
+Template.profile.rendered = function (){
+	$('#newImage').attr('src',address);
+}
+
