@@ -4,10 +4,12 @@ Template.createRoutine.events({
 		var name = event.target.routineName.value;
 		console.log(name);
 		// var justCreated;
+
 		Meteor.call('createNewRoutine', name, function(error, result){
 			Session.set('recentAdd', result);
 			console.log(Routines.findOne({_id: result}));
 		});
+
 		event.target.routineName.value = "";
 	},
 
