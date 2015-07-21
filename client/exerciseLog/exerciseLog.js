@@ -1,22 +1,25 @@
 Template.exerciseLog.helpers({
 	'completedExercise':function(){
-		// returns everything in the Completed collection that has been added in the past amount of time specified by the users
+		// returns everything in the Cardio collection that has been added in the past amount of time specified by the users
 		fromDate = Session.get("fromDate");
 		return Completed.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
 	},
 
 	'completedCardioExercise':function(){
-		// returns everything in the Completed collection that has been added in the past amount of time specified by the users
+		// returns everything in the Cardio collection that has been added in the past amount of time specified by the users
 		fromDate = Session.get("fromDate");
 		return Cardio.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
 	},
 
 	'strenghtOrCardioForm': function(){
-
 		if (Session.get("strenghtOrCardio") == undefined){
-			Session.set("strenghtOrCardio", true);
+			Session.set("strenghtOrCardio", false);
 		}
 		return Session.get("strenghtOrCardio");
+	},
+
+	'viewRoutines': function() {
+		return Session.get("viewRoutines");
 	}
 })
 
@@ -25,17 +28,28 @@ Template.exerciseLog.events({
 
 	'click #viewStrength': function (event){
 		Session.set("strenghtOrCardio", true);
+		Session.set("viewRoutines", false);
 
 		document.getElementById("viewStrength").className = "tab-item active";
 		document.getElementById("viewCardio").className = "tab-item";
+		document.getElementById("viewRoutines").className = "tab-item";
 
 	},
 
 	'click #viewCardio': function (event){
 		Session.set("strenghtOrCardio", false);
+		Session.set("viewRoutines", false);
 
 		document.getElementById("viewStrength").className = "tab-item";
 		document.getElementById("viewCardio").className = "tab-item active";
+		document.getElementById("viewRoutines").className = "tab-item";
+	},
+
+	'click #viewRoutines': function() {
+		Session.set("viewRoutines", true);
+		document.getElementById("viewStrength").className = "tab-item";
+		document.getElementById("viewCardio").className = "tab-item";
+		document.getElementById("viewRoutines").className = "tab-item active";
 	},
 
 	'submit #addCompletedExercise': function(event){

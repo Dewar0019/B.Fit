@@ -22,9 +22,14 @@ Template.routines.events({
 
 	'click #ownRoutines' : function() {
 		Session.set("grabAllRoutines", Routines.find({_uID: Meteor.userId()}).fetch());
+		document.getElementById("ownRoutines").className = "tab-item active";
+		document.getElementById("presetRoutines").className = "tab-item";
+		
 	},
 
 	'click #presetRoutines' : function() {
 		Session.set("grabAllRoutines", Routines.find({_uID: "preset"}).fetch());
+		document.getElementById("presetRoutines").className = "tab-item active";
+		document.getElementById("ownRoutines").className = "tab-item";
 	},
 })
