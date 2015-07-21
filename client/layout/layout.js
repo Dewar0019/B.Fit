@@ -11,22 +11,37 @@ toastr.options = {
   "debug": false,
   "newestOnTop": false,
   "progressBar": true,
-  "positionClass": "toast-top-right",
+  "positionClass": "toast-bottom-right",
   "preventDuplicates": true,
   "showDuration": "300",
   "hideDuration": "1000",
   "timeOut": "10000",
-  "extendedTimeOut": "1000",
+  "extendedTimeOut": function() {
+  	if (recognizing)
+  		return "3000";
+  	else return "0";
+  },
   "showEasing": "swing",
   "hideEasing": "linear",
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut",
   "onclick": function() {
-  	// if(!recognizing) {
-  	// 	recognition.start();
-  	// }
   	console.log("clicked");
   }
+}
+var startListening = new Audio('listening2.wav');
+var stopListening = new Audio('stop.wav');
+
+function timeOutEvent() { 
+	t = setTimeout(function() {recognizing = false;
+	  	console.log("Dictation Time Out"); 		
+	  	stopListening.play();
+		}, 10000);
+}
+
+function stopTimeOutEvent() {
+	clearTimeout(t);
+	console.log("cleared timeoutEvent");
 }
 
 /*
@@ -36,24 +51,22 @@ toastr.options = {
 
 final_transcript = '';
 
-var recognizing = false;
-var dictationStarted = false;
+var recognizing = false; //This is a boolean to indicate whether or not recognition is on
+var dictationStarted = false; //If permission has been asked once before
 
 if ('webkitSpeechRecognition' in window) {
 	var recognition = new webkitSpeechRecognition();
-	
 	recognition.continuous = true;
 	recognition.interimResults = true;
 
 	recognition.onstart = function() {
+		console.log("Started Dictation");
 		recognizing = true;
 		dictationStarted = true;
-		 	toastr.info("Please give me a command", "I'm Listening!");
+		toastr.info("Please give me a command", "I'm Listening!");
+		startListening.play();
 
-	  // var turnOff = setInterval(function() {recognizing = false;
-	  	// console.log("hit in here")}, 5000)
-	  // turnOff;
-	  // clearInterval(turnOff);
+
 	};
 
  	recognition.onerror = function(event) {
@@ -65,21 +78,21 @@ if ('webkitSpeechRecognition' in window) {
 	};
 
  	recognition.onresult = function(event) {
-
 		myevent = event;
 		var interim_transcript = '';
-
+		var sent = false;
 		if(recognizing) {
 		  	for (var i = event.resultIndex; i < event.results.length; ++i) {
 				var words = event.results[i][0].transcript;
-
+				
 				if (event.results[i].isFinal) {
-					console.log("final result is |"+event.results[i][0].transcript.trim()+"|");
+					
 					final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 					toastr.info(final_transcript, "You said: ");
-					// recognizing = false;
+					recognizing = false;
 					// sendSentence(final_transcript);
+					sent = true;
 				} else {
 			  		interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
 			  		console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
@@ -105,17 +118,23 @@ function capitalize(s) {
 }
 
 function startDictation(event) {
-	if (recognizing) {
-		recognizing = false;
-		console.log("dictation stopped");
-		// return;
- 	} else if(!dictationStarted) {
- 		recognition.start();
+	if (!dictationStarted) {
+		recognition.start();
 		final_transcript = '';
  		recognition.lang = 'en-US';
  		final_span = '';
   		interim_span = '';
- 	} else if(!recognizing) {
+		timeOutEvent();	  	
+ 	} else if(recognizing) { //Stops dictation;
+ 		recognizing = false;
+ 		stopListening.play();
+		console.log("dictation stopped");
+		stopTimeOutEvent();
+ 	} else {  //for when recognizing is false;
+ 		console.log("secondary start");
+		toastr.info("Please give me a command", "I'm Listening!");
+ 		startListening.play();
+		timeOutEvent();	  	
  		recognizing = true;
   	}
 }
