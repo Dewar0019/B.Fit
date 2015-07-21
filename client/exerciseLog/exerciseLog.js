@@ -1,3 +1,8 @@
+Template.exerciseLog.rendered = function() {
+	Session.set("strenghtOrCardio", true);
+	Session.set("viewRoutines", false);
+}
+
 Template.exerciseLog.helpers({
 	'completedExercise':function(){
 		// returns everything in the Completed collection that has been added in the past amount of time specified by the users
@@ -14,10 +19,7 @@ Template.exerciseLog.helpers({
 		return Cardio.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
 	},
 
-	'strenghtOrCardioForm': function(){
-		if (Session.get("strenghtOrCardio") == undefined){
-			Session.set("strenghtOrCardio", true);
-		}
+	'strenghtOrCardioForm': function(){	
 		return Session.get("strenghtOrCardio");
 	},
 
@@ -58,6 +60,7 @@ Template.exerciseLog.events({
 	},
 
 	'click #viewRoutines': function() {
+		Session.set("strenghtOrCardio", false);
 		Session.set("viewRoutines", true);
 		document.getElementById("viewStrength").className = "tab-item";
 		document.getElementById("viewCardio").className = "tab-item";

@@ -89,8 +89,8 @@ if ('webkitSpeechRecognition' in window) {
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 					toastr.info(final_transcript, "You said: ");
 					recognizing = false;
-					// sendSentence(final_transcript);
-					sent = true;
+					sendSentence(final_transcript);
+					
 				} else {
 			  		interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
 			  		console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
@@ -122,7 +122,6 @@ function startDictation(event) {
  		recognition.lang = 'en-US';
  		final_span = '';
   		interim_span = '';
-
  	} else if(recognizing) { //Stops dictation if button was press again. 
  		recognizing = false;
  		stopListening.play();
@@ -130,11 +129,6 @@ function startDictation(event) {
 		stopTimeOutEvent();  //Stops the timeout event if it hasn't been 10 seconds
  	} else {  //for when recognizing is false;
  		recognition.onstart();
- 	// 	console.log("secondary start");
-		// toastr.info("Please give me a command", "I'm Listening!");
- 	// 	startListening.play();
-		// timeOutEvent();	  	
- 	// 	recognizing = true;
   	}
 }
 
@@ -157,7 +151,7 @@ function sendSentence(sentence){
      		console.log("success!", response);
      		if(testVariable[0].confidence < 0.95) {
      			toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
-     			// recognizing = true;
+     			recognition.onstart();
      		}
      		else if(testVariable[0]._text.indexOf("next exercise") > 0) {
 				console.log("next exercise recognized");
