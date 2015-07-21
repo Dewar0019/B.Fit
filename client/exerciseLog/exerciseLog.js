@@ -12,6 +12,10 @@ Template.exerciseLog.helpers({
 	},
 
 	'strenghtOrCardioForm': function(){
+
+		if (Session.get("strenghtOrCardio") == undefined){
+			Session.set("strenghtOrCardio", true);
+		}
 		return Session.get("strenghtOrCardio");
 	}
 })

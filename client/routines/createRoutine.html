@@ -5,30 +5,31 @@
 		{{/contentFor}}
 
 		{{#contentFor "headerTitle"}}
-			<h1 class="title">Create new Routine</h1>
+			<h1 class="title">Create A New Routine</h1>
 		{{/contentFor}}
-
-
 
 		{{#ionView}}
 			{{#ionContent}}
 
-				<form class="list" id="addRoutine">
-				  <label class="item item-floating-label">
-				    <span class="input-label">RoutineName</span>
-				    <input type="text" name="routineName" placeholder="Routine Name">
-				  </label>
-				<br>
-				<center>
-					<button type="submit" class="button button-positive" >
-					  Submit
-					</button>
-				</center>
+				<form id="addRoutine">
+					<label class="item item-floating-label">
+				    	<input type="text" name="routineName" placeholder=" Routine Name">
+					</label>
+
+					<center>
+						<button type="submit" class="button button-positive" >
+							Submit
+						</button>
+					</center>
+
 				</form>
 
-				<div class="card" id="cardback">
-					<h3 class="text-center">Modify the exercises in your routine below...</h3>
+				<br>
+
+				<div id="cardback">
+					<h3 class="text-center">Edit a Routine Below</h3>
 				</div>
+
 				{{#ionList}}
 					{{#each item}}
 						{{> editRoutines}}
@@ -36,34 +37,28 @@
 				{{/ionList}}
 
 			{{/ionContent}}
-			{{/ionView}}
-
+		{{/ionView}}
 
 	{{else}}
 
-
 		{{#ionView}}
 			{{#ionContent}}
-
 				<img id="logo" src="images/logo.png" width="300" height="300">
-
 				{{> atForm}}
-
 			{{/ionContent}}
 		{{/ionView}}
 
 	{{/if}}
+
 </template>
 
 
 
 <template name= "editRoutines">
 	{{#ionItem path="exercises" _id="{{_id}}"  buttonRight=true avatar=true}}
-	<div class ="select">
-		<h2 >{{routineName}}</h2>
-		<p>Number of exercises: {{exercises.length}}</p>
-	</div>
-
+		<div class ="select">
+			<h2 >{{routineName}}</h2>
+			<p>Number of Exercises: {{exercises.length}}</p>
+		</div>
 	{{/ionItem}}
-
 </template>

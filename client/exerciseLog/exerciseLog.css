@@ -34,6 +34,31 @@
 	margin-left:2%;
 	margin-right:2%;
 }
+/*multiple of these for different browsers*/
+#inputTag::-webkit-input-placeholder,
+#inputTag::-webkit-input-placeholder
+{
+  color:    #000000;
+}
+
+#inputTag:-moz-placeholder,
+#inputTag:-moz-placeholder
+{
+  color:    #000000;
+}
+
+#inputTag::-moz-placeholder,
+#inputTag::-moz-placeholder
+{
+  color:    #000000;
+}
+
+#inputTag:-ms-input-placeholder,
+#inputTag:-ms-input-placeholder
+{
+  color:    #000000;
+}
+
 
 #listingExercises{
 	position: relative;
@@ -52,10 +77,4 @@
 
 #sortExercisesByDate{
 	margin-left: 1%
-}
-
-
-#inputTag::-webkit-input-placeholder
-{
-  color: #3293a1;
 }
