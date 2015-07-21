@@ -11,12 +11,12 @@ toastr.options = {
   "debug": false,
   "newestOnTop": false,
   "progressBar": true,
-  "positionClass": "toast-bottom-right",
+  "positionClass": "toast-top-right",
   "preventDuplicates": false,
   "showDuration": "0",
   "hideDuration": "0",
   "timeOut": "10000",
-  "extendedTimeOut": "1000",
+  "extendedTimeOut": "0",
   "showEasing": "swing",
   "hideEasing": "linear",
   "showMethod": "fadeIn",
@@ -30,13 +30,15 @@ var stopListening = new Audio('stop.wav');
 
 function timeOutEvent() { 
 	t = setTimeout(function() {recognizing = false;
-	  	console.log("Dictation Time Out"); 		
+	  	console.log("Dictation Time Out"); 	
+	  	toastr.info("Dictation Timed Out, we didn't get a response", "Mic is now Off");	
 	  	stopListening.play();
 		}, 10000);
 }
 
 function stopTimeOutEvent() {
 	clearTimeout(t);
+	toastr.clear()
 	console.log("cleared timeoutEvent");
 }
 

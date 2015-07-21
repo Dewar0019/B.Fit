@@ -70,18 +70,24 @@ Template.routineExercises.events({
 	'click #done' :function() {
 		var selectedExercise = Session.get("currentExercise");
 		if(selectedExercise == null) {
-			console.log("finished with workout");
+			IonPopup.confirm({
+			title: 'Looks like your done!',
+			template: 'Are you <strong>finished</strong> with your workout?',
+			onOk: function() {
+
+			},
+			onCancel: function() {
+				//Do nothing on cancel because user is still exercising
+			},
+			});
 		} else {
 			for(var i = 0; i < checkedExercises.length; i++) {
 				if (checkedExercises[i].Name == selectedExercise.Name) {
 					if(checkedExercises[i].Sets == selectedExercise.Sets && checkedExercises[i].Reps == selectedExercise.Reps) {
 						checkedExercises[i].checked = true;
-						// checkForMissing(checkedExercises[i]);
-						// console.log($("#exerciseSetsAndReps").html());
-
 						Session.set("currentExercise", checkedExercises[i+1]);
 						Session.set("voiceNextExercise", checkedExercises[i+2]); // used for the "what's next voice command"
-						console.log("done");
+						console.log("done with exercise");
 						return;
 					}
 				}
