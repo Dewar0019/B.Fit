@@ -1,13 +1,11 @@
 Template.routineExercises.helpers({
 	currentExercise : function() {
-		exerciseBeingPerformed = Session.get("currentExercise");
+		var exerciseBeingPerformed = Session.get("currentExercise");
 		console.log("name of current exercise: " + exerciseBeingPerformed.Name);
 		return exerciseBeingPerformed
 	},
-
-	workoutStarted : function() {
-		return Session.get("workoutStarted");
-	}
+	workoutStarted : function() { return Session.get("workoutStarted");}, //Checks if the workout has started
+	anyExerciseLeft: function () { return Session.get("currentExercise") != null;}, //Checks if there are anymore workouts left
 })
 
 
@@ -43,7 +41,7 @@ var Clock = {
 	}
 };
 
-
+//This checklist will keep track of what exercises has been completed from the routine
 checkedExercises = [];
 function initalizeCheckList() {
 	checkedExercises = [];
@@ -74,7 +72,7 @@ Template.routineExercises.events({
 			title: 'Looks like your done!',
 			template: 'Are you <strong>finished</strong> with your workout?',
 			onOk: function() {
-
+				workoutFinish();
 			},
 			onCancel: function() {
 				//Do nothing on cancel because user is still exercising
@@ -108,6 +106,7 @@ Template.routineExercises.events({
 				initalizeCheckList();
 
 				Session.set("currentExercise", checkedExercises[0]);
+				Session.set("voiceNextExercise", checkedExercises[1]);
 				Session.set("workoutStarted", true);
 				Session.set("showExerciseList", true); // when the start button is clicked the showExerciseList is set to true
 				Clock.start();
@@ -136,22 +135,7 @@ Template.routineExercises.events({
 			title: 'Yay you finished!',
 			template: 'Are you <strong>finished</strong> with your workout?',
 			onOk: function() {
-
-				Clock.stop();
-				running = false;
-				var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
-				var elementPos = checkedExercises.map(function(x) {return x.checked; }).indexOf(false); //Checks if all the exercises has been completed otherwise grabs the first Index where it has not been
-				Completed.insert({
-					_uID : Meteor.userId(),
-					routineName: routine.routineName,
-					exercises: checkedExercises,
-					completedOn: new Date(),
-					completedAll: elementPos == -1, //Want to know if user had completed all exercises
-					timeToComplete: Clock.totalSeconds,
-				});
-				Meteor.call("compileFinished", routine); //Calculates the avg time user did this routine along with number of times fully completed
-				Session.set("workoutStarted", false); //Resets to false so can be repeated again
-				Router.go('welcome');
+				workoutFinish();
 			},
 
 			onCancel: function() {
@@ -162,6 +146,24 @@ Template.routineExercises.events({
 	},
 });
 
+
+function workoutFinish() {
+	Clock.stop();
+	running = false;
+	var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
+	var elementPos = checkedExercises.map(function(x) {return x.checked; }).indexOf(false); //Checks if all the exercises has been completed otherwise grabs the first Index where it has not been
+	Completed.insert({
+		_uID : Meteor.userId(),
+		routineName: routine.routineName,
+		exercises: checkedExercises,
+		CompletedOn: new Date(),
+		completedAll: elementPos == -1, //Want to know if user had completed all exercises
+		timeToComplete: Clock.totalSeconds,
+	});
+	Meteor.call("compileFinished", routine); //Calculates the avg time user did this routine along with number of times fully completed
+	Session.set("workoutStarted", false); //Resets to false so can be repeated again
+	Router.go('welcome');
+}
 
 Template.routineExercises.rendered = function() {
 	if(Clock.totalSeconds > 0) {

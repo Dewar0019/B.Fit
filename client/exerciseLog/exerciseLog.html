@@ -20,9 +20,36 @@
 						<a id="viewCardio" class="tab-item" href="#">
 							Cardio
 						</a>
+
+						<a id="viewRoutines" class="tab-item" href="#">
+							Routines
+						</a>
 	    			</div>
 				</div>
 
+				{{#if viewRoutines}}
+					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
+	    				<div class="tabs">
+							<a id="todaysExercises" class="tab-item active" href="#">
+						        Today
+							</a>
+
+							<a id="thisWeeksExercises" class="tab-item" href="#">
+								This Week
+							</a>
+
+							<a id="thisMonthsExercises" class="tab-item" href="#">
+								This Month
+							</a>
+						</div>
+					</div>
+
+					<div id="allCards">
+						{{#each completedExercise}}
+							{{> listCompletedRoutines}}
+						{{/each}}
+					</div>
+				{{else}}
 
 				{{#if strenghtOrCardioForm}}
 				<!-- inputTag is for when the user writes -->
@@ -129,6 +156,7 @@
 					</div>
 
 				{{/if}}
+				{{/if}}
 
 			{{/ionContent}}
 		{{/ionView}}
@@ -150,7 +178,6 @@
 </template>
 
 <template name= "listCompletedExercises">
-
 	<div id="listingExercises" class="list card">
 		<i class="item">
 			<h2>{{Name}}</h2>
@@ -159,7 +186,6 @@
 			<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}} </p>
 		</i>
 	</div>
-
 </template>
 
 
@@ -175,4 +201,15 @@
 		</i>
 	</div>
 
+</template>
+
+<template name= "listCompletedRoutines">
+	<div id="listingExercises" class="list card">
+		<i class="item">
+			<h2>{{routineName}}</h2>
+			<p>Finished Entire Workout: {{completedAll}}</p>
+			<p>Exercises Completed : {{exercises.length}}</p>
+			<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}} </p>
+		</i>
+	</div>
 </template>

@@ -14,12 +14,18 @@
 			{{#ionContent}}
 
 			<!-- Card which will display the current exercise -->
+			{{#if workoutStarted}}
 			<div id="beingPerformed" class="card">
+				{{#if anyExerciseLeft}}
 				<p id="exerciseName"> {{currentExercise.Name}} </p>
 				<p id="exerciseSetsAndReps"> {{currentExercise.Sets}} Sets of {{currentExercise.Reps}} Reps </p>
 				<p id="exerciseWeight"> {{currentExercise.Weight}} Lbs </p>
+				{{else}}
+				<p> No More Exercises left! </p>
+				{{/if}}
 			</div>
-			{{#if workoutStarted}}
+
+			
 			<button id="done" class="button button-assertive" >Exercise Done!</button>
 			{{/if}}
 			<!-- The timer -->
