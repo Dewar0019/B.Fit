@@ -5,17 +5,22 @@
 
 #addCompletedExercise{
 	position: relative;
-	top:40px;	
+	top:40px;
 }
 
 #addCardio{
 	position: relative;
-	top:40px;	
+	top:40px;
 }
 
-#inputSpan{
+#inputTag{
 	color: white;
 	font-size: 120%;
+}
+
+#spanTag{
+	color: green;
+	font-size: 50%;
 }
 
 #addExerciseButton{
@@ -47,4 +52,10 @@
 
 #sortExercisesByDate{
 	margin-left: 1%
+}
+
+
+#inputTag::-webkit-input-placeholder
+{
+  color: #3293a1;
 }

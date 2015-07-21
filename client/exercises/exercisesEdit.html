@@ -12,6 +12,7 @@
 
 			{{#if strengthOrCardioForm}}
 				<div class="list card">
+
 					<div class="item item-divider text-center">
 						<h1>{{Name}}</h1>
 					</div>
@@ -35,20 +36,21 @@
 				</div>
 
 				<form class="list" id="addExerciseStrength">
-
+					<!-- The id="inputTag" is used to change the color of the placeholder through css.
+					This is done however in the exerciseLog.css file and not the exercisesEdit.css file -->
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Sets</span>
-						<input type="tel" placeholder="Sets" name="sets">
+						<input id="inputTag" type="tel" placeholder="Sets" name="sets">
 					</label>
 
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Reps</span>
-						<input type="tel" placeholder="Reps" name="reps">
+						<input id="inputTag" type="tel" placeholder="Reps" name="reps">
 					</label>
 
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Weight</span>
-					    <input type="tel" placeholder="Weight" name="weight">
+					    <input id="inputTag" type="tel" placeholder="Weight" name="weight">
 					</label>
 
 					<button id="addExerciseToRoutineButton" type = "submit" class="button button-large button-positive">
@@ -64,17 +66,17 @@
 
 					<label class="item item-input item-floating-label">
 				    	<span class="input-label">Time</span>
-				    	<input type="tel" placeholder="Time" name="time">
+				    	<input id="inputTag" type="tel" placeholder="Time" name="time">
 					</label>
 
 					<label class="item item-input item-floating-label">
 				    	<span class="input-label">Distance</span>
-				    	<input type="tel" placeholder="Distance" name="distance">
+				    	<input id="inputTag" type="tel" placeholder="Distance" name="distance">
 					</label>
 
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Calories</span>
-				    	<input type="tel" placeholder="Calories" name="calories">
+				    	<input id="inputTag" type="tel" placeholder="Calories" name="calories">
 					</label>
 
 					<button id="addExerciseToRoutineButton" type = "submit" class="button button-large button-positive">
