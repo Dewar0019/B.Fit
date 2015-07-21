@@ -2,7 +2,7 @@ Template.exercisesEdit.events({
 	'submit #addExerciseStrength' : function(events) {
 		event.preventDefault();
 		var exerciseID = this;
-		console.log("This is my log statement");		
+		console.log("This is my log statement");
 		console.log(exerciseID);
 		var routine = Session.get("selectedRoutine");
 		var sets = event.target.sets.value;
@@ -39,7 +39,7 @@ Template.exercisesEdit.events({
 	},
 })
 Template.exercisesEdit.helpers({
-	isCardio : function() { 
+	isCardio : function() {
 		return Session.get("storeExercise");
 	},
 	'strengthOrCardioForm': function(){
@@ -49,21 +49,21 @@ Template.exercisesEdit.helpers({
 
 
 toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-bottom-center",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "2000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
+	"closeButton": true,
+	"debug": false,
+	"newestOnTop": false,
+	"progressBar": false,
+	"positionClass": "toast-bottom-center",
+	"preventDuplicates": false,
+	"onclick": null,
+	"showDuration": "300",
+	"hideDuration": "1000",
+	"timeOut": "2000",
+	"extendedTimeOut": "1000",
+	"showEasing": "swing",
+	"hideEasing": "linear",
+	"showMethod": "fadeIn",
+	"hideMethod": "fadeOut"
 }
 
 function checkValues(sets, reps, weight) {

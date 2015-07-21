@@ -1,6 +1,6 @@
 <template name="exercises">
 	{{#if currentUser}}
-	
+
 		{{#contentFor "headerButtonLeft"}}
 			{{>ionNavBackButton path="index"}}
 		{{/contentFor}}
@@ -26,20 +26,20 @@
 					{{#ionList}}
 
 					<!-- tab bar -->
-			<div id="viewMode" class="tabs-striped tabs-top">	
+			<div id="viewMode" class="tabs-striped tabs-top">
 		    	<div class="tabs">
 		      		<a id="viewAddStrength" class="tab-item active" href="#">Strength</a>
 		      		<a id="viewAddCardio" class="tab-item" href="#">Cardio</a>
 					<a id="viewEdit" class="tab-item" href="#">Edit</a>
 	    		</div>
 	  		</div>
-		
+
 
 <!-- if editing page -->
 	{{#if editOrNot}}
 
 		<div id="exercisesInRoutine">
-			{{#each exerciseList2}}      
+			{{#each exerciseList2}}
 				{{> listExercises2}}
 			{{/each}}
 		</div>
@@ -48,14 +48,14 @@
 		{{#if strengthOrCardioForm}}
 
 				<div id="exercisesInRoutine">
-					{{#each getExercises}}      
+					{{#each getExercises}}
 						{{> addExercise}}
 					{{/each}}
 				</div>
 				<!-- cardio -->
 				{{else}}
 				<div id="exercisesInRoutine">
-						{{#each getCardio}}      
+						{{#each getCardio}}
 							{{> addCardio}}
 						{{/each}}
 					</div>
@@ -71,9 +71,9 @@
 		<!-- login -->
 			{{#ionView}}
 				{{#ionContent}}
-					
+
 					<img id="logo" src="images/logo.png" width="300" height="300">
-					
+
 					{{> atForm}}
 
 				{{/ionContent}}
@@ -87,7 +87,7 @@
 
     <ul>
         {{#esEach index="exercises"}}
-        {{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true}}	
+        {{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true}}
             <li>{{Name}}</li>
         {{/ionItem}}
         {{/esEach}}
@@ -95,33 +95,33 @@
 </template>
 
 <!-- strength -->
-<template name= "addExercise"> 
-{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=true editOrNot = false }}	
+<template name= "addExercise">
+{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=true editOrNot = false }}
 	<div class="selectedExercise">
-		<h2 >{{Name}}</h2>	
+		<h2 >{{Name}}</h2>
 		<p> Category: {{Type}}</p>
 	</div>
 	{{/ionItem}}
 </template>
 <!-- cardio -->
 <template name= "addCardio">
-{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=false editOrNot = false}}	
+{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=false editOrNot = false}}
 	<div class="selectedExercise">
-		<h2 >{{Name}}</h2>	
+		<h2 >{{Name}}</h2>
 		<p> Category: {{Type}}</p>
 	</div>
 	{{/ionItem}}
 </template>
 <!-- edit -->
 <template name= "listExercises2">
-	{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=false editOrNot=true showExerciseList2=true}}	
+	{{#ionItem path="exercisesEdit" _id="{{_id}}"  buttonRight=true avatar=true strengthOrCardioForm=false editOrNot=true showExerciseList2=true}}
 	<div class="selectedExercise">
-		<h2 >{{Name}}</h2>	
+		<h2 >{{Name}}</h2>
 		<p> Category: {{Type}}</p>
-		<p>{{Sets}} sets {{Reps}} reps</p>	
+		<p>{{Sets}} sets {{Reps}} reps</p>
 		<p>{{Weight}} lbs </p>
 
 	</div>
 	<br><a href="#" class="button icon remove">Remove</a>
-	{{/ionItem}}	
+	{{/ionItem}}
 </template>

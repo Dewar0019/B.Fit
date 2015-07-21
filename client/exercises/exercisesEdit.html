@@ -8,14 +8,13 @@
 	{{/contentFor}}
 
 	{{#ionView}}
-		  {{#ionContent}}
+		{{#ionContent}}
 
-
-			  {{#if strengthOrCardioForm}}
-			  	<div class="list card">
-			  		<div class="item item-divider text-center">
-                        <h1>{{Name}}</h1>
-                    </div>
+			{{#if strengthOrCardioForm}}
+				<div class="list card">
+					<div class="item item-divider text-center">
+						<h1>{{Name}}</h1>
+					</div>
 
                     <div>
                     	<center>
@@ -23,59 +22,70 @@
 						    <img src="{{end}}"/>
 						</center>
 					</div>
-			  		
-			  		<div>
-			  			<ol type="1">
+
+					<div>
+						<ol id="orderedListInstructions">
 							{{#each Instructions}}
-						  		<li> {{this}} </li>
-						  	{{/each}}
-			  			</ol>
-			  		</div>
-			  	</div>
-			  			
-				  	<form class="list" id="addExerciseStrength">
-					  <label class="item item-input item-floating-label">
-					    <span class="input-label">Sets</span>
-					    <input type="tel" placeholder="Sets" name="sets">
-					  </label>
-					  <label class="item item-input item-floating-label">
-					    <span class="input-label">Reps</span>
-					    <input type="tel" placeholder="Reps" name="reps">
-					  </label>
-					 	<label class="item item-input item-floating-label">
-					  		<span class="input-label">Weight</span>
-					    <input type="tel" placeholder="Weight" name="weight">
-						</label>
-						<button type = "submit" class="button button-large button-positive">
-						Add Exercise
-						</button>
-					</form>
-			{{else}}
+								<li id="instructions"> {{this}} </li>
+							{{/each}}
+							<br>
+						</ol>
+					</div>
 
-                        <h1>{{Name}}</h1>
+				</div>
 
-			  
-			  	<form class="list" id="addExerciseCardio">
-				  <label class="item item-input item-floating-label">
-				    <span class="input-label">Time</span>
-				    <input type="tel" placeholder="Time" name="time">
-				  </label>
-				  <label class="item item-input item-floating-label">
-				    <span class="input-label">Distance</span>
-				    <input type="tel" placeholder="Distance" name="distance">
-				  </label>
-				 	<label class="item item-input item-floating-label">
-				  		<span class="input-label">Calories</span>
-				    <input type="tel" placeholder="Calories" name="calories">
+				<form class="list" id="addExerciseStrength">
+
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Sets</span>
+						<input type="tel" placeholder="Sets" name="sets">
 					</label>
-					<button type = "submit" class="button button-large button-positive">
-					Add Exercise
+
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Reps</span>
+						<input type="tel" placeholder="Reps" name="reps">
+					</label>
+
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Weight</span>
+					    <input type="tel" placeholder="Weight" name="weight">
+					</label>
+
+					<button id="addExerciseToRoutineButton" type = "submit" class="button button-large button-positive">
+						Add Exercise
 					</button>
+
 				</form>
+
+			{{else}}
+				<h1>{{Name}}</h1>
+
+				<form class="list" id="addExerciseCardio">
+
+					<label class="item item-input item-floating-label">
+				    	<span class="input-label">Time</span>
+				    	<input type="tel" placeholder="Time" name="time">
+					</label>
+
+					<label class="item item-input item-floating-label">
+				    	<span class="input-label">Distance</span>
+				    	<input type="tel" placeholder="Distance" name="distance">
+					</label>
+
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Calories</span>
+				    	<input type="tel" placeholder="Calories" name="calories">
+					</label>
+
+					<button id="addExerciseToRoutineButton" type = "submit" class="button button-large button-positive">
+						Add Exercise
+					</button>
+
+				</form>
+
 			{{/if}}
-			{{/ionContent}}
+
+		{{/ionContent}}
 	{{/ionView}}
+
 </template>
-
-
-

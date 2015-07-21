@@ -1,0 +1,29 @@
+#instructions{
+	padding-left: 10px;
+}
+
+#addExerciseToRoutineButton{
+	top: 10px;
+	left: 10px;
+}
+
+#orderedListInstructions {
+    margin-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+}
+
+#orderedListInstructions li {
+    counter-increment: step-counter;
+}
+
+#orderedListInstructions li::before {
+    content: counter(step-counter);
+    margin-right: 5px;
+    font-size: 80%;
+    background-color: rgb(50,150,50);
+    color: white;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
