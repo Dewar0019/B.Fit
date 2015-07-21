@@ -1,14 +1,8 @@
-// Template.layout.destroyed = function () {
-//   $('.nav-bar').show();
-//   $('.content').addClass('has-header');
-// }
-
 
 Template.layout.events({
 
 	'click .startDictation': function(event){
 		startDictation(event);
-
 	}
 })
 
@@ -43,15 +37,23 @@ toastr.options = {
 final_transcript = '';
 
 var recognizing = false;
+var dictationStarted = false;
 
 if ('webkitSpeechRecognition' in window) {
 	var recognition = new webkitSpeechRecognition();
+	
 	recognition.continuous = true;
 	recognition.interimResults = true;
 
 	recognition.onstart = function() {
-	  toastr.info("Please give me a command", "I'm Listening!");
-	  recognizing = true;
+		recognizing = true;
+		dictationStarted = true;
+		 	toastr.info("Please give me a command", "I'm Listening!");
+
+	  // var turnOff = setInterval(function() {recognizing = false;
+	  	// console.log("hit in here")}, 5000)
+	  // turnOff;
+	  // clearInterval(turnOff);
 	};
 
  	recognition.onerror = function(event) {
@@ -67,7 +69,7 @@ if ('webkitSpeechRecognition' in window) {
 		myevent = event;
 		var interim_transcript = '';
 
-		// if(recognizing) {
+		if(recognizing) {
 		  	for (var i = event.resultIndex; i < event.results.length; ++i) {
 				var words = event.results[i][0].transcript;
 
@@ -77,13 +79,13 @@ if ('webkitSpeechRecognition' in window) {
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 					toastr.info(final_transcript, "You said: ");
 					// recognizing = false;
-					sendSentence(final_transcript);
+					// sendSentence(final_transcript);
 				} else {
 			  		interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
 			  		console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 				}
 			}
-		// }
+		}
 
 		// final_transcript = capitalize(final_transcript);
 		 final_span = linebreak(final_transcript);
@@ -104,16 +106,18 @@ function capitalize(s) {
 
 function startDictation(event) {
 	if (recognizing) {
-		recognition.stop();
+		recognizing = false;
 		console.log("dictation stopped");
-		return;
- 	}
-
-	final_transcript = '';
- 	recognition.lang = 'en-US';
-  	recognition.start();
- 	final_span = '';
-  	interim_span = '';
+		// return;
+ 	} else if(!dictationStarted) {
+ 		recognition.start();
+		final_transcript = '';
+ 		recognition.lang = 'en-US';
+ 		final_span = '';
+  		interim_span = '';
+ 	} else if(!recognizing) {
+ 		recognizing = true;
+  	}
 }
 
 function sendSentence(sentence){
