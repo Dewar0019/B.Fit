@@ -110,3 +110,12 @@ var motivation = [
 	"\"You may have to fight a battle more than once to win it.\" --Margaret Thatcher",
 	"\"A man can be as great as he wants to be. If you believe in yourself and have the courage, the determination, the dedication, the competitive drive and if you are willing to sacrifice the little things in life and pay the price for the things that are worthwhile, it can be done.\" --Vince Lombardi",
 ];
+
+address = function(){
+	console.log(ProfileImages.findOne().address);
+	return ProfileImages.findOne().address;
+}
+
+Template.welcome.rendered = function (){
+	$('#addImage').attr('src',address);
+}

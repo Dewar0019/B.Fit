@@ -1,6 +1,18 @@
+Template.imageedit.events({
+	'click #uploadimage' :function(){
+		upload();
+	},
+
+	'click #submitimage' :function() {
+		Router.go('profile');
+	}
+})
+
 Template.imageedit.rendered = function(){
-	// upload();
-}
+	if(ProfileImages.find().count()==1){
+		$('#profileimage').attr('src',ProfileImages.findOne({_id: ProfileImages.findOne()._id}).address);
+	};
+};
 
 function upload(){
 	// var widget = uploadcare.Widget('[role=uploadcare-uploader]');
@@ -12,8 +24,8 @@ function upload(){
 	}).done(function(file) {
 		file.promise().done(function(fileInfo){
 			getImage(fileInfo.cdnUrl);
+			addImages(fileInfo.cdnUrl);
 			console.log(fileInfo.cdnUrl);
-			widget.value(null);
 	  });
 	});
 }
@@ -22,12 +34,14 @@ function getImage (cdnUrl){
 	$('#profileimage').attr('src',cdnUrl);
 }
 
-Template.imageedit.events({
-	'click #uploadimage' :function(){
-		upload();
-	},
+function addImages(cdnUrl){
+	if(ProfileImages.find().count()==1){
+		ProfileImages.remove({_id: ProfileImages.findOne()._id});
+	};
+	
+	var address = cdnUrl;
+	var haha = "hey";
+	ProfileImages.insert({haha:haha,address:address});
+	console.log(ProfileImages.findOne().address);
+}
 
-	'click #submitimage' :function() {
-		Router.go('profile');
-	}
-})
