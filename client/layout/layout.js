@@ -28,13 +28,14 @@ toastr.options = {
 var startListening = new Audio('listening2.wav');
 var stopListening = new Audio('stop.wav');
 
+
 function timeOutEvent() { 
 		final_transcript = '';
 		final_span = '';
 		interim_span = '';
 	t = setTimeout(function() {recognizing = false;
-	  	console.log("Dictation Time Out"); 	
-	  	toastr.info("Dictation Timed Out, we didn't get a response", "Mic is now Off");	
+	  	console.log("Dictation Time Out");
+	  	toastr.info("Dictation Timed Out, we didn't get a response", "Mic is now Off");
 	  	stopListening.play();
 		}, 10000);
 }
@@ -95,16 +96,16 @@ if ('webkitSpeechRecognition' in window) {
 		if(recognizing) {
 		  	for (var i = event.resultIndex; i < event.results.length; ++i) {
 				var words = event.results[i][0].transcript;
-				
+
 				if (event.results[i].isFinal) {
-					
+
 					final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 					toastr.info(final_transcript, "You said: ");
 					stopTimeOutEvent()
 					recognizing = false;
 					sendSentence(final_transcript);
-					
+
 				} else {
 			  		interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
 			  		console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
@@ -133,8 +134,10 @@ function startDictation(event) {
 	if (!dictationStarted) {
 		recognition.start();
  		recognition.lang = 'en-US';
- 		
  	} else if(recognizing) { //Stops dictation if button was press again. 
+ 		final_span = '';
+  		interim_span = '';
+  		final_transcript = '';
  		recognizing = false;
  		stopListening.play();
 		console.log("dictation stopped");

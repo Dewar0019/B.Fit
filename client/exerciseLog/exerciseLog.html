@@ -4,10 +4,6 @@
 			{{>ionNavBackButton path="welcome"}}
 		{{/contentFor}}
 
-		{{#contentFor "headerTitle"}}
-			<h1 class="title">{{routineName}}</h1>
-		{{/contentFor}}
-
 		{{#ionView}}
 			{{#ionContent}}
 
@@ -27,24 +23,11 @@
 	    			</div>
 				</div>
 
+				<br>
+				<br>
+
 				{{#if viewRoutines}}
-				<br>
-				<br>
-					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
-	    				<div class="tabs">
-							<a id="todaysExercises" class="tab-item active" href="#">
-						        Today
-							</a>
-
-							<a id="thisWeeksExercises" class="tab-item" href="#">
-								This Week
-							</a>
-
-							<a id="thisMonthsExercises" class="tab-item" href="#">
-								This Month
-							</a>
-						</div>
-					</div>
+					{{> dateSortingTabBar}}
 
 					<div id="allCards">
 						{{#each completedExercise}}
@@ -53,111 +36,81 @@
 					</div>
 				{{else}}
 
-				{{#if strenghtOrCardioForm}}
-				<!-- inputTag is for when the user writes -->
-					<div id="form" class="list">
-						<form id="addCompletedExercise">
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="spanTag" class="input-label">Name </span>
-					    		<input id="inputTag" name="nameOfExercise" type="text" placeholder="Name">
-							</label>
+					{{#if strenghtOrCardioForm}}
+					<!-- inputTag is for when the user writes -->
+						<div id="form" class="list">
+							<form id="addCompletedExercise">
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span id="spanTag" class="input-label">Name </span>
+						    		<input id="inputTag" name="nameOfExercise" type="text" placeholder="Name">
+								</label>
 
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="spanTag" class="input-label">Sets</span>
-					    		<input id="inputTag" name="numOfSets" type="text" placeholder="Sets">
-							</label>
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span id="spanTag" class="input-label">Sets</span>
+						    		<input id="inputTag" name="numOfSets" type="text" placeholder="Sets">
+								</label>
 
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="spanTag" class="input-label">Reps</span>
-					    		<input id="inputTag" name="numOfReps" type="text" placeholder="Reps">
-							</label>
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span id="spanTag" class="input-label">Reps</span>
+						    		<input id="inputTag" name="numOfReps" type="text" placeholder="Reps">
+								</label>
 
-							<label id="labelBox" class="item item-input item-floating-label">
-								<span id="spanTag" class="input-label">Weight (lbs)</span>
-					    		<input id="inputTag" name="weight" type="text" placeholder="Weight (Lbs)">
-							</label>
+								<label id="labelBox" class="item item-input item-floating-label">
+									<span id="spanTag" class="input-label">Weight (lbs)</span>
+						    		<input id="inputTag" name="weight" type="text" placeholder="Weight (Lbs)">
+								</label>
 
-							<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
-						</form>
-					</div>
-
-
-					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
-	    				<div class="tabs">
-							<a id="todaysExercises" class="tab-item active" href="#">
-						        Today
-							</a>
-
-							<a id="thisWeeksExercises" class="tab-item" href="#">
-								This Week
-							</a>
-
-							<a id="thisMonthsExercises" class="tab-item" href="#">
-								This Month
-							</a>
+								<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
+							</form>
 						</div>
-					</div>
-
-					<div id="allCards">
-						{{#each completedExercise}}
-							{{> listCompletedExercises}}
-						{{/each}}
-					</div>
 
 
-				{{else}}
+						{{> dateSortingTabBar}}
 
-					<div id="form" class="list">
-						<form id ="addCardio">
-							<label id="labelBox" class="item item-input item-floating-label">
-								<span id="spanTag" class="input-label">Name</span>
-					    		<input id="inputTag" name="cardioName" type="text" placeholder="Name">
-							</label>
-
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="spanTag" class="input-label">Time</span>
-					    		<input id="inputTag" name="timeTook" type="text" placeholder="Time">
-							</label>
-
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="spanTag" class="input-label">Distance</span>
-					    		<input id="inputTag" name="distance" type="text" placeholder="Distance">
-							</label>
-
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span  id="spanTag" class="input-label">Calories (lbs)</span>
-					    		<input id="inputTag" name="calories" type="text" placeholder="Calories">
-							</label>
-
-							<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
-						</form>
-					</div>
+						<div id="allCards">
+							{{#each completedExercise}}
+								{{> listCompletedExercises}}
+							{{/each}}
+						</div>
 
 
+					{{else}}
 
-					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
-						<div class="tabs">
-							<a id="todaysExercises" class="tab-item active" href="#">
-						        Today
-							</a>
+						<div id="form" class="list">
+							<form id ="addCardio">
+								<label id="labelBox" class="item item-input item-floating-label">
+									<span id="spanTag" class="input-label">Name</span>
+						    		<input id="inputTag" name="cardioName" type="text" placeholder="Name">
+								</label>
 
-							<a id="thisWeeksExercises" class="tab-item" href="#">
-								This Week
-							</a>
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span id="spanTag" class="input-label">Time</span>
+						    		<input id="inputTag" name="timeTook" type="text" placeholder="Time">
+								</label>
 
-							<a id="thisMonthsExercises" class="tab-item" href="#">
-								This Month
-							</a>
-	    				</div>
-					</div>
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span id="spanTag" class="input-label">Distance</span>
+						    		<input id="inputTag" name="distance" type="text" placeholder="Distance">
+								</label>
 
-					<div id="allCards">
-						{{#each completedCardioExercise}}
-							{{> listCompletedCardioExercises}}
-						{{/each}}
-					</div>
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span  id="spanTag" class="input-label">Calories (lbs)</span>
+						    		<input id="inputTag" name="calories" type="text" placeholder="Calories">
+								</label>
 
-				{{/if}}
+								<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
+							</form>
+						</div>
+
+						{{> dateSortingTabBar}}
+
+						<div id="allCards">
+							{{#each completedCardioExercise}}
+								{{> listCompletedCardioExercises}}
+							{{/each}}
+						</div>
+
+					{{/if}}
 				{{/if}}
 
 			{{/ionContent}}
@@ -179,6 +132,25 @@
 
 </template>
 
+
+<template name="dateSortingTabBar">
+	<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
+		<div class="tabs">
+			<a id="todaysExercises" class="tab-item active" href="#">
+				Today
+			</a>
+
+			<a id="thisWeeksExercises" class="tab-item" href="#">
+				This Week
+			</a>
+
+			<a id="thisMonthsExercises" class="tab-item" href="#">
+				This Month
+			</a>
+		</div>
+	</div>
+</template>
+
 <template name= "listCompletedExercises">
 	<div id="listingExercises" class="list card">
 		<i class="item">
@@ -190,9 +162,7 @@
 	</div>
 </template>
 
-
 <template name= "listCompletedCardioExercises">
-
 	<div id="listingExercises" class="list card">
 		<i class="item">
 			<h2>{{CardioName}}</h2>
@@ -202,10 +172,9 @@
 			<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}} </p>
 		</i>
 	</div>
-
 </template>
 
-<template name= "listCompletedRoutines">
+<template name="listCompletedRoutines">
 	<div id="listingExercises" class="list card">
 		<i class="item">
 			<h2>{{routineName}}</h2>
