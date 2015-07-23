@@ -16,6 +16,7 @@
 #inputTag{
 	color: black;
 	font-size: 120%;
+	opacity: .5;
 }
 
 #spanTag{
