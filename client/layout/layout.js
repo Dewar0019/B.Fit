@@ -1,39 +1,38 @@
-
 Template.layout.events({
-
 	'click .startDictation': function(event){
 		startDictation(event);
 	}
 })
 
 toastr.options = {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": true,
-  "positionClass": "toast-top-right",
-  "preventDuplicates": false,
-  "showDuration": "0",
-  "hideDuration": "0",
-  "timeOut": "10000",
-  "extendedTimeOut": "0",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut",
-  "onclick": function() {
-  	console.log("clicked");
-  }
+	"closeButton": false,
+	"debug": false,
+	"newestOnTop": false,
+	"progressBar": true,
+	"positionClass": "toast-top-right",
+	"preventDuplicates": false,
+	"showDuration": "0",
+	"hideDuration": "0",
+	"timeOut": "10000",
+	"extendedTimeOut": "0",
+	"showEasing": "swing",
+	"hideEasing": "linear",
+	"showMethod": "fadeIn",
+	"hideMethod": "fadeOut",
+
+	"onclick": function() {
+		console.log("clicked");
+	}
 }
 var startListening = new Audio('listening2.wav');
 var stopListening = new Audio('stop.wav');
 
 function timeOutEvent() {
 	t = setTimeout(function() {recognizing = false;
-	  	console.log("Dictation Time Out");
-	  	toastr.info("Dictation Timed Out, we didn't get a response", "Mic is now Off");
-	  	stopListening.play();
-		}, 10000);
+		console.log("Dictation Time Out");
+		toastr.info("Dictation Timed Out, we didn't get a response", "Mic is now Off");
+		stopListening.play();
+	}, 10000);
 }
 
 function stopTimeOutEvent() {
@@ -43,8 +42,8 @@ function stopTimeOutEvent() {
 }
 
 /*
-  This code comes from this blog post by Amit Agarwal
-	  http://ctrlq.org/code/19680-html5-web-speech-api
+This code comes from this blog post by Amit Agarwal
+http://ctrlq.org/code/19680-html5-web-speech-api
 */
 
 final_transcript = '';
@@ -67,20 +66,20 @@ if ('webkitSpeechRecognition' in window) {
 
 	};
 
- 	recognition.onerror = function(event) {
-	  console.log(event.error);
+	recognition.onerror = function(event) {
+		console.log(event.error);
 	};
 
 	recognition.onend = function() {
-	  recognizing = false;
+		recognizing = false;
 	};
 
- 	recognition.onresult = function(event) {
+	recognition.onresult = function(event) {
 		myevent = event;
 		var interim_transcript = '';
 		var sent = false;
 		if(recognizing) {
-		  	for (var i = event.resultIndex; i < event.results.length; ++i) {
+			for (var i = event.resultIndex; i < event.results.length; ++i) {
 				var words = event.results[i][0].transcript;
 
 				if (event.results[i].isFinal) {
@@ -92,15 +91,15 @@ if ('webkitSpeechRecognition' in window) {
 					sendSentence(final_transcript);
 
 				} else {
-			  		interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
-			  		console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
+					interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
+					console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 				}
 			}
 		}
 
 		// final_transcript = capitalize(final_transcript);
-		 final_span = linebreak(final_transcript);
-		 interim_span = linebreak(interim_transcript);
+		final_span = linebreak(final_transcript);
+		interim_span = linebreak(interim_transcript);
 	};
 }
 
@@ -112,56 +111,56 @@ function linebreak(s) {
 }
 
 function capitalize(s) {
-  	return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
+	return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
 }
 
 function startDictation(event) {
 	if (!dictationStarted) {
 		recognition.start();
 		final_transcript = '';
- 		recognition.lang = 'en-US';
- 		final_span = '';
-  		interim_span = '';
- 	} else if(recognizing) { //Stops dictation if button was press again.
- 		recognizing = false;
- 		stopListening.play();
+		recognition.lang = 'en-US';
+		final_span = '';
+		interim_span = '';
+	} else if(recognizing) { //Stops dictation if button was press again.
+		recognizing = false;
+		stopListening.play();
 		console.log("dictation stopped");
 		stopTimeOutEvent();  //Stops the timeout event if it hasn't been 10 seconds
- 	} else {  //for when recognizing is false;
- 		recognition.onstart();
-  	}
+	} else {  //for when recognizing is false;
+		recognition.onstart();
+	}
 }
 
 function sendSentence(sentence){
 	console.log("sending sentence");
 
 	$.ajax({
- 		url: 'https://api.wit.ai/message',
- 		data: {
-   			'q': sentence,
-   			'access_token' : 'D4PLZXVAAU5VA4OF7T365EJSDOERBI3P'
- 		},
+		url: 'https://api.wit.ai/message',
+		data: {
+			'q': sentence,
+			'access_token' : 'D4PLZXVAAU5VA4OF7T365EJSDOERBI3P'
+		},
 
- 		dataType: 'jsonp',
- 		method: 'GET',
+		dataType: 'jsonp',
+		method: 'GET',
 
- 		success: function(response) {
- 			// make testVariable a Var in final version
- 			testVariable = response.outcomes;
-     		console.log("success!", response);
-     		if(testVariable[0].confidence < 0.95) {
-     			toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
-     			recognition.onstart();
-     		}
-     		else if(testVariable[0]._text.indexOf("next exercise") > 0) {
+		success: function(response) {
+			// make testVariable a Var in final version
+			testVariable = response.outcomes;
+			console.log("success!", response);
+			if(testVariable[0].confidence < 0.95) {
+				toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
+				recognition.onstart();
+			}
+			else if(testVariable[0]._text.indexOf("next exercise") > 0) {
 				console.log("next exercise recognized");
-     			nextExerciseCommand(testVariable);
-     		} else if (testVariable[0].intent == "logCardioIntent"){
-     			recordCardio(testVariable);
-     		} else {
-     			recordExercise(testVariable);
-     		}
-     	}
+				nextExerciseCommand(testVariable);
+			} else if (testVariable[0].intent == "logCardioIntent"){
+				recordCardio(testVariable);
+			} else {
+				recordExercise(testVariable);
+			}
+		}
 
 	});
 	console.log("Sentence Sent");
@@ -200,44 +199,44 @@ var Small = {
 };
 
 var Magnitude = {
-   'thousand':     1000,
-   'million':      1000000,
-   'billion':      1000000000,
-   'trillion':     1000000000000,
-   'quadrillion':  1000000000000000,
-   'quintillion':  1000000000000000000,
-   'sextillion':   1000000000000000000000,
-   'septillion':   1000000000000000000000000,
-   'octillion':    1000000000000000000000000000,
-   'nonillion':    1000000000000000000000000000000,
-   'decillion':    1000000000000000000000000000000000,
+	'thousand':     1000,
+	'million':      1000000,
+	'billion':      1000000000,
+	'trillion':     1000000000000,
+	'quadrillion':  1000000000000000,
+	'quintillion':  1000000000000000000,
+	'sextillion':   1000000000000000000000,
+	'septillion':   1000000000000000000000000,
+	'octillion':    1000000000000000000000000000,
+	'nonillion':    1000000000000000000000000000000,
+	'decillion':    1000000000000000000000000000000000,
 };
 
 var a, n, g;
 
 function text2num(s) {
-   a = s.toString().split(/[\s-]+/);
-   n = 0;
-   g = 0;
-   a.forEach(feach);
-   return n + g;
+	a = s.toString().split(/[\s-]+/);
+	n = 0;
+	g = 0;
+	a.forEach(feach);
+	return n + g;
 }
 
 function feach(w) {
-   var x = Small[w];
-   if (x != null) {
-       g = g + x;
-   }
-   else if (w == "hundred") {
-       g = g * 100;
-   }
-   else {
-       x = Magnitude[w];
-       if (x != null) {
-           n = n + g * x
-           g = 0;
-       }
-   }
+	var x = Small[w];
+	if (x != null) {
+		g = g + x;
+	}
+	else if (w == "hundred") {
+		g = g * 100;
+	}
+	else {
+		x = Magnitude[w];
+		if (x != null) {
+			n = n + g * x
+			g = 0;
+		}
+	}
 }
 
 
@@ -525,5 +524,5 @@ analyticsDate = function(){
 }
 
 function toTitleCase(str) {
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+	return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
