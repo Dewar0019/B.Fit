@@ -1,10 +1,18 @@
+// Template.layout.destroyed = function () {
+//   $('.nav-bar').show();
+//   $('.content').addClass('has-header');
+// }
+
+
 Template.layout.events({
 	'click .startDictation': function(event){
 		startDictation(event);
+
 	}
 })
 
 toastr.options = {
+
 	"closeButton": false,
 	"debug": false,
 	"newestOnTop": false,
@@ -61,6 +69,8 @@ var stopListening = new Audio('stop.wav');
 var recognizing = false; //This is a boolean to indicate whether or not recognition is on
 var dictationStarted = false; //If permission has been asked once before
 
+
+
 if ('webkitSpeechRecognition' in window) {
 	var recognition = new webkitSpeechRecognition();
 	recognition.continuous = true;
@@ -95,22 +105,24 @@ if ('webkitSpeechRecognition' in window) {
 		interim_span = '';
 		if(recognizing) {
 			for (var i = event.resultIndex; i < event.results.length; ++i) {
+
 				var words = event.results[i][0].transcript;
 
 				if (event.results[i].isFinal) {
-
+					console.log("final result is |"+event.results[i][0].transcript.trim()+"|");
 					final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 					toastr.info(final_transcript, "You said: ");
-					recognizing = false;
+					// recognizing = false;
 					sendSentence(final_transcript);
 					stopTimeOutEvent()
+
 				} else {
 					interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
 					console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 				}
 			}
-		}
+		// }
 
 		// final_transcript = capitalize(final_transcript);
 		final_span = linebreak(final_transcript);
@@ -147,6 +159,7 @@ function startDictation(event) {
 	} else {  //for when recognizing is false;
 		recognition.onstart();
 	}
+
 }
 
 function sendSentence(sentence){

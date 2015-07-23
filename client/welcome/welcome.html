@@ -8,14 +8,22 @@
 			{{#ionContent}}
 				<br>
 				<!-- <img id="profileImage" src="{{photo}}?s=150" width="200" height="200"> -->
-				<a href = "{{pathFor 'profile'}}"><img src="" id="addImage" width="200" height="200" class="align-left img-circle"></a>
+				<a href = "{{pathFor 'profile'}}">
+					<img src="" id="addImage" width="200" height="200" class="align-left img-circle">
+				</a>
 
+<<<<<<< HEAD
 				<div id="cardback" class="card" >
+=======
+				<div id="quoteDiv" class="card">
+>>>>>>> Bernheim
 					<p id="quote"> {{quote}} </p>
 				</div>
 
 				<hr id="line" align="center" width="75%">
 
+
+				<!-- BUTTONS -->
 
 				<a href = "{{pathFor 'createRoutine'}}">
 					<img id="createRoutineImage" src="images/newcreatet.png" width="175" height="175">
@@ -32,6 +40,7 @@
 				<a href = "{{pathFor 'profile'}}">
 					<img id="profileLink" src="images/newpro.png" width="165" height="165">
 				</a>
+
 			{{/ionContent}}
 		{{/ionView}}
 
