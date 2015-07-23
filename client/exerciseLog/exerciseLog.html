@@ -36,81 +36,81 @@
 					</div>
 				{{else}}
 
-				{{#if strenghtOrCardioForm}}
-				<!-- inputTag is for when the user writes -->
-					<div id="form" class="list">
-						<form id="addCompletedExercise">
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="spanTag" class="input-label">Name </span>
-					    		<input id="inputTag" name="nameOfExercise" type="text" placeholder="Name">
-							</label>
+					{{#if strenghtOrCardioForm}}
+					<!-- inputTag is for when the user writes -->
+						<div id="form" class="list">
+							<form id="addCompletedExercise">
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span id="spanTag" class="input-label">Name </span>
+						    		<input id="inputTag" name="nameOfExercise" type="text" placeholder="Name">
+								</label>
 
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="spanTag" class="input-label">Sets</span>
-					    		<input id="inputTag" name="numOfSets" type="text" placeholder="Sets">
-							</label>
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span id="spanTag" class="input-label">Sets</span>
+						    		<input id="inputTag" name="numOfSets" type="text" placeholder="Sets">
+								</label>
 
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="spanTag" class="input-label">Reps</span>
-					    		<input id="inputTag" name="numOfReps" type="text" placeholder="Reps">
-							</label>
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span id="spanTag" class="input-label">Reps</span>
+						    		<input id="inputTag" name="numOfReps" type="text" placeholder="Reps">
+								</label>
 
-							<label id="labelBox" class="item item-input item-floating-label">
-								<span id="spanTag" class="input-label">Weight (lbs)</span>
-					    		<input id="inputTag" name="weight" type="text" placeholder="Weight (Lbs)">
-							</label>
+								<label id="labelBox" class="item item-input item-floating-label">
+									<span id="spanTag" class="input-label">Weight (lbs)</span>
+						    		<input id="inputTag" name="weight" type="text" placeholder="Weight (Lbs)">
+								</label>
 
-							<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
-						</form>
-					</div>
-
-
-					{{> dateSortingTabBar}}
-
-					<div id="allCards">
-						{{#each completedExercise}}
-							{{> listCompletedExercises}}
-						{{/each}}
-					</div>
+								<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
+							</form>
+						</div>
 
 
-				{{else}}
+						{{> dateSortingTabBar}}
 
-					<div id="form" class="list">
-						<form id ="addCardio">
-							<label id="labelBox" class="item item-input item-floating-label">
-								<span id="spanTag" class="input-label">Name</span>
-					    		<input id="inputTag" name="cardioName" type="text" placeholder="Name">
-							</label>
+						<div id="allCards">
+							{{#each completedExercise}}
+								{{> listCompletedExercises}}
+							{{/each}}
+						</div>
 
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="spanTag" class="input-label">Time</span>
-					    		<input id="inputTag" name="timeTook" type="text" placeholder="Time">
-							</label>
 
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span id="spanTag" class="input-label">Distance</span>
-					    		<input id="inputTag" name="distance" type="text" placeholder="Distance">
-							</label>
+					{{else}}
 
-							<label id="labelBox" class="item item-input item-floating-label">
-					    		<span  id="spanTag" class="input-label">Calories (lbs)</span>
-					    		<input id="inputTag" name="calories" type="text" placeholder="Calories">
-							</label>
+						<div id="form" class="list">
+							<form id ="addCardio">
+								<label id="labelBox" class="item item-input item-floating-label">
+									<span id="spanTag" class="input-label">Name</span>
+						    		<input id="inputTag" name="cardioName" type="text" placeholder="Name">
+								</label>
 
-							<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
-						</form>
-					</div>
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span id="spanTag" class="input-label">Time</span>
+						    		<input id="inputTag" name="timeTook" type="text" placeholder="Time">
+								</label>
 
-					{{> dateSortingTabBar}}
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span id="spanTag" class="input-label">Distance</span>
+						    		<input id="inputTag" name="distance" type="text" placeholder="Distance">
+								</label>
 
-					<div id="allCards">
-						{{#each completedCardioExercise}}
-							{{> listCompletedCardioExercises}}
-						{{/each}}
-					</div>
+								<label id="labelBox" class="item item-input item-floating-label">
+						    		<span  id="spanTag" class="input-label">Calories (lbs)</span>
+						    		<input id="inputTag" name="calories" type="text" placeholder="Calories">
+								</label>
 
-				{{/if}}
+								<button id="addExerciseButton" class="button button-balanced"> Add Exercise </button>
+							</form>
+						</div>
+
+						{{> dateSortingTabBar}}
+
+						<div id="allCards">
+							{{#each completedCardioExercise}}
+								{{> listCompletedCardioExercises}}
+							{{/each}}
+						</div>
+
+					{{/if}}
 				{{/if}}
 
 			{{/ionContent}}

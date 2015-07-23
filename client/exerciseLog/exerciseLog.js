@@ -6,10 +6,7 @@ Template.exerciseLog.rendered = function() {
 Template.exerciseLog.helpers({
 	'completedExercise':function(){
 		// returns everything in the Completed collection that has been added in the past amount of time specified by the users
-		if(Session.get("fromDate") == undefined) {
-			todaysDate();
-			fromDate = Session.get("fromDate");
-		}
+		setDefaultDate();
 		return Completed.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
 	},
 
@@ -24,11 +21,7 @@ Template.exerciseLog.helpers({
 	},
 
 	'viewRoutines': function() {
-		if(Session.get("fromDate") == undefined) {
-			todaysDate();
-			fromDate = Session.get("fromDate");
-		}
-
+		setDefaultDate();
 		return Session.get("viewRoutines");
 	}
 })
@@ -67,6 +60,7 @@ Template.exerciseLog.events({
 	'click #viewRoutines': function() {
 		Session.set("strenghtOrCardio", false);
 		Session.set("viewRoutines", true);
+
 		document.getElementById("viewStrength").className = "tab-item";
 		document.getElementById("viewCardio").className = "tab-item";
 		document.getElementById("viewRoutines").className = "tab-item active";
@@ -169,3 +163,10 @@ Template.exerciseLog.events({
 		document.getElementById("thisMonthsExercises").className = "tab-item active";
 	}
 })
+
+function setDefaultDate(){
+	if(Session.get("fromDate") == undefined) {
+		todaysDate();
+		fromDate = Session.get("fromDate");
+	}
+}
