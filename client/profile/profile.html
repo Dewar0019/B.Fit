@@ -12,7 +12,7 @@
     {{#ionView}}
         {{#ionContent}}
             {{#if currentUser}}
-               
+
                 <div class="list card">
                     <div class="item item-divider text-center">
                         <h2>{{getUserInfo.profile.firstName}} {{getUserInfo.profile.lastName}}</h2>
@@ -39,9 +39,22 @@
                                     </div>
                                     
                                     <div class="gear">
-                                        <label>{{> ionIcon icon="ios-speedometer-outline" class="positive"}}  Weight:</label>
-                                        <span id="weight" class="datainfo">{{getUserInfo.profile.currentWeight}}</span>
+                                        <label>{{> ionIcon icon="ios-speedometer-outline" class="positive"}}  Current Weight:</label>
+                                        <span class="datainfo">{{getUserInfo.profile.currentWeight}}</span>
                                     </div>
+                                    
+                                    <div class="gear">
+                                        <form id="weight">
+                                        <label  class="item-input-wrapper"> {{> ionIcon icon="ios-speedometer-outline" class="positive"}}  Add Weight:
+                                       <input id="formStyle" type="number" name="weightEntered" placeholder="Please Enter A Number">
+                                        <button> Submit </button>
+                                        </label>
+                                    </form>
+                                    </div>
+                                    <button id="viewWeightProgress" class="button button-positive">
+                                        View Chart
+                                        </button> 
+                                    
                                 </div>
                             </section>
                         </div>

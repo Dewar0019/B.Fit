@@ -25,19 +25,19 @@ toastr.options = {
   	console.log("clicked");
   }
 }
-var startListening = new Audio('listening2.wav');
-var stopListening = new Audio('stop.wav');
+
 
 
 function timeOutEvent() { 
 		final_transcript = '';
 		final_span = '';
 		interim_span = '';
-	t = setTimeout(function() {recognizing = false;
+		t = setTimeout(function() {
+		recognizing = false;
 	  	console.log("Dictation Time Out");
 	  	toastr.info("Dictation Timed Out, we didn't get a response", "Mic is now Off");
 	  	stopListening.play();
-		}, 10000);
+		}, 20000);
 }
 
 function stopTimeOutEvent() {
@@ -57,7 +57,8 @@ function stopTimeOutEvent() {
 final_transcript = '';
 final_span = '';
 interim_span = '';
-
+var startListening = new Audio('listening2.wav');
+var stopListening = new Audio('stop.wav');
 var recognizing = false; //This is a boolean to indicate whether or not recognition is on
 var dictationStarted = false; //If permission has been asked once before
 
@@ -75,7 +76,6 @@ if ('webkitSpeechRecognition' in window) {
 		dictationStarted = true;
 		toastr.info("Please give me a command", "I'm Listening!");
 		startListening.play();
-		timeOutEvent();
 
 	};
 
@@ -92,7 +92,8 @@ if ('webkitSpeechRecognition' in window) {
 		var interim_transcript = '';
 		// console.log("this is carried over");
 		// console.log(interim_transcript);
-		var sent = false;
+		// var sent = false;
+		interim_span = '';
 		if(recognizing) {
 		  	for (var i = event.resultIndex; i < event.results.length; ++i) {
 				var words = event.results[i][0].transcript;
@@ -102,10 +103,9 @@ if ('webkitSpeechRecognition' in window) {
 					final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 					toastr.info(final_transcript, "You said: ");
-					stopTimeOutEvent()
 					recognizing = false;
 					sendSentence(final_transcript);
-
+					stopTimeOutEvent()
 				} else {
 			  		interim_transcript += Math.round(100*event.results[i][0].confidence) + "%: "+ event.results[i][0].transcript+"<br>";
 			  		console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
@@ -132,6 +132,7 @@ function capitalize(s) {
 
 function startDictation(event) {
 	if (!dictationStarted) {
+		timeOutEvent();
 		recognition.start();
  		recognition.lang = 'en-US';
  	} else if(recognizing) { //Stops dictation if button was press again. 
@@ -149,7 +150,6 @@ function startDictation(event) {
 
 function sendSentence(sentence){
 	console.log("sending sentence");
-
 	$.ajax({
  		url: 'https://api.wit.ai/message',
  		data: {
@@ -179,6 +179,7 @@ function sendSentence(sentence){
      	}
 
 	});
+	interim_span = '';
 	console.log("Sentence Sent");
 }
 
