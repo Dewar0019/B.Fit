@@ -4,10 +4,6 @@
 			{{>ionNavBackButton path="welcome"}}
 		{{/contentFor}}
 
-		{{#contentFor "headerTitle"}}
-			<h1 class="title">{{routineName}}</h1>
-		{{/contentFor}}
-
 		{{#ionView}}
 			{{#ionContent}}
 
@@ -27,24 +23,11 @@
 	    			</div>
 				</div>
 
+				<br>
+				<br>
+
 				{{#if viewRoutines}}
-				<br>
-				<br>
-					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
-	    				<div class="tabs">
-							<a id="todaysExercises" class="tab-item active" href="#">
-						        Today
-							</a>
-
-							<a id="thisWeeksExercises" class="tab-item" href="#">
-								This Week
-							</a>
-
-							<a id="thisMonthsExercises" class="tab-item" href="#">
-								This Month
-							</a>
-						</div>
-					</div>
+					{{> dateSortingTabBar}}
 
 					<div id="allCards">
 						{{#each completedExercise}}
@@ -82,21 +65,7 @@
 					</div>
 
 
-					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
-	    				<div class="tabs">
-							<a id="todaysExercises" class="tab-item active" href="#">
-						        Today
-							</a>
-
-							<a id="thisWeeksExercises" class="tab-item" href="#">
-								This Week
-							</a>
-
-							<a id="thisMonthsExercises" class="tab-item" href="#">
-								This Month
-							</a>
-						</div>
-					</div>
+					{{> dateSortingTabBar}}
 
 					<div id="allCards">
 						{{#each completedExercise}}
@@ -133,23 +102,7 @@
 						</form>
 					</div>
 
-
-
-					<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
-						<div class="tabs">
-							<a id="todaysExercises" class="tab-item active" href="#">
-						        Today
-							</a>
-
-							<a id="thisWeeksExercises" class="tab-item" href="#">
-								This Week
-							</a>
-
-							<a id="thisMonthsExercises" class="tab-item" href="#">
-								This Month
-							</a>
-	    				</div>
-					</div>
+					{{> dateSortingTabBar}}
 
 					<div id="allCards">
 						{{#each completedCardioExercise}}
@@ -179,6 +132,25 @@
 
 </template>
 
+
+<template name="dateSortingTabBar">
+	<div id="fromDateTabBar" class="tabs-striped tabs-top tabs-color-assertive">
+		<div class="tabs">
+			<a id="todaysExercises" class="tab-item active" href="#">
+				Today
+			</a>
+
+			<a id="thisWeeksExercises" class="tab-item" href="#">
+				This Week
+			</a>
+
+			<a id="thisMonthsExercises" class="tab-item" href="#">
+				This Month
+			</a>
+		</div>
+	</div>
+</template>
+
 <template name= "listCompletedExercises">
 	<div id="listingExercises" class="list card">
 		<i class="item">
@@ -190,9 +162,7 @@
 	</div>
 </template>
 
-
 <template name= "listCompletedCardioExercises">
-
 	<div id="listingExercises" class="list card">
 		<i class="item">
 			<h2>{{CardioName}}</h2>
@@ -202,10 +172,9 @@
 			<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}} </p>
 		</i>
 	</div>
-
 </template>
 
-<template name= "listCompletedRoutines">
+<template name="listCompletedRoutines">
 	<div id="listingExercises" class="list card">
 		<i class="item">
 			<h2>{{routineName}}</h2>

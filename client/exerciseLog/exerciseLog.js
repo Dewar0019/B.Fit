@@ -7,8 +7,8 @@ Template.exerciseLog.helpers({
 	'completedExercise':function(){
 		// returns everything in the Completed collection that has been added in the past amount of time specified by the users
 		if(Session.get("fromDate") == undefined) {
-		todaysDate();
-		fromDate = Session.get("fromDate");	
+			todaysDate();
+			fromDate = Session.get("fromDate");
 		}
 		return Completed.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
 	},
@@ -19,23 +19,28 @@ Template.exerciseLog.helpers({
 		return Cardio.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
 	},
 
-	'strenghtOrCardioForm': function(){	
+	'strenghtOrCardioForm': function(){
 		return Session.get("strenghtOrCardio");
 	},
 
 	'viewRoutines': function() {
+		if(Session.get("fromDate") == undefined) {
+			todaysDate();
+			fromDate = Session.get("fromDate");
+		}
+
 		return Session.get("viewRoutines");
 	}
 })
 
-	// if the user has never specified to view todays, this week's or this month's exercises, today's is automatically shown
-		// until the user selects one of the other options.
-		function todaysDate() {
-			today = new Date();
-			fromDate = new Date(today.getTime() - 86400000);
-			console.log("today was pressed");
-			Session.set("fromDate", fromDate);
-		}
+// if the user has never specified to view todays, this week's or this month's exercises, today's is automatically shown
+// until the user selects one of the other options.
+function todaysDate() {
+	today = new Date();
+	fromDate = new Date(today.getTime() - 86400000);
+	console.log("today was pressed");
+	Session.set("fromDate", fromDate);
+}
 
 
 Template.exerciseLog.events({

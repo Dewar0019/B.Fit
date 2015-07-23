@@ -1,24 +1,21 @@
 <template name="layout">
 
   {{#ionBody}}
-
+  <!-- ionNavBar is for the header at the top of every page -->
     {{> ionNavBar class="bar-positive"}}
-    {{#ionNavView }}
-
-      {{> yield}}
-    {{/ionNavView}}
+        {{#ionNavView }}
+            {{> yield}}
+        {{/ionNavView}}
   {{/ionBody}}
 
 {{#if currentUser}}
-  {{#ionTabs class="tabs-positive tabs-icon-top"}}
-    {{> ionTab title="Home" path="welcome" iconOff="ios-home" iconOn="ios-home"}}
-    {{> ionTab title="Routines" path="routines" iconOff="android-bicycle" iconOn="android-bicycle"}}
-    {{> ionTab title="Analytics" path="chart" iconOff="stats-bars" iconOn="stats-bars"}}
-    {{> ionTab title="Log" path="exerciseLog" iconOff="ios-bookmarks" iconOn="ios-bookmarks"}}
-    {{> ionTab title="Voice" iconOff="mic-a" iconOn="mic-a" class="startDictation"}}
-  {{/ionTabs}}
- 
-{{/if}} 
+    {{#ionTabs class="tabs-positive tabs-icon-top"}}
+        {{> ionTab title="Home" path="welcome" iconOff="ios-home" iconOn="ios-home"}}
+        {{> ionTab title="Routines" path="routines" iconOff="android-bicycle" iconOn="android-bicycle"}}
+        {{> ionTab title="Analytics" path="chart" iconOff="stats-bars" iconOn="stats-bars"}}
+        {{> ionTab title="Log" path="exerciseLog" iconOff="ios-bookmarks" iconOn="ios-bookmarks"}}
+        {{> ionTab title="Voice" iconOff="mic-a" iconOn="mic-a" class="startDictation"}}
+    {{/ionTabs}}
+{{/if}}
 
 </template>
-
