@@ -27,7 +27,11 @@ toastr.options = {
 var startListening = new Audio('listening2.wav');
 var stopListening = new Audio('stop.wav');
 
-function timeOutEvent() {
+
+function timeOutEvent() { 
+		final_transcript = '';
+		final_span = '';
+		interim_span = '';
 	t = setTimeout(function() {recognizing = false;
 		console.log("Dictation Time Out");
 		toastr.info("Dictation Timed Out, we didn't get a response", "Mic is now Off");
@@ -36,6 +40,9 @@ function timeOutEvent() {
 }
 
 function stopTimeOutEvent() {
+	final_transcript = '';
+	final_span = '';
+	interim_span = '';
 	clearTimeout(t);
 	toastr.clear()
 	console.log("cleared timeoutEvent");
@@ -47,6 +54,8 @@ http://ctrlq.org/code/19680-html5-web-speech-api
 */
 
 final_transcript = '';
+final_span = '';
+interim_span = '';
 
 var recognizing = false; //This is a boolean to indicate whether or not recognition is on
 var dictationStarted = false; //If permission has been asked once before
@@ -57,6 +66,9 @@ if ('webkitSpeechRecognition' in window) {
 	recognition.interimResults = true;
 
 	recognition.onstart = function() {
+		final_transcript = '';
+		final_span = '';
+		interim_span = '';
 		console.log("Started Dictation");
 		recognizing = true;
 		dictationStarted = true;
@@ -77,6 +89,8 @@ if ('webkitSpeechRecognition' in window) {
 	recognition.onresult = function(event) {
 		myevent = event;
 		var interim_transcript = '';
+		// console.log("this is carried over");
+		// console.log(interim_transcript);
 		var sent = false;
 		if(recognizing) {
 			for (var i = event.resultIndex; i < event.results.length; ++i) {
@@ -87,6 +101,7 @@ if ('webkitSpeechRecognition' in window) {
 					final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 					toastr.info(final_transcript, "You said: ");
+					stopTimeOutEvent()
 					recognizing = false;
 					sendSentence(final_transcript);
 
@@ -117,6 +132,7 @@ function capitalize(s) {
 function startDictation(event) {
 	if (!dictationStarted) {
 		recognition.start();
+<<<<<<< HEAD
 		final_transcript = '';
 		recognition.lang = 'en-US';
 		final_span = '';
@@ -124,6 +140,15 @@ function startDictation(event) {
 	} else if(recognizing) { //Stops dictation if button was press again.
 		recognizing = false;
 		stopListening.play();
+=======
+ 		recognition.lang = 'en-US';
+ 	} else if(recognizing) { //Stops dictation if button was press again. 
+ 		final_span = '';
+  		interim_span = '';
+  		final_transcript = '';
+ 		recognizing = false;
+ 		stopListening.play();
+>>>>>>> bf20a352a69f8564c515e36af5e6579b6a6117d2
 		console.log("dictation stopped");
 		stopTimeOutEvent();  //Stops the timeout event if it hasn't been 10 seconds
 	} else {  //for when recognizing is false;
