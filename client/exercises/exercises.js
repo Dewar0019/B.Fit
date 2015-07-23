@@ -11,7 +11,7 @@ Template.exercises.helpers({
 		console.log(Session.get('selectedRoutine'));
 		return currentRoutines.exercises;
 	},
-	
+
 	'strengthOrCardioForm': function(){ //choice between strength and cardio
 		return Session.get("strengthOrCardio");
 	},
@@ -65,8 +65,27 @@ Template.exercises.events({
       	var playerId = this._id;
 	    Session.set('currentRoutines', playerId);
 	        var selected = Session.get('currentRoutines');
-	        Exercises.update($selected.remove()); 
+	        Exercises.update($selected.remove());
 	        console.log("remove clicked2!");
-    }
+    },
+
+
+	// WORK HERE FOR THE ROUTINE DELETE FUNCTION
+	'click #removeButton': function(){
+		console.log("remove button was pressed");
+
+		var playerId = this._id;
+	    Session.set('currentRoutines', playerId);
+
+		console.log(JSON.stringify(this));
+		console.log(routineName);
+
+		// MODIFY THIS SO THAT "name" REPRESENTS THE ROUTINE NAME --> TALK TO HICKEY
+		for (var i=0; i<Routines.find().count(); i++){
+			if(Routines.find().fetch()[i].routineName == "name"){
+
+			}
+		}
+	}
 
 })
