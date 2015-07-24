@@ -90,7 +90,7 @@ if ('webkitSpeechRecognition' in window) {
 
 				if (event.results[i].isFinal) {
 					console.log("final result is |"+event.results[i][0].transcript.trim()+"|");
-					final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
+					final_transcript += capitalize(event.results[i][0].transcript.trim());
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 					toastr.info(final_transcript, "You said: ");
 					recognition.stop();
@@ -113,7 +113,7 @@ if ('webkitSpeechRecognition' in window) {
 	function capitalize(s) {
 	return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
 			}
-	var two_line = /\n\n/g;
+	var two_line = /`\n`\n/g;
 	var one_line = /\n/g;
 
 	function linebreak(s) {

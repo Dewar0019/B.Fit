@@ -10,45 +10,44 @@
 			<h1 class="title">{{routineName}}</h1>
 		{{/contentFor}}
 
+
+
 		{{#ionView}}
 			{{#ionContent}}
 
 			<!-- Card which will display the current exercise -->
 			{{#if workoutStarted}}
-			<div id="beingPerformed" class="card">
-				{{#if anyExerciseLeft}}
-				<p id="exerciseName"> {{currentExercise.Name}} </p>
-				<p id="exerciseSetsAndReps"> {{currentExercise.Sets}} Sets of {{currentExercise.Reps}} Reps </p>
-				<p id="exerciseWeight"> {{currentExercise.Weight}} Lbs </p>
-				{{else}}
-				<p> No More Exercises left! </p>
-				{{/if}}
-			</div>
+				<div id="beingPerformed" class="card">
+					{{#if anyExerciseLeft}}
+					<p id="exerciseName"> {{currentExercise.Name}} </p>
+					<p id="exerciseSetsAndReps"> {{currentExercise.Sets}} Sets of {{currentExercise.Reps}} Reps </p>
+					<p id="exerciseWeight"> {{currentExercise.Weight}} Lbs </p>
+					{{else}}
+					<p> No More Exercises left! </p>
+					{{/if}}
+				</div>
 
-			<!-- countdown for the goal -->
-			<!-- <p id="demo" style="height: 150px;"></p> -->
-			<center>
+				<!-- countdown for the goal -->
+				<!-- <p id="demo" style="height: 150px;"></p> -->
+
 				<button id="done" class="button button-assertive" >Exercise Done!</button>
-			</center>
+
+				<button id="finish" class="button button-large button-positive" data-action="showConfirm" > Finish Workout </button>
+
 			{{/if}}
+
 			<!-- The timer -->
 			<p id="timer">
 				<span id="timer2">0:00:00</span>
 			</p>
 
 			<br>
-
-			<!-- Buttons to display the current workout and the exercise list -->
-
 			<hr/>
 
 			<!-- Start button is made through CSS -->
 			<div class="beginExercise" id="start">Start</div>
 
 			<!-- allows the start button to become the finish button once it is pressed -->
-			{{#if workoutStarted}}
-			<button id="finish" class="button button-large button-positive" data-action="showConfirm" > Finish Workout </button>
-			{{/if}}
 
 			 <!-- Displays all the exercises in the current routine with checkboxes -->
 			 {{#if showExerciseList}}
@@ -59,6 +58,8 @@
 
 			{{/ionContent}}
 		{{/ionView}}
+
+
 
 	{{else}}
 
@@ -75,20 +76,3 @@
 	{{/if}}
 
 </template>
-
-
-<!-- <template name= "listExercises">
-	<i class="item item-checkbox">
-    	<label id="checkBox" class="checkbox">
-			<input type="checkbox" name="chk">
-     	</label>
-
-		<h2>{{Name}}</h2>
-		<p> {{Sets}} Sets
-			{{Reps}} Reps
-		</p>
-		<p> {{Weight}} Lbs </p>
-	</i>
-
-</template>
- -->
