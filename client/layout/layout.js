@@ -65,6 +65,9 @@ if ('webkitSpeechRecognition' in window) {
 	recognition.interimResults = true;
 
 	recognition.onstart = function() {
+		final_transcript = '';
+		final_span = '';
+		interim_span = '';
 		timeOutEvent();
 		console.log("Started Dictation");
 		recognizing = true;
@@ -90,7 +93,7 @@ if ('webkitSpeechRecognition' in window) {
 
 				if (event.results[i].isFinal) {
 					console.log("final result is |"+event.results[i][0].transcript.trim()+"|");
-					final_transcript += capitalize(event.results[i][0].transcript.trim()) +"\n";
+					final_transcript += capitalize(event.results[i][0].transcript.trim());
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
 					toastr.info(final_transcript, "You said: ");
 					recognition.stop();

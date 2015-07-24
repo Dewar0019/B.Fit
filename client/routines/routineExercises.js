@@ -68,10 +68,6 @@ function initalizeCheckList() {
 
 var running = false;
 
-// function checkForMissing(exercise) {
-// 	if(reps == null) {}
-
-// }
 //When the user has clicked done exercise button upon finishing an exercise moves onto the next
 Template.routineExercises.events({
 	'click #done' :function() {
@@ -156,7 +152,11 @@ Template.routineExercises.events({
 
 function workoutFinish() {
 	Clock.stop();
+	Clock.totalSeconds = 0;
 	running = false;
+	$(".beginExercise").html("Start");
+	$(".beginExercise").attr('id', 'start');
+	Session.set('workoutStarted', false);
 	var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
 	var elementPos = checkedExercises.map(function(x) {return x.checked; }).indexOf(false); //Checks if all the exercises has been completed otherwise grabs the first Index where it has not been
 	Completed.insert({
