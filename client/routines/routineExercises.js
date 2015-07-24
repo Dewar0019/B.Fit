@@ -15,7 +15,7 @@ var Clock = {
 
 	start: function () {
 		var self = this;
-		
+
 		this.interval = setInterval(function () {
 			self.totalSeconds += 1;
 
@@ -171,4 +171,3 @@ Template.routineExercises.rendered = function() {
 		$(".beginExercise").attr('id', 'pauseExercise');
 	}
 }
-
