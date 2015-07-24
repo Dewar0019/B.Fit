@@ -71,7 +71,6 @@ Template.exerciseLog.events({
 		event.preventDefault();
 		console.log("Exercise Added");
 
-
 		var name = event.target.nameOfExercise.value;
 		var sets = event.target.numOfSets.value;
 		var reps = event.target.numOfReps.value;
