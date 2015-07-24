@@ -3,7 +3,8 @@ Template.profile.helpers({
 		return Gravatar.imageUrl(Gravatar.hash(Meteor.user().emails[0].address,{secure:true}))
 	},
 	getUserInfo: function() { return Meteor.user();},
-	getEmail: function() {return Meteor.user().emails[0].address}
+	getEmail: function() {return Meteor.user().emails[0].address},
+	getBMI: function(){return ((((Meteor.user().profile.currentWeight)/Math.pow((Meteor.user().profile.height),2))*703).toFixed(2))}
 })
 
 Template.profile.events({

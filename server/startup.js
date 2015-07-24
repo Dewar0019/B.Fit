@@ -30,46 +30,18 @@ if(Meteor.isServer){
 			_uID: "preset" ,
 			routineName: "Ice Cream Fitness",
 			exercises: [
-				{
-					Category: "core",
-					Name: "Crunches",
-					Sets: 1,
-					Reps: 25
-				},
-
-				{
-					Category: "core",
-					Name: "Bicycles",
-					Sets: 1,
-					Reps: 50
-				},
-
-				{
-					Category: "core",
-					Name: "Plank",
-					Sets: 1,
-					Time: "1 Minute"
-				},
 
 				{
 					Category:"Shoulder",
-					Name: "Cable Lat Raise",
+					Name: "Lateral Dumbbell Raise",
 					Sets: 4,
 					Reps: 10,
 					Weight: 10
 				},
-
+				
 				{
 					Category:"Shoulder",
-					Name: "Shoulder Shrugs",
-					Sets: 3,
-					Reps: 10,
-					Weight: 20
-				},
-
-				{
-					Category:"Shoulder",
-					Name: "Standing Pull Down",
+					Name: "Cable Shoulder Shrugs",
 					Sets: 3,
 					Reps: 10,
 					Weight: 20
@@ -136,6 +108,8 @@ if(Meteor.isServer){
 			avgComplete: "0:00:00",
 		})
 	}
+
+
 	if(Cardio.find().count()== 0) {
 
 		Cardio.insert({

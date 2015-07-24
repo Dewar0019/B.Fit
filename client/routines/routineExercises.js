@@ -15,13 +15,14 @@ var Clock = {
 
 	start: function () {
 		var self = this;
-		
+
 		this.interval = setInterval(function () {
 			self.totalSeconds += 1;
 
 			$("#timer2").text(Math.floor(self.totalSeconds / 3600) + ":"
 			+ Math.floor(self.totalSeconds / 60 % 60 / 10) + Math.floor(self.totalSeconds / 60 % 60 % 10) + ":"
 			+ parseInt(self.totalSeconds % 60 / 10) + parseInt(self.totalSeconds % 60 % 10));
+			
 		}, 1000);
 	},
 
@@ -41,6 +42,17 @@ var Clock = {
 	}
 };
 
+function getPietimer(){
+	$('#demo').pietimer({
+		seconds: 60,
+		color: 'rgba(0,0,1,0.8)',
+		height:100,
+		width:100,
+		is_reversed: true
+	});
+	$('#demo').pietimer('start');
+};
+
 //This checklist will keep track of what exercises has been completed from the routine
 checkedExercises = [];
 function initalizeCheckList() {
@@ -54,10 +66,7 @@ function initalizeCheckList() {
 	}
 };
 
-var timer_is_on = 0;
 var running = false;
-
-
 
 // function checkForMissing(exercise) {
 // 	if(reps == null) {}
@@ -110,21 +119,19 @@ Template.routineExercises.events({
 				Session.set("workoutStarted", true);
 				Session.set("showExerciseList", true); // when the start button is clicked the showExerciseList is set to true
 				Clock.start();
+				getPietimer();
 			}
 
 		} else if($(".beginExercise").html() == "Pause") {
 			running=false;
 			$(".beginExercise").html("Resume");
 			$(".beginExercise").attr('id', 'resumeExercise');
-			// clearTimeout(t);
-			// pauseTime = new Date()
 			Clock.pause();
 		} else {
 			running=true;
 			$(".beginExercise").html("Pause");
 			$(".beginExercise").attr('id', 'pauseExercise');
 			Clock.resume();
-			// setTimeout(display, 1000);
 		}
 	},
 
@@ -171,4 +178,3 @@ Template.routineExercises.rendered = function() {
 		$(".beginExercise").attr('id', 'pauseExercise');
 	}
 }
-
