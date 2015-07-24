@@ -39,6 +39,11 @@
                                         <label>{{> ionIcon icon="ios-person-outline" class="positive"}}  Full Name:</label>
                                         <span id="fullname" class="datainfo">{{getUserInfo.profile.firstName}} {{getUserInfo.profile.lastName}}</span>
                                     </div>
+
+                                    <div class="gear">
+                                        <label>{{> ionIcon icon="ios-body-outline" class="positive"}}  Height:</label>
+                                        <span class="datainfo">{{getUserInfo.profile.height}}</span>
+                                    </div>
                                     
                                     <div class="gear">
                                         <label>{{> ionIcon icon="ios-speedometer-outline" class="positive"}}  Current Weight:</label>
@@ -53,9 +58,15 @@
                                         </label>
                                     </form>
                                     </div>
+
+                                    <div class="gear">
+                                        <label>{{> ionIcon icon="ios-heart-outline" class="positive"}}  BMI:</label>
+                                        <span class="datainfo" id="bmi">{{getBMI}}</span>
+                                    </div>
+
                                     <button id="viewWeightProgress" class="button button-positive">
                                         View Chart
-                                        </button> 
+                                    </button> 
                                     
                                 </div>
                             </section>
