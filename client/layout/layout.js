@@ -1,10 +1,3 @@
-Template.layout.events({
-	'click .startDictation': function(event){
-		startDictation(event);
-
-	}
-})
-
 toastr.options = {
 
 	"closeButton": false,
@@ -13,10 +6,10 @@ toastr.options = {
 	"progressBar": true,
 	"positionClass": "toast-top-right",
 	"preventDuplicates": false,
-	"showDuration": "0",
-	"hideDuration": "0",
+	"showDuration": "5000",
+	"hideDuration": "5000",
 	"timeOut": "10000",
-	"extendedTimeOut": "0",
+	"extendedTimeOut": "3000",
 	"showEasing": "swing",
 	"hideEasing": "linear",
 	"showMethod": "fadeIn",
@@ -25,6 +18,14 @@ toastr.options = {
 		console.log("clicked");
 	}
 }
+
+Template.layout.events({
+	'click .startDictation': function(event){
+		startDictation(event);
+
+	}
+})
+
 
 
 
@@ -109,6 +110,9 @@ if ('webkitSpeechRecognition' in window) {
 	};
 }
 
+	function capitalize(s) {
+	return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
+			}
 	var two_line = /\n\n/g;
 	var one_line = /\n/g;
 
@@ -160,9 +164,7 @@ function sendSentence(sentence){
 				recordExercise(testVariable);
 			}
 
-			function capitalize(s) {
-			return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
-			}
+			
 		}
 
 	})
@@ -186,7 +188,7 @@ function sendSentence(sentence){
 				console.log("success!", response);
 				if(testVariable[0].confidence < 0.95) {
 					toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
-					recognition.onstart();
+					setTimeout(recognition.start(), 2000);
 				}
 				else if(testVariable[0]._text.indexOf("next exercise") > 0) {
 					console.log("next exercise recognized");
