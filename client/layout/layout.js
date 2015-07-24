@@ -116,7 +116,7 @@ if ('webkitSpeechRecognition' in window) {
 	function capitalize(s) {
 	return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
 			}
-	var two_line = /\n\n/g;
+	var two_line = /`\n`\n/g;
 	var one_line = /\n/g;
 
 	function linebreak(s) {

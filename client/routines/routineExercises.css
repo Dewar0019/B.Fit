@@ -22,28 +22,22 @@ hr {
 	padding-left: 10px;
 }
 
-
-.completionButton {
-	margin: 0 auto;
-	left: 20%;
-}
-
-
-
 #done {
 	border-radius: 100px;
-	margin: 0 auto;
-	left: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #finish{
 	border-radius: 100px;
-	margin: 0 auto;
-	left: 32%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
+
+
 .beginExercise {
-	margin: 0 auto;
+	margin: auto;
 	left: 40%;
 	width:300px;
 	height:300px;
@@ -56,7 +50,7 @@ hr {
 }
 
 #pauseExercise {
-	margin: 0 auto;
+	margin: auto;
 	left: 40%;
 	width:300px;
 	height:300px;
