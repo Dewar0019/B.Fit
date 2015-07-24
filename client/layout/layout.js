@@ -132,15 +132,6 @@ function capitalize(s) {
 function startDictation(event) {
 	if (!dictationStarted) {
 		recognition.start();
-<<<<<<< HEAD
-		final_transcript = '';
-		recognition.lang = 'en-US';
-		final_span = '';
-		interim_span = '';
-	} else if(recognizing) { //Stops dictation if button was press again.
-		recognizing = false;
-		stopListening.play();
-=======
  		recognition.lang = 'en-US';
  	} else if(recognizing) { //Stops dictation if button was press again. 
  		final_span = '';
@@ -148,7 +139,6 @@ function startDictation(event) {
   		final_transcript = '';
  		recognizing = false;
  		stopListening.play();
->>>>>>> bf20a352a69f8564c515e36af5e6579b6a6117d2
 		console.log("dictation stopped");
 		stopTimeOutEvent();  //Stops the timeout event if it hasn't been 10 seconds
 	} else {  //for when recognizing is false;
