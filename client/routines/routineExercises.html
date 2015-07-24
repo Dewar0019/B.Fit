@@ -25,8 +25,11 @@
 				{{/if}}
 			</div>
 
-			
-			<button id="done" class="button button-assertive" >Exercise Done!</button>
+			<!-- countdown for the goal -->
+			<!-- <p id="demo" style="height: 150px;"></p> -->
+			<center>
+				<button id="done" class="button button-assertive" >Exercise Done!</button>
+			</center>
 			{{/if}}
 			<!-- The timer -->
 			<p id="timer">
@@ -40,7 +43,7 @@
 			<hr/>
 
 			<!-- Start button is made through CSS -->
-			<div class="beginExercise">Start</div>
+			<div class="beginExercise" id="start">Start</div>
 
 			<!-- allows the start button to become the finish button once it is pressed -->
 			{{#if workoutStarted}}
