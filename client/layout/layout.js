@@ -29,7 +29,7 @@ Template.layout.events({
 
 
 
-function timeOutEvent() { 
+function timeOutEvent() {
 		t = setTimeout(function() {
 		recognizing = false;
 		recognition.stop();
@@ -126,14 +126,19 @@ function startDictation(event) {
 		recognizing = false;
 		stopListening.play();
 		console.log("dictation stopped");
-	} 
+	}
 		recognition.start();
 		recognition.lang = 'en-US';
 		final_transcript = '';
 		final_span = '';
 		interim_span = '';
-	
+
 }
+
+function capitalize(s) {
+	return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
+}
+
 
 function sendSentence(sentence){
 	console.log("sending sentence");
@@ -153,7 +158,7 @@ function sendSentence(sentence){
 			console.log("success!", response);
 			if(testVariable[0].confidence < 0.95) {
 				toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
-				
+
 			}
 			else if(testVariable[0]._text.indexOf("next exercise") > 0) {
 				console.log("next exercise recognized");
@@ -163,10 +168,7 @@ function sendSentence(sentence){
 			} else {
 				recordExercise(testVariable);
 			}
-
-			
 		}
-
 	})
 }
 
@@ -414,30 +416,29 @@ function sendSentence(sentence){
 
 		//NAME TRY CATCH BLOCK
 
-		var cardioExercises = ["running", "biking", "cycling", "swimming", "rowing", "walking"]
+		var presentTense;
 
 		try {
 			if (testVariable[0].entities.running != undefined){
-				name = "Running"
+				name = "Running";
+				presentTense = "run";
 			} else if (testVariable[0].entities.biking != undefined) {
-				name = "Biking"
+				name = "Biking";
+				presentTense = "bike";
 			} else if (testVariable[0].entities.cycling != undefined) {
-				name = "Cycling"
+				name = "Cycling";
+				presentTense = "cycle";
 			} else if (testVariable[0].entities.swimming != undefined) {
-				name = "Swimming"
+				name = "Swimming";
+				presentTense = "swim";
 			} else if (testVariable[0].entities.rowing != undefined) {
-				name = "Rowing"
+				name = "Rowing";
+				presentTense = "row";
 			} else if (testVariable[0].entities.rowing != undefined) {
-				name = "Walking"
+				name = "Walking";
+				presentTense = "walk";
 			}
 
-			//TEST IF THIS WORKS LATER. ISSUE MAY RISE IN THE IF STATEMENT WHERE THE VARIABLE currentExercise IS USED
-			// for(var i = 0; i < cardioExercises.length; i++){
-			// 	var currentExercise = cardioExercises[i];
-			// 	if (testVariable[0].entities.currentExercise != undefined) {
-			// 		name = toTitleCase(currentExercise);
-			// 	}
-			// }
 
 		} catch (e){
 			name = prompt("What exercise did you do");
@@ -452,7 +453,7 @@ function sendSentence(sentence){
 			// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number
 			console.log("time: " + time + " " + typeof time)
 		} catch (e){
-			time = parseInt(prompt("How long did you run for?"));
+			time = parseInt(prompt("How long did you " + presentTense + " for?"));
 			console.log("manually entered time " + time + " " + typeof time)
 		}
 
@@ -463,7 +464,7 @@ function sendSentence(sentence){
 			// gets the number from wit.ai whether the value was '10', 'ten' or 10 and ensures the final value is a number
 			console.log("distance: " + distance + " " + typeof distance)
 		} catch (e){
-			distance = parseInt(prompt("How far did you run (enter in just the number)?"));
+			distance = parseInt(prompt("How far did you " + presentTense + ". (Enter the number)?"));
 			console.log("manually entered distance " + distance + " " + typeof distance)
 		}
 
@@ -535,4 +536,3 @@ function sendSentence(sentence){
 	function toTitleCase(str) {
 		return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 	}
-
