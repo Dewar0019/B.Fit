@@ -15,46 +15,45 @@
 		{{#ionView}}
 			{{#ionContent}}
 
-			<!-- Card which will display the current exercise -->
-			{{#if workoutStarted}}
-				<div id="beingPerformed" class="card">
-					{{#if anyExerciseLeft}}
-					<p id="exerciseName"> {{currentExercise.Name}} </p>
-					<p id="exerciseSetsAndReps"> {{currentExercise.Sets}} Sets of {{currentExercise.Reps}} Reps </p>
-					<p id="exerciseWeight"> {{currentExercise.Weight}} Lbs </p>
-					{{else}}
-					<p> No More Exercises left! </p>
-					{{/if}}
-				</div>
+				<!-- Card which will display the current exercise -->
+				{{#if workoutStarted}}
+					<div id="beingPerformed" class="card">
+						{{#if anyExerciseLeft}}
+						<p id="exerciseName"> {{currentExercise.Name}} </p>
+						<p id="exerciseSetsAndReps"> {{currentExercise.Sets}} Sets of {{currentExercise.Reps}} Reps </p>
+						<p id="exerciseWeight"> {{currentExercise.Weight}} Lbs </p>
+						{{else}}
+						<p> No More Exercises left! </p>
+						{{/if}}
+					</div>
 
-				<!-- countdown for the goal -->
-				<!-- <p id="demo" style="height: 150px;"></p> -->
+					<!-- countdown for the goal -->
+					<!-- <p id="demo" style="height: 150px;"></p> -->
 
-				<button id="done" class="button button-assertive" >Exercise Done!</button>
+					<button id="done" class="button button-assertive" >Exercise Done!</button>
 
-				<button id="finish" class="button button-large button-positive" data-action="showConfirm" > Finish Workout </button>
+					<button id="finish" class="button button-large button-positive" data-action="showConfirm" > Finish Workout </button>
+				{{/if}}
 
-			{{/if}}
+				<!-- The timer -->
+				<p id="timer">
+					<span id="timer2">0:00:00</span>
+				</p>
 
-			<!-- The timer -->
-			<p id="timer">
-				<span id="timer2">0:00:00</span>
-			</p>
+				<br>
+				<hr/>
 
-			<br>
-			<hr/>
+				<!-- Start button is made through CSS -->
+				<div class="beginExercise" id="start">Start</div>
 
-			<!-- Start button is made through CSS -->
-			<div class="beginExercise" id="start">Start</div>
+				<!-- allows the start button to become the finish button once it is pressed -->
 
-			<!-- allows the start button to become the finish button once it is pressed -->
-
-			 <!-- Displays all the exercises in the current routine with checkboxes -->
-			 {{#if showExerciseList}}
-			 	{{#each exerciseList}}
-					{{> listExercises}}
-				{{/each}}
-			{{/if}}
+				<!-- Displays all the exercises in the current routine with checkboxes -->
+				{{#if showExerciseList}}
+					{{#each exerciseList}}
+						{{> listExercises}}
+					{{/each}}
+				{{/if}}
 
 			{{/ionContent}}
 		{{/ionView}}
