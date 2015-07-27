@@ -108,7 +108,6 @@ if(Meteor.isServer){
 			avgComplete: "0:00:00",
 		})
 
-<<<<<<< HEAD
 	if(UserWeight.find().count() == 0) {
 		UserWeight.insert({
 			weight: 190,
@@ -181,9 +180,6 @@ if(Meteor.isServer){
 		})	
 	}
 
-=======
-		//////////////////////////////////////////////////
-
 		Routines.insert({
 			_uID: "preset" ,
 			routineName: "Beginner 1",
@@ -231,7 +227,6 @@ if(Meteor.isServer){
 			avgComplete: "0:00:00",
 		})
 	}
->>>>>>> 13d02bbb4a4b3192b01cdd6e8dafc10cbd5dbd28
 
 	if(Cardio.find().count()== 0) {
 

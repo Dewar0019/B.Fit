@@ -24,6 +24,7 @@ Template.profile.events({
   	});
   	toastr.success("Got your Weight!", "Weight Recorded");
   	console.log("weight recorded")
+  	Meteor.call('updateWeight', numb);
   	event.target.weightEntered.value = '';
   },
 

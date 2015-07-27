@@ -22,6 +22,17 @@ Meteor.methods({
 		console.log(routine);
 	},
 
+	'updateWeight' : function(weight) {
+		if(this.userId) {
+		var newProfile = Meteor.users.findOne(Meteor.userId());
+		console.log(newProfile.profile.currentWeight);
+		newProfile.profile.currentWeight = weight;
+		console.log(newProfile.profile.currentWeight);			
+		Meteor.users.update(Meteor.userId(), {$set: {profile: newProfile.profile}});
+		console.log(Meteor.user().profile.currentWeight);
+		}
+	},
+
 	'createNewRoutine' : function(name) {
 		return Routines.insert({
 			_uID: Meteor.userId(),
