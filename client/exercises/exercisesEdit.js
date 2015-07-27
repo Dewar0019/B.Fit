@@ -27,7 +27,7 @@ Template.exercisesEdit.events({
 		var time = event.target.time.value;
 		var distance = event.target.distance.value;
 		if(checkValues(time, distance)) {
-			Meteor.call('addToRoutine', exerciseID, routine, sets, reps, weight, function(error, result){
+			Meteor.call('addToCardioRoutine', exerciseID, routine, time, distance, function(error, result){
 				Session.set("selectedRoutine", result);
 			});
 			toastr.success(exerciseID.Name + " Added to " + routine.routineName, "Exercise Sucessfully Added");
