@@ -48,23 +48,6 @@ Template.exercisesEdit.helpers({
 })
 
 
-toastr.options = {
-	"closeButton": true,
-	"debug": false,
-	"newestOnTop": false,
-	"progressBar": false,
-	"positionClass": "toast-bottom-center",
-	"preventDuplicates": false,
-	"onclick": null,
-	"showDuration": "300",
-	"hideDuration": "1000",
-	"timeOut": "2000",
-	"extendedTimeOut": "1000",
-	"showEasing": "swing",
-	"hideEasing": "linear",
-	"showMethod": "fadeIn",
-	"hideMethod": "fadeOut"
-}
 
 function checkValues(sets, reps, weight) {
 	if(sets <0 || reps < 0 || weight < 0) {

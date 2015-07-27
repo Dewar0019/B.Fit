@@ -1,23 +1,3 @@
-toastr.options = {
-
-	"closeButton": false,
-	"debug": false,
-	"newestOnTop": false,
-	"progressBar": true,
-	"positionClass": "toast-top-right",
-	"preventDuplicates": false,
-	"showDuration": "5000",
-	"hideDuration": "5000",
-	"timeOut": "15000",
-	"extendedTimeOut": "3000",
-	"showEasing": "swing",
-	"hideEasing": "linear",
-	"showMethod": "fadeIn",
-	"hideMethod": "fadeOut",
-	"onclick": function() {
-		console.log("clicked");
-	}
-}
 
 Template.layout.events({
 	'click .startDictation': function(event){
@@ -26,6 +6,23 @@ Template.layout.events({
 	}
 })
 
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-left",
+  "preventDuplicates": true,
+  "showDuration": "5000",
+  "hideDuration": "5000",
+  "timeOut": "15000",
+  "extendedTimeOut": "5000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut",
+  "onclick": function() { console.log("clicked");},
+}
 
 
 
@@ -36,12 +33,12 @@ function timeOutEvent() {
 	  	console.log("Dictation Time Out");
 	  	toastr.info("Dictation Timed Out, we didn't get a response", "Mic is now Off");
 	  	stopListening.play();
-		}, 15000);
+		}, 10000);
 }
 
 function stopTimeOutEvent() {
 	clearTimeout(t);
-	toastr.clear()
+	// toastr.clear()
 	console.log("cleared timeoutEvent");
 }
 
@@ -95,7 +92,6 @@ if ('webkitSpeechRecognition' in window) {
 					console.log("final result is |"+event.results[i][0].transcript.trim()+"|");
 					final_transcript += capitalize(event.results[i][0].transcript.trim());
 					console.log('final events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
-					toastr.info(final_transcript, "You said: ");
 					recognition.stop();
 					recognizing = false;
 					sendSentence(final_transcript);
@@ -146,6 +142,7 @@ function capitalize(s) {
 
 	function sendSentence(sentence){
 		console.log("sending sentence");
+		toastr.info(final_transcript, "You said: ");
 		$.ajax({
 			url: 'https://api.wit.ai/message',
 			data: {
@@ -163,6 +160,8 @@ function capitalize(s) {
 				if(testVariable[0].confidence < 0.95) {
 					toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
 					setTimeout(recognition.onstart(), 2000);
+				} else if(testVariable[0].intent == "navigation") {
+					navigation(testVariable);
 				}
 				else if(testVariable[0].intent == "exercise_progress") {
 					console.log("exercise_progress");
@@ -487,19 +486,23 @@ function capitalize(s) {
 		var counter = 0;
 		var voices = window.speechSynthesis.getVoices();
 		checkedExercises.forEach(function(obj) {
-			if(obj.checked == false) {
+			if(obj.checked == false)
 				counter++;
-			}
 		});
-
 		if(counter > 0 ) {
 			var msg = new SpeechSynthesisUtterance("You have " + counter + " exercises remaining");
-			
 		} else {
 			var msg = new SpeechSynthesisUtterance("There are no more exercises");//constructor for voice speech
 		}
-			msg.voice = voices[1];
-			window.speechSynthesis.speak(msg);
+		msg.voice = voices[1];
+		window.speechSynthesis.speak(msg);
+	}
+
+	function navigation (action) {
+		if (action[0].entities.hasOwnProperty("analytics")) {
+
+			setTimeout( function() {Router.go("chart")}, 3000);
+		}
 	}
 
 
