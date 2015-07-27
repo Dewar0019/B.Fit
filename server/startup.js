@@ -108,6 +108,80 @@ if(Meteor.isServer){
 			avgComplete: "0:00:00",
 		})
 
+<<<<<<< HEAD
+	if(UserWeight.find().count() == 0) {
+		UserWeight.insert({
+			weight: 190,
+			dateAdded: "2015-01-01",
+		})
+
+		UserWeight.insert({
+			weight: 189.2,
+			dateAdded: "2015-01-05",
+		})
+
+		UserWeight.insert({
+			weight: 188.5,
+			dateAdded: "2015-01-06",
+		})
+
+		UserWeight.insert({
+			weight: 187,
+			dateAdded: "2015-01-13",
+		})
+
+		UserWeight.insert({
+			weight: 186.7,
+			dateAdded: "2015-01-18",
+		})
+
+		UserWeight.insert({
+			weight: 186,
+			dateAdded: "2015-01-19",
+		})
+
+		UserWeight.insert({
+			weight: 188,
+			dateAdded: "2015-01-21",
+		})
+
+		UserWeight.insert({
+			weight: 186,
+			dateAdded: "2015-01-23",
+		})
+
+		UserWeight.insert({
+			weight: 184,
+			dateAdded: "2015-01-29",
+		})
+
+		UserWeight.insert({
+			weight: 182,
+			dateAdded: "2015-02-05",
+		})
+
+		UserWeight.insert({
+			weight: 179,
+			dateAdded: "2015-02-13",
+		})
+
+		UserWeight.insert({
+			weight: 180,
+			dateAdded: "2015-02-14",
+		})
+
+		UserWeight.insert({
+			weight: 176,
+			dateAdded: "2015-02-21",
+		})
+
+		UserWeight.insert({
+			weight: 170,
+			dateAdded: "2015-02-28",
+		})	
+	}
+
+=======
 		//////////////////////////////////////////////////
 
 		Routines.insert({
@@ -142,6 +216,7 @@ if(Meteor.isServer){
 			avgComplete: "0:00:00",
 		})
 	}
+>>>>>>> 13d02bbb4a4b3192b01cdd6e8dafc10cbd5dbd28
 
 	if(Cardio.find().count()== 0) {
 
