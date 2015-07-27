@@ -144,39 +144,6 @@ function capitalize(s) {
 	return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
 }
 
-
-function sendSentence(sentence){
-	console.log("sending sentence");
-	$.ajax({
-		url: 'https://api.wit.ai/message',
-		data: {
-			'q': sentence,
-			'access_token' : 'D4PLZXVAAU5VA4OF7T365EJSDOERBI3P'
-		},
-
-		dataType: 'jsonp',
-		method: 'GET',
-
-		success: function(response) {
-			// make testVariable a Var in final version
-			testVariable = response.outcomes;
-			console.log("success!", response);
-			if(testVariable[0].confidence < 0.95) {
-				toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
-
-			}
-			else if(testVariable[0].intent== 'exercise_progress') {
-				console.log("next exercise recognized");
-				nextExerciseCommand(testVariable);
-			} else if (testVariable[0].intent == "logCardioIntent"){
-				recordCardio(testVariable);
-			} else {
-				recordExercise(testVariable);
-			}
-		}
-	})
-}
-
 	function sendSentence(sentence){
 		console.log("sending sentence");
 		$.ajax({
@@ -199,8 +166,11 @@ function sendSentence(sentence){
 				}
 				else if(testVariable[0].intent == "exercise_progress") {
 					console.log("exercise_progress");
-					if( testVariable[0].entities.hasOwnProperty("exercises_left"))
-					nextExerciseCommand(testVariable);
+					if(testVariable[0].entities.hasOwnProperty("exercises_left")) {
+						exercisesLeft(testVariable);
+					} else {
+						nextExerciseCommand(testVariable);
+					}	
 				} else if (testVariable[0].intent == "logCardioIntent"){
 					recordCardio(testVariable);
 				} else {
@@ -506,14 +476,32 @@ function sendSentence(sentence){
 		if(nextExercise != null) {
 			var voiceExercise = "Your next exercise is " + nextExercise.Sets + " sets" + "and " + nextExercise.Reps + " reps of " + nextExercise.Name
 			var msg = new SpeechSynthesisUtterance(voiceExercise);//constructor for voice speech
-			msg.voice = voices[1];
-			window.speechSynthesis.speak(msg);
 		} else {
 			var msg = new SpeechSynthesisUtterance("There are no more exercises");//constructor for voice speech
+		}
+		msg.voice = voices[1];
+		window.speechSynthesis.speak(msg);
+	}
+
+	function exercisesLeft(action) {
+		var counter = 0;
+		var voices = window.speechSynthesis.getVoices();
+		checkedExercises.forEach(function(obj) {
+			if(obj.checked == false) {
+				counter++;
+			}
+		});
+
+		if(counter > 0 ) {
+			var msg = new SpeechSynthesisUtterance("You have " + counter + " exercises remaining");
+			
+		} else {
+			var msg = new SpeechSynthesisUtterance("There are no more exercises");//constructor for voice speech
+		}
 			msg.voice = voices[1];
 			window.speechSynthesis.speak(msg);
-		}
 	}
+
 
 	analyticsDate = function(){
 		var d = new Date()
