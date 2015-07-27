@@ -22,6 +22,10 @@ Template.createRoutine.events({
 
 Template.createRoutine.helpers({
 	item: function() {
-		return Routines.find().fetch()
+		return Routines.find({_uID: Meteor.userId()}).fetch();
 	},  //Gotta change later so that it consist only of presets and user inserted routines
+   ownRoutines : function() {
+		Session.set("grabAllRoutines", Routines.find({_uID: Meteor.userId()}).fetch());
+		
+	},
 })
