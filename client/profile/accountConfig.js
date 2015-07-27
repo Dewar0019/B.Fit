@@ -28,12 +28,14 @@ AccountsTemplates.addFields(
     type: 'text',
     placeholder: "Current Weight (pounds)",
     displayName: "Current Weight",
+    required: true,
 },
 {
     _id: 'height',
     type: 'text',
     placeholder: "Height (inches)",
     displayName: "Height",
+    required: true,
 },
 { 
 	_id: "gender",

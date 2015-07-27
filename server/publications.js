@@ -5,24 +5,6 @@ Meteor.publish('completed',function() {return Completed.find();});
 Meteor.publish('completedCardio', function() {return Cardio.find();});
 Meteor.publish('exercisesCardio', function() {return ExercisesCardio.find();});
 Meteor.publish('theProfileimages',function(){return ProfileImages.find();});
-// Meteor.users.allow({
-//   update: function (userId, user, fields, modifier) {
-//     // can only change your own documents
-//     if(user._id === userId)
-//     {
-//       Meteor.users.update({_id: userId}, modifier);
-//       return true;
-//     }
-//     else return false;
-//   }
-// });
-
-// I think this block of code (everything under the if(Meteor.isServer)) should be moved to a different file. 
-
-
-// Meteor.publish(null, function () {
-//   return Meteor.users.find({_id: this.userId}, {fields: {emails: 1, profile: 1}});
-// });
 
 Meteor.publish("userData", function () {
   if (this.userId) {
