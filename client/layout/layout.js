@@ -390,13 +390,7 @@ function sendSentence(sentence){
 			prompt("We didn't quite catch the name of the exercise. \nCould you please enter it.");
 		}
 
-		Strength.insert({
-			Name: name,
-			Sets: sets,
-			Reps: reps,
-			Weight: weight,
-			CompletedOn: new Date()
-		})
+		Meteor.call('addToStrengthCollection', name, sets, reps, weight);
 
 		// sets the fromDate for the display of the log page to today if it has not already been chosen by the user so the information the user
 		// just enetered is displayed.

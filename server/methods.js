@@ -90,5 +90,19 @@ Meteor.methods({
 		getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
 		Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
 		return Routines.findOne({_id: getRoutine._id});
+	},
+
+	'addToStrengthCollection': function (name, sets, reps, weight){
+		now = new Date()
+
+		Strength.insert({
+			_uID: Meteor.userId(),
+			Name: name,
+			Sets: sets,
+			Reps: reps,
+			Weight: weight,
+			CompletedOn: now
+		})
+
 	}
 })

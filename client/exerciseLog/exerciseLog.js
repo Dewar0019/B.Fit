@@ -76,14 +76,7 @@ Template.exerciseLog.events({
 		var reps = event.target.numOfReps.value;
 		var weight = event.target.weight.value;
 
-		Strength.insert({
-			_uID: Meteor.userId(),
-			Name: name,
-			Sets: sets,
-			Reps: reps,
-			Weight: weight,
-			CompletedOn: new Date()
-		})
+		Meteor.call('addToStrengthCollection', name, sets, reps, weight); 
 
 
 		// if the user has never specified to view todays, this week's or this month's exercises, today's is automatically shown
