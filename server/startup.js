@@ -85,7 +85,7 @@ if(Meteor.isServer){
 			weight: 180,
 			dateAdded: "2015-02-14",
 		})
-		
+
 		UserWeight.insert({
 			weight: 176,
 			dateAdded: "2015-02-21",
@@ -173,7 +173,7 @@ if(Meteor.isServer){
 					Sets: 3,
 					Reps: 10,
 					Weight: 20
-				},
+				}
 			],
 
 			createdAt: new Date(),
@@ -185,7 +185,7 @@ if(Meteor.isServer){
 
 		Routines.insert({
 			_uID: "preset" ,
-			routineName: "Beginner 1",
+			routineName: "Week 1",
 			exercises: [
 				{
 					Category: "Chest",
@@ -196,7 +196,7 @@ if(Meteor.isServer){
 
 				{
 					Category:"Back",
-					Name: "Lateral PullDown",
+					Name: "Lateral Pulldown",
 					Sets: 3,
 					Reps: 10,
 				},
@@ -208,12 +208,118 @@ if(Meteor.isServer){
 					Reps: 10,
 				},
 
+				{
+					Category:"Legs",
+					Name: "Leg Press",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category:"Arms",
+					Name: "Tricep Press Down",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category:"Legs",
+					Name: "Calf Raises",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category:"Abs",
+					Name: "Crunches",
+					Sets: 3,
+					Reps: 15,
+				}
+
 			],
 
 			createdAt: new Date(),
 			timesCompleted: 0,
 			avgComplete: "0:00:00",
 		})
+
+
+		Routines.insert({
+			_uID: "preset" ,
+			routineName: "Week 2",
+			exercises: [
+				{
+					Category: "Chest",
+					Name: "Barbell Bench Press",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Chest",
+					Name: "Dumbbell Flye",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Back",
+					Name: "Barbell Bent Over Row",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Chest",
+					Name: "Lateral Pulldown ",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Chest",
+					Name: "Overhead Dumbbell Press",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Shoulders",
+					Name: "Dumbbell Lateral Raise",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Arms",
+					Name: "Barbell Bicep Curl",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Arms",
+					Name: "Barbell Preacher Curl",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Arms",
+					Name: "Tricep Press Down",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Abs",
+					Name: "Crunches",
+					Sets: 3,
+					Reps: 15,
+				}
+			]
+		})
+
 	}
 
 	if(Cardio.find().count()== 0) {
