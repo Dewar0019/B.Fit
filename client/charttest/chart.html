@@ -12,68 +12,6 @@
 	{{#ionContent}}
 	{{#ionList}}
 	
-	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	<script src="c3.js"></script>
-	<script>
-			var grabDistance = ['Running'];
-			var grabTime = ['Running Time'];
-			var grabDate = ['date'];
-			
-			function grabInfo() {
-				var allCardio = Cardio.find().fetch();
-				allCardio.forEach(function(finished) {
-					grabDistance.push(finished.Distance);
-					grabTime.push(finished.Time);
-					grabDate.push(finished.analyticsDate);
-				});
-			}
-			grabInfo();
-
-	$(document).ready(function(){
-
-		$("#cardio,#strength,#flexibility").change(function(){
-			var c1 = $("#cardio").find('option:selected').val();
-			chart.hide(null,{ withLegend: true });
-			chart.show([c1],{ withLegend: true });
-		});
-
-		$('#A').on('click',function(){
-			
-			chart.load({ columns:[ grabTime, ], unload: ['Running'], });
-		});
-
-
-		$('#B').on('click',function(){
-			
-			chart.load({ columns:[ grabDistance, ], unload: ['Running Time'],});
-		});
-	});
-
-		var chart = c3.generate({
-			bindto: '#chart',
-			data:{ 	x: 'date',
-					columns: [
-						grabDate,
-						grabDistance,												
-					],
-					types: {
-						Running: 'area-spline',
-						Walking: 'area-spline',
-						Swimming: 'area-spline',
-						Cycling: 'area-spline'
-					},
-					hide: true
-					},
-			subchart: { show: true },
-		 	zoom: { enabled: true },
-		 	axis: {
-        			x: { label: { text: 'Date', position: 'outer-middle'}, type: 'timeseries', tick: { format: '%m-%d'} },
-        			y: { label: { text: "Distance", position: 'outer-middle'} }
-        		},
-			legend: { show: false }
-		});
-	</script>
-
 		<div class="card">
 			<div class="item item-divider">
 				<h2 class="text-center">
@@ -104,7 +42,6 @@
 			<div class='chart'>
 			  <div id="chart"></div>
 			</div>
-
 
 			<div class="item tabs tabs-secondary">
 				<button class="button button-outline button-calm" id="A">
