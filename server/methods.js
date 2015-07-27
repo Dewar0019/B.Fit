@@ -14,11 +14,11 @@ Meteor.methods({
 		var avgTotalSeconds = averageTime/allCompleted.length;
 		console.log("avgTotalSeconds");
 		console.log(avgTotalSeconds);
-		var completeTimeAverage = (Math.floor(avgTotalSeconds / 3600) + ":" 
-		+ Math.floor(avgTotalSeconds / 60 % 60 / 10) + Math.floor(avgTotalSeconds / 60 % 60 % 10) + ":" 
+		var completeTimeAverage = (Math.floor(avgTotalSeconds / 3600) + ":"
+		+ Math.floor(avgTotalSeconds / 60 % 60 / 10) + Math.floor(avgTotalSeconds / 60 % 60 % 10) + ":"
 		+ parseInt(avgTotalSeconds % 60 / 10) + parseInt(avgTotalSeconds % 60 % 10));
-		console.log(completeTimeAverage);          
-		Routines.update({_id: routine._id}, {$set:{ timesCompleted: counter, avgComplete: completeTimeAverage}}); 
+		console.log(completeTimeAverage);
+		Routines.update({_id: routine._id}, {$set:{ timesCompleted: counter, avgComplete: completeTimeAverage}});
 		console.log(routine);
 	},
 
@@ -27,7 +27,7 @@ Meteor.methods({
 		var newProfile = Meteor.users.findOne(Meteor.userId());
 		console.log(newProfile.profile.currentWeight);
 		newProfile.profile.currentWeight = weight;
-		console.log(newProfile.profile.currentWeight);			
+		console.log(newProfile.profile.currentWeight);
 		Meteor.users.update(Meteor.userId(), {$set: {profile: newProfile.profile}});
 		console.log(Meteor.user().profile.currentWeight);
 		}
@@ -52,8 +52,8 @@ Meteor.methods({
 			}
 		});
 	},
-		
-	// var justCreated = Routines.findOne({_uID: Meteor.userId(), routineName: name});           
+
+	// var justCreated = Routines.findOne({_uID: Meteor.userId(), routineName: name});
 	// console.log(justCreated);
 	// return justCreated;
 	// Session.set('recentAdd', Routines.findOne({_uID: Meteor.userId(), routineName: name}));
@@ -61,7 +61,7 @@ Meteor.methods({
 	'addToRoutine': function(exercise, getRoutine, sets, reps, weight) {  //this will add new exercise to routine
 		var currentTime = new Date(); //Grab the current time
 		Intermediate.insert({ //This is the actual object that will be added to the routine
-			Name: exercise.Name, 
+			Name: exercise.Name,
 			Sets: sets,
 			Reps: reps,
 			Weight: weight,
@@ -69,7 +69,23 @@ Meteor.methods({
 			AddedOn: currentTime,
 			AddedBy: Meteor.userId()
 		});
-		
+
+		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
+		getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
+		Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
+		return Routines.findOne({_id: getRoutine._id});
+	},
+
+	'addToCardioRoutine': function (exercise, getRoutine, time, distance){
+		var currentTime = new Date(); //Grab the current time
+		Intermediate.insert({
+			Name: exercise.Name,
+			Time: time,
+			Distance: distance,
+			AddedOn: currentTime,
+			AddedBy: Meteor.userId()
+		});
+
 		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
 		getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
 		Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
