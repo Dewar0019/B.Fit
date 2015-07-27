@@ -25,7 +25,11 @@
 				</form>
 
 				<br>
-
+				{{#if emptyRoutines}}
+                <div class ="card">
+                    <h1 class="text-center">You have no personal routines. Create one above!</h1>
+                </div>
+                {{else}}
 				<div id="cardback">
 					<h3 class="text-center">Edit a Routine Below</h3>
 				</div>
@@ -35,7 +39,7 @@
 						{{> editRoutines}}
 					{{/each }}
 				{{/ionList}}
-
+				{{/if}}
 			{{/ionContent}}
 		{{/ionView}}
 
@@ -57,8 +61,8 @@
 <template name= "editRoutines">
 	{{#ionItem path="exercises" _id="{{_id}}"  buttonRight=true avatar=true}}
 		<div class ="select">
-			<h2 >{{routineName}}</h2>
-			<p>Number of Exercises: {{exercises.length}}</p>
+				<h2 >{{routineName}}</h2>
+				<p>Number of Exercises: {{exercises.length}}</p>
 		</div>
 	{{/ionItem}}
 </template>

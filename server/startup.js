@@ -25,6 +25,79 @@ if(Meteor.isServer){
 		return arrayOfStrings;
 	}
 
+	if(UserWeight.find().count() == 0) {
+		UserWeight.insert({
+			weight: 190,
+			dateAdded: "2015-01-01",
+		})
+
+		UserWeight.insert({
+			weight: 189.2,
+			dateAdded: "2015-01-05",
+		})
+
+		UserWeight.insert({
+			weight: 188.5,
+			dateAdded: "2015-01-06",
+		})
+
+		UserWeight.insert({
+			weight: 187,
+			dateAdded: "2015-01-13",
+		})
+
+		UserWeight.insert({
+			weight: 186.7,
+			dateAdded: "2015-01-18",
+		})
+
+		UserWeight.insert({
+			weight: 186,
+			dateAdded: "2015-01-19",
+		})
+
+		UserWeight.insert({
+			weight: 188,
+			dateAdded: "2015-01-21",
+		})
+
+		UserWeight.insert({
+			weight: 186,
+			dateAdded: "2015-01-23",
+		})
+
+		UserWeight.insert({
+			weight: 184,
+			dateAdded: "2015-01-29",
+		})
+
+		UserWeight.insert({
+			weight: 182,
+			dateAdded: "2015-02-05",
+		})
+
+		UserWeight.insert({
+			weight: 179,
+			dateAdded: "2015-02-13",
+		})
+
+		UserWeight.insert({
+			weight: 180,
+			dateAdded: "2015-02-14",
+		})
+
+		UserWeight.insert({
+			weight: 176,
+			dateAdded: "2015-02-21",
+		})
+
+		UserWeight.insert({
+			weight: 170,
+			dateAdded: "2015-02-28",
+		})
+	}
+
+
 	if(Routines.find().count()== 0) {
 		Routines.insert({
 			_uID: "preset" ,
@@ -100,132 +173,258 @@ if(Meteor.isServer){
 					Sets: 3,
 					Reps: 10,
 					Weight: 20
-				},
+				}
 			],
 
 			createdAt: new Date(),
 			timesCompleted: 0,
 			avgComplete: "0:00:00",
 		})
-
-	if(UserWeight.find().count() == 0) {
-		UserWeight.insert({
-			weight: 190,
-			dateAdded: "2015-01-01",
-		})
-
-		UserWeight.insert({
-			weight: 189.2,
-			dateAdded: "2015-01-05",
-		})
-
-		UserWeight.insert({
-			weight: 188.5,
-			dateAdded: "2015-01-06",
-		})
-
-		UserWeight.insert({
-			weight: 187,
-			dateAdded: "2015-01-13",
-		})
-
-		UserWeight.insert({
-			weight: 186.7,
-			dateAdded: "2015-01-18",
-		})
-
-		UserWeight.insert({
-			weight: 186,
-			dateAdded: "2015-01-19",
-		})
-
-		UserWeight.insert({
-			weight: 188,
-			dateAdded: "2015-01-21",
-		})
-
-		UserWeight.insert({
-			weight: 186,
-			dateAdded: "2015-01-23",
-		})
-
-		UserWeight.insert({
-			weight: 184,
-			dateAdded: "2015-01-29",
-		})
-
-		UserWeight.insert({
-			weight: 182,
-			dateAdded: "2015-02-05",
-		})
-
-		UserWeight.insert({
-			weight: 179,
-			dateAdded: "2015-02-13",
-		})
-
-		UserWeight.insert({
-			weight: 180,
-			dateAdded: "2015-02-14",
-		})
-
-		UserWeight.insert({
-			weight: 176,
-			dateAdded: "2015-02-21",
-		})
-
-		UserWeight.insert({
-			weight: 170,
-			dateAdded: "2015-02-28",
-		})	
-	}
 
 		Routines.insert({
 			_uID: "preset" ,
-			routineName: "Beginner 1",
+			routineName: "Full Body 1",
 			exercises: [
 				{
-					Category: "Cardio",
-					Name: "Running",
-					Time: "15 minutes",
-				},
-
-				{
-					Category:"Shoulder",
-					Name: "Right Side Lateral Cable Pull",
+					Category: "Chest",
+					Name: "Dumbbell Bench Press",
 					Sets: 3,
-					Reps: 8,
-					Weight: 5
+					Reps: 10,
 				},
 
 				{
-					Category:"Shoulder",
-					Name: "Left Side Lateral Cable Pull",
+					Category:"Back",
+					Name: "Lateral Pulldown",
 					Sets: 3,
-					Reps: 8,
-					Weight: 5
+					Reps: 10,
 				},
 
 				{
-					Category:"Legs",
-					Name: "Squats",
-					Sets: 2,
+					Category:"Shoulders",
+					Name: "Overhead Dumbbell Press",
+					Sets: 3,
 					Reps: 10,
 				},
 
 				{
 					Category:"Legs",
-					Name: "Lunges",
+					Name: "Leg Press",
 					Sets: 3,
 					Reps: 10,
-					Weight: 5
 				},
+
+				{
+					Category:"Arms",
+					Name: "Tricep Press Down",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category:"Legs",
+					Name: "Calf Raises",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category:"Abs",
+					Name: "Crunches",
+					Sets: 3,
+					Reps: 15,
+				}
+
 			],
 
 			createdAt: new Date(),
 			timesCompleted: 0,
 			avgComplete: "0:00:00",
 		})
+
+
+		Routines.insert({
+			_uID: "preset" ,
+			routineName: "Upper Body 1",
+			exercises: [
+				{
+					Category: "Chest",
+					Name: "Barbell Bench Press",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Chest",
+					Name: "Dumbbell Flye",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Back",
+					Name: "Barbell Bent Over Row",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Chest",
+					Name: "Lateral Pulldown ",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Chest",
+					Name: "Overhead Dumbbell Press",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Shoulders",
+					Name: "Dumbbell Lateral Raise",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Arms",
+					Name: "Barbell Bicep Curl",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Arms",
+					Name: "Barbell Preacher Curl",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Arms",
+					Name: "Tricep Press Down",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Abs",
+					Name: "Crunches",
+					Sets: 3,
+					Reps: 15,
+				}
+			]
+		})
+
+		Routines.insert({
+			_uID: "preset" ,
+			routineName: "Lower Body 1",
+			exercises: [
+
+				{
+					Category: "Legs",
+					Name: "Leg Press",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Legs",
+					Name: "Leg Extention",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Legs",
+					Name: "Lying Leg Curl",
+					Sets: 3,
+					Reps: 12,
+				},
+
+				{
+					Category: "Legs",
+					Name: "Seated Leg Curl",
+					Sets: 3,
+					Reps: 12,
+				},
+
+				{
+					Category: "Legs",
+					Name: "Standing Calf Raises",
+					Sets: 3,
+					Reps: 17,
+				},
+
+				{
+					Category: "Legs",
+					Name: "Seated Calf Raises",
+					Sets: 3,
+					Reps: 17,
+				}
+
+			]
+		})
+
+		Routines.insert({
+			_uID: "preset" ,
+			routineName: "Push Yourself!",
+			exercises: [
+
+				{
+					Category: "Chest",
+					Name: "Incline Barbell Bench Press",
+					Sets: 4,
+					Reps: 12,
+				},
+
+				{
+					Category: "Chest",
+					Name: "Dumbbell Flye",
+					Sets: 4,
+					Reps: 12,
+				},
+
+				{
+					Category: "Shoulders",
+					Name: "Overhead Dumbbell Press",
+					Sets: 4,
+					Reps: 12,
+				},
+
+				{
+					Category: "Shoulders",
+					Name: "Smith Machine Upright Row",
+					Sets: 4,
+					Reps: 10,
+				},
+
+				{
+					Category: "Shoulders",
+					Name: "Smith Machine Upright Row",
+					Sets: 4,
+					Reps: 10,
+				},
+
+				{
+					Category: "Arms",
+					Name: "Lying EZ-Bar Tricpes Extention",
+					Sets: 3,
+					Reps: 12,
+				},
+
+				{
+					Category: "Arms",
+					Name: "Dumbbell Kickback",
+					Sets: 3,
+					Reps: 10,
+				}
+
+			]
+		})
+
 	}
 
 	if(Cardio.find().count()== 0) {
@@ -402,7 +601,7 @@ if(Meteor.isServer){
 			Name: "Swimming",
 			Type: "cardio"
 		}),
-		
+
 		ExercisesCardio.insert({
 			Name: "Walking",
 			Type: "cardio"
