@@ -90,7 +90,9 @@ Template.exercises.events({
 			}
 		}
 		console.log(newList);
-		Routines.update({_id: routineView._id}, {$set:{exercises:newList}});
+
+		Routines.update({_id: routineView._id}, {$set:{exercises:newList}});		
+
 	}
 
 })
