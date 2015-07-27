@@ -93,16 +93,13 @@ Meteor.methods({
 	},
 
 	'addToStrengthCollection': function (name, sets, reps, weight){
-		now = new Date()
-
 		Strength.insert({
 			_uID: Meteor.userId(),
 			Name: name,
 			Sets: sets,
 			Reps: reps,
 			Weight: weight,
-			CompletedOn: now
+			CompletedOn:  new Date()
 		})
-
 	}
 })
