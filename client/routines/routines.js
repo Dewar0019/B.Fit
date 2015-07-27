@@ -32,7 +32,7 @@ Template.routines.events({
 	},
 
 	'click #presetRoutines' : function() {
-		Session.set("grabAllRoutines", Routines.find({_uID: "preset"}).fetch());
+		Session.set("grabAllRoutines", Routines.find({preset: true}).fetch());
 		document.getElementById("presetRoutines").className = "tab-item active";
 		document.getElementById("ownRoutines").className = "tab-item";
 	},
