@@ -14,17 +14,19 @@ Template.profile.events({
 
   'submit #weight': function(event) {
   	event.preventDefault();
+  	var todaysDate = new Date();
   	var numb = event.target.weightEntered.value;
   	console.log(numb);
   	UserWeight.insert({
   	_uID: Meteor.userId(),
   	weight: numb,
-  	dateAdded: new Date(),	
+  	dateAdded: todaysDate.getFullYear() + '-' + todaysDate.getMonth() + '-' + todaysDate.getDay(),
   	});
   	toastr.success("Got your Weight!", "Weight Recorded");
   	console.log("weight recorded")
   	event.target.weightEntered.value = '';
   },
+
   'click #viewWeightProgress': function() {
   	Router.go('weightProgress', {_id: Meteor.userId()});
   }
