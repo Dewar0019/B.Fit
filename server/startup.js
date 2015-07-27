@@ -426,7 +426,6 @@ if(Meteor.isServer){
 
 			]
 		})
-
 	}
 
 	if(Cardio.find().count()== 0) {
