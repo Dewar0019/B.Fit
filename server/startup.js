@@ -38,7 +38,7 @@ if(Meteor.isServer){
 					Reps: 10,
 					Weight: 10
 				},
-				
+
 				{
 					Category:"Shoulder",
 					Name: "Cable Shoulder Shrugs",
@@ -107,8 +107,8 @@ if(Meteor.isServer){
 			timesCompleted: 0,
 			avgComplete: "0:00:00",
 		})
-	}
 
+<<<<<<< HEAD
 	if(UserWeight.find().count() == 0) {
 		UserWeight.insert({
 			weight: 190,
@@ -181,6 +181,57 @@ if(Meteor.isServer){
 		})	
 	}
 
+=======
+		//////////////////////////////////////////////////
+
+		Routines.insert({
+			_uID: "preset" ,
+			routineName: "Beginner 1",
+			exercises: [
+				{
+					Category: "Cardio",
+					Name: "Running",
+					Time: "15 minutes",
+				},
+
+				{
+					Category:"Shoulder",
+					Name: "Right Side Lateral Cable Pull",
+					Sets: 3,
+					Reps: 8,
+					Weight: 5
+				},
+
+				{
+					Category:"Shoulder",
+					Name: "Left Side Lateral Cable Pull",
+					Sets: 3,
+					Reps: 8,
+					Weight: 5
+				},
+
+				{
+					Category:"Legs",
+					Name: "Squats",
+					Sets: 2,
+					Reps: 10,
+				},
+
+				{
+					Category:"Legs",
+					Name: "Lunges",
+					Sets: 3,
+					Reps: 10,
+					Weight: 5
+				},
+			],
+
+			createdAt: new Date(),
+			timesCompleted: 0,
+			avgComplete: "0:00:00",
+		})
+	}
+>>>>>>> 13d02bbb4a4b3192b01cdd6e8dafc10cbd5dbd28
 
 	if(Cardio.find().count()== 0) {
 
@@ -287,6 +338,79 @@ if(Meteor.isServer){
 			analyticsDate: "2015-03-30",
 			Distance: 8,
 			Time: 6
+		})
+	}
+
+	if(ExercisesCardio.find().count()== 0) {
+
+		ExercisesCardio.insert({
+			Name: "Aerobics",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Elliptical",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Field Sports",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Indoor Cycling",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Inline Skating",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Mountain Biking",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Recumbent Bike",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Road Cycling",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Rowing",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Running",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Stationary Bike",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Step Machine",
+			Type: "cardio"
+		}),
+
+		ExercisesCardio.insert({
+			Name: "Swimming",
+			Type: "cardio"
+		}),
+		
+		ExercisesCardio.insert({
+			Name: "Walking",
+			Type: "cardio"
 		})
 	}
 }
