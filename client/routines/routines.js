@@ -32,4 +32,5 @@ Template.routines.events({
 		document.getElementById("presetRoutines").className = "tab-item active";
 		document.getElementById("ownRoutines").className = "tab-item";
 	},
+	
 })
