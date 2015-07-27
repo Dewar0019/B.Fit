@@ -390,7 +390,7 @@ function sendSentence(sentence){
 			prompt("We didn't quite catch the name of the exercise. \nCould you please enter it.");
 		}
 
-		Completed.insert({
+		Strength.insert({
 			Name: name,
 			Sets: sets,
 			Reps: reps,

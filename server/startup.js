@@ -179,6 +179,7 @@ if(Meteor.isServer){
 			createdAt: new Date(),
 			timesCompleted: 0,
 			avgComplete: "0:00:00",
+			difficulty: [true, true, true, true, false,],
 		})
 
 		Routines.insert({
@@ -239,7 +240,7 @@ if(Meteor.isServer){
 			createdAt: new Date(),
 			timesCompleted: 0,
 			avgComplete: "0:00:00",
-			difficulty: [true, true, true, false, false,],
+			difficulty: [true, true, false, false, false,],
 		})
 
 
@@ -316,7 +317,12 @@ if(Meteor.isServer){
 					Sets: 3,
 					Reps: 15,
 				}
-			]
+			],
+
+			createdAt: new Date(),
+			timesCompleted: 0,
+			avgComplete: "0:00:00",
+			difficulty: [true, true, true, false, false,],
 		})
 
 		Routines.insert({
@@ -366,7 +372,12 @@ if(Meteor.isServer){
 					Reps: 17,
 				}
 
-			]
+			],
+
+			createdAt: new Date(),
+			timesCompleted: 0,
+			avgComplete: "0:00:00",
+			difficulty: [true, true, false, false, false,],
 		})
 
 		Routines.insert({
@@ -423,7 +434,12 @@ if(Meteor.isServer){
 					Reps: 10,
 				}
 
-			]
+			],
+
+			createdAt: new Date(),
+			timesCompleted: 0,
+			avgComplete: "0:00:00",
+			difficulty: [true, true, true, true, false,],
 		})
 	}
 

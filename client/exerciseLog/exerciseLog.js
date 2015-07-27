@@ -76,7 +76,7 @@ Template.exerciseLog.events({
 		var reps = event.target.numOfReps.value;
 		var weight = event.target.weight.value;
 
-		Completed.insert({
+		Strength.insert({
 			_uID: Meteor.userId(),
 			Name: name,
 			Sets: sets,

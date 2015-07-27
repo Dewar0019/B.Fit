@@ -20,7 +20,7 @@ var Clock = {
 			$("#timer2").text(Math.floor(self.totalSeconds / 3600) + ":"
 			+ Math.floor(self.totalSeconds / 60 % 60 / 10) + Math.floor(self.totalSeconds / 60 % 60 % 10) + ":"
 			+ parseInt(self.totalSeconds % 60 / 10) + parseInt(self.totalSeconds % 60 % 10));
-			
+
 		}, 1000);
 	},
 
