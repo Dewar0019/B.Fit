@@ -8,7 +8,7 @@ toastr.options = {
 	"preventDuplicates": false,
 	"showDuration": "5000",
 	"hideDuration": "5000",
-	"timeOut": "10000",
+	"timeOut": "15000",
 	"extendedTimeOut": "3000",
 	"showEasing": "swing",
 	"hideEasing": "linear",
@@ -36,7 +36,7 @@ function timeOutEvent() {
 	  	console.log("Dictation Time Out");
 	  	toastr.info("Dictation Timed Out, we didn't get a response", "Mic is now Off");
 	  	stopListening.play();
-		}, 10000);
+		}, 15000);
 }
 
 function stopTimeOutEvent() {
@@ -124,19 +124,19 @@ if ('webkitSpeechRecognition' in window) {
 	}
 
 function startDictation(event) {
-
 	if (recognizing) {
-		stopTimeOutEvent();  //Stops the timeout event if it hasn't been 10 seconds
+		stopTimeOutEvent();  //Stops the timeout event if it hasn't been 15 seconds
 		recognizing = false;
 		recognition.stop();
 		stopListening.play();
 		console.log("dictation stopped");
-	}
+	} else {
 		recognition.start();
 		recognition.lang = 'en-US';
 		final_transcript = '';
 		final_span = '';
 		interim_span = '';
+	}
 
 }
 
@@ -165,7 +165,7 @@ function sendSentence(sentence){
 				toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
 
 			}
-			else if(testVariable[0]._text.indexOf("next exercise") > 0) {
+			else if(testVariable[0].intent== 'exercise_progress') {
 				console.log("next exercise recognized");
 				nextExerciseCommand(testVariable);
 			} else if (testVariable[0].intent == "logCardioIntent"){
@@ -198,7 +198,8 @@ function sendSentence(sentence){
 					setTimeout(recognition.onstart(), 2000);
 				}
 				else if(testVariable[0].intent == "exercise_progress") {
-					console.log("next exercise recognized");
+					console.log("exercise_progress");
+					if( testVariable[0].entities.hasOwnProperty("exercises_left"))
 					nextExerciseCommand(testVariable);
 				} else if (testVariable[0].intent == "logCardioIntent"){
 					recordCardio(testVariable);

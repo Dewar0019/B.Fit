@@ -182,7 +182,7 @@ if(Meteor.isServer){
 		})
 
 		Routines.insert({
-			_uID: "preset" ,
+			preset: true,
 			routineName: "Full Body 1",
 			exercises: [
 				{

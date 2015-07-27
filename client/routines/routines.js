@@ -7,9 +7,9 @@ Template.routines.helpers({
 		return Session.get("grabAllRoutines").length == 0;
 	},
 
-	// isPreset : function() {
-	// 	return Session.get("grabAllRoutines")._uID == "preset";
-	// },
+	isPreset : function() {
+		return this._uID == 'preset';
+	},
 })
 
 Template.routines.rendered = function() {
