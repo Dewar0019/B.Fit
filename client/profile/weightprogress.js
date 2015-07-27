@@ -1,7 +1,5 @@
 Template.weightProgress.rendered = function () {
   initializeWeightData();
-  Session.set('Time', timeData);
-  Session.set('Weight', weightData);
   var chart = c3.generate({
     bindto: this.find('#weightChart'),
       data: {
@@ -18,8 +16,8 @@ Template.weightProgress.rendered = function () {
 
   this.autorun(function (tracker) {
     chart.load({columns: [
-      Session.get('Time'),
-      Session.get('Weight'),
+      timeData,
+      weightData,
       []
     ]});
   });

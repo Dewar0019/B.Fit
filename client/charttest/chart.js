@@ -1,12 +1,13 @@
 
 Template.chart.rendered = function () {
-  grabInfo();
+  
+grabInfo(); //Pushes Data into an array based on format required for C3.js chart rendering
  
  var chart = c3.generate({
-      bindto: this.find('#chart'),
+      bindto: this.find('#chart'), //Looks for chart id in html
       data:{  x: 'date',
           columns: [
-            grabDate,
+            grabDate, 
             grabDistance,                       
           ],
           types: {
@@ -37,14 +38,14 @@ Template.chart.rendered = function () {
 
     $('#A').on('click',function(){
       Session.set("yaxis", "Time");
-      chart.load({ columns:[ Session.get("cardioTime"), ], unload: ['Running'], });
+      chart.load({ columns:[ grabTime, ], unload: ['Running'], });
       chart.axis.labels({y: "Time"});
 
     });
 
 
     $('#B').on('click',function(){
-      chart.load({ columns:[ Session.get("cardioDistance"), ], unload: ['Running Time'],});
+      chart.load({ columns:[ grabDistance, ], unload: ['Running Time'],});
       chart.axis.labels({y: "Distance"});
 
     });
@@ -64,7 +65,4 @@ var grabDate = ['date'];
             grabTime.push(finished.Time);
             grabDate.push(finished.analyticsDate);
         });
-        Session.set('cardioTime', grabTime);
-        Session.set('cardioDate', grabDate);
-        Session.set('cardioDistance', grabDistance);
       }
