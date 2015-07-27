@@ -115,41 +115,26 @@ if(Meteor.isServer){
 			routineName: "Beginner 1",
 			exercises: [
 				{
-					Category: "Cardio",
-					Name: "Running",
-					Time: "15 minutes",
-				},
-
-				{
-					Category:"Shoulder",
-					Name: "Right Side Lateral Cable Pull",
+					Category: "Chest",
+					Name: "Dumbbell Bench Press",
 					Sets: 3,
-					Reps: 8,
-					Weight: 5
+					Reps: 10,
 				},
 
 				{
-					Category:"Shoulder",
-					Name: "Left Side Lateral Cable Pull",
+					Category:"Back",
+					Name: "Lateral PullDown",
 					Sets: 3,
-					Reps: 8,
-					Weight: 5
-				},
-
-				{
-					Category:"Legs",
-					Name: "Squats",
-					Sets: 2,
 					Reps: 10,
 				},
 
 				{
-					Category:"Legs",
-					Name: "Lunges",
+					Category:"Shoulders",
+					Name: "Overhead Dumbbell Press",
 					Sets: 3,
 					Reps: 10,
-					Weight: 5
 				},
+
 			],
 
 			createdAt: new Date(),
@@ -332,7 +317,7 @@ if(Meteor.isServer){
 			Name: "Swimming",
 			Type: "cardio"
 		}),
-		
+
 		ExercisesCardio.insert({
 			Name: "Walking",
 			Type: "cardio"
