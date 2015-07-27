@@ -1,8 +1,5 @@
-
-Template.chart.rendered = function () {
-  
+Template.chart.rendered = function () { 
 grabInfo(); //Pushes Data into an array based on format required for C3.js chart rendering
- 
  var chart = c3.generate({
       bindto: this.find('#chart'), //Looks for chart id in html
       data:{  x: 'date',
@@ -29,6 +26,7 @@ grabInfo(); //Pushes Data into an array based on format required for C3.js chart
 
   this.autorun(function (tracker) {
   $("#cardio,#strength,#flexibility").change(function(){
+    //When a selection is made from the dropdown menu
       var c1 = $("#cardio").find('option:selected').val();
       grabInfo();
       chart.hide(null,{ withLegend: true });
@@ -36,14 +34,14 @@ grabInfo(); //Pushes Data into an array based on format required for C3.js chart
 
     });
 
+    //For when the user clicks to Show Time
     $('#A').on('click',function(){
-      Session.set("yaxis", "Time");
       chart.load({ columns:[ grabTime, ], unload: ['Running'], });
       chart.axis.labels({y: "Time"});
 
     });
 
-
+    //For when the user clicks to Show Distance
     $('#B').on('click',function(){
       chart.load({ columns:[ grabDistance, ], unload: ['Running Time'],});
       chart.axis.labels({y: "Distance"});
@@ -54,13 +52,14 @@ grabInfo(); //Pushes Data into an array based on format required for C3.js chart
 }
 
 
+//C3.js requires the first element of the array to be an string of the category
 var grabDistance = ['Running'];
 var grabTime = ['Running Time'];
 var grabDate = ['date'];
       
       function grabInfo() {
-        var allCardio = Cardio.find().fetch();
-        allCardio.forEach(function(finished) {
+        var allCardio = Cardio.find().fetch(); //Finds all Cardio data at the moment and stores into C3.js formats
+        allCardio.forEach(function(finished) { //Should eventually include only the users data and exclude startup
             grabDistance.push(finished.Distance);
             grabTime.push(finished.Time);
             grabDate.push(finished.analyticsDate);

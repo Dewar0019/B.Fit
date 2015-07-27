@@ -27,8 +27,8 @@ Template.weightProgress.rendered = function () {
 var timeData = ['Time'];
 var weightData = ['Weight'];
 
-function initializeWeightData(){
-  var allWeight = UserWeight.find().fetch(); 
+function initializeWeightData(){ //Finds all Weight data at the moment and stores into C3.js formats
+  var allWeight = UserWeight.find().fetch(); //Should eventually include only the users data and exclude startup
   allWeight.forEach(function(weightTime) {
          timeData.push(weightTime.dateAdded);
          weightData.push(weightTime.weight);

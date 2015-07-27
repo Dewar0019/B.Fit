@@ -15,16 +15,14 @@ Template.profile.events({
   'submit #weight': function(event) {
   	event.preventDefault();
   	var todaysDate = new Date();
-  	var numb = event.target.weightEntered.value;
-  	console.log(numb);
+  	var numb = event.target.weightEntered.value; //Grabs the weight from the form
   	UserWeight.insert({
-  	_uID: Meteor.userId(),
-  	weight: numb,
-  	dateAdded: todaysDate.getFullYear() + '-' + todaysDate.getMonth() + '-' + todaysDate.getDay(),
+	  	_uID: Meteor.userId(),
+	  	weight: numb,
+	  	dateAdded: todaysDate.getFullYear() + '-' + todaysDate.getMonth() + '-' + todaysDate.getDay(),
   	});
-  	toastr.success("Got your Weight!", "Weight Recorded");
-  	console.log("weight recorded")
-  	Meteor.call('updateWeight', numb);
+  	toastr.success("Got your Weight!", "Weight Recorded");  
+  	Meteor.call('updateWeight', numb); //Updates the users profile with the new weight
   	event.target.weightEntered.value = '';
   },
 
