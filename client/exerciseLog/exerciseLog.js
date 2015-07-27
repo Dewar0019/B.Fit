@@ -4,6 +4,13 @@ Template.exerciseLog.rendered = function() {
 }
 
 Template.exerciseLog.helpers({
+
+	'completedStrengthExercise':function(){
+		// returns everything in the Cardio collection that has been added in the past amount of time specified by the users
+		fromDate = Session.get("fromDate");
+		return Strength.find( {CompletedOn:{$gt:fromDate} }, {sort: {CompletedOn: -1}} )
+	},
+
 	'completedExercise':function(){
 		// returns everything in the Completed collection that has been added in the past amount of time specified by the users
 		setDefaultDate();
@@ -76,7 +83,7 @@ Template.exerciseLog.events({
 		var reps = event.target.numOfReps.value;
 		var weight = event.target.weight.value;
 
-		Meteor.call('addToStrengthCollection', name, sets, reps, weight); 
+		Meteor.call('addToStrengthCollection', name, sets, reps, weight);
 
 
 		// if the user has never specified to view todays, this week's or this month's exercises, today's is automatically shown

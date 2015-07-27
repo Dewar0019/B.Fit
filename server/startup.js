@@ -100,7 +100,7 @@ if(Meteor.isServer){
 
 	if(Routines.find().count()== 0) {
 		Routines.insert({
-			_uID: "preset" ,
+			preset: "true",
 			routineName: "Ice Cream Fitness",
 			exercises: [
 
@@ -245,7 +245,7 @@ if(Meteor.isServer){
 
 
 		Routines.insert({
-			_uID: "preset" ,
+			preset: "true",
 			routineName: "Upper Body 1",
 			exercises: [
 				{
@@ -326,7 +326,7 @@ if(Meteor.isServer){
 		})
 
 		Routines.insert({
-			_uID: "preset" ,
+			preset: "true",
 			routineName: "Lower Body 1",
 			exercises: [
 
@@ -381,7 +381,7 @@ if(Meteor.isServer){
 		})
 
 		Routines.insert({
-			_uID: "preset" ,
+			preset: "true",
 			routineName: "Push Yourself!",
 			exercises: [
 
