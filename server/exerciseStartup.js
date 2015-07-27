@@ -114,6 +114,8 @@ exerciseStartup = {
       },
       "_num": 1
     },
+
+
     {
       "secondary": [
         "biceps"
@@ -4545,6 +4547,7 @@ exerciseStartup = {
       },
       "_num": 110
     },
+
     {
       "secondary": [
         "shoulders"
@@ -4584,39 +4587,46 @@ exerciseStartup = {
       },
       "_num": 111
     },
-    {
-      "secondary": [
-        "shoulders"
-      ],
-      "exercisename": [
-        "Incline Fly’s with a Twist"
-      ],
-      "steps": [
-        "Lie on an incline bench set at a 45 degree angle with a dumbbell in each hand and your feet flat on the ground. Start with the dumbbells out to the sides of your chest, parallel to the floor as you would a regular Fly. Raise the dumbbells over your chest in and arc, at the top turn your pinky finger in so they are facing each other. Slowly return to starting position. Repeat."
-      ],
-      "primary": [
-        "chest"
-      ],
-      "_resultNumber": 112,
-      "_widgetName": "data2",
-      "_source": [
-        "100fa835-e565-4c57-bc17-17ad294c0c62"
-      ],
-      "_connectorVersionGuid": "9b8f5787-be1a-4af0-8c83-5dc3ccf87f04",
-      "_pageUrl": "http://db.everkinetic.com/exercise/incline-flys-twist/",
-      "_outputTypes": {
-        "exercisename": "STRING",
-        "steps": "STRING",
-        "startimg": "IMAGE",
-        "endimg": "IMAGE",
-        "primary": "STRING",
-        "secondary": "STRING"
-      },
-      "_input": {
 
-      },
-      "_num": 112
-    },
+
+
+    // {
+    //   "secondary": [
+    //     "shoulders"
+    //   ],
+    //   "exercisename": [
+    //     "Incline Fly’s with a Twist"
+    //   ],
+    //   "steps": [
+    //     "Lie on an incline bench set at a 45 degree angle with a dumbbell in each hand and your feet flat on the ground. Start with the dumbbells out to the sides of your chest, parallel to the floor as you would a regular Fly. Raise the dumbbells over your chest in and arc, at the top turn your pinky finger in so they are facing each other. Slowly return to starting position. Repeat."
+    //   ],
+    //   "primary": [
+    //     "chest"
+    //   ],
+    //   "_resultNumber": 112,
+    //   "_widgetName": "data2",
+    //   "_source": [
+    //     "100fa835-e565-4c57-bc17-17ad294c0c62"
+    //   ],
+    //   "_connectorVersionGuid": "9b8f5787-be1a-4af0-8c83-5dc3ccf87f04",
+    //   "_pageUrl": "http://db.everkinetic.com/exercise/incline-flys-twist/",
+    //   "_outputTypes": {
+    //     "exercisename": "STRING",
+    //     "steps": "STRING",
+    //     "startimg": "IMAGE",
+    //     "endimg": "IMAGE",
+    //     "primary": "STRING",
+    //     "secondary": "STRING"
+    //   },
+    //   "_input": {
+    //
+    //   },
+    //   "_num": 112
+    // },
+
+
+
+
     {
       "secondary": [
         "dumbbells"
@@ -5817,39 +5827,44 @@ exerciseStartup = {
       },
       "_num": 142
     },
-    {
-      "secondary": [
-        "biceps"
-      ],
-      "exercisename": [
-        "Bent Over Row with Barbell"
-      ],
-      "steps": [
-        "Place your feet shoulder width apart. Bend over the bar so your back is flat and parallel to the floor. Grasp the bar a bit wider than shoulder width apart with an overhand grip. Hold the bar at arms length, this is starting position. Slowly raise the bar to the lower part of your chest. Pause for a moment than return to starting position."
-      ],
-      "primary": [
-        "middle back"
-      ],
-      "_resultNumber": 143,
-      "_widgetName": "data2",
-      "_source": [
-        "100fa835-e565-4c57-bc17-17ad294c0c62"
-      ],
-      "_connectorVersionGuid": "9b8f5787-be1a-4af0-8c83-5dc3ccf87f04",
-      "_pageUrl": "http://db.everkinetic.com/exercise/bent-over-row-with-barbell/",
-      "_outputTypes": {
-        "exercisename": "STRING",
-        "steps": "STRING",
-        "startimg": "IMAGE",
-        "endimg": "IMAGE",
-        "primary": "STRING",
-        "secondary": "STRING"
-      },
-      "_input": {
 
-      },
-      "_num": 143
-    },
+
+    // {
+    //   "secondary": [
+    //     "biceps"
+    //   ],
+    //   "exercisename": [
+    //     "Bent Over Row with Barbell"
+    //   ],
+    //   "steps": [
+    //     "Place your feet shoulder width apart. Bend over the bar so your back is flat and parallel to the floor. Grasp the bar a bit wider than shoulder width apart with an overhand grip. Hold the bar at arms length, this is starting position. Slowly raise the bar to the lower part of your chest. Pause for a moment than return to starting position."
+    //   ],
+    //   "primary": [
+    //     "middle back"
+    //   ],
+    //   "_resultNumber": 143,
+    //   "_widgetName": "data2",
+    //   "_source": [
+    //     "100fa835-e565-4c57-bc17-17ad294c0c62"
+    //   ],
+    //   "_connectorVersionGuid": "9b8f5787-be1a-4af0-8c83-5dc3ccf87f04",
+    //   "_pageUrl": "http://db.everkinetic.com/exercise/bent-over-row-with-barbell/",
+    //   "_outputTypes": {
+    //     "exercisename": "STRING",
+    //     "steps": "STRING",
+    //     "startimg": "IMAGE",
+    //     "endimg": "IMAGE",
+    //     "primary": "STRING",
+    //     "secondary": "STRING"
+    //   },
+    //   "_input": {
+    //
+    //   },
+    //   "_num": 143
+    // },
+
+
+
     {
       "secondary": [
         "chest"
@@ -10272,51 +10287,57 @@ exerciseStartup = {
       },
       "_num": 244
     },
-    {
-      "secondary": [
-        "forearm"
-      ],
-      "startimg/_title": [
-        "Bicep Curl with Machine starting position"
-      ],
-      "exercisename": [
-        "Bicep Curl with Machine"
-      ],
-      "steps": [
-        "Adjust the seat of the machine so your elbows are correctly aligned with the rotation axis. Press your arms against the pads and keep them stationary throughout the exercise. Curl your forearms until your arms are fully flexed. Slowly lower your arms back to the starting position."
-      ],
-      "startimg": [
-        "http://img.everkinetic.com/?action=image&id=1004&number=0&key=69cadbdd2&version=4f6c6909&size=280,420"
-      ],
-      "endimg/_title": [
-        "Bicep Curl with Machine"
-      ],
-      "endimg": [
-        "http://img.everkinetic.com/?action=image&id=1004&number=1&key=69cadbdd2&version=6084e0d7&size=280,420"
-      ],
-      "primary": [
-        "biceps"
-      ],
-      "_resultNumber": 245,
-      "_widgetName": "data2",
-      "_source": [
-        "100fa835-e565-4c57-bc17-17ad294c0c62"
-      ],
-      "_connectorVersionGuid": "9b8f5787-be1a-4af0-8c83-5dc3ccf87f04",
-      "_pageUrl": "http://db.everkinetic.com/exercise/bicep-curl-with-machine/",
-      "_outputTypes": {
-        "exercisename": "STRING",
-        "steps": "STRING",
-        "startimg": "IMAGE",
-        "endimg": "IMAGE",
-        "primary": "STRING",
-        "secondary": "STRING"
-      },
-      "_input": {
 
-      },
-      "_num": 245
-    },
+
+    // {
+    //   "secondary": [
+    //     "forearm"
+    //   ],
+    //   "startimg/_title": [
+    //     "Bicep Curl with Machine starting position"
+    //   ],
+    //   "exercisename": [
+    //     "Bicep Curl with Machine"
+    //   ],
+    //   "steps": [
+    //     "Adjust the seat of the machine so your elbows are correctly aligned with the rotation axis. Press your arms against the pads and keep them stationary throughout the exercise. Curl your forearms until your arms are fully flexed. Slowly lower your arms back to the starting position."
+    //   ],
+    //   "startimg": [
+    //     "http://img.everkinetic.com/?action=image&id=1004&number=0&key=69cadbdd2&version=4f6c6909&size=280,420"
+    //   ],
+    //   "endimg/_title": [
+    //     "Bicep Curl with Machine"
+    //   ],
+    //   "endimg": [
+    //     "http://img.everkinetic.com/?action=image&id=1004&number=1&key=69cadbdd2&version=6084e0d7&size=280,420"
+    //   ],
+    //   "primary": [
+    //     "biceps"
+    //   ],
+    //   "_resultNumber": 245,
+    //   "_widgetName": "data2",
+    //   "_source": [
+    //     "100fa835-e565-4c57-bc17-17ad294c0c62"
+    //   ],
+    //   "_connectorVersionGuid": "9b8f5787-be1a-4af0-8c83-5dc3ccf87f04",
+    //   "_pageUrl": "http://db.everkinetic.com/exercise/bicep-curl-with-machine/",
+    //   "_outputTypes": {
+    //     "exercisename": "STRING",
+    //     "steps": "STRING",
+    //     "startimg": "IMAGE",
+    //     "endimg": "IMAGE",
+    //     "primary": "STRING",
+    //     "secondary": "STRING"
+    //   },
+    //   "_input": {
+    //
+    //   },
+    //   "_num": 245
+    // },
+
+
+
+
     {
       "secondary": [
         "calves"

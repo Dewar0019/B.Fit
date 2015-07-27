@@ -4,6 +4,8 @@ if(Meteor.isServer){
 
 		if (Exercises.find().fetch()==0){
 			exerciseStartup.data.forEach(function(exercise) {
+				// Leave the next line in for debugging purposes
+				//console.log(JSON.stringify(exercise))
 				Exercises.insert({
 					Name: exercise.exercisename[0],
 					Type: [exercise.primary[0], exercise.secondary[0]],
