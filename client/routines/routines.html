@@ -3,7 +3,7 @@
         {{#contentFor "headerButtonLeft"}}
     		{{>ionNavBackButton path="index"}}
     	{{/contentFor}}
-      
+
     	{{#contentFor "headerTitle"}}
     		<h1 class="title">Routines</h1>
     	{{/contentFor}}
@@ -12,54 +12,54 @@
             <a href="{{pathFor 'createRoutine'}}" class="button button-clear">{{> ionIcon icon=""}}Edit Routine</a>
         {{/contentFor}}
 
-    
+
     	{{#ionView}}
     		{{#ionContent}}
-              <div class="tabs-striped tabs-top"> 
-                <div class="tabs ">
-                    <a class="tab-item active" id="ownRoutines" href="#">Your Routines</a>
-                    <a class="tab-item" id="presetRoutines" href="#">Preset Routines</a>
+                <div class="tabs-striped tabs-top">
+                    <div class="tabs ">
+                        <a class="tab-item active" id="ownRoutines" href="#">Your Routines</a>
+                        <a class="tab-item" id="presetRoutines" href="#">Preset Routines</a>
+                    </div>
                 </div>
-            </div>
-             <br>
-            <br>
-            <br>
-             <br>
-            
+
+                <br>
+                <br>
+                <br>
+                <br>
+
     			{{#ionList}}
- 
 
-                {{#if emptyRoutines}}
-                <div class ="card">
-                    <h1><a href="createRoutine"> You have no routines, click here to create one </a> </h1>
-                </div>
-                {{/if}}
 
-                
-    				{{#each item}}      
+                    {{#if emptyRoutines}}
+                        <div class ="card">
+                            <h1><a href="createRoutine"> You have no routines, click here to create one </a> </h1>
+                        </div>
+                    {{/if}}
+
+
+    				{{#each item}}
     					{{> savedRoutines}}
     				{{/each }}
-                
+
     			{{/ionList}}
 
     		{{/ionContent}}
     	{{/ionView}}
 
     {{else}}
-    
+
 
         {{#ionView}}
             {{#ionContent}}
-            
+
                 <img id="logo" src="images/logo.png" width="300" height="300">
-                
+
                 {{> atForm}}
 
-          {{/ionContent}}
+            {{/ionContent}}
         {{/ionView}}
 
     {{/if}}
-
 </template>
 
 
@@ -67,21 +67,21 @@
     <div id= "setForCompleted" class="list card">
 
     {{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true avatar=true}}
-        <h2 >{{routineName}}</h2> 
-        <p>Number of exercises: {{exercises.length}}</p>  
+        <h2 >{{routineName}}</h2>
+        <p>Number of exercises: {{exercises.length}}</p>
     {{/ionItem}}
 
 
         <div class="item item-body">
-            <p> 
+            <p>
                 <ul>
                     {{#each exercises}}
                         <!-- TODO: The {{Name}} spacebar is not working Correctly for displaying the names of the exercises. -->
-                        <li> {{Name}} - {{Sets}} x {{Reps}} </li> 
+                        <li> {{Name}} - {{Sets}} x {{Reps}} </li>
                     {{/each}}
                 </ul>
             </p>
-            
+
             <p>
                 <a href="#" class="subdued">Completed {{timesCompleted}} times</a>
                 <a href="#" class="subdued"> Average Time: {{avgComplete}} </a>
@@ -89,21 +89,18 @@
         </div>
 
         {{#if preset}}
-        <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item"> 
-                Difficulty
-                {{#each difficulty}}
-                {{#if this}}
-                <i class="icon ion-fireball"></i>
-                {{/if}}
-                {{/each}}
-            </a>
-        </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item">
+                    Difficulty
+                    {{#each difficulty}}
+                        {{#if this}}
+                            <i class="icon ion-fireball"></i>
+                        {{/if}}
+                    {{/each}}
+                </a>
+            </div>
         {{/if}}
 
     </div>
-
-  
-  
 
 </template>
