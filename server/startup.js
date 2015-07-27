@@ -185,7 +185,7 @@ if(Meteor.isServer){
 
 		Routines.insert({
 			_uID: "preset" ,
-			routineName: "Week 1",
+			routineName: "Full Body 1",
 			exercises: [
 				{
 					Category: "Chest",
@@ -246,7 +246,7 @@ if(Meteor.isServer){
 
 		Routines.insert({
 			_uID: "preset" ,
-			routineName: "Week 2",
+			routineName: "Upper Body 1",
 			exercises: [
 				{
 					Category: "Chest",
@@ -317,6 +317,113 @@ if(Meteor.isServer){
 					Sets: 3,
 					Reps: 15,
 				}
+			]
+		})
+
+		Routines.insert({
+			_uID: "preset" ,
+			routineName: "Lower Body 1",
+			exercises: [
+
+				{
+					Category: "Legs",
+					Name: "Leg Press",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Legs",
+					Name: "Leg Extention",
+					Sets: 3,
+					Reps: 10,
+				},
+
+				{
+					Category: "Legs",
+					Name: "Lying Leg Curl",
+					Sets: 3,
+					Reps: 12,
+				},
+
+				{
+					Category: "Legs",
+					Name: "Seated Leg Curl",
+					Sets: 3,
+					Reps: 12,
+				},
+
+				{
+					Category: "Legs",
+					Name: "Standing Calf Raises",
+					Sets: 3,
+					Reps: 17,
+				},
+
+				{
+					Category: "Legs",
+					Name: "Seated Calf Raises",
+					Sets: 3,
+					Reps: 17,
+				}
+
+			]
+		})
+
+		Routines.insert({
+			_uID: "preset" ,
+			routineName: "Push Yourself!",
+			exercises: [
+
+				{
+					Category: "Chest",
+					Name: "Incline Barbell Bench Press",
+					Sets: 4,
+					Reps: 12,
+				},
+
+				{
+					Category: "Chest",
+					Name: "Dumbbell Flye",
+					Sets: 4,
+					Reps: 12,
+				},
+
+				{
+					Category: "Shoulders",
+					Name: "Overhead Dumbbell Press",
+					Sets: 4,
+					Reps: 12,
+				},
+
+				{
+					Category: "Shoulders",
+					Name: "Smith Machine Upright Row",
+					Sets: 4,
+					Reps: 10,
+				},
+
+				{
+					Category: "Shoulders",
+					Name: "Smith Machine Upright Row",
+					Sets: 4,
+					Reps: 10,
+				},
+
+				{
+					Category: "Arms",
+					Name: "Lying EZ-Bar Tricpes Extention",
+					Sets: 3,
+					Reps: 12,
+				},
+
+				{
+					Category: "Arms",
+					Name: "Dumbbell Kickback",
+					Sets: 3,
+					Reps: 10,
+				}
+
 			]
 		})
 
