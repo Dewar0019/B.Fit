@@ -124,6 +124,7 @@ if ('webkitSpeechRecognition' in window) {
 	}
 
 function startDictation(event) {
+
 	if (recognizing) {
 		stopTimeOutEvent();  //Stops the timeout event if it hasn't been 10 seconds
 		recognizing = false;

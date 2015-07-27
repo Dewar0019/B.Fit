@@ -73,19 +73,24 @@ Template.exercises.events({
 	// WORK HERE FOR THE ROUTINE DELETE FUNCTION
 	'click #removeButton': function(){
 		console.log("remove button was pressed");
-
+		event.preventDefault();
 		var playerId = this._id;
-	    Session.set('currentRoutines', playerId);
+	    // Session.set('currentRoutines', playerId);
+		// var routine = Session.get("selectedRoutine");
+		var routineView = Session.get('selectedRoutine');
 
-		console.log(JSON.stringify(this));
-		console.log(routineName);
-
-		// MODIFY THIS SO THAT "name" REPRESENTS THE ROUTINE NAME --> TALK TO HICKEY
-		for (var i=0; i<Routines.find().count(); i++){
-			if(Routines.find().fetch()[i].routineName == "name"){
+		console.log(name);
+		// Routines.find({_id: routineView._id}).exercises
+		// MAKE SPLICE REMOVE PERMANANTLY
+		for (var i=0; i<routineView.exercises.length; i++){
+			var newList = [];
+			if(playerId != routineView.exercises[i]._id) {
+				newList.push(routineView.exercises[i]);
 
 			}
 		}
+		console.log(newList);
+		Routines.update({_id: routineView._id}, {$set:{exercises:newList}});		
 	}
 
 })
