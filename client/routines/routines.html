@@ -87,13 +87,18 @@
                 <a href="#" class="subdued"> Average Time: {{avgComplete}} </a>
             </p>
         </div>
-
+        {{#if _uID=preset}}
         <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item" href="#"> 
+            <a class="tab-item"> 
                 Difficulty
+                {{#each difficulty}}
+                {{#if this}}
                 <i class="icon ion-fireball"></i>
+                {{/if}}
+                {{/each}}
             </a>
         </div>
+        {{/if}}
 
     </div>
 

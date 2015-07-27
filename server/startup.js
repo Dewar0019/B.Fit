@@ -239,6 +239,7 @@ if(Meteor.isServer){
 			createdAt: new Date(),
 			timesCompleted: 0,
 			avgComplete: "0:00:00",
+			difficulty: [true, true, true, false, false,],
 		})
 
 

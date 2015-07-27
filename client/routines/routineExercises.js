@@ -147,6 +147,7 @@ Template.routineExercises.events({
 	},
 });
 
+//Run this funciton when workout has finished to reset everything
 function workoutFinish() {
 	Clock.stop();
 	Clock.totalSeconds = 0;
