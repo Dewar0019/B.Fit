@@ -8,8 +8,6 @@ Template.routineExercises.helpers({
 	anyExerciseLeft: function () { return Session.get("currentExercise") != null;}, //Checks if there are anymore workouts left
 })
 
-
-
 var Clock = {
 	totalSeconds: 0,
 
@@ -148,7 +146,6 @@ Template.routineExercises.events({
 		});
 	},
 });
-
 
 function workoutFinish() {
 	Clock.stop();

@@ -128,6 +128,7 @@ function startDictation(event) {
 	if (recognizing) {
 		stopTimeOutEvent();  //Stops the timeout event if it hasn't been 10 seconds
 		recognizing = false;
+		recognition.stop();
 		stopListening.play();
 		console.log("dictation stopped");
 	}
@@ -194,9 +195,9 @@ function sendSentence(sentence){
 				console.log("success!", response);
 				if(testVariable[0].confidence < 0.95) {
 					toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
-					setTimeout(recognition.start(), 2000);
+					setTimeout(recognition.onstart(), 2000);
 				}
-				else if(testVariable[0]._text.indexOf("next exercise") > 0) {
+				else if(testVariable[0].intent == "exercise_progress") {
 					console.log("next exercise recognized");
 					nextExerciseCommand(testVariable);
 				} else if (testVariable[0].intent == "logCardioIntent"){
