@@ -1,0 +1,35 @@
+<template name="about">
+	{{#contentFor "headerButtonLeft"}}
+        {{>ionNavBackButton path="profile"}}
+    {{/contentFor}}
+
+
+    {{#contentFor "headerTitle"}}
+        <h1 class="title">About Us</h1>
+    {{/contentFor}}
+
+
+    {{#ionView}}
+    {{#ionContent}}
+    {{#if currentUser}}
+
+    	<div class="list card">
+    		<div class="item item-divider text-center">
+				We Are A Team!
+			</div>
+
+			<div class="item item-body">
+			    <img class="full-image" src="images/xiao.jpg">
+			    <p>
+			      Things became magic when we started the JBS Progam in this wonderful 2015 summer holiday. We met and came to know each other from some rainy days till the sunny days. We shared similar ideas, we worked together almost everyday either face-to-face or online, and finally we made it!
+			    </p>
+			</div>
+    	</div>
+
+    {{else}}
+        {{> atForm}}
+    {{/if}}
+
+    {{/ionContent}}
+    {{/ionView}}
+</template>
