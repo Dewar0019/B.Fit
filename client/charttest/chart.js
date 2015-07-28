@@ -1,5 +1,5 @@
 Template.chart.rendered = function () { 
-grabInfo(); //Pushes Data into an array based on format required for C3.js chart rendering
+  grabInfo(); //Pushes Data into an array based on format required for C3.js chart rendering
  var chart = c3.generate({
       bindto: this.find('#chart'), //Looks for chart id in html
       data:{  x: 'date',
@@ -28,7 +28,6 @@ grabInfo(); //Pushes Data into an array based on format required for C3.js chart
   $("#cardio,#strength,#flexibility").change(function(){
     //When a selection is made from the dropdown menu
       var c1 = $("#cardio").find('option:selected').val();
-      grabInfo();
       chart.hide(null,{ withLegend: true });
       chart.show([c1],{ withLegend: true });
 
@@ -58,6 +57,9 @@ var grabTime = ['Running Time'];
 var grabDate = ['date'];
       
       function grabInfo() {
+        grabDistance = ['Running'];  //Makes sure to clear data upon navigating away from page 
+        grabTime = ['Running Time'];
+        grabDate = ['date'];
         var allCardio = Cardio.find().fetch(); //Finds all Cardio data at the moment and stores into C3.js formats
         allCardio.forEach(function(finished) { //Should eventually include only the users data and exclude startup
             grabDistance.push(finished.Distance);
