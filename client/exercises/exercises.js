@@ -87,7 +87,8 @@ Template.exercises.events({
 			}
 		}
 		Routines.update({_id: routineView._id}, {$set:{exercises:newList}});
-		refresh();
+		Router.go('createRoutine');
+		// refresh();
 	}
 
 })
