@@ -146,6 +146,7 @@ confirmFinish = function() {
 
 //Resetting all the values so the user can restart their workout
 function workoutFinish() {
+	toastr.clear(); // Placed in for voice function
 	Clock.stop();
 	Clock.totalSeconds = 0;
 	running = false;
