@@ -1,11 +1,21 @@
-
 Template.exercises.helpers({
-	getExercises: function () { return Exercises.find().fetch();}, //shows strength exercises
-	getCardio: function () { return ExercisesCardio.find().fetch();},  //shows cardio exercises
+
+	//shows strength exercises
+	getExercises: function () {
+		return Exercises.find().fetch();
+	},
+
+	//shows cardio exercises
+	getCardio: function () {
+		return ExercisesCardio.find().fetch();
+	},
+
 	showExerciseList2 : function() {
 		return Session.get("showExerciseList2");
 	},
-	exerciseList2: function() {  //shows exercise list for edit
+
+ 	//shows exercise list for edit
+	exerciseList2: function() {
 		currentRoutines = Session.get('selectedRoutine');
 		console.log("exerciseList2")
 		console.log(Session.get('selectedRoutine'));
@@ -15,20 +25,18 @@ Template.exercises.helpers({
 	'strengthOrCardioForm': function(){ //choice between strength and cardio
 		return Session.get("strengthOrCardio");
 	},
+
 	'editOrNot': function(){ //choice between edit and other
 		return Session.get("editOrNot");
 	},
-	 
 });
-function refresh() {
-          window.location.reload(true);
-       
-     }
+
 Template.exercises.events({
 	'click .selectedExercise' : function() {
 		var exercise = this;
 		console.log(exercise);
 		Session.set('storeExercise', (exercise.Type.indexOf("Cardio") > -1));
+
 
 	},
 	'click .selectedCardio' : function() {
@@ -73,24 +81,32 @@ Template.exercises.events({
 	        console.log("remove clicked2!");
     },
 
+
+	// WORK HERE FOR THE ROUTINE DELETE FUNCTION
 	'click #removeButton': function(){
 		console.log("remove button was pressed");
 		event.preventDefault();
 		var playerId = this._id;
+	    // Session.set('currentRoutines', playerId);
+		// var routine = Session.get("selectedRoutine");
 		var routineView = Session.get('selectedRoutine');
 
 		console.log(name);
-		var newList = [];
+		// Routines.find({_id: routineView._id}).exercises
+		// MAKE SPLICE REMOVE PERMANANTLY
 		for (var i=0; i<routineView.exercises.length; i++){
+			var newList = [];
 			if(playerId != routineView.exercises[i]._id) {
 				newList.push(routineView.exercises[i]);
+
 			}
 		}
+		console.log(newList);
+
 		Routines.update({_id: routineView._id}, {$set:{exercises:newList}});
-		refresh();
+
+		Router.go('createRoutine');
+		// refresh();
 	}
 
 })
-
-
-    

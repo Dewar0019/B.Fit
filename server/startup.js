@@ -5,13 +5,24 @@ if(Meteor.isServer){
 		if (Exercises.find().fetch()==0){
 			exerciseStartup.data.forEach(function(exercise) {
 				// Leave the next line in for debugging purposes
-				console.log(JSON.stringify(exercise))
+				//console.log(JSON.stringify(exercise))
 				Exercises.insert({
 					Name: exercise.exercisename[0],
 					Type: [exercise.primary[0], exercise.secondary[0]],
 					Instructions: splitString(exercise.steps[0], '. '),
 					start: exercise.startimg[0],
 					end: exercise.endimg[0]
+				})
+			});
+		}
+
+		if (ExercisesCardio.find().fetch()==0){
+			cardioStartup.data.forEach(function(exercise) {
+				// Leave the next line in for debugging purposes
+				console.log(JSON.stringify(exercise))
+				ExercisesCardio.insert({
+					Name: exercise.cardioname[0],
+					Type: ["Cardio"]
 				})
 			});
 		}
@@ -550,79 +561,6 @@ if(Meteor.isServer){
 			analyticsDate: "2015-03-30",
 			Distance: 8,
 			Time: 6
-		})
-	}
-
-	if(ExercisesCardio.find().count()== 0) {
-
-		ExercisesCardio.insert({
-			Name: "Aerobics",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Elliptical",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Field Sports",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Indoor Cycling",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Inline Skating",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Mountain Biking",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Recumbent Bike",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Road Cycling",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Rowing",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Running",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Stationary Bike",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Step Machine",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Swimming",
-			Type: "cardio"
-		}),
-
-		ExercisesCardio.insert({
-			Name: "Walking",
-			Type: "cardio"
 		})
 	}
 }

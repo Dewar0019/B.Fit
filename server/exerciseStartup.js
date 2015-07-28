@@ -1,3 +1,5 @@
+// there are 5 exercises which are commented out. To find them in this page search for "// {"
+
 exerciseStartup = {
   "generated": {
     "timestamp": 1438023352000,
