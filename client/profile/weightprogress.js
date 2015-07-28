@@ -23,7 +23,6 @@ Template.weightProgress.rendered = function () {
   });
 }
 
-
 var timeData = ['Time'];
 var weightData = ['Weight'];
 
