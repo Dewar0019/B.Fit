@@ -60,6 +60,8 @@ Meteor.methods({
 
 	'addToRoutine': function(exercise, getRoutine, sets, reps, weight) {  //this will add new exercise to routine
 		var currentTime = new Date(); //Grab the current time
+		console.log("Guess where I am");
+		console.dir(exercise);
 		Intermediate.insert({ //This is the actual object that will be added to the routine
 			Name: exercise.Name,
 			Sets: sets,
@@ -78,8 +80,10 @@ Meteor.methods({
 
 	'addToCardioRoutine': function (exercise, getRoutine, time, distance){
 		var currentTime = new Date(); //Grab the current time
+		console.log("in the method.js file");
+		console.dir(exercise);
 		Intermediate.insert({
-			Name: exercise.Name,
+			CardioName: exercise.Name,
 			Time: time,
 			Distance: distance,
 			AddedOn: currentTime,

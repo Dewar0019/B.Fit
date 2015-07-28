@@ -8,7 +8,8 @@ Template.exercisesEdit.events({
 		var sets = event.target.sets.value;
 		var reps = event.target.reps.value;
 		var weight = event.target.weight.value;
-		if(checkValues(sets, reps, weight)) {
+
+		if(checkThreeValues(sets, reps, weight)) {
 			Meteor.call('addToRoutine', exerciseID, routine, sets, reps, weight, function(error, result){
 				Session.set("selectedRoutine", result);
 			});
@@ -22,14 +23,19 @@ Template.exercisesEdit.events({
 
 	'submit #addExerciseCardio' : function(events) {
 		event.preventDefault();
-		var exerciseID = this
+		var exerciseID = this;
 		var routine = Session.get("selectedRoutine");
 		var time = event.target.time.value;
 		var distance = event.target.distance.value;
-		if(checkValues(time, distance)) {
-			Meteor.call('addToCardioRoutine', exerciseID, routine, time, distance, function(error, result){
+		console.log("THIS IS HERE: ");
+		console.dir(exerciseID);
+
+		if(checkTwoValues(time, distance)) {
+
+			Meteor.call('addToCardioRoutine', exerciseID, routine, time, distance, function(error, result) {
 				Session.set("selectedRoutine", result);
 			});
+
 			toastr.success(exerciseID.Name + " Added to " + routine.routineName, "Exercise Sucessfully Added");
 			console.log(routine._id);
 			Router.go("exercises", {_id:routine._id});
@@ -49,14 +55,14 @@ Template.exercisesEdit.helpers({
 
 
 
-function checkValues(sets, reps, weight) {
+function checkThreeValues(sets, reps, weight) {
 	if(sets <0 || reps < 0 || weight < 0) {
 		return false;
 	}
 	return true;
 }
 
-function checkValues(time, distance) {
+function checkTwoValues(time, distance) {
 	if(time <0 || distance < 0) {
 		return false;
 	}
