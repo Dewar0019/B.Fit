@@ -40,16 +40,16 @@ var Clock = {
 	}
 };
 
-function getPietimer(){
-	$('#demo').pietimer({
-		seconds: 60,
-		color: 'rgba(0,0,1,0.8)',
-		height:100,
-		width:100,
-		is_reversed: true
-	});
-	$('#demo').pietimer('start');
-};
+// function getPietimer(){
+// 	$('#demo').pietimer({
+// 		seconds: 60,
+// 		color: 'rgba(0,0,1,0.8)',
+// 		height:100,
+// 		width:100,
+// 		is_reversed: true
+// 	});
+// 	$('#demo').pietimer('start');
+// };
 
 //This checklist will keep track of what exercises has been completed from the routine
 checkedExercises = [];

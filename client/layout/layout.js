@@ -520,6 +520,13 @@ function capitalize(s) {
 		function finishWorkout(action) {
 			if(Session.get("workoutStarted")) {
 				confirmFinish();
+			} else {
+				IonPopup.alert({
+			      title: 'You can\t finish a workout you haven\'t started!',
+			      template: 'Head to the Routines Page to start a workout',
+			      okText: 'Got It.'
+    });
+				toastr.clear();
 			}
 		}
 

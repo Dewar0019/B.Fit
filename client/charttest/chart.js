@@ -36,14 +36,14 @@ Template.chart.rendered = function () {
     //For when the user clicks to Show Time
     $('#A').on('click',function(){
       chart.load({ columns:[ grabTime, ], unload: ['Running'], });
-      chart.axis.labels({y: "Time"});
+      chart.axis.labels({y: "Time"}); //Changes Y axis label
 
     });
 
     //For when the user clicks to Show Distance
     $('#B').on('click',function(){
       chart.load({ columns:[ grabDistance, ], unload: ['Running Time'],});
-      chart.axis.labels({y: "Distance"});
+      chart.axis.labels({y: "Distance"}); //Changes Y axis label
 
     });
 
