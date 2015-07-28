@@ -71,16 +71,7 @@ Template.routineExercises.events({
 	'click #done' :function() {
 		var selectedExercise = Session.get("currentExercise");
 		if(selectedExercise == null) {
-			IonPopup.confirm({
-			title: 'Looks like your done!',
-			template: 'Are you <strong>finished</strong> with your workout?',
-			onOk: function() {
-				workoutFinish();
-			},
-			onCancel: function() {
-				//Do nothing on cancel because user is still exercising
-			},
-			});
+			confirmFinish();
 		} else {
 			for(var i = 0; i < checkedExercises.length; i++) {
 				if (checkedExercises[i].Name == selectedExercise.Name) {
@@ -132,29 +123,34 @@ Template.routineExercises.events({
 	//Prompt the user whether or not they confirm finish workout
 	'click [data-action="showConfirm"]': function(event, template) {
 		console.log(Clock);
-		IonPopup.confirm({
-			title: 'Yay you finished!',
-			template: 'Are you <strong>finished</strong> with your workout?',
-			onOk: function() {
-				workoutFinish();
-			},
-
-			onCancel: function() {
-				//Do nothing on cancel because user is still exercising
-			}
-
-		});
+		confirmFinish();
 	},
 });
 
 //Run this funciton when workout has finished to reset everything
+confirmFinish = function() {
+	IonPopup.confirm({
+		title: 'Your doing great!!',
+		template: 'Are you <strong>finished</strong> with your workout?',
+		onOk: function() {
+			workoutFinish();
+		},
+		onCancel: function() {
+			//Do nothing on cancel because user is still exercising
+		},
+	});
+}
+
+
+
+
+//Resetting all the values so the user can restart their workout
 function workoutFinish() {
 	Clock.stop();
 	Clock.totalSeconds = 0;
 	running = false;
 	$(".beginExercise").html("Start");
 	$(".beginExercise").attr('id', 'start');
-	Session.set('workoutStarted', false);
 	var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
 	var elementPos = checkedExercises.map(function(x) {return x.checked; }).indexOf(false); //Checks if all the exercises has been completed otherwise grabs the first Index where it has not been
 	Completed.insert({
@@ -168,6 +164,7 @@ function workoutFinish() {
 	Meteor.call("compileFinished", routine); //Calculates the avg time user did this routine along with number of times fully completed
 	Session.set("workoutStarted", false); //Resets to false so can be repeated again
 	Router.go('welcome');
+	checkedExercises = [];
 }
 
 Template.routineExercises.rendered = function() {

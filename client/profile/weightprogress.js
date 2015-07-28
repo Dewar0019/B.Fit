@@ -10,7 +10,7 @@ Template.weightProgress.rendered = function () {
       },
       axis: {
               x: { label: { text: 'Date', position: 'outer-middle'}, type: 'timeseries', tick: { format: '%m-%d'} },
-              y: { label: { text: "Weight", position: 'outer-middle'} },
+              y: { label: { text: "Weight (lbs)", position: 'outer-middle'} },
             },
   });
 
