@@ -27,6 +27,8 @@ var timeData = ['Time'];
 var weightData = ['Weight'];
 
 function initializeWeightData(){ //Finds all Weight data at the moment and stores into C3.js formats
+  timeData = ['Time'];
+  weightData = ['Weight'];
   var allWeight = UserWeight.find().fetch(); //Should eventually include only the users data and exclude startup
   allWeight.forEach(function(weightTime) {
          timeData.push(weightTime.dateAdded);
