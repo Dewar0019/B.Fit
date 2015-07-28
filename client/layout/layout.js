@@ -15,7 +15,7 @@ toastr.options = {
   "preventDuplicates": true,
   "showDuration": "5000",
   "hideDuration": "5000",
-  "timeOut": "15000",
+  "timeOut": "12000",
   "extendedTimeOut": "5000",
   "showEasing": "swing",
   "hideEasing": "linear",
@@ -33,7 +33,7 @@ function timeOutEvent() {
 	  	console.log("Dictation Time Out");
 	  	toastr.info("Dictation Timed Out, we didn't get a response", "Mic is now Off");
 	  	stopListening.play();
-		}, 10000);
+		}, 12000);
 }
 
 function stopTimeOutEvent() {
@@ -158,8 +158,7 @@ function capitalize(s) {
 				testVariable = response.outcomes;
 				console.log("success!", response);
 				if(testVariable[0].confidence < 0.95) {
-					toastr.info("Please Give me a Command", "We didn't catch that, could you try again");
-					setTimeout(recognition.onstart(), 2000);
+					toastr.info("We didn't catch that, could you try again", "Sorry!");
 				} else if(testVariable[0].intent == "navigation") {
 					navigation(testVariable);
 				}
@@ -498,12 +497,27 @@ function capitalize(s) {
 		window.speechSynthesis.speak(msg);
 	}
 
-	function navigation (action) {
+	function navigation(action) {
 		if (action[0].entities.hasOwnProperty("analytics")) {
-
-			setTimeout( function() {Router.go("chart")}, 3000);
+			setTimeout( function() {
+				toastr.clear();
+				Router.go("chart")}, 3000);
 		}
-	}
+		 else if(action[0].entities.hasOwnProperty("my_routines")) {
+			setTimeout( function() {
+				toastr.clear();
+				Router.go("routines")}, 3000);
+		}
+		else if(action[0].entities.hasOwnProperty("exerciseLog")) {
+			setTimeout( function() {
+				toastr.clear();
+				Router.go("exerciseLog")}, 3000);
+			}
+		}
+
+		
+	
+
 
 
 	analyticsDate = function(){
