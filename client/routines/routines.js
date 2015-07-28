@@ -1,15 +1,31 @@
 Template.routines.helpers({
 	item: function() {
 		return Session.get("grabAllRoutines");
-	}, //Gotta change later so that it consist only of presets and user inserted routines
+	},
 
-	emptyRoutines : function() {
+	emptyRoutines: function() {
 		return Session.get("grabAllRoutines").length == 0;
 	},
 
-	isPreset : function() {
+	isPreset: function() {
 		return this._uID == 'preset';
 	},
+
+	determineExerciseType: function() {
+		var allRoutines = Session.get("grabAllRoutines");
+
+		for (var routine in allRoutines){
+			for (var exercise in exercises){
+				if (exercise.ExerciseType == "Strength"){
+					Session.set("isStrength", true);
+				} else if (exercise.CardioName == "Cardio") {
+					Session.set("isStrength", false);
+				}
+			}
+		}
+	}
+
+
 })
 
 Template.routines.rendered = function() {
@@ -28,7 +44,7 @@ Template.routines.events({
 		Session.set("grabAllRoutines", Routines.find({_uID: Meteor.userId()}).fetch());
 		document.getElementById("ownRoutines").className = "tab-item active";
 		document.getElementById("presetRoutines").className = "tab-item";
-		
+
 	},
 
 	'click #presetRoutines' : function() {
@@ -36,5 +52,5 @@ Template.routines.events({
 		document.getElementById("presetRoutines").className = "tab-item active";
 		document.getElementById("ownRoutines").className = "tab-item";
 	},
-	
+
 })

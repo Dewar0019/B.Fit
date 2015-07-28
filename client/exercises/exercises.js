@@ -34,7 +34,7 @@ Template.exercises.helpers({
 Template.exercises.events({
 	'click .selectedExercise' : function() {
 		var exercise = this;
-		console.log(exercise);
+		Session.set("cardioToAdd", exercise); // this is used for when the user clicks the add exercise button on the exercise edit page for a cardio exercise
 		Session.set('storeExercise', (exercise.Type.indexOf("Cardio") > -1));
 
 
