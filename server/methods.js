@@ -58,6 +58,7 @@ Meteor.methods({
 	// return justCreated;
 	// Session.set('recentAdd', Routines.findOne({_uID: Meteor.userId(), routineName: name}));
 
+	// FOR STRENGTH EXERCISES
 	'addToRoutine': function(exercise, getRoutine, sets, reps, weight) {  //this will add new exercise to routine
 		var currentTime = new Date(); //Grab the current time
 		console.log("Guess where I am");
@@ -69,7 +70,8 @@ Meteor.methods({
 			Weight: weight,
 			type: [exercise.primary, exercise.secondary],
 			AddedOn: currentTime,
-			AddedBy: Meteor.userId()
+			AddedBy: Meteor.userId(),
+			ExerciseType: "Strength"
 		});
 
 		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
@@ -78,16 +80,18 @@ Meteor.methods({
 		return Routines.findOne({_id: getRoutine._id});
 	},
 
+	// FOR CARDIO EXERCISES
 	'addToCardioRoutine': function (exercise, getRoutine, time, distance){
 		var currentTime = new Date(); //Grab the current time
 		console.log("in the method.js file");
 		console.dir(exercise);
 		Intermediate.insert({
-			CardioName: exercise.Name,
+			CardioName: exercise.Name, // use of CardioName instead of Name
 			Time: time,
 			Distance: distance,
 			AddedOn: currentTime,
-			AddedBy: Meteor.userId()
+			AddedBy: Meteor.userId(),
+			ExerciseType: "Cardio"
 		});
 
 		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added

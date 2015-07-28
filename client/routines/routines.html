@@ -36,7 +36,7 @@
                         </div>
                     {{/if}}
 
-
+                    <!-- for each of the routines, call the savedRoutines on the routine -->
     				{{#each item}}
     					{{> savedRoutines}}
     				{{/each }}
@@ -76,8 +76,13 @@
             <p>
                 <ul>
                     {{#each exercises}}
-                        <!-- TODO: The {{Name}} spacebar is not working Correctly for displaying the names of the exercises. -->
-                        <li> {{Name}} - {{Sets}} x {{Reps}} </li>
+                        {{#if isStrength}}
+                            <!-- TODO: The {{Name}} spacebar is not working Correctly for displaying the names of the exercises. -->
+                            <li> {{Name}} - {{Sets}} x {{Reps}} </li>
+                        {{else}}
+                            <!-- TODO: The {{Name}} spacebar is not working Correctly for displaying the names of the exercises. -->
+                            <li> {{CardioName}} - {{Time}} Min / {{Distance}} Mi </li>
+                        {{/if}}
                     {{/each}}
                 </ul>
             </p>
@@ -90,7 +95,7 @@
 
         {{#if preset}}
             <div class="item tabs tabs-secondary tabs-icon-left">
-                <a class="tab-item">
+                <a class="tab-item7">
                     Difficulty
                     {{#each difficulty}}
                         {{#if this}}
