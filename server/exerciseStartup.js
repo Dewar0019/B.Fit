@@ -7200,42 +7200,48 @@ exerciseStartup = {
       },
       "_num": 174
     },
-    {
-      "exercisename": [
-        "Wide Grip Chin Up"
-      ],
-      "steps": [
-        "Grasp a chin up bar with a slightly wider than shoulder width grip. Keeping your body straight pull yourself up and to one side of the bar. Lower your body back down to the starting position. Raise yourself to the other side of the bar. Repeat."
-      ],
-      "startimg": [
-        "http://img.everkinetic.com/?action=image&id=386&number=0&key=69cadbdd2&version=3b7e5db2&size=280,420"
-      ],
-      "endimg": [
-        "http://img.everkinetic.com/?action=image&id=386&number=1&key=69cadbdd2&version=2d7b9936&size=280,420"
-      ],
-      "primary": [
-        "biceps"
-      ],
-      "_resultNumber": 175,
-      "_widgetName": "data2",
-      "_source": [
-        "100fa835-e565-4c57-bc17-17ad294c0c62"
-      ],
-      "_connectorVersionGuid": "9b8f5787-be1a-4af0-8c83-5dc3ccf87f04",
-      "_pageUrl": "http://db.everkinetic.com/exercise/wide-grip-chin-up/",
-      "_outputTypes": {
-        "exercisename": "STRING",
-        "steps": "STRING",
-        "startimg": "IMAGE",
-        "endimg": "IMAGE",
-        "primary": "STRING",
-        "secondary": "STRING"
-      },
-      "_input": {
 
-      },
-      "_num": 175
-    },
+
+
+    // {
+    //   "exercisename": [
+    //     "Wide Grip Chin Up"
+    //   ],
+    //   "steps": [
+    //     "Grasp a chin up bar with a slightly wider than shoulder width grip. Keeping your body straight pull yourself up and to one side of the bar. Lower your body back down to the starting position. Raise yourself to the other side of the bar. Repeat."
+    //   ],
+    //   "startimg": [
+    //     "http://img.everkinetic.com/?action=image&id=386&number=0&key=69cadbdd2&version=3b7e5db2&size=280,420"
+    //   ],
+    //   "endimg": [
+    //     "http://img.everkinetic.com/?action=image&id=386&number=1&key=69cadbdd2&version=2d7b9936&size=280,420"
+    //   ],
+    //   "primary": [
+    //     "biceps"
+    //   ],
+    //   "_resultNumber": 175,
+    //   "_widgetName": "data2",
+    //   "_source": [
+    //     "100fa835-e565-4c57-bc17-17ad294c0c62"
+    //   ],
+    //   "_connectorVersionGuid": "9b8f5787-be1a-4af0-8c83-5dc3ccf87f04",
+    //   "_pageUrl": "http://db.everkinetic.com/exercise/wide-grip-chin-up/",
+    //   "_outputTypes": {
+    //     "exercisename": "STRING",
+    //     "steps": "STRING",
+    //     "startimg": "IMAGE",
+    //     "endimg": "IMAGE",
+    //     "primary": "STRING",
+    //     "secondary": "STRING"
+    //   },
+    //   "_input": {
+    //
+    //   },
+    //   "_num": 175
+    // },
+
+
+
     {
       "secondary": [
         "calves"
@@ -7314,39 +7320,45 @@ exerciseStartup = {
       },
       "_num": 177
     },
-    {
-      "secondary": [
-        "dumbbell"
-      ],
-      "exercisename": [
-        "Standing Calf Raise with Dumbbell"
-      ],
-      "steps": [
-        "Place a block or two free weight plates on the floor. Grasp a dumbbell in each hand and step up so the balls of your feet are on the block. Slowly lift your heels up and then lower them back to the floor getting as much of a stretch as possible. Lower your heels and bend your ankles to stretch your calves. Return to starting position."
-      ],
-      "primary": [
-        "calves"
-      ],
-      "_resultNumber": 178,
-      "_widgetName": "data2",
-      "_source": [
-        "100fa835-e565-4c57-bc17-17ad294c0c62"
-      ],
-      "_connectorVersionGuid": "9b8f5787-be1a-4af0-8c83-5dc3ccf87f04",
-      "_pageUrl": "http://db.everkinetic.com/exercise/standing-calf-raise-with-dumbbell/",
-      "_outputTypes": {
-        "exercisename": "STRING",
-        "steps": "STRING",
-        "startimg": "IMAGE",
-        "endimg": "IMAGE",
-        "primary": "STRING",
-        "secondary": "STRING"
-      },
-      "_input": {
 
-      },
-      "_num": 178
-    },
+
+
+    // {
+    //   "secondary": [
+    //     "dumbbell"
+    //   ],
+    //   "exercisename": [
+    //     "Standing Calf Raise with Dumbbell"
+    //   ],
+    //   "steps": [
+    //     "Place a block or two free weight plates on the floor. Grasp a dumbbell in each hand and step up so the balls of your feet are on the block. Slowly lift your heels up and then lower them back to the floor getting as much of a stretch as possible. Lower your heels and bend your ankles to stretch your calves. Return to starting position."
+    //   ],
+    //   "primary": [
+    //     "calves"
+    //   ],
+    //   "_resultNumber": 178,
+    //   "_widgetName": "data2",
+    //   "_source": [
+    //     "100fa835-e565-4c57-bc17-17ad294c0c62"
+    //   ],
+    //   "_connectorVersionGuid": "9b8f5787-be1a-4af0-8c83-5dc3ccf87f04",
+    //   "_pageUrl": "http://db.everkinetic.com/exercise/standing-calf-raise-with-dumbbell/",
+    //   "_outputTypes": {
+    //     "exercisename": "STRING",
+    //     "steps": "STRING",
+    //     "startimg": "IMAGE",
+    //     "endimg": "IMAGE",
+    //     "primary": "STRING",
+    //     "secondary": "STRING"
+    //   },
+    //   "_input": {
+    //
+    //   },
+    //   "_num": 178
+    // },
+
+
+
     {
       "secondary": [
         "barbell"
