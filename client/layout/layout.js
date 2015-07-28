@@ -166,9 +166,11 @@ function capitalize(s) {
 					console.log("exercise_progress");
 					if(testVariable[0].entities.hasOwnProperty("exercises_left")) {
 						exercisesLeft(testVariable);
-					} else {
+					} else if(testVariable[0].entities.hasOwnProperty("progress")) {
 						nextExerciseCommand(testVariable);
-					}	
+					} else if(testVariable[0].entities.hasOwnProperty("finish")) {
+						finishWorkout(testVariable);
+					}
 				} else if (testVariable[0].intent == "logCardioIntent"){
 					recordCardio(testVariable);
 				} else {
@@ -515,10 +517,11 @@ function capitalize(s) {
 			}
 		}
 
-		
-	
-
-
+		function finishWorkout(action) {
+			if(Session.get("workoutStarted")) {
+				confirmFinish();
+			}
+		}
 
 	analyticsDate = function(){
 		var d = new Date()
