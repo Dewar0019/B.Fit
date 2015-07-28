@@ -73,8 +73,6 @@ Template.exercises.events({
 	        console.log("remove clicked2!");
     },
 
-
-	// WORK HERE FOR THE ROUTINE DELETE FUNCTION
 	'click #removeButton': function(){
 		console.log("remove button was pressed");
 		event.preventDefault();

@@ -5,7 +5,6 @@
 	margin-right:2%;
 }
 
-
 #exercisesInRoutine{
 	position: relative;
 	top: 100px;
@@ -28,4 +27,9 @@
 
 #editButton{
 	left: 30%;
+}
+
+#removeButton{
+	top: 40%;
+	right: 4%;
 }
