@@ -18,8 +18,12 @@ Template.exercises.helpers({
 	'editOrNot': function(){ //choice between edit and other
 		return Session.get("editOrNot");
 	},
+	 
 });
-
+function refresh() {
+          window.location.reload(true);
+       
+     }
 Template.exercises.events({
 	'click .selectedExercise' : function() {
 		var exercise = this;
@@ -75,24 +79,19 @@ Template.exercises.events({
 		console.log("remove button was pressed");
 		event.preventDefault();
 		var playerId = this._id;
-	    // Session.set('currentRoutines', playerId);
-		// var routine = Session.get("selectedRoutine");
 		var routineView = Session.get('selectedRoutine');
 
 		console.log(name);
-		// Routines.find({_id: routineView._id}).exercises
-		// MAKE SPLICE REMOVE PERMANANTLY
+		var newList = [];
 		for (var i=0; i<routineView.exercises.length; i++){
-			var newList = [];
 			if(playerId != routineView.exercises[i]._id) {
 				newList.push(routineView.exercises[i]);
-
 			}
 		}
-		console.log(newList);
-
-		Routines.update({_id: routineView._id}, {$set:{exercises:newList}});		
-
+		Routines.update({_id: routineView._id}, {$set:{exercises:newList}});
 	}
 
 })
+
+
+    
