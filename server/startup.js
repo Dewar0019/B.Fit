@@ -552,5 +552,24 @@ if(Meteor.isServer){
 			Distance: 8,
 			Time: 6
 		})
+
+		var swimming = [{"CardioName":"Swimming","Distance":3,"Time":2,"analyticsDate":"2015-07-23","_id":"55b8eadd4d6f6335cd3a5b00","_uID":"qfCEWyRg4pHcKh7jj"},
+	{"CardioName":"Swimming","Distance":8,"Time":4,"analyticsDate":"2015-08-28","_id":"55b8eadd4d6f6335cd3b5b00","_uID":"qfCEWyRg4pHcKh7jj"},
+	{"CardioName":"Swimming","Distance":7,"Time":7,"analyticsDate":"2015-06-12","_id":"55b8eadd4d6f6335cd3c5b00","_uID":"qfCEWyRg4pHcKh7jj"},
+	{"CardioName":"Swimming","Distance":9,"Time":8,"analyticsDate":"2015-08-03","_id":"55b8eadd4d6f6335cd3d5b00","_uID":"qfCEWyRg4pHcKh7jj"},
+	{"CardioName":"Swimming","Distance":8,"Time":4,"analyticsDate":"2015-05-15","_id":"55b8eadd4d6f6335cd3e5b00","_uID":"qfCEWyRg4pHcKh7jj"},
+	{"CardioName":"Swimming","Distance":1,"Time":5,"analyticsDate":"2015-06-22","_id":"55b8eadd4d6f6335cd3f5b00","_uID":"qfCEWyRg4pHcKh7jj"},
+	{"CardioName":"Swimming","Distance":5,"Time":3,"analyticsDate":"2015-07-01","_id":"55b8eadd4d6f6335cd405b00","_uID":"qfCEWyRg4pHcKh7jj"},
+	{"CardioName":"Swimming","Distance":4,"Time":10,"analyticsDate":"2015-06-17","_id":"55b8eadd4d6f6335cd415b00","_uID":"qfCEWyRg4pHcKh7jj"},
+	{"CardioName":"Swimming","Distance":3,"Time":5,"analyticsDate":"2015-07-24","_id":"55b8eadd4d6f6335cd425b00","_uID":"qfCEWyRg4pHcKh7jj"},
+	{"CardioName":"Swimming","Distance":2,"Time":2,"analyticsDate":"2015-06-15","_id":"55b8eadd4d6f6335cd435b00","_uID":"qfCEWyRg4pHcKh7jj"}];
+	
+	function insertIntoCollection(toInsert) {
+		toInsert.forEach(function(obj) {
+			Cardio.insert(obj);
+		});
 	}
+
+	insertIntoCollection(swimming);
+}
 }

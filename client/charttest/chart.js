@@ -62,6 +62,9 @@ Template.chart.rendered = function () {
 var grabDistance = ['Running'];
 var grabTime = ['Running Time'];
 var grabDate = ['date'];
+
+//Seperate Arrays for Swimming
+
 var grabSwimTime = ['Swimming Time'];      
 var grabSwimDistance = ['Swimming'];
 var grabSwimDate = ['Date'];
