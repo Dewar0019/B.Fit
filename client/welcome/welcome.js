@@ -3,7 +3,7 @@ Template.welcome.helpers({
 		return Gravatar.imageUrl(Gravatar.hash(Meteor.user().emails[0].address,{secure:true}))
 	},
 	quote: function(){
-		var randomNumb = Math.floor(Math.random() * 114);
+		var randomNumb = Math.floor(Math.random() * 136);
 		return motivation[randomNumb];
 	}
 });
@@ -124,6 +124,30 @@ var motivation = [
 	"\"You can't put a limit on anything. The more you dream, the farther you get.\"--Michael Phelps",
 	"\"With so many people saying it couldn't be done, all it takes is an imagination.\"--Michael Phelps",
 	"\"Whether you think you can, or you think you can't you're always right.\" --Unknown",
+	"\"Age is no barrier. It's a limitation you put on your mind.\"--Jackie Joyner-Kersee",
+	"\"There may be people that have more talent than you, but there's no excuse for anyone to work harder than you\"--Derek Jeter",
+	"\"An athlete cannot run with money in his pockets. He must run with hope in his heart and dreams in his head\"--Emil Zatopek",
+	"\"It's not the will to win that matters-everyone has that It's the will to prepare to win that matters.\"--Paul \"Bear\" Bryant",
+	"\"Persistence can change failure into extraordinary achievement.\"--Marv Levy",
+	"\"Set your goals high, and don't stop till you get there.\"--Bo Jackson",
+	"\"Most people never run far enough on their first wind to find out they've got a second.\"--William James",
+	"\"Good is not good when better is expected.\"--Vin Scully",
+	"\"What you lack in talent can be made up with desire, hustle, and givng 110% all the time.\"--Don Zimmer",
+	"\"If you fail to prepare, you're prepared to fail.\" -- Mark Spitz",
+	"\"The mind is the limit. As long as the mind can envisioin the fact that you can do something, you can do it, as long as you really believe 100%\" --Arnold Schwarzenegger",
+	"\"You have to expect things of yourself before you can do them.\"--Michael Jordan",
+	"\"You can motivate by fear, and you can motivate by reward. But both those methods are only temporary. The only lasting thing is self motivation\" --Homer Rice",
+	"\"“Obstacles don’t have to stop you. If you run into a wall, don’t turn around and give up. Figure out how to climb it, go through it, or work around it\"--Michael Jordan",
+	"\"Excellence is the gradual result of always striving to do better.\"--Pat Riley",
+	"\"Just keep going. Everybody gets better if they keep at it.\"--Ted Williams",
+	"\"You can't put a limit on anything. The more you dream, the farther you get.\"--Michael Phelps",
+	"\"Pain is temporary. It may last a minute, or an hour, or a day, or a year, but eventually it will subside and something else will take its place. If I quit, however, it lasts forever.\"--Lance Armstrong",
+	"\"Adversity causes some men to break; others to break records.\"--William A. Ward",
+	"\"I hated every minute of training, but I said, ‘Don’t quit. Suffer now and live the rest of your life as a champion.’\"--Muhammad Ali",
+	"\"A champion is someone who gets up when he can't.\"--Jack Dempsey",
+	"\"Gold medals aren't really made of gold. They're made of sweat, determination, and a hard-to-find alloy called guts.\" --Dan Gable",
+
+
 
 ];
 
