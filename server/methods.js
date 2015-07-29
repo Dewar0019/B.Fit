@@ -61,8 +61,11 @@ Meteor.methods({
 	// FOR STRENGTH EXERCISES
 	'addToRoutine': function(exercise, getRoutine, sets, reps, weight) {  //this will add new exercise to routine
 		var currentTime = new Date(); //Grab the current time
-		console.log("Guess where I am");
+		console.log("in the method.js file 1");
 		console.dir(exercise);
+
+
+
 		Intermediate.insert({ //This is the actual object that will be added to the routine
 			Name: exercise.Name,
 			Sets: sets,
@@ -75,6 +78,9 @@ Meteor.methods({
 		});
 
 		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
+
+		determineType(justAdded);
+
 		getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
 		Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
 		return Routines.findOne({_id: getRoutine._id});
@@ -83,7 +89,7 @@ Meteor.methods({
 	// FOR CARDIO EXERCISES
 	'addToCardioRoutine': function (exercise, getRoutine, time, distance){
 		var currentTime = new Date(); //Grab the current time
-		console.log("in the method.js file");
+		console.log("in the method.js file 2");
 		console.dir(exercise);
 		Intermediate.insert({
 			CardioName: exercise.Name, // use of CardioName instead of Name
@@ -95,6 +101,9 @@ Meteor.methods({
 		});
 
 		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
+
+		justAdded = determineType(justAdded);
+
 		getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
 		Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
 		return Routines.findOne({_id: getRoutine._id});
@@ -111,3 +120,31 @@ Meteor.methods({
 		})
 	}
 })
+
+
+function determineType(exercise) {
+	// var allRoutines = Session.get("grabAllRoutines");
+	// for (var routine in allRoutines){
+	// 	for (var exercise in routine.exercises){
+	console.log("the exercise object will be printed below ")
+	console.dir(exercise);
+
+	console.log("Beginning if statements")
+	if (exercise.ExerciseType == "Strength"){
+		console.log("In Determine Type for Strength, exercise is below");
+		console.dir(exercise);
+
+		exercise.ExerciseType = true;
+		return exercise;
+
+	} else{
+		console.log("In Determine Type for Cardio, exercise is below");
+		console.dir(exercise);
+
+		exercise.ExerciseType = false;
+		return exercise;
+	}
+	// 	}
+	// }
+	console.log("determineType function has run");
+}
