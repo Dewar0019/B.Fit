@@ -71,7 +71,7 @@ Meteor.methods({
 			type: [exercise.primary, exercise.secondary],
 			AddedOn: currentTime,
 			AddedBy: Meteor.userId(),
-			ExerciseType: "Strength"
+			isStrength: true
 		});
 
 		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
@@ -91,7 +91,7 @@ Meteor.methods({
 			Distance: distance,
 			AddedOn: currentTime,
 			AddedBy: Meteor.userId(),
-			ExerciseType: "Cardio"
+			isStrength: false
 		});
 
 		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added

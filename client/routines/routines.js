@@ -11,15 +11,15 @@ Template.routines.helpers({
 		return this._uID == 'preset';
 	},
 
-	determineExerciseType: function() {
+	isStrength: function() {
 		var allRoutines = Session.get("grabAllRoutines");
 
 		for (var routine in allRoutines){
 			for (var exercise in exercises){
 				if (exercise.ExerciseType == "Strength"){
-					Session.set("isStrength", true);
-				} else if (exercise.CardioName == "Cardio") {
-					Session.set("isStrength", false);
+					return true;
+				} else if (exercise.ExerciseType == "Cardio") {
+					return false;
 				}
 			}
 		}

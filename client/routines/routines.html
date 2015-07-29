@@ -76,7 +76,7 @@
             <p>
                 <ul>
                     {{#each exercises}}
-                        {{#if isStrength}}
+                        {{#if exercises.isStrength}}
                             <!-- TODO: The {{Name}} spacebar is not working Correctly for displaying the names of the exercises. -->
                             <li> {{Name}} - {{Sets}} x {{Reps}} </li>
                         {{else}}
