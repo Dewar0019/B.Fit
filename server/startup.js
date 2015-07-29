@@ -19,7 +19,7 @@ if(Meteor.isServer){
 		if (ExercisesCardio.find().fetch()==0){
 			cardioStartup.data.forEach(function(exercise) {
 				// Leave the next line in for debugging purposes
-				console.log(JSON.stringify(exercise))
+				// console.log(JSON.stringify(exercise))
 				ExercisesCardio.insert({
 					Name: exercise.cardioname[0],
 					Type: ["Cardio"]
