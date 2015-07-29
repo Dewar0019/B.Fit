@@ -94,7 +94,6 @@ Template.routineExercises.events({
 				Session.set("workoutStarted", true);
 				Session.set("showExerciseList", true); // when the start button is clicked the showExerciseList is set to true
 				Clock.start();
-				getPietimer();
 			}
 
 		} else if($(".beginExercise").html() == "Pause") {
@@ -138,7 +137,6 @@ confirmFinish = function() {
 function workoutFinish() {
 	toastr.clear(); // Placed in for voice function
 	Clock.stop();
-	Clock.totalSeconds = 0;
 	running = false;
 	$(".beginExercise").html("Start");
 	$(".beginExercise").attr('id', 'start');
@@ -155,6 +153,7 @@ function workoutFinish() {
 	Meteor.call("compileFinished", routine); //Calculates the avg time user did this routine along with number of times fully completed
 	Session.set("workoutStarted", false); //Resets to false so can be repeated again
 	Router.go('welcome');
+	Clock.totalSeconds = 0;
 	checkedExercises = [];
 }
 
