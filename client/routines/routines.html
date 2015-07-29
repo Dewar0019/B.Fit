@@ -67,10 +67,10 @@
     <div id= "setForCompleted" class="list card">
     <div class="item item-divider">
     {{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true}}
-        
+
         <h2 class="first">{{routineName}}</h2>
         <p>Number of exercises: {{exercises.length}}</p>
-        
+
     {{/ionItem}}
     </div>
 
@@ -79,12 +79,14 @@
             <p>
                 <ul>
                     {{#each exercises}}
-                        {{#if exercises.isStrength}}
+                        {{#if this.ExerciseType}}
                             <!-- TODO: The {{Name}} spacebar is not working Correctly for displaying the names of the exercises. -->
                             <li> {{Name}} - {{Sets}} x {{Reps}} </li>
                         {{else}}
                             <!-- TODO: The {{Name}} spacebar is not working Correctly for displaying the names of the exercises. -->
                             <li> {{CardioName}} - {{Time}} Min / {{Distance}} Mi </li>
+
+                            <!-- <li> {{Name}} - {{Sets}} x {{Reps}} </li> -->
                         {{/if}}
                     {{/each}}
                 </ul>

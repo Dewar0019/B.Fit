@@ -9,23 +9,7 @@ Template.routines.helpers({
 
 	isPreset: function() {
 		return this._uID == 'preset';
-	},
-
-	isStrength: function() {
-		var allRoutines = Session.get("grabAllRoutines");
-
-		for (var routine in allRoutines){
-			for (var exercise in exercises){
-				if (exercise.ExerciseType == "Strength"){
-					return true;
-				} else if (exercise.ExerciseType == "Cardio") {
-					return false;
-				}
-			}
-		}
 	}
-
-
 })
 
 Template.routines.rendered = function() {
