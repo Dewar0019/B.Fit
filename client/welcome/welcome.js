@@ -4,7 +4,6 @@ Template.welcome.helpers({
 	},
 	quote: function(){
 		var randomNumb = Math.floor(Math.random() * 114);
-		console.log(randomNumb)
 		return motivation[randomNumb];
 	}
 });
