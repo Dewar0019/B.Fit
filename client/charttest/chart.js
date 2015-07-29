@@ -5,13 +5,11 @@ Template.chart.rendered = function () {
       data:{  x: 'date',
           columns: [
             grabDate, 
-            grabDistance,                       
+            grabDistance,                    
           ],
           types: {
             Running: 'area-spline',
-            Walking: 'area-spline',
             Swimming: 'area-spline',
-            Cycling: 'area-spline'
           },
           hide: true
           },
@@ -25,9 +23,18 @@ Template.chart.rendered = function () {
     });
 
   this.autorun(function (tracker) {
-  $("#cardio,#strength,#flexibility").change(function(){
+  $("#cardio").change(function(){
     //When a selection is made from the dropdown menu
       var c1 = $("#cardio").find('option:selected').val();
+      if(c1 == "Swimming") {
+        Session.set("Date", grabSwimDate);
+        Session.set("Time", grabSwimTime);
+        Session.set("Distance", grabSwimDistance);
+      } else if( c1 == "Running") {
+        Session.set("Date", grabDate);
+        Session.set("Time", grabTime);
+        Session.set("Distance", grabDistance);
+      }
       chart.hide(null,{ withLegend: true });
       chart.show([c1],{ withLegend: true });
 
@@ -35,15 +42,15 @@ Template.chart.rendered = function () {
 
     //For when the user clicks to Show Time
     $('#A').on('click',function(){
-      chart.load({ columns:[ grabTime, ], unload: ['Running'], });
-      chart.axis.labels({y: "Time"}); //Changes Y axis label
+      chart.load({ columns:[ Session.get("Time"), ], unload: [Session.get("Distance")[0]], });
+      chart.axis.labels({y: "Time (Mins)"}); //Changes Y axis label
 
     });
 
     //For when the user clicks to Show Distance
     $('#B').on('click',function(){
-      chart.load({ columns:[ grabDistance, ], unload: ['Running Time'],});
-      chart.axis.labels({y: "Distance"}); //Changes Y axis label
+      chart.load({ columns:[ Session.get("Distance"), ], unload: [Session.get("Time")[0]],});
+      chart.axis.labels({y: "Distance (Miles)"}); //Changes Y axis label
 
     });
 
@@ -55,15 +62,27 @@ Template.chart.rendered = function () {
 var grabDistance = ['Running'];
 var grabTime = ['Running Time'];
 var grabDate = ['date'];
-      
+var grabSwimTime = ['Swimming Time'];      
+var grabSwimDistance = ['Swimming'];
+var grabSwimDate = ['Date'];
       function grabInfo() {
         grabDistance = ['Running'];  //Makes sure to clear data upon navigating away from page 
         grabTime = ['Running Time'];
         grabDate = ['date'];
+        grabSwimTime = ['Swimming Time'];
+        grabSwimDistance = ['Swimming'];
+        grabSwimDate = ['Date'];    
         var allCardio = Cardio.find().fetch(); //Finds all Cardio data at the moment and stores into C3.js formats
         allCardio.forEach(function(finished) { //Should eventually include only the users data and exclude startup
+          if(finished.CardioName.toLowerCase() == "running") {
             grabDistance.push(finished.Distance);
             grabTime.push(finished.Time);
             grabDate.push(finished.analyticsDate);
+          } else if(finished.CardioName.toLowerCase() == "swimming") {
+            grabSwimDistance.push(finished.Distance);
+            grabSwimTime.push(finished.Time);
+            grabSwimDate.push(finished.analyticsDate);
+          }
         });
+
       }

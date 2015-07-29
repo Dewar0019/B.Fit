@@ -3,7 +3,8 @@ Template.welcome.helpers({
 		return Gravatar.imageUrl(Gravatar.hash(Meteor.user().emails[0].address,{secure:true}))
 	},
 	quote: function(){
-		var randomNumb = Math.floor(Math.random() * 100);
+		var randomNumb = Math.floor(Math.random() * 114);
+		console.log(randomNumb)
 		return motivation[randomNumb];
 	}
 });
@@ -109,6 +110,22 @@ var motivation = [
 	"\"Don't let what you cannot do interfere with what you can do.\" --John R. Wooden",
 	"\"You may have to fight a battle more than once to win it.\" --Margaret Thatcher",
 	"\"A man can be as great as he wants to be. If you believe in yourself and have the courage, the determination, the dedication, the competitive drive and if you are willing to sacrifice the little things in life and pay the price for the things that are worthwhile, it can be done.\" --Vince Lombardi",
+	"\"The will to win is meaningless without the will to prepare.\" --Joe Gibbs",
+	"\"Being your BEST...does have everything to do with...the determination never to be shifted from your goals.\"--Kieren Perkins",
+	"\"It's better to look ahead and prepare than to look back and regret.\" --Jacki Joyner-Kersee",
+	"\"Winning is something that builds physically & mentally every day that you train & every night that you dream.\" --Emmitt Smith",
+	"\"You have to believe in the process. You have to believe in the things that you are doing to help the team win.\" --Tom Brady",
+	"\"Always have a plan & believe in it. I tell myself not to compromise. Nothing good happens by accident.\"--Chuck Knox",
+	"\"Today is my tomorrow. It's up to me to shape it, to take control and seize every opportunity. The power is in the choices I make each day. I shape me.\"--Unknown",
+	"\"A ship is safe in the harbor, but that is not what a ship was built for.\"--William H Shedd",
+	"\"Competing at the highest level isn't about winning. It's about preparation, courage, understanding & nurturing your people, and heart. Winning is the result.\"--Joe Torre",
+	"\"You give 100 percent in the first half of the game, and if that isn't enough in the second half you give what's left.\"--Yogi Berra",
+	"\"If you stay in your lane long enough, you'll eventually reach your destination\"--Unknown",
+	"\"I think that everything is possible as long as you put your mind to it and you put the work and time into it. I think your mind really controls everything.\"--Michael Phelps",
+	"\"You can't put a limit on anything. The more you dream, the farther you get.\"--Michael Phelps",
+	"\"With so many people saying it couldn't be done, all it takes is an imagination.\"--Michael Phelps",
+	"\"Whether you think you can, or you think you can't you're always right.\" --Unknown",
+
 ];
 
 address = function(){
