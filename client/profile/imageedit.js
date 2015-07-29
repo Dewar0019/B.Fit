@@ -15,9 +15,6 @@ Template.imageedit.rendered = function(){
 };
 
 function upload(){
-	// var widget = uploadcare.Widget('[role=uploadcare-uploader]');
-	// var file = widget.value(); 
-
 	uploadcare.openDialog(null, {
 		crop: "200:200",
 		imagesOnly: true

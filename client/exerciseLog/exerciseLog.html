@@ -4,6 +4,10 @@
 			{{>ionNavBackButton path="welcome"}}
 		{{/contentFor}}
 
+		{{#contentFor "headerTitle"}}
+        	<h1 class="title">Exercise Log</h1>
+    	{{/contentFor}}
+
 		{{#ionView}}
 			{{#ionContent}}
 
@@ -177,7 +181,7 @@
 <template name="listCompletedRoutines">
 	<div id="listingExercises" class="list card">
 		<i class="item">
-			<h2>{{routineName}}</h2>
+			<h2 class="first">{{routineName}}</h2>
 			<p>Finished Entire Workout: {{#if completedAll}} Yes {{else}} No {{/if}}</p>
 			<p>Exercises Completed : {{exercises.length}}</p>
 			<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}} </p>
