@@ -27,11 +27,11 @@ Template.chart.rendered = function () {
     //When a selection is made from the dropdown menu
       var c1 = $("#cardio").find('option:selected').val();
       if(c1 == "Swimming") {
-        Session.set("Date", grabSwimDate);
+        Session.set("date", grabSwimDate);
         Session.set("Time", grabSwimTime);
         Session.set("Distance", grabSwimDistance);
       } else if( c1 == "Running") {
-        Session.set("Date", grabDate);
+        Session.set("date", grabDate);
         Session.set("Time", grabTime);
         Session.set("Distance", grabDistance);
       }
@@ -42,14 +42,14 @@ Template.chart.rendered = function () {
 
     //For when the user clicks to Show Time
     $('#A').on('click',function(){
-      chart.load({ columns:[ Session.get("Time"), ], unload: [Session.get("Distance")[0]], });
+      chart.load({ columns:[ Session.get("date"), Session.get("Time")], unload: [Session.get("Distance")[0]], });
       chart.axis.labels({y: "Time (Mins)"}); //Changes Y axis label
 
     });
 
     //For when the user clicks to Show Distance
     $('#B').on('click',function(){
-      chart.load({ columns:[ Session.get("Distance"), ], unload: [Session.get("Time")[0]],});
+      chart.load({ columns:[ Session.get("date"), Session.get("Distance"), ], unload: [Session.get("Time")[0]],});
       chart.axis.labels({y: "Distance (Miles)"}); //Changes Y axis label
 
     });
@@ -67,14 +67,14 @@ var grabDate = ['date'];
 
 var grabSwimTime = ['Swimming Time'];      
 var grabSwimDistance = ['Swimming'];
-var grabSwimDate = ['Date'];
+var grabSwimDate = ['date'];
       function grabInfo() {
         grabDistance = ['Running'];  //Makes sure to clear data upon navigating away from page 
         grabTime = ['Running Time'];
         grabDate = ['date'];
         grabSwimTime = ['Swimming Time'];
         grabSwimDistance = ['Swimming'];
-        grabSwimDate = ['Date'];    
+        grabSwimDate = ['date'];    
         var allCardio = Cardio.find().fetch(); //Finds all Cardio data at the moment and stores into C3.js formats
         allCardio.forEach(function(finished) { //Should eventually include only the users data and exclude startup
           if(finished.Name.toLowerCase() == "running") {
