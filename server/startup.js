@@ -112,7 +112,7 @@ if(Meteor.isServer){
 					Name: "Lateral Dumbbell Raise",
 					Sets: 4,
 					Reps: 10,
-					Weight: 10
+					ExerciseType: true
 				},
 
 				{
@@ -120,7 +120,8 @@ if(Meteor.isServer){
 					Name: "Cable Shoulder Shrugs",
 					Sets: 3,
 					Reps: 10,
-					Weight: 20
+					Weight: 20,
+					ExerciseType: true
 				},
 
 				{
@@ -128,7 +129,7 @@ if(Meteor.isServer){
 					Name: "Shoulder Press",
 					Sets: 3,
 					Reps: 10,
-					Weight: 60
+					ExerciseType: true
 				},
 
 				{
@@ -136,6 +137,7 @@ if(Meteor.isServer){
 					Name: "Back Extention",
 					Sets: 4,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -143,7 +145,7 @@ if(Meteor.isServer){
 					Name: "Dumbbell Deadlift",
 					Sets: 3,
 					Reps: 10,
-					Weight: 70
+					ExerciseType: true
 				},
 
 				{
@@ -151,7 +153,7 @@ if(Meteor.isServer){
 					Name: "Kneeling One Arm Row",
 					Sets: 3,
 					Reps: 10,
-					Weight: 25
+					ExerciseType: true
 				},
 
 				{
@@ -159,7 +161,7 @@ if(Meteor.isServer){
 					Name: "Bicep Curl",
 					Sets: 4,
 					Reps: 10,
-					Weight: 20
+					ExerciseType: true
 				},
 
 				{
@@ -167,7 +169,7 @@ if(Meteor.isServer){
 					Name: "Concentration Curl",
 					Sets: 2,
 					Reps: 10,
-					Weight: 20
+					ExerciseType: true
 				},
 
 				{
@@ -175,7 +177,7 @@ if(Meteor.isServer){
 					Name: "Reverse Curl",
 					Sets: 3,
 					Reps: 10,
-					Weight: 20
+					ExerciseType: true
 				}
 			],
 
@@ -194,6 +196,7 @@ if(Meteor.isServer){
 					Name: "Dumbbell Bench Press",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -201,6 +204,7 @@ if(Meteor.isServer){
 					Name: "Lateral Pulldown",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -208,6 +212,7 @@ if(Meteor.isServer){
 					Name: "Overhead Dumbbell Press",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -215,6 +220,7 @@ if(Meteor.isServer){
 					Name: "Leg Press",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -222,6 +228,7 @@ if(Meteor.isServer){
 					Name: "Tricep Press Down",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -229,6 +236,7 @@ if(Meteor.isServer){
 					Name: "Calf Raises",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -236,6 +244,7 @@ if(Meteor.isServer){
 					Name: "Crunches",
 					Sets: 3,
 					Reps: 15,
+					ExerciseType: true
 				}
 
 			],
@@ -256,6 +265,7 @@ if(Meteor.isServer){
 					Name: "Barbell Bench Press",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -263,6 +273,7 @@ if(Meteor.isServer){
 					Name: "Dumbbell Flye",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -270,6 +281,7 @@ if(Meteor.isServer){
 					Name: "Barbell Bent Over Row",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -277,6 +289,7 @@ if(Meteor.isServer){
 					Name: "Lateral Pulldown ",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -284,6 +297,7 @@ if(Meteor.isServer){
 					Name: "Overhead Dumbbell Press",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -291,6 +305,7 @@ if(Meteor.isServer){
 					Name: "Dumbbell Lateral Raise",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -298,6 +313,7 @@ if(Meteor.isServer){
 					Name: "Barbell Bicep Curl",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -305,6 +321,7 @@ if(Meteor.isServer){
 					Name: "Barbell Preacher Curl",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -312,6 +329,7 @@ if(Meteor.isServer){
 					Name: "Tricep Press Down",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -319,6 +337,7 @@ if(Meteor.isServer){
 					Name: "Crunches",
 					Sets: 3,
 					Reps: 15,
+					ExerciseType: true
 				}
 			],
 
@@ -338,6 +357,7 @@ if(Meteor.isServer){
 					Name: "Leg Press",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -345,6 +365,7 @@ if(Meteor.isServer){
 					Name: "Leg Extention",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -352,6 +373,7 @@ if(Meteor.isServer){
 					Name: "Lying Leg Curl",
 					Sets: 3,
 					Reps: 12,
+					ExerciseType: true
 				},
 
 				{
@@ -359,6 +381,7 @@ if(Meteor.isServer){
 					Name: "Seated Leg Curl",
 					Sets: 3,
 					Reps: 12,
+					ExerciseType: true
 				},
 
 				{
@@ -366,6 +389,7 @@ if(Meteor.isServer){
 					Name: "Standing Calf Raises",
 					Sets: 3,
 					Reps: 17,
+					ExerciseType: true
 				},
 
 				{
@@ -373,6 +397,7 @@ if(Meteor.isServer){
 					Name: "Seated Calf Raises",
 					Sets: 3,
 					Reps: 17,
+					ExerciseType: true
 				}
 
 			],
@@ -393,6 +418,7 @@ if(Meteor.isServer){
 					Name: "Incline Barbell Bench Press",
 					Sets: 4,
 					Reps: 12,
+					ExerciseType: true
 				},
 
 				{
@@ -400,6 +426,7 @@ if(Meteor.isServer){
 					Name: "Dumbbell Flye",
 					Sets: 4,
 					Reps: 12,
+					ExerciseType: true
 				},
 
 				{
@@ -407,6 +434,7 @@ if(Meteor.isServer){
 					Name: "Overhead Dumbbell Press",
 					Sets: 4,
 					Reps: 12,
+					ExerciseType: true
 				},
 
 				{
@@ -414,6 +442,7 @@ if(Meteor.isServer){
 					Name: "Smith Machine Upright Row",
 					Sets: 4,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -421,6 +450,7 @@ if(Meteor.isServer){
 					Name: "Smith Machine Upright Row",
 					Sets: 4,
 					Reps: 10,
+					ExerciseType: true
 				},
 
 				{
@@ -428,6 +458,7 @@ if(Meteor.isServer){
 					Name: "Lying EZ-Bar Tricpes Extention",
 					Sets: 3,
 					Reps: 12,
+					ExerciseType: true
 				},
 
 				{
@@ -435,6 +466,7 @@ if(Meteor.isServer){
 					Name: "Dumbbell Kickback",
 					Sets: 3,
 					Reps: 10,
+					ExerciseType: true
 				}
 
 			],

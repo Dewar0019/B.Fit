@@ -32,8 +32,8 @@ Template.exercisesEdit.events({
 
 		console.log(exerciseID);
 
-		
-		
+
+
 		var routine = Session.get("selectedRoutine");
 		var time = event.target.time.value;
 		var distance = event.target.distance.value;
@@ -77,29 +77,4 @@ function checkTwoValues(time, distance) {
 		return false;
 	}
 	return true;
-}
-
-function determineType(exercise) {
-	// var allRoutines = Session.get("grabAllRoutines");
-	// for (var routine in allRoutines){
-	// 	for (var exercise in routine.exercises){
-	console.log("the exercise object will be printed below ")
-	console.dir(exercise);
-
-	console.log("Beginning if statements")
-	if (exercise.ExerciseType == "Strength"){
-		console.log("In Determine Type for Strength, exercise is below");
-		console.dir(exercise);
-
-		exercise.ExerciseType = true
-
-	} else{
-		console.log("In Determine Type for Cardio, exercise is below");
-		console.dir(exercise);
-
-		exercise.ExerciseType = false
-	}
-	// 	}
-	// }
-	console.log("determineType function has run");
 }
