@@ -53,7 +53,7 @@ cardioStartup = {
                 "Step Machine"
             ]
         },
-        
+
         {
             "cardioname": [
                 "Swimming"
