@@ -79,7 +79,8 @@ Meteor.methods({
 
 		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
 
-		determineType(justAdded);
+		justAdded = determineType(justAdded);
+
 
 		getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
 		Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
