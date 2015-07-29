@@ -65,11 +65,14 @@
 
 <template name= "savedRoutines">
     <div id= "setForCompleted" class="list card">
-
-    {{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true avatar=true}}
-        <h2 >{{routineName}}</h2>
+    <div class="item item-divider">
+    {{#ionItem path="routineExercises" _id="{{_id}}"  buttonRight=true}}
+        
+        <h2 class="first">{{routineName}}</h2>
         <p>Number of exercises: {{exercises.length}}</p>
+        
     {{/ionItem}}
+    </div>
 
 
         <div class="item item-body">

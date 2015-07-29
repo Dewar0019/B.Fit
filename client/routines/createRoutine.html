@@ -10,7 +10,9 @@
 
 		{{#ionView}}
 			{{#ionContent}}
-			<h1> Create a routine below! </h1>
+			<div id="cardback" class="card">
+				<h1> Create A New Routine </h1>
+			</div>
 				<form id="addRoutine">
 					<label class="item item-floating-label">
 				    	<input type="text" name="routineName" placeholder=" Routine Name">
@@ -30,8 +32,8 @@
                     <h1 class="text-center">You have no personal routines. Create one above!</h1>
                 </div>
                 {{else}} -->
-				<div id="cardback">
-					<h3 class="text-center">Edit a Routine Below</h3>
+				<div id="cardback" class="card">
+					<h3 class="text-center">Edit Routines Below</h3>
 				</div>
 
 				{{#ionList}}
@@ -59,9 +61,9 @@
 
 
 <template name= "editRoutines">
-	{{#ionItem path="exercises" _id="{{_id}}"  buttonRight=true avatar=true}}
+	{{#ionItem path="exercises" _id="{{_id}}"  buttonRight=true}}
 		<div class ="select">
-				<h2 >{{routineName}}</h2>
+				<h2 class="first">{{routineName}}</h2>
 				<p>Number of Exercises: {{exercises.length}}</p>
 		</div>
 		<br>
