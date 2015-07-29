@@ -77,11 +77,11 @@ var grabSwimDate = ['Date'];
         grabSwimDate = ['Date'];    
         var allCardio = Cardio.find().fetch(); //Finds all Cardio data at the moment and stores into C3.js formats
         allCardio.forEach(function(finished) { //Should eventually include only the users data and exclude startup
-          if(finished.CardioName.toLowerCase() == "running") {
+          if(finished.Name.toLowerCase() == "running") {
             grabDistance.push(finished.Distance);
             grabTime.push(finished.Time);
             grabDate.push(finished.analyticsDate);
-          } else if(finished.CardioName.toLowerCase() == "swimming") {
+          } else if(finished.Name.toLowerCase() == "swimming") {
             grabSwimDistance.push(finished.Distance);
             grabSwimTime.push(finished.Time);
             grabSwimDate.push(finished.analyticsDate);
