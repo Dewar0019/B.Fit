@@ -2,7 +2,7 @@ Template.routineExercises.helpers({
 	currentExercise : function() {
 		var exerciseBeingPerformed = Session.get("currentExercise");
 		console.log("name of current exercise: " + exerciseBeingPerformed.Name);
-		return exerciseBeingPerformed
+		return exerciseBeingPerformed;
 	},
 	workoutStarted : function() { return Session.get("workoutStarted");}, //Checks if the workout has started
 	anyExerciseLeft: function () { return Session.get("currentExercise") != null;}, //Checks if there are anymore workouts left
@@ -64,14 +64,12 @@ Template.routineExercises.events({
 			confirmFinish();
 		} else {
 			for(var i = 0; i < checkedExercises.length; i++) {
-				if (checkedExercises[i].Name == selectedExercise.Name) {
-					if(checkedExercises[i].Sets == selectedExercise.Sets && checkedExercises[i].Reps == selectedExercise.Reps) {
-						checkedExercises[i].checked = true;
-						Session.set("currentExercise", checkedExercises[i+1]);
-						Session.set("voiceNextExercise", checkedExercises[i+2]); // used for the "what's next voice command"
-						console.log("done with exercise");
-						return;
-					}
+				if (checkedExercises[i]._id == selectedExercise._id) {
+					checkedExercises[i].checked = true;
+					Session.set("currentExercise", checkedExercises[i+1]);
+					Session.set("voiceNextExercise", checkedExercises[i+2]); // used for the "what's next voice command"
+					console.log("done with exercise");
+					return;
 				}
 			}
 		}
