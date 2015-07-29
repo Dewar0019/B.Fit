@@ -28,7 +28,7 @@ if(Meteor.isServer){
 		}
 
 		if(ProfileImages.find({}).count()==0){
-			ProfileImages.insert({address:"http://www.ucarecdn.com/8dcefd9d-e5da-4d9b-8aec-f8c4669fad95/"});
+			ProfileImages.insert({address:"http://www.ucarecdn.com/1906f732-9e25-47e2-a48c-3fdcda30c152/"});
 		}
 	});
 
