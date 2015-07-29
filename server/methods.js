@@ -92,7 +92,7 @@ Meteor.methods({
 		console.log("in the method.js file 2");
 		console.dir(exercise);
 		Intermediate.insert({
-			CardioName: exercise.Name, // use of CardioName instead of Name
+			Name: exercise.Name, // use of CardioName instead of Name
 			Time: time,
 			Distance: distance,
 			AddedOn: currentTime,

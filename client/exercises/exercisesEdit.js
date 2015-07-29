@@ -26,7 +26,14 @@ Template.exercisesEdit.events({
 
 	'submit #addExerciseCardio' : function(events) {
 		event.preventDefault();
+		// var exerciseID = this;
 		var exerciseID = Session.get("cardioToAdd");
+		console.log("submit #addExerciseCardio");
+
+		console.log(exerciseID);
+
+		
+		
 		var routine = Session.get("selectedRoutine");
 		var time = event.target.time.value;
 		var distance = event.target.distance.value;
