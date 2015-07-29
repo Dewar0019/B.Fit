@@ -563,7 +563,7 @@ if(Meteor.isServer){
 	{"CardioName":"Swimming","Distance":4,"Time":10,"analyticsDate":"2015-06-17","_id":"55b8eadd4d6f6335cd415b00","_uID":"qfCEWyRg4pHcKh7jj"},
 	{"CardioName":"Swimming","Distance":3,"Time":5,"analyticsDate":"2015-07-24","_id":"55b8eadd4d6f6335cd425b00","_uID":"qfCEWyRg4pHcKh7jj"},
 	{"CardioName":"Swimming","Distance":2,"Time":2,"analyticsDate":"2015-06-15","_id":"55b8eadd4d6f6335cd435b00","_uID":"qfCEWyRg4pHcKh7jj"}];
-	
+
 	function insertIntoCollection(toInsert) {
 		toInsert.forEach(function(obj) {
 			Cardio.insert(obj);

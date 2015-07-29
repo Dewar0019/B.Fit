@@ -74,13 +74,12 @@ Meteor.methods({
 			type: [exercise.primary, exercise.secondary],
 			AddedOn: currentTime,
 			AddedBy: Meteor.userId(),
-			isStrength: true
+			ExerciseType: "Strength"
 		});
 
 		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
 
 		justAdded = determineType(justAdded);
-
 
 		getRoutine.exercises.push(justAdded); //add exercise onto array of exercises
 		Routines.update({_id: getRoutine._id}, {$set: {exercises: getRoutine.exercises}}); //update the routine with the new exercises
@@ -98,7 +97,7 @@ Meteor.methods({
 			Distance: distance,
 			AddedOn: currentTime,
 			AddedBy: Meteor.userId(),
-			isStrength: false
+			ExerciseType: "Cardio"
 		});
 
 		var justAdded = Intermediate.findOne({AddedOn: currentTime, AddedBy: Meteor.userId()}); //grab the exercise that was just added
