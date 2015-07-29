@@ -8,10 +8,12 @@ Template.weightProgress.rendered = function () {
         },
         columns: [['Time'],['Weight'],]
       },
+      subchart: { show: true },
+      zoom: { enabled: true },
       axis: {
               x: { label: { text: 'Date', position: 'outer-middle'}, type: 'timeseries', tick: { format: '%m-%d'} },
               y: { label: { text: "Weight (lbs)", position: 'outer-middle'} },
-            },
+      },
   });
 
   this.autorun(function (tracker) {

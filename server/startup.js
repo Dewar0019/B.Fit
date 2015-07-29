@@ -41,72 +41,62 @@ if(Meteor.isServer){
 	if(UserWeight.find().count() == 0) {
 		UserWeight.insert({
 			weight: 190,
-			dateAdded: "2015-01-01",
+			dateAdded: "2015-06-01",
 		})
 
 		UserWeight.insert({
 			weight: 189.2,
-			dateAdded: "2015-01-05",
+			dateAdded: "2015-06-05",
 		})
 
 		UserWeight.insert({
 			weight: 188.5,
-			dateAdded: "2015-01-06",
+			dateAdded: "2015-06-10",
 		})
 
 		UserWeight.insert({
 			weight: 187,
-			dateAdded: "2015-01-13",
+			dateAdded: "2015-06-15",
 		})
 
 		UserWeight.insert({
 			weight: 186.7,
-			dateAdded: "2015-01-18",
+			dateAdded: "2015-06-20",
 		})
 
 		UserWeight.insert({
 			weight: 186,
-			dateAdded: "2015-01-19",
+			dateAdded: "2015-06-25",
 		})
 
 		UserWeight.insert({
 			weight: 188,
-			dateAdded: "2015-01-21",
+			dateAdded: "2015-06-30",
 		})
 
 		UserWeight.insert({
 			weight: 186,
-			dateAdded: "2015-01-23",
+			dateAdded: "2015-07-05",
 		})
 
 		UserWeight.insert({
 			weight: 184,
-			dateAdded: "2015-01-29",
+			dateAdded: "2015-07-10",
 		})
 
 		UserWeight.insert({
 			weight: 182,
-			dateAdded: "2015-02-05",
+			dateAdded: "2015-07-15",
 		})
 
 		UserWeight.insert({
 			weight: 179,
-			dateAdded: "2015-02-13",
+			dateAdded: "2015-07-20",
 		})
 
 		UserWeight.insert({
 			weight: 180,
-			dateAdded: "2015-02-14",
-		})
-
-		UserWeight.insert({
-			weight: 176,
-			dateAdded: "2015-02-21",
-		})
-
-		UserWeight.insert({
-			weight: 170,
-			dateAdded: "2015-02-28",
+			dateAdded: "2015-07-25",
 		})
 	}
 
