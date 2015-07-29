@@ -7,7 +7,7 @@ Template.exercises.helpers({
 
 	//shows cardio exercises
 	getCardio: function () {
-		return ExercisesCardio.find().fetch();
+		return ExercisesCardio.find({}, {sort: {Name: 1}}).fetch();
 	},
 
 	showExerciseList2 : function() {
