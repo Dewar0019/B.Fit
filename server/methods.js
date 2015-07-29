@@ -7,7 +7,7 @@ Meteor.methods({
 		var allCompleted = Completed.find({_uID: Meteor.userId(), routineName: routine.routineName}).fetch();
 		//Checks all the completed exercises in collection
 		allCompleted.forEach(function(obj) {
-			averageTime += obj.timeToComplete; 
+			averageTime += obj.timeToComplete;
 			counter++;
 		});
 		var avgTotalSeconds = averageTime/allCompleted.length; //Averages the Time taken to complete exercise

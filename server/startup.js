@@ -108,6 +108,7 @@ if(Meteor.isServer){
 			exercises: [
 
 				{
+					_id: "1",
 					Category:"Shoulder",
 					Name: "Lateral Dumbbell Raise",
 					Sets: 4,
@@ -116,6 +117,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "2",
 					Category:"Shoulder",
 					Name: "Cable Shoulder Shrugs",
 					Sets: 3,
@@ -125,6 +127,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "3",
 					Category:"Shoulder",
 					Name: "Shoulder Press",
 					Sets: 3,
@@ -133,6 +136,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "4",
 					Category:"Back",
 					Name: "Back Extention",
 					Sets: 4,
@@ -141,6 +145,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "5",
 					Category:"Back",
 					Name: "Dumbbell Deadlift",
 					Sets: 3,
@@ -149,6 +154,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "6",
 					Category:"Back",
 					Name: "Kneeling One Arm Row",
 					Sets: 3,
@@ -157,6 +163,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "7",
 					Category:"Arm",
 					Name: "Bicep Curl",
 					Sets: 4,
@@ -165,6 +172,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "8",
 					Category:"Arm",
 					Name: "Concentration Curl",
 					Sets: 2,
@@ -173,6 +181,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "9",
 					Category:"Arm",
 					Name: "Reverse Curl",
 					Sets: 3,
@@ -192,6 +201,7 @@ if(Meteor.isServer){
 			routineName: "Full Body 1",
 			exercises: [
 				{
+					_id: "10",
 					Category: "Chest",
 					Name: "Dumbbell Bench Press",
 					Sets: 3,
@@ -200,6 +210,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "11",
 					Category:"Back",
 					Name: "Lateral Pulldown",
 					Sets: 3,
@@ -208,6 +219,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "12",
 					Category:"Shoulders",
 					Name: "Overhead Dumbbell Press",
 					Sets: 3,
@@ -216,6 +228,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "13",
 					Category:"Legs",
 					Name: "Leg Press",
 					Sets: 3,
@@ -224,6 +237,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "14",
 					Category:"Arms",
 					Name: "Tricep Press Down",
 					Sets: 3,
@@ -232,6 +246,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "15",
 					Category:"Legs",
 					Name: "Calf Raises",
 					Sets: 3,
@@ -240,6 +255,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "16",
 					Category:"Abs",
 					Name: "Crunches",
 					Sets: 3,
@@ -261,6 +277,7 @@ if(Meteor.isServer){
 			routineName: "Upper Body 1",
 			exercises: [
 				{
+					_id: "17",
 					Category: "Chest",
 					Name: "Barbell Bench Press",
 					Sets: 3,
@@ -269,6 +286,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "18",
 					Category: "Chest",
 					Name: "Dumbbell Flye",
 					Sets: 3,
@@ -277,6 +295,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "19",
 					Category: "Back",
 					Name: "Barbell Bent Over Row",
 					Sets: 3,
@@ -285,6 +304,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "20",
 					Category: "Chest",
 					Name: "Lateral Pulldown ",
 					Sets: 3,
@@ -293,6 +313,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "21",
 					Category: "Chest",
 					Name: "Overhead Dumbbell Press",
 					Sets: 3,
@@ -301,6 +322,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "22",
 					Category: "Shoulders",
 					Name: "Dumbbell Lateral Raise",
 					Sets: 3,
@@ -309,6 +331,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "23",
 					Category: "Arms",
 					Name: "Barbell Bicep Curl",
 					Sets: 3,
@@ -317,6 +340,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "24",
 					Category: "Arms",
 					Name: "Barbell Preacher Curl",
 					Sets: 3,
@@ -325,6 +349,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "25",
 					Category: "Arms",
 					Name: "Tricep Press Down",
 					Sets: 3,
@@ -333,6 +358,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "26",
 					Category: "Abs",
 					Name: "Crunches",
 					Sets: 3,
@@ -353,6 +379,7 @@ if(Meteor.isServer){
 			exercises: [
 
 				{
+					_id: "27",
 					Category: "Legs",
 					Name: "Leg Press",
 					Sets: 3,
@@ -361,6 +388,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "28",
 					Category: "Legs",
 					Name: "Leg Extention",
 					Sets: 3,
@@ -369,6 +397,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "29",
 					Category: "Legs",
 					Name: "Lying Leg Curl",
 					Sets: 3,
@@ -377,6 +406,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "30",
 					Category: "Legs",
 					Name: "Seated Leg Curl",
 					Sets: 3,
@@ -385,6 +415,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "31",
 					Category: "Legs",
 					Name: "Standing Calf Raises",
 					Sets: 3,
@@ -393,6 +424,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "32",
 					Category: "Legs",
 					Name: "Seated Calf Raises",
 					Sets: 3,
@@ -414,6 +446,7 @@ if(Meteor.isServer){
 			exercises: [
 
 				{
+					_id: "33",
 					Category: "Chest",
 					Name: "Incline Barbell Bench Press",
 					Sets: 4,
@@ -422,6 +455,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "34",
 					Category: "Chest",
 					Name: "Dumbbell Flye",
 					Sets: 4,
@@ -430,6 +464,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "35",
 					Category: "Shoulders",
 					Name: "Overhead Dumbbell Press",
 					Sets: 4,
@@ -438,6 +473,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "36",
 					Category: "Shoulders",
 					Name: "Smith Machine Upright Row",
 					Sets: 4,
@@ -446,6 +482,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "37",
 					Category: "Shoulders",
 					Name: "Smith Machine Upright Row",
 					Sets: 4,
@@ -454,6 +491,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "38",
 					Category: "Arms",
 					Name: "Lying EZ-Bar Tricpes Extention",
 					Sets: 3,
@@ -462,6 +500,7 @@ if(Meteor.isServer){
 				},
 
 				{
+					_id: "39",
 					Category: "Arms",
 					Name: "Dumbbell Kickback",
 					Sets: 3,
