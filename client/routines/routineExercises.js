@@ -140,19 +140,37 @@ function workoutFinish() {
 	$(".beginExercise").attr('id', 'start');
 	var routine = Session.get('forCompletedRoutine'); //Grabs the selected routine currently being viewed
 	var elementPos = checkedExercises.map(function(x) {return x.checked; }).indexOf(false); //Checks if all the exercises has been completed otherwise grabs the first Index where it has not been
+	var attempt = getAttempts();
 	Completed.insert({
 		_uID : Meteor.userId(),
 		routineName: routine.routineName,
 		exercises: checkedExercises,
+		exercisesAttempted: attempt, 
 		CompletedOn: new Date(),
 		completedAll: elementPos == -1, //Want to know if user had completed all exercises
 		timeToComplete: Clock.totalSeconds,
+		formattedTime: (Math.floor(Clock.totalSeconds / 3600) + ":" //Presents average time in format xx:xx:xx
+		+ Math.floor(Clock.totalSeconds / 60 % 60 / 10) + Math.floor(Clock.totalSeconds / 60 % 60 % 10) + ":"
+		+ parseInt(Clock.totalSeconds % 60 / 10) + parseInt(Clock.totalSeconds % 60 % 10)),
 	});
 	Meteor.call("compileFinished", routine); //Calculates the avg time user did this routine along with number of times fully completed
 	Session.set("workoutStarted", false); //Resets to false so can be repeated again
 	Router.go('welcome');
 	Clock.totalSeconds = 0;
 	checkedExercises = [];
+
+
+
+}
+
+function getAttempts() {
+	var counter = 0;
+	checkedExercises.forEach(function(obj) {
+		if(obj.checked) {
+			counter++;
+		}
+	});
+	return counter;
 }
 
 Template.routineExercises.rendered = function() {
