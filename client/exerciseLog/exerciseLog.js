@@ -109,7 +109,7 @@ Template.exerciseLog.events({
 
 		Cardio.insert({
 			_uID: Meteor.userId(),
-			CardioName: name,
+			Name: name,
 			Time: timeTook,
 			Distance: distance,
 			Calories: calories,

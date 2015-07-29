@@ -451,7 +451,7 @@ function capitalize(s) {
 
 		Cardio.insert({
 			_uID: Meteor.userId(),
-			CardioName: name,
+			Name: name,
 			Time: time,
 			Distance: distance,
 			Calories: calories,
