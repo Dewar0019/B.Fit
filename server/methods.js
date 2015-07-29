@@ -4,12 +4,8 @@ Meteor.methods({
 		var averageTime = 0;
 		var allCompleted = Completed.find({_uID: Meteor.userId(), routineName: routine.routineName}).fetch();
 		allCompleted.forEach(function(obj) {
-			if(obj.completedAll) {
-				counter++;
-				averageTime += obj.timeToComplete;
-				console.log("averageTime");
-				console.log(averageTime);
-			}
+			averageTime += obj.timeToComplete;
+			counter++;
 		});
 		var avgTotalSeconds = averageTime/allCompleted.length;
 		console.log("avgTotalSeconds");
