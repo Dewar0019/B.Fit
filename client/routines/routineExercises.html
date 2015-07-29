@@ -17,11 +17,17 @@
 				{{#if workoutStarted}}
 					<div id="beingPerformed" class="card">
 						{{#if anyExerciseLeft}}
-						<p id="exerciseName"> {{currentExercise.Name}} </p>
-						<p id="exerciseSetsAndReps"> {{currentExercise.Sets}} Sets of {{currentExercise.Reps}} Reps </p>
-						<p id="exerciseWeight"> {{currentExercise.Weight}} Lbs </p>
+							{{#if currentExercise.ExerciseType}}
+								<p id="exerciseName"> {{currentExercise.Name}} </p>
+								<p id="exerciseSetsAndReps"> {{currentExercise.Sets}} Sets of {{currentExercise.Reps}} Reps </p>
+								<p id="exerciseWeight"> {{currentExercise.Weight}} Lbs </p>
+							{{else}}
+								<p id="exerciseName"> {{currentExercise.Name}} </p>
+								<p id="exerciseSetsAndReps"> {{currentExercise.Time}} Minutes</p>
+								<p id="exerciseWeight"> {{currentExercise.Distance}} Miles </p>
+							{{/if}}
 						{{else}}
-						<p> No More Exercises left! </p>
+							<p> No More Exercises left! </p>
 						{{/if}}
 					</div>
 
