@@ -2,7 +2,7 @@ Template.exercises.helpers({
 
 	//shows strength exercises
 	getExercises: function () {
-		return Exercises.find().fetch();
+		return Exercises.find({}, {sort: {Name: 1}}).fetch();
 	},
 
 	//shows cardio exercises
