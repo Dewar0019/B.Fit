@@ -183,8 +183,9 @@
 		<i class="item">
 			<h2 class="first">{{routineName}}</h2>
 			<p>Finished Entire Workout: {{#if completedAll}} Yes {{else}} No {{/if}}</p>
-			<p>Exercises Completed : {{exercises.length}}</p>
+			<p>Exercises Completed : {{exercisesAttempted}} / {{exercises.length}}</p>
 			<p id="date">Completed On: {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}} </p>
+			<p> Time to Complete : {{formattedTime}} </p>
 		</i>
 	</div>
 </template>
