@@ -1,0 +1,47 @@
+<template name="exerciseCompleted">
+		{{#if currentUser}}
+
+		{{#contentFor "headerButtonLeft"}}
+			{{>ionNavBackButton path="index"}}
+		{{/contentFor}}
+
+		{{#contentFor "headerTitle"}}
+        	<h1 class="title">{{routineName}} Completed on {{moFormat CompletedOn 'dddd, MMMM Do YYYY'}}</h1>
+    	{{/contentFor}}
+
+		{{#ionView}}
+			{{#ionContent}}
+				{{#ionList}}
+					{{#each exercises}}
+						{{> checkIfDone}}
+					{{/each}}
+				{{/ionList}}
+			{{/ionContent}}
+		{{/ionView}}
+
+		{{else}}
+				<img id="logo" src="images/logo.png" width="300" height="300">
+				{{> atForm}}
+		{{/if}}
+</template>
+
+
+<template name= "checkIfDone"> 
+  	   
+  	 {{#ionItem   iconLeft=true avatar=true}}
+    {{#if checked}}
+  		<i class="icon ion-checkmark-circled"></i>
+  	 {{/if}}
+        <h2>{{Name}}</h2>
+        <p>{{Sets}} sets x {{Reps}} reps </p> 	
+
+		<p> Completed </p>   		    
+	
+
+	    {{/ionItem}}
+
+
+
+
+</template>
+
