@@ -85,8 +85,6 @@ Template.exercises.events({
 		event.preventDefault();
 		var playerId = this._id;
 		var routineView = Session.get('selectedRoutine');
-
-		console.log(name);
 		var newList = [];
 		for (var i=0; i<routineView.exercises.length; i++){
 			if(playerId != routineView.exercises[i]._id) {
@@ -95,6 +93,9 @@ Template.exercises.events({
 		}
 		Routines.update({_id: routineView._id}, {$set:{exercises:newList}});
 		Router.go('createRoutine');
+		console.log(playerId)
+		console.log(playerId.Name);
+		toastr.success("Exercise removed from " + routineView.routineName, "Exercise Sucessfully Removed");
 	}
 
 })
