@@ -37,7 +37,7 @@ Template.exerciseLog.helpers({
 // until the user selects one of the other options.
 function todaysDate() {
 	today = new Date();
-	fromDate = new Date(today.getTime() - 86400000);
+	fromDate = new Date(today.getTime() - 64800000);
 	console.log("today was pressed");
 	Session.set("fromDate", fromDate);
 }
@@ -121,10 +121,10 @@ Template.exerciseLog.events({
 	'click #todaysExercises': function (event){
 
 		//1 min 60000
-		//good value = 86400000
+		//good value = 64800000 --> 18 hours
 
 		today = new Date()
-		fromDate = new Date(today.getTime() - 86400000)
+		fromDate = new Date(today.getTime() - 64800000)
 		console.log("today was pressed")
 		Session.set("fromDate", fromDate);
 
