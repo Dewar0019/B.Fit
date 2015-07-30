@@ -27,25 +27,32 @@
 
 
 <template name= "checkIfDone">
+
 	{{#ionItem iconLeft=true avatar=true}}
+
 		{{#if ExerciseType}}
 			{{#if checked}}
+			<!--  if the exercise is a strength exercise and it is checked -->
 				<i class="icon ion-checkmark-circled"></i>
 				<h2 id="didComplete">{{Name}}</h2>
 				<p>{{Sets}} sets x {{Reps}} reps </p>
 			{{else}}
+			<!--  if the exercise is a strength exercise and it is not checked -->
 				<h2 id="didNotComplete">{{Name}}</h2>
 				<p>{{Sets}} sets x {{Reps}} reps </p>
 			{{/if}}
 		{{else}}
+		<!--  if the exercise is a cardio exercise and it is checked -->
 			{{#if checked}}
 				<i class="icon ion-checkmark-circled"></i>
 				<h2 id="didComplete">{{Name}}</h2>
 				<p> {{Time}} Minutes / {{Distance}} Miles</p>
 			{{else}}
+			<!--  if the exercise is a cardio exercise and it is not checked -->
 				<h2 id="didNotComplete">{{Name}}</h2>
 				<p> {{Time}} Minutes / {{Distance}} Miles</p>
 			{{/if}}
 		{{/if}}
 	{{/ionItem}}
+
 </template>
