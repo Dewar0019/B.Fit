@@ -1,5 +1,5 @@
 <template name="exerciseCompleted">
-		{{#if currentUser}}
+	{{#if currentUser}}
 
 		{{#contentFor "headerButtonLeft"}}
 			{{>ionNavBackButton path="index"}}
@@ -26,23 +26,26 @@
 </template>
 
 
-<template name= "checkIfDone"> 
-  	   
-  	 {{#ionItem   iconLeft=true avatar=true}}
-    {{#if checked}}
-  		<i class="icon ion-checkmark-circled"></i>
-  	 {{/if}}
-        <h2>{{Name}}</h2>
-        {{#if exerciseType}}
-        <p>{{Sets}} sets x {{Reps}} reps </p> 	
-        {{else}}
-        <p>{{Time}} Minutes / {{Distance}} Miles </p> 	
-        {{/if}}
-
-	    {{/ionItem}}
-
-
-
-
+<template name= "checkIfDone">
+	{{#ionItem iconLeft=true avatar=true}}
+		{{#if ExerciseType}}
+			{{#if checked}}
+				<i class="icon ion-checkmark-circled"></i>
+				<h2 id="didComplete">{{Name}}</h2>
+				<p>{{Sets}} sets x {{Reps}} reps </p>
+			{{else}}
+				<h2 id="didNotComplete">{{Name}}</h2>
+				<p>{{Sets}} sets x {{Reps}} reps </p>
+			{{/if}}
+		{{else}}
+			{{#if checked}}
+				<i class="icon ion-checkmark-circled"></i>
+				<h2 id="didComplete">{{Name}}</h2>
+				<p> {{Time}} Minutes / {{Distance}} Miles</p>
+			{{else}}
+				<h2 id="didNotComplete">{{Name}}</h2>
+				<p> {{Time}} Minutes / {{Distance}} Miles</p>
+			{{/if}}
+		{{/if}}
+	{{/ionItem}}
 </template>
-
