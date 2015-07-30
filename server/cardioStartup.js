@@ -1,67 +1,67 @@
 cardioStartup = {
     "data": [
         {
-            "cardioname": [
+            "Name": [
                 "Elliptical"
             ]
         },
 
         {
-            "cardioname": [
+            "Name": [
                 "Indoor Cycling"
             ]
         },
 
         {
-            "cardioname": [
+            "Name": [
                 "Inline Skating"
             ]
         },
 
         {
-            "cardioname": [
+            "Name": [
                 "Mountain Biking"
             ]
         },
 
         {
-            "cardioname": [
+            "Name": [
                 "Recumbent Bike"
             ]
         },
 
         {
-            "cardioname": [
+            "Name": [
                 "Road Cycling"
             ]
         },
 
         {
-            "cardioname": [
+            "Name": [
                 "Rowing"
             ]
         },
 
         {
-            "cardioname": [
+            "Name": [
                 "Running"
             ]
         },
 
         {
-            "cardioname": [
+            "Name": [
                 "Step Machine"
             ]
         },
 
         {
-            "cardioname": [
+            "Name": [
                 "Swimming"
             ]
         },
 
         {
-            "cardioname": [
+            "Name": [
                 "Walking"
             ]
         },

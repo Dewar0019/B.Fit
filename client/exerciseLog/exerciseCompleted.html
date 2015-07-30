@@ -33,10 +33,11 @@
   		<i class="icon ion-checkmark-circled"></i>
   	 {{/if}}
         <h2>{{Name}}</h2>
+        {{#if exerciseType}}
         <p>{{Sets}} sets x {{Reps}} reps </p> 	
-
-		<p> Completed </p>   		    
-	
+        {{else}}
+        <p>{{Time}} Minutes / {{Distance}} Miles </p> 	
+        {{/if}}
 
 	    {{/ionItem}}
 

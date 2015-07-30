@@ -21,7 +21,7 @@ if(Meteor.isServer){
 				// Leave the next line in for debugging purposes
 				// console.log(JSON.stringify(exercise))
 				ExercisesCardio.insert({
-					Name: exercise.cardioname[0],
+					Name: exercise.Name[0],
 					Type: ["Cardio"]
 				})
 			});
