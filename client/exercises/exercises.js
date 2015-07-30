@@ -93,8 +93,6 @@ Template.exercises.events({
 		}
 		Routines.update({_id: routineView._id}, {$set:{exercises:newList}});
 		Router.go('createRoutine');
-		console.log(playerId)
-		console.log(playerId.Name);
 		toastr.success("Exercise removed from " + routineView.routineName, "Exercise Sucessfully Removed");
 	}
 
