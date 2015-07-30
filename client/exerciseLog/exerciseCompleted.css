@@ -1,4 +1,7 @@
-.didComplete {
-	opacity: 0%;
-	background-color: red;
+#didComplete {
+	color: green;
+}
+
+#didNotComplete{
+	color: red;
 }

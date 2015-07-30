@@ -150,7 +150,7 @@ function capitalize(s) {
 				'access_token' : 'D4PLZXVAAU5VA4OF7T365EJSDOERBI3P'
 			},
 
-			dataType: 'jsonp',
+			dataType: '-p',
 			method: 'GET',
 
 			success: function(response) {
@@ -177,7 +177,6 @@ function capitalize(s) {
 					recordExercise(testVariable);
 				}
 			}
-
 		});
 		interim_span = '';
 		console.log("Sentence Sent");
