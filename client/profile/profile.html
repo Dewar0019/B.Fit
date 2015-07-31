@@ -24,8 +24,8 @@
                         <a href="{{pathFor 'imageedit'}}"><span class="ion-edit" aria-hidden="true"></span></a>
                         </center>
                     </div>
-                    
-                        
+
+
                     <div class="item item-body">
                         <div id="wrapper">
                             <section id="core">
@@ -34,7 +34,7 @@
                                         <label>{{> ionIcon icon="ios-email-outline" class="positive"}}  Primary E-Mail:</label>
                                         <span id="pemail" class="datainfo">{{getEmail}}</span>
                                     </div>
-                                    
+
                                     <div class="gear">
                                         <label>{{> ionIcon icon="ios-person-outline" class="positive"}}  Full Name:</label>
                                         <span id="fullname" class="datainfo">{{getUserInfo.profile.firstName}} {{getUserInfo.profile.lastName}}</span>
@@ -44,12 +44,12 @@
                                         <label>{{> ionIcon icon="ios-body-outline" class="positive"}}  Height:</label>
                                         <span class="datainfo">{{getUserInfo.profile.height}} inches</span>
                                     </div>
-                                    
+
                                     <div class="gear">
                                         <label>{{> ionIcon icon="ios-speedometer-outline" class="positive"}}  Current Weight:</label>
                                         <span class="datainfo">{{getUserInfo.profile.currentWeight}} lbs</span>
                                     </div>
-                                    
+
                                     <div class="gear">
                                         <form id="weight">
                                         <label  class="item-input-wrapper"> {{> ionIcon icon="ios-speedometer-outline" class="positive"}}  Add Weight:
@@ -66,13 +66,13 @@
 
                                     <button id="viewWeightProgress" class="button button-positive">
                                         View Chart
-                                    </button> 
-                                    
+                                    </button>
+
                                 </div>
                             </section>
                         </div>
                         <a href="{{pathFor 'about'}}" >
-                            <h4 class="text-center">About Us</h4> 
+                            <h4 class="text-center">About Us</h4>
                         </a>
                      </div>
                 </div>
@@ -80,7 +80,7 @@
                 <div class="padding">
                     <button class="button button-positive button-block" data-action="logout">Log Out</button>
                 </div>
-        
+
             {{else}}
                 {{> atForm}}
             {{/if}}

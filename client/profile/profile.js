@@ -32,14 +32,16 @@ Template.profile.events({
 
   'submit #weight': function(event) {
   	event.preventDefault();
-  	var todaysDate = new Date();
   	var numb = event.target.weightEntered.value; //Grabs the weight from the form
+
+	date = analyticsDate();
+
   	UserWeight.insert({
 	  	_uID: Meteor.userId(),
 	  	weight: numb,
-	  	dateAdded: todaysDate.getFullYear() + '-' + todaysDate.getMonth() + '-' + todaysDate.getDay(),
+	  	dateAdded: date
   	});
-  	toastr.success("Got your Weight!", "Weight Recorded");  
+  	toastr.success("Got your Weight!", "Weight Recorded");
   	Meteor.call('updateWeight', numb); //Updates the users profile with the new weight
   	event.target.weightEntered.value = '';
   },
@@ -58,4 +60,3 @@ address = function(){
 Template.profile.rendered = function (){
 	$('#newImage').attr('src',address);
 }
-
